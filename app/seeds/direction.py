@@ -1,4 +1,4 @@
-from app.models import db, Direction
+from app.models import db, Direction 
 
 def seed_directions():
     seedArray = []
