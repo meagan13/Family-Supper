@@ -10,6 +10,11 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    img_url = db.Column(db.String)
+    bio = db.Column(db.String(500))
+
+    recipes = db.relationship("Recipe", back_populates="user")
+    memories = db.relationship("Memory", back_populates="user")
 
     @property
     def password(self):

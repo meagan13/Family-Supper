@@ -1,0 +1,34 @@
+from app.models import db, Recipe
+
+def seed_recipes():
+    seedArray = []
+
+    seedArray.append(Recipe(title="Rolled Molasses Cookies", author="Genevieve Clark", description="Great-grandma Clark's famous rolled molasses cookies. Double the recipe if you have a big mixing bowl!", food_img="https://live.staticflickr.com/65535/51401621569_3691bbcca7_h.jpg", card_img="https://live.staticflickr.com/65535/51401015938_232438b17f_k.jpg", category_id=4, user_id=1))
+    seedArray.append(Recipe(title="Mimi's Famous Chocolate Chip Cookies", author="Beth Smith", description="Years of taste-testing and adjustments have gone into this recipe! Perfect recipe for two kids to help with.", food_img="https://live.staticflickr.com/65535/51401125358_1bbeeb3408_b.jpg", card_img="https://live.staticflickr.com/65535/51401737285_ed367589a9_h.jpg", category_id=4, user_id=1))
+    seedArray.append(Recipe(title="Seven-Layer Salad", author="Margaret Hesford", description="Layers of cheese and vegetables make a great addition to a family potluck!", food_img="https://live.staticflickr.com/65535/51400144677_42dc53bb5c_b.jpg", card_img="https://live.staticflickr.com/65535/51400754981_54ab5da3d6_k.jpg", category_id=2, user_id=1))
+    seedArray.append(Recipe(title="Blueberry Muffins", author="Melanie Thomas", description="A special birthday breakfast treat!", food_img="https://live.staticflickr.com/65535/51400144682_24fa1283d8_b.jpg", card_img="https://live.staticflickr.com/65535/51401516449_ffa1ca40d8_h.jpg", category_id=6, user_id=2))
+    seedArray.append(Recipe(title="Corn Chowder", author="Beth Smith", description="Fresh-from-the-farm comfort.", food_img="https://live.staticflickr.com/65535/51401872065_1da408ded2_b.jpg", card_img="https://live.staticflickr.com/65535/51401516414_c0ee950bb2_k.jpg", category_id=1, user_id=2))
+    seedArray.append(Recipe(title="Apple Crumb Pie", author="Diane Smith", description="The perfect fall treat to feature Upstate New York apples.", food_img="https://live.staticflickr.com/65535/51401653279_77ae7bd3f0_b.jpg", card_img="https://live.staticflickr.com/65535/51401516474_da519b8184_h.jpg", category_id=5, user_id=2))
+    seedArray.append(Recipe(title="Beth's Baked Onion Dip", author="Beth Smith", description="Family party favorite.", food_img="https://live.staticflickr.com/65535/51400891816_097c771d94_b.jpg", card_img="https://live.staticflickr.com/65535/51401516304_e39c61b1ed_k.jpg", category_id=3, user_id=1))
+    seedArray.append(Recipe(title="Pistachio Salad", author="Ethel Hilton", description="Lightly sweet fruit salad handed down through the generations.", food_img="https://live.staticflickr.com/65535/51401152848_331915fdb0_b.jpg", card_img="https://live.staticflickr.com/65535/51401737325_b50a89ae25_k.jpg", category_id=2, user_id=2))
+    seedArray.append(Recipe(title="Potato Pancakes", author="Mark Smith", description="Delicious for breakfast or dinner!", food_img="https://live.staticflickr.com/65535/51400891856_d025c5e4d1_b.jpg", card_img="https://live.staticflickr.com/65535/51401015873_9368204e4a_k.jpg", category_id=7, user_id=2))
+    seedArray.append(Recipe(title="Green Pepper Steak", author="Beth Smith", description="A Smith family favorite.", food_img="https://live.staticflickr.com/65535/51400144722_7b36a240b6_b.jpg", card_img="https://live.staticflickr.com/65535/51401516389_78cbe9c263_k.jpg", category_id=8, user_id=1))
+    seedArray.append(Recipe(title="Becca's Best Sauce", author="Becca Smith", description="This blue-ribbon spaghetti sauce is a must-try!", food_img="https://live.staticflickr.com/65535/51401872135_a39542cdf6_b.jpg", card_img="https://live.staticflickr.com/65535/51401820060_26ee7f6516_h.jpg ", category_id=7, user_id=2))
+    seedArray.append(Recipe(title="Spice Cake", author="Robin Potter", description="Classic fall flavors, and big enough for a crowd.", food_img="https://live.staticflickr.com/65535/51401653344_4dba93b56f_b.jpg", card_img="https://live.staticflickr.com/65535/51401099833_9bc1c7359c_h.jpg", category_id=5, user_id=1))
+    seedArray.append(Recipe(title="German Potato Salad", author="Mom", description="This hot potato salad warms you inside and out!", food_img="https://live.staticflickr.com/65535/51401152903_4a585e2d8b_b.jpg", card_img="https://live.staticflickr.com/65535/51401819900_feae5debe8_h.jpg", category_id=2, user_id=1))
+    seedArray.append(Recipe(title="Roasted Cauliflower and Broccoli", author="Beth Smith", description="A healthy and tasty vegetable side dish for any evening meal.", food_img="https://live.staticflickr.com/65535/51401653389_81c70bfc9a_b.jpg", card_img="https://live.staticflickr.com/65535/51401099858_2dd017125e_h.jpg", category_id=7, user_id=2))
+    seedArray.append(Recipe(title="Little Becca’s Peanut Butter Balls", author="Becca Smith", description="This no-cook recipe is fun for kids to make.", food_img="https://live.staticflickr.com/65535/51401872215_2578877348_b.jpg", card_img="https://live.staticflickr.com/65535/51401819950_1a43216d89_h.jpg", category_id=5, user_id=2))
+    seedArray.append(Recipe(title="Grandma Hurd’s Drop Molasses Cookies", author="Alma Hurd", description="Soft and delicious. Use a large mixing bowl for this one!", food_img="https://live.staticflickr.com/65535/51400891936_343836e79e_b.jpg", card_img="https://live.staticflickr.com/65535/51401819995_661ee9ac08_h.jpg", category_id=4, user_id=1))
+    seedArray.append(Recipe(title="Whiz Biscuits", author="Beth Smith", description="Makes 60", food_img="https://live.staticflickr.com/65535/51401653429_a895d39ed6_b.jpg", card_img="https://live.staticflickr.com/65535/51401038118_ee2ac87aaa_h.jpg", category_id=6, user_id=1))
+    seedArray.append(Recipe(title="Banana Bread", author="Beth Smith", description="Makes one loaf. This recipe can also be made as muffins.", food_img="https://live.staticflickr.com/65535/51401653439_e95364c56e_b.jpg", card_img="https://live.staticflickr.com/65535/51400090812_7e7e900c57_h.jpg", category_id=6, user_id=2))
+    seedArray.append(Recipe(title="Bread Boat", author="Beth Smith", description="A great appetizer for Thanksgiving dinner!", food_img="https://live.staticflickr.com/65535/51401653469_b0acdfb710_b.jpg", card_img="https://live.staticflickr.com/65535/51400090907_2601f8bc51_h.jpg ", category_id=3, user_id=1))
+    seedArray.append(Recipe(title="Rhubarb Crunch", author="Beth Smith", description="Unique seasonal dessert - enjoy it while in season!", food_img="https://live.staticflickr.com/65535/51401153043_e4136cea41_b.jpg", card_img="https://live.staticflickr.com/65535/51401099938_aca4b7b639_h.jpg", category_id=5, user_id=1))
+
+    for item in seedArray:
+        db.session.add(item)
+
+    db.session.commit()
+
+def undo_recipes():
+    db.session.execute('TRUNCATE recipes RESTART IDENTITY CASCADE;')
+    db.session.commit()
