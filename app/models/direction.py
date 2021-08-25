@@ -9,3 +9,11 @@ class Direction(db.Model):
     instruction = db.Column(db.Text, nullable=False)
 
     recipe = db.relationship("Recipe", back_populates="directions")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'step_number': self.step_number,
+            'recipe_id': self.recipe_id,
+            'instruction': self.instruction,
+        }

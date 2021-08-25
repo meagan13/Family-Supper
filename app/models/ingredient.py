@@ -11,3 +11,12 @@ class Ingredient(db.Model):
 
     units = db.relationship("Unit", back_populates="ingredients")
     recipes = db.relationship("Recipe", back_populates="ingredients")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'amt': self.amt,
+            'measurement_id': self.measurement_id,
+            'ingredient_name': self.ingredient_name,
+            'recipe_id': self.recipe_id,
+        }
