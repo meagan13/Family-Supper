@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import HomePage from './components/Home/Home';
+import Recipes from './components/Recipes/Recipe';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -42,8 +42,8 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <HomePage />
+          <h1>Recipes</h1>
+          <Recipes />
         </Route>
       </Switch>
     </BrowserRouter>

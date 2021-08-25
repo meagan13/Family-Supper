@@ -7,3 +7,9 @@ class Category(db.Model):
     cat_name = db.Column(db.String, nullable=False)
 
     recipe = db.relationship("Recipe", back_populates="category")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'cat_name': self.cat_name,
+        }
