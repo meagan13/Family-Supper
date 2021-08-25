@@ -5,7 +5,7 @@ import './Recipe.css'
 
 function Recipes() {
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector((state) => Object.values(state?.recipes))
     // const recipes = useSelector(state => state?.recipes)
 

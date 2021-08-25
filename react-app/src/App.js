@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Recipes from './components/Recipes/Recipe';
+import RecipeView from './components/OneRecipe/OneRecipe';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -44,6 +45,9 @@ function App() {
         <Route path='/' exact={true} >
           <h1>Recipes</h1>
           <Recipes />
+        </Route>
+        <Route path='/recipe/:recipeId' exact={true}>
+          <RecipeView/>
         </Route>
       </Switch>
     </BrowserRouter>
