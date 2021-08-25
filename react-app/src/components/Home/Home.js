@@ -13,8 +13,12 @@ function HomePage() {
     }, [dispatch]);
 
     return (
-        { recipes.map(recipe => (
-            <a href={'/recipes/${recipe.id}'}
-        ))
+        <>
+            { recipes.map(recipe => (
+                <a href={`/recipes/${recipe.id}`} id={recipe.id}></a>
+            ))}
+        </>
     )
 }
+
+export default HomePage;
