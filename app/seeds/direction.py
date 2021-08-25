@@ -1,4 +1,4 @@
-from app.models import db, Direction 
+from app.models import db, Direction
 
 def seed_directions():
     seedArray = []
@@ -100,4 +100,8 @@ def seed_directions():
     for item in seedArray:
         db.session.add(item)
 
+    db.session.commit()
+
+def undo_directions():
+    db.session.execute('TRUNCATE directions RESTART IDENTITY CASCADE;')
     db.session.commit()

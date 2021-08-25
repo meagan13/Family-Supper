@@ -38,3 +38,7 @@ def seed_memories():
         db.session.add(item)
 
     db.session.commit()
+
+def undo_memories():
+    db.session.execute('TRUNCATE memories RESTART IDENTITY CASCADE;')
+    db.session.commit()

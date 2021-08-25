@@ -29,3 +29,7 @@ def seed_units():
         db.session.add(item)
 
     db.session.commit()
+
+def undo_units():
+    db.session.execute('TRUNCATE units RESTART IDENTITY CASCADE;')
+    db.session.commit()
