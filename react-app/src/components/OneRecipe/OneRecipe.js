@@ -43,12 +43,12 @@ function RecipeView() {
             <h3>Log in to share a memory of this dish!</h3>
         )
     }
-    
+
     return (
         <>
-            <h1>Test</h1>
+            <h1>Individual Recipe Page</h1>
             { recipes?.recipeId }
-            { sessionUser?.username}
+            <h3>Welcome, { sessionUser?.username}! </h3>
             {sessionMemory}
 
         </>

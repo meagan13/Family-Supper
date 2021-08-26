@@ -9,12 +9,12 @@ const loadRecipes = (recipes) => {
     }
 }
 
-const getOne = (recipe) => {
-    return {
-        type: GET_ONE_RECIPE,
-        recipe
-    }
-}
+// const getOne = (recipe) => {
+//     return {
+//         type: GET_ONE_RECIPE,
+//         recipe
+//     }
+// }
 
 const addMemory = (memory) => {
     return {
