@@ -39,7 +39,7 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
     const recipeInfo = await response.json();
 
     if(response.ok) {
-        console.log("thunk recipe info:", recipeInfo)
+        // console.log("thunk recipe info:", recipeInfo)
         return await dispatch(getOne(recipeInfo));
     }
     return recipeInfo;

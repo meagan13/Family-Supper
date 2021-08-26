@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { createMemoryThunk } from '../../store/memory';
+import { createMemoryThunk, editMemoryThunk, deleteMemoryThunk } from '../../store/memory';
 import './addMemory.css'
 
 const AddMemory = () => {
@@ -24,6 +24,8 @@ const AddMemory = () => {
 
         await dispatch(createMemoryThunk(addMemory))
     }
+
+
 
     return (
         <div className="memory-form-div">
