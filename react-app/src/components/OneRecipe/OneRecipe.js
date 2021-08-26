@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneRecipe } from '../../store/recipe';
 import AddMemory from '../Memory/addMemory';
-import AddIngredientForm from './Ingredients/Ingredients';
 import './OneRecipe.css';
 
 function RecipeView() {
@@ -40,7 +39,6 @@ function RecipeView() {
             <>
                 <h3>Welcome, { sessionUser?.username}! </h3>
                 <AddMemory />
-                <AddIngredientForm />
             </>
         )
     } else {

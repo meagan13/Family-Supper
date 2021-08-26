@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 // import { createMemoryThunk } from '../../store/recipe';
+import AddIngredientForm from '../OneRecipe/Ingredients/Ingredients';
+import CreateDirections from '../CreateDirections/CreateDirections';
 import './CreateRecipe.css'
 
 const CreateRecipe = () => {
@@ -41,41 +43,46 @@ const CreateRecipe = () => {
     return (
         <div>
             <form className="recipe-form" onSubmit={handleSubmit}>
-                <label className="title">
-                    <input type="text" onChange={createTitle} placeholder="Recipe name:" />
-                </label>
+                <div className="recipe-info-div">
+                    <label className="title">
+                        <input type="text" onChange={createTitle} placeholder="Recipe name:" />
+                    </label>
 
-                <label className="author">
-                    <input type="text" onChange={createAuthor} placeholder="From the kitchen of:" />
-                </label>
+                    <label className="author">
+                        <input type="text" onChange={createAuthor} placeholder="From the kitchen of:" />
+                    </label>
 
-                <label className="description">
-                    <input type="textarea" onChange={createDescription} placeholder="Please describe this recipe:" />
-                </label>
+                    <label className="description">
+                        <input type="textarea" onChange={createDescription} placeholder="Please describe this recipe:" />
+                    </label>
 
-                <label className="food-img">
-                    <input type="text" onChange={createFoodImg} placeholder="Link to photo of prepared dish:" />
-                </label>
+                    <label className="food-img">
+                        <input type="text" onChange={createFoodImg} placeholder="Link to photo of prepared dish:" />
+                    </label>
 
-                <label className="card-img">
-                    <input type="text" onChange={createCardImg} placeholder="Link to photo of recipe card:" />
-                </label>
+                    <label className="card-img">
+                        <input type="text" onChange={createCardImg} placeholder="Link to photo of recipe card:" />
+                    </label>
 
-                <label>Recipe Category</label>
-                <div className="recipe-category-list">
-                    <select className="category-select-list" value={categoryId} onChange={createCategoryId}>
-                        <option value='1'>Soups</option>
-                        <option value='2'>Salads</option>
-                        <option value='3'>Appetizers</option>
-                        <option value='4'>Cookies</option>
-                        <option value='5'>Cakes and Desserts</option>
-                        <option value='6'>Muffins and Breads</option>
-                        <option value='7'>Vegetables and Sides</option>
-                        <option value='8'>Meats</option>
-                    </select>
+                    <label>Recipe Category</label>
+                    <div className="recipe-category-list">
+                        <select className="category-select-list" value={categoryId} onChange={createCategoryId}>
+                            <option value='1'>Soups</option>
+                            <option value='2'>Salads</option>
+                            <option value='3'>Appetizers</option>
+                            <option value='4'>Cookies</option>
+                            <option value='5'>Cakes and Desserts</option>
+                            <option value='6'>Muffins and Breads</option>
+                            <option value='7'>Vegetables and Sides</option>
+                            <option value='8'>Meats</option>
+                        </select>
+                    </div>
                 </div>
 
+                <AddIngredientForm />
+                <CreateDirections />
 
+                <button className='recipe-submit-button' type='submit'>Submit</button>
             </form>
 
         </div>
