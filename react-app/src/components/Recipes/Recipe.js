@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../store/recipe';
+import Memories from '../AllMemories/AllMemories';
 import './Recipe.css'
 
 function Recipes() {
@@ -17,11 +18,16 @@ function Recipes() {
 
     return (
         <>
-            { recipes.map(recipe => (
-                <a href={`/recipes/${recipe.id}`} id={recipe.id}>
-                <img src={ recipe.food_img } className="food-img" alt="food item" />
-                </a>
-            ))}
+            <div className="all-recipes-div">
+                <h1 className="recipes-main-text">Recipes</h1>
+                { recipes.map(recipe => (
+                    <div className="food-img-div">
+                        <a href={`/recipes/${recipe.id}`} id={recipe.id}>
+                        <img src={ recipe.food_img } className="food-img" alt="food item" />
+                        </a>
+                    </div>
+                ))}
+            </div>
         </>
     )
 }

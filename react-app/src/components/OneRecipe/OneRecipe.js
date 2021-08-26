@@ -2,23 +2,31 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneRecipe } from '../../store/recipe';
+import { getMemoriesByRecipeThunk } from '../../store/memory';
 import AddMemory from '../Memory/addMemory';
+import Memories from '../AllMemories/AllMemories';
 import './OneRecipe.css';
 
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector((state) => Object.values(state?.recipes))
-
+    const memories = useSelector((state) => (state.memories.allMemories))
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
-    console.log("session user:", sessionUser)
-    console.log("recipes:", recipes)
-    console.log("recipe id:", recipeId)
+    // console.log("session user:", sessionUser)
+    // console.log("recipes:", recipes)
+    // console.log("recipe id:", recipeId)
 
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
+        dispatch(getMemoriesByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
+
+    // console.log("memories in OneRecipe:", memories)
+
+    const recipeMemoryText = memories?.map(memory => memory.memory_text)
+    console.log("Text???", recipeMemoryText)
 
     let sessionMemory;
 
@@ -54,8 +62,14 @@ function RecipeView() {
         <>
             <h1>Individual Recipe Page</h1>
             { recipes?.recipeId }
-            {sessionMemory}
-
+            { sessionMemory }
+            <div>
+                { memories && memories.map(memory => (
+                    <div className="memories-div">
+                        <Memories memoryObj={ memory }/>
+                    </div>
+                ))}
+            </div>
         </>
     )
 }
