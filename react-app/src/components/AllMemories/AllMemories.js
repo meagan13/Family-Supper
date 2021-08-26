@@ -6,9 +6,11 @@ import './AllMemories.css'
 function Memories() {
     const dispatch = useDispatch()
 
-    const stateCheck = useSelector((state) => Object.values(state?.recipes))
-
-    console.log("state check:", stateCheck)
+    const stateCheck = useSelector((state) => state.session)
+    const memories = useSelector((state) => (state?.memories))
+    // const recipes = useSelector((state) => Object.values(state?.recipes))
+    console.log("state", stateCheck)
+    console.log("memories:", memories)
 
     useEffect(() => {
         dispatch(getMemories())

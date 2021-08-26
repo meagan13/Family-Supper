@@ -18,9 +18,12 @@ const addMemory = (memory) => {
 export const getMemories = () => async(dispatch) => {
     const res = await fetch('/api/memory/');
 
+    console.log("inside the thunk")
+
     if (res.ok) {
         const memories = await res.json();
-        await dispatch()
+        await dispatch(loadMemories(memories))
+        return res;
     }
 }
 
@@ -51,7 +54,7 @@ export default function memories(state = initialState, action) {
         }
         case GET_MEMORIES: {
             const allMemories = {};
-            action.memories.memories.forEach(memory => {
+            action.memories.forEach(memory => {
                 allMemories[memory.id] = memory;
             });
             newState = { ...allMemories }

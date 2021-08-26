@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import Memory, memory
+from app.models import Memory
 
 memory_route = Blueprint('memory', __name__)
 
