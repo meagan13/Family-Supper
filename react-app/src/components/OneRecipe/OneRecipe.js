@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneRecipe } from '../../store/recipe';
+import { getMemoriesByRecipeThunk } from '../../store/memory';
 import AddMemory from '../Memory/addMemory';
+import Memories from '../AllMemories/AllMemories';
 import './OneRecipe.css';
 
 function RecipeView() {
@@ -12,12 +14,13 @@ function RecipeView() {
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
-    console.log("session user:", sessionUser)
-    console.log("recipes:", recipes)
-    console.log("recipe id:", recipeId)
+    // console.log("session user:", sessionUser)
+    // console.log("recipes:", recipes)
+    // console.log("recipe id:", recipeId)
 
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
+        dispatch(getMemoriesByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
     let sessionMemory;
@@ -55,6 +58,9 @@ function RecipeView() {
             <h1>Individual Recipe Page</h1>
             { recipes?.recipeId }
             {sessionMemory}
+            <div className="memories-div">
+                <Memories />
+            </div>
 
         </>
     )

@@ -1,10 +1,18 @@
 const GET_MEMORIES = 'memory/GET_MEMORIES';
+const GET_MEMORIES_BY_RECIPE = 'memory/GET_MEMORIES_BY_RECIPE';
 const ADD_MEMORY = 'memory/ADD_MEMORY';
 
 const loadMemories = (memories) => {
     return {
         type: GET_MEMORIES,
         memories
+    }
+}
+
+const loadMemoriesByRecipe = (memory) => {
+    return {
+        type: GET_MEMORIES_BY_RECIPE,
+        memory
     }
 }
 
@@ -25,6 +33,23 @@ export const getMemories = () => async(dispatch) => {
         await dispatch(loadMemories(memories))
         return res;
     }
+}
+
+export const getMemoriesByRecipeThunk = (id) => async(dispatch) => {
+    // const res = await fetch(`/api/memory/${ id }`);
+    const res = await fetch(`/api/recipe/${ id }`);
+
+    const recipeMemories = await res.json();
+
+    const recipeMemoryText = recipeMemories.recipe.memories.map(memory => memory.memory_text)
+    console.log("Text???", recipeMemoryText)
+
+    if (res.ok) {
+        dispatch(loadMemoriesByRecipe(recipeMemories))
+        // dispatch(loadMemoriesByRecipe(recipeMemoryText))
+    }
+
+    return recipeMemories;
 }
 
 export const createMemoryThunk = memory => async (dispatch) => {
@@ -59,6 +84,9 @@ export default function memories(state = initialState, action) {
             });
             newState = { ...allMemories }
             return newState;
+        }
+        case GET_MEMORIES_BY_RECIPE: {
+            return action.memory;
         }
         default:
             return state;
