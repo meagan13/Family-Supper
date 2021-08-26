@@ -1,5 +1,5 @@
 const GET_RECIPES = 'recipe/GET_RECIPES';
-const GET_ONE_RECIPE = '/recipe/GET_ONE_RECIPE'
+const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
 
 const loadRecipes = (recipes) => {
     return {
@@ -27,14 +27,15 @@ export const getRecipes = () => async(dispatch) => {
 }
 
 export const getOneRecipe = (recipeId) => async(dispatch) => {
-    const res = await fetch(`/api/recipe/${recipeId}`)
+    const response = await fetch(`/api/recipe/${recipeId}/`)
 
-    if(res.ok) {
-        const recipeInfo = await res.json();
+    const recipeInfo = await response.json();
+
+    if(response.ok) {
         console.log("thunk recipe info:", recipeInfo)
-        await dispatch(getOne(recipeInfo));
-        return res;
+        return await dispatch(getOne(recipeInfo));
     }
+    return recipeInfo;
 }
 
 const initialState = {}
@@ -55,7 +56,6 @@ export default function recipes(state = initialState, action) {
             newState = action.recipeInfo;
             return newState;
         }
-
         default:
             return state;
     }

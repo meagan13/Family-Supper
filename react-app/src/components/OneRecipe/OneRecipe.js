@@ -22,6 +22,8 @@ function RecipeView() {
     return (
         <>
             <h1>Test</h1>
+            { recipes?.recipeId }
+            { sessionUser?.username}
 
         </>
     )
