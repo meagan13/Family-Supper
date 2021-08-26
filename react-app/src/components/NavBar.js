@@ -28,6 +28,11 @@ const NavBar = () => {
           Profile
         </NavLink>
 
+        <NavLink to={`/share-recipe`} exact={true} activeClassName='active' className='create-recipe-link'>
+          Share a Recipe
+        </NavLink>
+
+
         <LogoutButton user={sessionUser} className='logout-button' />
       </>
     )
