@@ -33,3 +33,14 @@ class Recipe(db.Model):
             'ingredients': [ingredient.to_dict() for ingredient in self.ingredients],
             'directions': [direction.to_dict() for direction in self.directions]
         }
+    def recipe_memories(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'author': self.author,
+            'description': self.description,
+            'food_img': self.food_img,
+            'card_img': self.card_img,
+            'category_id': self.category_id,
+            'user_id': self.user_id,
+        }

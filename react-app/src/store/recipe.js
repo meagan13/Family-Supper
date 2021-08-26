@@ -1,6 +1,6 @@
 const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
-const ADD_MEMORY = 'memory/ADD_MEMORY';
+
 const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
 
 const loadRecipes = (recipes) => {
@@ -10,17 +10,10 @@ const loadRecipes = (recipes) => {
     }
 }
 
-// const getOne = (recipe) => {
-//     return {
-//         type: GET_ONE_RECIPE,
-//         recipe
-//     }
-// }
-
-const addMemory = (memory) => {
+const getOne = (recipe) => {
     return {
-        type: ADD_MEMORY,
-        memory
+        type: GET_ONE_RECIPE,
+        recipe
     }
 }
 
@@ -47,25 +40,11 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
 
     if(response.ok) {
         console.log("thunk recipe info:", recipeInfo)
-        // return await dispatch(getOne(recipeInfo));
+        return await dispatch(getOne(recipeInfo));
     }
     return recipeInfo;
 }
 
-export const createMemoryThunk = memory => async (dispatch) => {
-    const response = await fetch(`/api/memory/`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(memory)
-    })
-    if (response.ok) {
-        const newMemory = await response.json();
-        dispatch(addMemory(newMemory))
-    }
-    return response
-}
 
 export const createIngredientThunk = ingredient => async (dispatch) => {
     const response = await fetch(`/api/ingredient/`, {
@@ -96,15 +75,10 @@ export default function recipes(state = initialState, action) {
             return newState;
         }
         case GET_ONE_RECIPE: {
-            newState = { ...state };
-            newState = action.recipeInfo;
+            newState = action.recipe;
             return newState;
         }
-        case ADD_MEMORY: {
-            newState = {...state};
-            newState.memories.push(action.memory);
-            return newState;
-        }
+
         case ADD_INGREDIENT: {
             newState = {...state};
             newState.ingredients.push(action.ingredient);
