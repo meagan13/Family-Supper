@@ -46,7 +46,7 @@ function App() {
           <h1>Recipes</h1>
           <Recipes />
         </Route>
-        <Route path='/recipe/:recipeId' exact={true}>
+        <Route path='/recipes/:recipeId' exact={true}>
           <RecipeView/>
         </Route>
       </Switch>
