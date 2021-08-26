@@ -10,7 +10,7 @@ import './OneRecipe.css';
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector((state) => Object.values(state?.recipes))
-
+    const memories = useSelector((state) => (state.memories.allMemories))
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
@@ -22,6 +22,11 @@ function RecipeView() {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
+
+    // console.log("memories in OneRecipe:", memories)
+
+    const recipeMemoryText = memories?.map(memory => memory.memory_text)
+    console.log("Text???", recipeMemoryText)
 
     let sessionMemory;
 
@@ -57,11 +62,14 @@ function RecipeView() {
         <>
             <h1>Individual Recipe Page</h1>
             { recipes?.recipeId }
-            {sessionMemory}
-            <div className="memories-div">
-                <Memories />
+            { sessionMemory }
+            <div>
+                { memories && memories.map(memory => (
+                    <div className="memories-div">
+                        <Memories memoryObj={ memory }/>
+                    </div>
+                ))}
             </div>
-
         </>
     )
 }

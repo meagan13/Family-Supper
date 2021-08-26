@@ -35,17 +35,16 @@ export const getMemories = () => async(dispatch) => {
     }
 }
 
-export const getMemoriesByRecipeThunk = (id) => async(dispatch) => {
+export const getMemoriesByRecipeThunk = (recipeId) => async(dispatch) => {
     // const res = await fetch(`/api/memory/${ id }`);
-    const res = await fetch(`/api/recipe/${ id }`);
+    // const res = await fetch(`/api/recipe/${ id }`);
+    const res = await fetch(`/api/memory/recipeId/${ recipeId }/`);
 
     const recipeMemories = await res.json();
 
-    const recipeMemoryText = recipeMemories.recipe.memories.map(memory => memory.memory_text)
-    console.log("Text???", recipeMemoryText)
-
     if (res.ok) {
         dispatch(loadMemoriesByRecipe(recipeMemories))
+        return recipeMemories
         // dispatch(loadMemoriesByRecipe(recipeMemoryText))
     }
 

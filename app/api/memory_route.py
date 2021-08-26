@@ -8,7 +8,8 @@ def memories():
     memories = Memory.query.all()
     return {'memories': [memory.to_dict() for memory in memories]}
 
-@memory_route.route('/<int:id>')
-def oneMemory(id):
-    memory = Memory.query.get(id)
-    return {'memory': memory.to_dict()}
+@memory_route.route('/recipeId/<int:id>/')
+def memoriesByRecipe(id):
+    memories = Memory.query.filter(Memory.recipe_id == id).all()
+    # return {'memory': memory.to_dict()}
+    return {"allMemories": [memory.to_dict() for memory in memories]}

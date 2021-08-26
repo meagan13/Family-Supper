@@ -12,4 +12,4 @@ def recipes():
 @recipe_route.route('/<int:id>/')
 def oneRecipe(id):
     recipe = Recipe.query.get(id)
-    return {'recipe': recipe.to_dict()}
+    return recipe.recipe_memories()

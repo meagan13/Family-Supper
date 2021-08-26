@@ -10,12 +10,12 @@ const loadRecipes = (recipes) => {
     }
 }
 
-// const getOne = (recipe) => {
-//     return {
-//         type: GET_ONE_RECIPE,
-//         recipe
-//     }
-// }
+const getOne = (recipe) => {
+    return {
+        type: GET_ONE_RECIPE,
+        recipe
+    }
+}
 
 const addIngredient = (ingredient) => ({
     type: ADD_INGREDIENT,
@@ -40,7 +40,7 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
 
     if(response.ok) {
         console.log("thunk recipe info:", recipeInfo)
-        // return await dispatch(getOne(recipeInfo));
+        return await dispatch(getOne(recipeInfo));
     }
     return recipeInfo;
 }
@@ -75,8 +75,7 @@ export default function recipes(state = initialState, action) {
             return newState;
         }
         case GET_ONE_RECIPE: {
-            newState = { ...state };
-            newState = action.recipeInfo;
+            newState = action.recipe;
             return newState;
         }
 
