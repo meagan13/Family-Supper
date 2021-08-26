@@ -92,7 +92,7 @@ export const editMemoryThunk = (memory) => async(dispatch) => {
     })
     if(res.ok) {
         const editedMemory = await res.json();
-        dispatch(editMemory(editMemory));
+        dispatch(editMemory(editedMemory));
     }
     return res;
 }

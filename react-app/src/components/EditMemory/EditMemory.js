@@ -11,19 +11,20 @@ const EditMemoryForm = (memory) => {
 
     const [editedContent, setEditedContent] = useState();
 
-    // const createUserId = (e) => setUser_id(e.target.value);
-    // const createCourse_Id = (e) => setCourse_id(e.target.value);
     const createEditedMemory = (e) => setEditedContent(e.target.value);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         memory = memory.memory
+        console.log("Memory in handleSubmit", memory)
+        console.log("memory.id:", memory.id)
         const editedMemory = {
            id: memory.id,
            user_id: sessionUser.id,
            memory_text: editedContent + " (edited)",
-           recipe_id: memories.allMemories.id
+           recipe_id: memory.recipe_id
         };
+        console.log("Edited memory", editedMemory)
         await dispatch(editMemoryThunk(editedMemory))
 
     };
