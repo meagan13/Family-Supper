@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+    font-family: cursive;
+}
+
+.title-text {
+    color: rgb(122, 23, 37);
+    font-size: 55px;
+    margin: 0;
+}
+
+.navbar-text{
+    color: rgb(122, 23, 37);;
+}

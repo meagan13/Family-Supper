@@ -1,6 +1,6 @@
 const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
-const ADD_MEMORY = 'memory/ADD_MEMORY';
+
 const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
 
 const loadRecipes = (recipes) => {
@@ -16,13 +16,6 @@ const loadRecipes = (recipes) => {
 //         recipe
 //     }
 // }
-
-const addMemory = (memory) => {
-    return {
-        type: ADD_MEMORY,
-        memory
-    }
-}
 
 const addIngredient = (ingredient) => ({
     type: ADD_INGREDIENT,
@@ -52,20 +45,6 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
     return recipeInfo;
 }
 
-export const createMemoryThunk = memory => async (dispatch) => {
-    const response = await fetch(`/api/memory/`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(memory)
-    })
-    if (response.ok) {
-        const newMemory = await response.json();
-        dispatch(addMemory(newMemory))
-    }
-    return response
-}
 
 export const createIngredientThunk = ingredient => async (dispatch) => {
     const response = await fetch(`/api/ingredient/`, {
@@ -100,11 +79,7 @@ export default function recipes(state = initialState, action) {
             newState = action.recipeInfo;
             return newState;
         }
-        case ADD_MEMORY: {
-            newState = {...state};
-            newState.memories.push(action.memory);
-            return newState;
-        }
+
         case ADD_INGREDIENT: {
             newState = {...state};
             newState.ingredients.push(action.ingredient);

@@ -1,3 +1,33 @@
 .food-img {
     height: 150px;
 }
+
+.recipes-main-text {
+    color: rgba(122, 23, 37);
+    font-family: cursive;
+}
+
+
+/* .all-recipes-div {
+    display: grid;
+    grid-template-columns: 1fr, 3fr, 1fr;
+    grid-template-rows: 15%, 85%;
+    margin-left: 20%;
+    margin-right: 20%;
+    box-sizing: border-box;
+} */
+
+/* .food-img-div {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 3em;
+    background-color: rgba(189, 189, 189, 0.95);
+    padding-bottom: 40px;
+    /* border: 5px solid black; */
+    /* box-sizing: border-box;
+    align-items: center;  */

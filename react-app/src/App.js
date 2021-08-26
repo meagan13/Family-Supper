@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Recipes from './components/Recipes/Recipe';
+import Memories from './components/AllMemories/AllMemories';
 import RecipeView from './components/OneRecipe/OneRecipe';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -47,8 +48,11 @@ function App() {
           <CreateRecipe />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>Recipes</h1>
+          {/* <h1 className="recipes-main-text">Recipes</h1> */}
           <Recipes />
+        </Route>
+        <Route path='/memories' exact={true}>
+          <Memories />
         </Route>
         <Route path='/recipes/:recipeId' exact={true}>
           <RecipeView/>
