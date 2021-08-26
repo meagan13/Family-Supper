@@ -19,11 +19,11 @@ function Memories() {
     return (
         <>
             <h1>Memories</h1>
-            {/* { memories.map(memory => (
+            { Object.values(memories)?.map(memory => (
                 <p>
-                    {memory.memory_text}
+                    {memory?.memory_text}
                 </p>
-            )) } */}
+            )) }
 
         </>
     )

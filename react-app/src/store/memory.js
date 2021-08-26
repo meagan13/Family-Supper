@@ -54,7 +54,7 @@ export default function memories(state = initialState, action) {
         }
         case GET_MEMORIES: {
             const allMemories = {};
-            action.memories.forEach(memory => {
+            action.memories.memories.forEach(memory => {
                 allMemories[memory.id] = memory;
             });
             newState = { ...allMemories }
