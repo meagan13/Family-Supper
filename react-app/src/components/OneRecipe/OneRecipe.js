@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOneRecipe } from '../../store/recipe';
 import AddMemory from '../Memory/addMemory';
+import AddIngredientForm from './Ingredients/Ingredients';
 import './OneRecipe.css';
 
 function RecipeView() {
@@ -36,11 +37,18 @@ function RecipeView() {
 
     if(sessionUser) {
         sessionMemory = (
-            <AddMemory />
+            <>
+                <h3>Welcome, { sessionUser?.username}! </h3>
+                <AddMemory />
+                <AddIngredientForm />
+            </>
         )
     } else {
         sessionMemory = (
-            <h3>Log in to share a memory of this dish!</h3>
+            <>
+                <h3>Welcome!</h3>
+                <h3>Log in to share a memory of this dish.</h3>
+            </>
         )
     }
 
@@ -48,7 +56,6 @@ function RecipeView() {
         <>
             <h1>Individual Recipe Page</h1>
             { recipes?.recipeId }
-            <h3>Welcome, { sessionUser?.username}! </h3>
             {sessionMemory}
 
         </>
