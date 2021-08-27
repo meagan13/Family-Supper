@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './AllMemories.css'
 
 function Memories({memoryObj}) {
@@ -10,7 +11,6 @@ function Memories({memoryObj}) {
 
         </>
     )
-
 
 }
 
