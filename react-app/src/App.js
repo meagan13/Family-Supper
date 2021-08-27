@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Recipes from './components/Recipes/Recipe';
-import Memories from './components/AllMemories/AllMemories';
+// import Memories from './components/AllMemories/AllMemories';
 import RecipeView from './components/OneRecipe/OneRecipe';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';

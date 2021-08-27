@@ -1,6 +1,6 @@
 const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
-
+const ADD_RECIPE = 'recipe/ADD_RECIPE';
 const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
 
 const loadRecipes = (recipes) => {
@@ -21,6 +21,13 @@ const addIngredient = (ingredient) => ({
     type: ADD_INGREDIENT,
     ingredient
 })
+
+const addRecipe = (recipe) => {
+    return {
+        type: ADD_RECIPE,
+        recipe
+    }
+}
 
 export const getRecipes = () => async(dispatch) => {
     const res = await fetch('/api/recipe/');
@@ -61,6 +68,21 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
     return response
 }
 
+export const createRecipeThunk = (recipe) => async(dispatch) => {
+    const response = await fetch('/api/recipe', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(recipe)
+    })
+    if (response.ok) {
+        const newRecipe = await response.json();
+        dispatch(addRecipe(newRecipe))
+    }
+    return response
+}
+
 const initialState = {}
 
 export default function recipes(state = initialState, action) {
@@ -78,11 +100,16 @@ export default function recipes(state = initialState, action) {
             newState = action.recipe;
             return newState;
         }
-
         case ADD_INGREDIENT: {
             newState = {...state};
             newState.ingredients.push(action.ingredient);
             return newState;
+        }
+        case ADD_RECIPE:{
+            return {
+                ...state,
+                [action.recipe.id]: action.recipe
+            }
         }
         default:
             return state;

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 // import { createMemoryThunk } from '../../store/recipe';
+import { createRecipeThunk } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import './CreateRecipe.css'
@@ -8,6 +9,8 @@ import './CreateRecipe.css'
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
     const recipeInfo = useSelector(state => state.recipes);
+
+    console.log("recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
 
@@ -46,31 +49,31 @@ const CreateRecipe = () => {
                 <div className="recipe-info-div">
                     <div>
                         <label className="title">
-                            <input type="text" onChange={createTitle} placeholder="Recipe name:" />
+                            <input type="text" value={title} onChange={createTitle} placeholder="Recipe name:" />
                         </label>
                     </div>
 
                     <div>
                         <label className="author">
-                            <input type="text" onChange={createAuthor} placeholder="From the kitchen of:" />
+                            <input type="text" value={author} onChange={createAuthor} placeholder="From the kitchen of:" />
                         </label>
                     </div>
 
                     <div>
                         <label className="description">
-                            <input type="textarea" onChange={createDescription} placeholder="Please describe this recipe:" />
+                            <input type="textarea" value={description} onChange={createDescription} placeholder="Please describe this recipe:" />
                         </label>
                     </div>
 
                     <div>
                         <label className="food-img">
-                            <input type="text" onChange={createFoodImg} placeholder="Link to photo of prepared dish:" />
+                            <input type="text" value={food_img} onChange={createFoodImg} placeholder="Link to photo of prepared dish:" />
                         </label>
                     </div>
 
                     <div>
                         <label className="card-img">
-                            <input type="text" onChange={createCardImg} placeholder="Link to photo of recipe card:" />
+                            <input type="text" value={card_img} onChange={createCardImg} placeholder="Link to photo of recipe card:" />
                         </label>
                     </div>
 
