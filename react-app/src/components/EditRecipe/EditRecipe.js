@@ -106,7 +106,7 @@ const EditRecipeForm = (recipe) => {
                         {/* </div> */}
                     </div>
 
-                <button className='recipe-edit-button' type='submit'>Edit</button>
+                <button className='recipe-edit-button' type='submit'>Edit Recipe</button>
             </form>
         </div>
     )

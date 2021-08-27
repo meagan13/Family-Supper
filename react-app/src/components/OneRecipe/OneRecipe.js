@@ -73,10 +73,10 @@ function RecipeView() {
     function userRecipeOptions(sessionUser, recipe) {
         if (sessionUser && (sessionUser.id === recipe.user_id)) {
             return (
-                <>
-                    <EditRecipeForm recipe={recipe} />
+                <div className="edit-and-delete-recipe-div">
+                    <EditRecipeForm recipe={ currentRecipe } />
                     <button className="edit-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
-                </>
+                </div>
             )
         }
     }
@@ -139,11 +139,12 @@ function RecipeView() {
 
             { sessionMemory }
             <div>
-                { currentRecipe && Object.values(currentRecipe).map(recipe => {
+                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
                     { userRecipeOptions(sessionUser, recipe)}
 
-                })}
-                <EditRecipeForm recipe={ currentRecipe }/>
+                })} */}
+                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
+                { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
             <div>
