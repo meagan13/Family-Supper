@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from flask_wtf.form import _is_submitted
+# from flask_wtf.form import _is_submitted
 from app.models import Memory, db
 from app.forms.memory_form import MemoryForm
 

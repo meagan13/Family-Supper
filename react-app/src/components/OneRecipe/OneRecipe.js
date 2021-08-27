@@ -12,14 +12,16 @@ import CreateDirections from '../CreateDirections/CreateDirections';
 
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
-    // const recipes = useSelector((state) => Object.values(state?.recipes))
     const recipes = useSelector((state) => (state?.recipes))
+    const ingredients = useSelector((state) => (state.ingredients))
 
     const memories = useSelector((state) => (state.memories))
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
+    console.log("ingredients:", ingredients)
     console.log("recipes:", recipes)
+
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
