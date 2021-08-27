@@ -7,8 +7,8 @@ const EditRecipeForm = (recipe) => {
     const sessionUser = useSelector(state => state.session.user)
     const recipes = ((state) => (state?.recipes))
 
-    console.log("recipes state test:", recipes?.author)
-    console.log("Recipe passed to form:", recipe)
+    // console.log("recipes state test:", recipes?.author)
+    // console.log("Recipe passed to form:", recipe)
 
     const dispatch=useDispatch()
 
@@ -43,7 +43,7 @@ const EditRecipeForm = (recipe) => {
             category_id,
             user_id: sessionUser.id
         };
-        console.log("Edited recipe payload:", editedRecipe)
+        // console.log("Edited recipe payload:", editedRecipe)
 
         await dispatch(editRecipeThunk(editedRecipe))
         setTitle("");

@@ -109,8 +109,10 @@ export const editRecipeThunk = (recipe) => async(dispatch) => {
         },
         body: JSON.stringify(recipe)
     })
+
     if(res.ok) {
         const editedRecipe = await res.json();
+        console.log("check editReceipe var:", editedRecipe)
         dispatch(editRecipe(editedRecipe));
     }
     return res;
@@ -158,7 +160,6 @@ export default function recipes(state = initialState, action) {
             }
         }
         case EDIT_RECIPE: {
-            // console.log("Action.recipe", action.recipe)
             return {
                 ...state,
                 [action.recipe.id]: action.recipe

@@ -26,7 +26,7 @@ function RecipeView() {
     const { recipeId } = useParams();
 
     // console.log("ingredients:", ingredients)
-    console.log("recipes:", currentRecipe)
+    // console.log("recipes:", currentRecipe)
     // console.log("directions:", directions)
 
     useEffect(() => {
