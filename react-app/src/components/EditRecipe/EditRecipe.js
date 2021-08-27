@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { editRecipeThunk } from '../../store/recipe';
+import { useHistory } from 'react-router-dom';
 import './EditRecipe.css'
 
 const EditRecipeForm = (recipe) => {
@@ -10,7 +11,8 @@ const EditRecipeForm = (recipe) => {
     // console.log("recipes state test:", recipes?.author)
     // console.log("Recipe passed to form:", recipe)
 
-    const dispatch=useDispatch()
+    const dispatch=useDispatch();
+    const history = useHistory();
 
     const [title, setTitle] = useState();
     const [author, setAuthor] = useState();
@@ -52,6 +54,7 @@ const EditRecipeForm = (recipe) => {
         setFood_img("");
         setCard_img("")
         setCategory_id("")
+        history.push(`/recipes/${ recipe.recipe.id }/`)
     }
 
     return (
