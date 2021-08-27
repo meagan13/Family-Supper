@@ -6,7 +6,7 @@ function Memories({memoryObj}) {
 
     return (
         <>
-            <h3>{memoryObj.recipe_id}</h3>
+            {/* <h3>{memoryObj.recipe_id}</h3> */}
             <p>{memoryObj?.memory_text}</p>
 
         </>

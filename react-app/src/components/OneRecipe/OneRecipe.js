@@ -8,7 +8,7 @@ import { getDirectionsByRecipeThunk } from '../../store/direction';
 import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
-import AddIngredientForm from '../Ingredients/Ingredients';
+// import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import './OneRecipe.css';
 
@@ -76,8 +76,8 @@ function RecipeView() {
             <>
                 <h3>Welcome, { sessionUser?.username}! </h3>
                 <AddMemory />
-                <AddIngredientForm />
-                <CreateDirections />
+                {/* <AddIngredientForm />
+                <CreateDirections /> */}
             </>
         )
 
@@ -110,6 +110,7 @@ function RecipeView() {
             </div>
 
             <div className="ingredients-list-div">
+                <h3>Ingredients:</h3>
                 { ingredientsArr.map(ingredient => (
                     <div className="ingredient-div" id={ingredient.id}>
                         { ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name }
@@ -118,7 +119,8 @@ function RecipeView() {
             </div>
 
             <div className="directions-list-div">
-            { directionsArr.map(direction => (
+                <h3>Directions:</h3>
+                { directionsArr.map(direction => (
                     <div className="direction-div" id={direction.id}>
                         { direction.step_number }. { direction.instruction }
                     </div>

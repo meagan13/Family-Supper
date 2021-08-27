@@ -51,9 +51,9 @@ function App() {
           {/* <h1 className="recipes-main-text">Recipes</h1> */}
           <Recipes />
         </Route>
-        <Route path='/memories' exact={true}>
+        {/* <Route path='/memories' exact={true}>
           <Memories />
-        </Route>
+        </Route> */}
         <Route path='/recipes/:recipeId' exact={true}>
           <RecipeView/>
         </Route>
