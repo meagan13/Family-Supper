@@ -69,6 +69,7 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
 }
 
 export const createRecipeThunk = (recipe) => async(dispatch) => {
+    console.log("INSIDE the createRecipeThunk", recipe)
     const response = await fetch('/api/recipe/', {
         method: "POST",
         headers: {

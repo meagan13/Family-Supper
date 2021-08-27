@@ -23,14 +23,20 @@ const CreateRecipe = () => {
     const [description, setDescription] = useState();
     const [food_img, setFood_img] = useState();
     const [card_img, setCard_img] = useState();
-    const [categoryId, setCategoryId] = useState();
+    const [category_id, setCategory_id] = useState();
 
-    const createTitle = (e) => setTitle(e.target.value);
+    const createTitle = (e) => {
+        console.log("Create title should be working");
+        setTitle(e.target.value);
+    }
     const createAuthor = (e) => setAuthor(e.target.value);
     const createDescription = (e) => setDescription(e.target.value);
     const createFoodImg = (e) => setFood_img(e.target.value);
     const createCardImg = (e) => setCard_img(e.target.value);
-    const createCategoryId = (e) => setCategoryId(e.target.value);
+    const createCategory_id = (e) => {
+        console.log("CREATE CATEGORY ID FUNCTION");
+        setCategory_id(Number(e.target.value));
+    }
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -41,7 +47,8 @@ const CreateRecipe = () => {
             description,
             food_img,
             card_img,
-            categoryId
+            category_id,
+            user_id: sessionUser.id //added this
         }
 
         await dispatch(createRecipeThunk(addRecipe))
@@ -50,7 +57,7 @@ const CreateRecipe = () => {
         setDescription("");
         setFood_img("");
         setCard_img("")
-        setCategoryId("")
+        setCategory_id("")
     }
 
     return (
@@ -90,7 +97,7 @@ const CreateRecipe = () => {
                     <div>
                         <label>Recipe Category</label>
                         {/* <div className="recipe-category-list"> */}
-                            <select className="category-select-list" value={categoryId} onChange={createCategoryId}>
+                            <select className="category-select-list" value={category_id} onChange={createCategory_id}>
                                 <option value='1'>Soups</option>
                                 <option value='2'>Salads</option>
                                 <option value='3'>Appetizers</option>
