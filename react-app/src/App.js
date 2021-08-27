@@ -11,6 +11,7 @@ import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Footer from './components/Footer/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <RecipeView/>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

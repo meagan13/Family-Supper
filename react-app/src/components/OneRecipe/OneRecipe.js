@@ -24,9 +24,9 @@ function RecipeView() {
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
-    console.log("ingredients:", ingredients)
-    console.log("recipes:", recipes)
-    console.log("directions:", directions)
+    // console.log("ingredients:", ingredients)
+    // console.log("recipes:", recipes)
+    // console.log("directions:", directions)
 
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
@@ -58,18 +58,6 @@ function RecipeView() {
             )
         }
     }
-
-    // function recipeDescription() {
-    //     return (
-    //         <>
-    //             <img src={ recipes?.food_img } className="single-food-img" alt="food item"/>
-    //             <img src={ recipes?.card_img } className="recipe-card-img" alt="recipe card"/>
-    //             <h1>{ recipes?.title }</h1>
-    //             <h3>{ recipes?.description }</h3>
-
-    //         </>
-    //     )
-    // }
 
     if(sessionUser) {
         sessionMemory = (

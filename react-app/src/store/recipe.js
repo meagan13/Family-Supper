@@ -65,11 +65,11 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
         const newIngredient = await response.json();
         dispatch(addIngredient(newIngredient))
     }
-    return response
+    return response;
 }
 
 export const createRecipeThunk = (recipe) => async(dispatch) => {
-    const response = await fetch('/api/recipe', {
+    const response = await fetch('/api/recipe/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -80,7 +80,7 @@ export const createRecipeThunk = (recipe) => async(dispatch) => {
         const newRecipe = await response.json();
         dispatch(addRecipe(newRecipe))
     }
-    return response
+    return response;
 }
 
 const initialState = {}

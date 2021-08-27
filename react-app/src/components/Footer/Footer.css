@@ -1,0 +1,28 @@
+h2, h3, p {
+    margin: 0px;
+    color: black;
+}
+
+.footer-div {
+    padding: 2%;
+    border: 1px solid black;
+    margin-top: 1%;
+}
+
+.github-icon {
+    height: 40px;
+    margin: 10px;
+    /* -webkit-filter: drop-shadow(5px 5px 5px #000000); */
+
+}
+
+.linkedin-icon {
+    height: 50px;
+    margin: 5px;
+    /* -webkit-filter: drop-shadow(1px 1px 1px #000000); */
+
+}
+
+.logo-footer {
+    height: 100px;
+}

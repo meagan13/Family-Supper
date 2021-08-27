@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { createMemoryThunk } from '../../store/recipe';
 import { createRecipeThunk } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
@@ -13,6 +13,10 @@ const CreateRecipe = () => {
     console.log("recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     dispatch(createRecipeThunk())
+    // }, [dispatch])
 
     const [title, setTitle] = useState();
     const [author, setAuthor] = useState();
@@ -40,7 +44,13 @@ const CreateRecipe = () => {
             categoryId
         }
 
-        // await dispatch(createRecipeThunk(addRecipe))
+        await dispatch(createRecipeThunk(addRecipe))
+        setTitle("");
+        setAuthor("");
+        setDescription("");
+        setFood_img("");
+        setCard_img("")
+        setCategoryId("")
     }
 
     return (
