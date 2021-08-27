@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Recipes from './components/Recipes/Recipe';
-import Memories from './components/AllMemories/AllMemories';
+// import Memories from './components/AllMemories/AllMemories';
 import RecipeView from './components/OneRecipe/OneRecipe';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -11,6 +11,7 @@ import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Footer from './components/Footer/Footer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -51,13 +52,14 @@ function App() {
           {/* <h1 className="recipes-main-text">Recipes</h1> */}
           <Recipes />
         </Route>
-        <Route path='/memories' exact={true}>
+        {/* <Route path='/memories' exact={true}>
           <Memories />
-        </Route>
+        </Route> */}
         <Route path='/recipes/:recipeId' exact={true}>
           <RecipeView/>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

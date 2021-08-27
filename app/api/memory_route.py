@@ -33,16 +33,7 @@ def postMemory():
 @memory_route.route('/<int:id>/', methods=['PUT'])
 def editMemory(id):
     form = MemoryForm()
-
-    if form.is_submitted():
-        print ("submitted")
-
-    if form.validate():
-        print ("valid")
-
-    # print("form var:", form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("form var:", form.data)
 
     if form.validate_on_submit():
         print("Is form valid?")

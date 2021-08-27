@@ -16,7 +16,6 @@ const AddMemory = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-
         const addMemory = {
             user_id: sessionUser.id,
             memory_text,
