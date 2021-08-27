@@ -117,8 +117,6 @@ export default function memories(state = initialState, action) {
             }
         }
         case EDIT_MEMORY: {
-            console.log("Action.memory", action.memory)
-            // newState = { ...state}
             return {
                 ...state,
                 [action.memory.id]: action.memory
@@ -130,7 +128,6 @@ export default function memories(state = initialState, action) {
             return newState;
         }
         case GET_MEMORIES_BY_RECIPE: {
-
             return action.memory;
         }
         default:
