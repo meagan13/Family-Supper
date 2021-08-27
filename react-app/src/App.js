@@ -10,7 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import User from './components/Profile/User';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
 import Footer from './components/Footer/Footer';
 import { authenticate } from './store/session';

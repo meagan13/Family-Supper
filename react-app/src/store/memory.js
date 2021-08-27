@@ -120,6 +120,7 @@ export default function memories(state = initialState, action) {
             return {
                 ...state,
                 [action.memory.id]: action.memory
+                //in this case we have multiple memories -> need to key in
             }
         }
         case DELETE_MEMORY: {

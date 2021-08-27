@@ -120,7 +120,7 @@ export const editRecipeThunk = (recipe) => async(dispatch) => {
 
 export const deleteRecipeThunk = (id) => async(dispatch) => {
     console.log("in delete thunk:", id)
-    const res = await fetch(`/apirecipe/${ id }/`, {
+    const res = await fetch(`/api/recipe/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
@@ -160,15 +160,23 @@ export default function recipes(state = initialState, action) {
             }
         }
         case EDIT_RECIPE: {
+
+            console.log("Action.recipe:", action.recipe)
             return {
                 ...state,
-                [action.recipe.id]: action.recipe
+                ...action.recipe
+                //this works for ONE recipe at a time
             }
         }
         case DELETE_RECIPE: {
             newState = { ...state }
+            // // delete action.recipe
             delete newState[action.recipe];
             return newState;
+
+            // newState = Object.assign({}, state, { recipes: null });
+            // return newState;
+
         }
         default:
             return state;
