@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 // import { createMemoryThunk } from '../../store/recipe';
 import { createRecipeThunk } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
@@ -13,6 +14,7 @@ const CreateRecipe = () => {
     console.log("recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // useEffect(() => {
     //     dispatch(createRecipeThunk())
@@ -52,6 +54,8 @@ const CreateRecipe = () => {
         setFood_img("");
         setCard_img("")
         setCategory_id("")
+        history.push("/");
+
     }
 
     return (
