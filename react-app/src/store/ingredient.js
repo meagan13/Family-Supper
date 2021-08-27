@@ -72,7 +72,7 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
     })
     if (response.ok) {
         const newIngredient = await response.json();
-        dispatch(addMemory(newIngredient))
+        dispatch(addIngredient(newIngredient))
     }
     return response
 }

@@ -9,13 +9,15 @@ import EditMemoryForm from '../EditMemory/EditMemory';
 import './OneRecipe.css';
 import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
+import { getIngredientsByRecipeThunk } from '../../store/ingredient';
 
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector((state) => (state?.recipes))
-    const ingredients = useSelector((state) => (state.ingredients))
-
+    const ingredients = useSelector((state) => (state?.ingredients))
+    const ingredientsArr = Object.values(ingredients)
     const memories = useSelector((state) => (state.memories))
+
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
@@ -25,6 +27,7 @@ function RecipeView() {
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
+        dispatch(getIngredientsByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
     const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
@@ -90,8 +93,11 @@ function RecipeView() {
             <p>{recipes.description}</p>
             <img src={recipes.food_img} alt="food" className="single-recipe-food-img"/>
             <img src={recipes.card_img} alt="recipe card" className="single-recipe-card-img"/>
-
-
+            { ingredientsArr.map(ingredient => (
+                <div className="ingredient-div" id={ingredient.id}>
+                    { ingredient.ingredient_name }
+                </div>
+            ))}
             {/* { recipes?.recipeId } */}
             { sessionMemory }
             <div>
