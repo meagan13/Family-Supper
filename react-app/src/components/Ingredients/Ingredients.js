@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import recipes, { createIngredientThunk } from '../../../store/recipe';
+import recipes, { createIngredientThunk } from '../../store/recipe';
 import './Ingredients.css';
 
 const AddIngredientForm = () => {
