@@ -21,6 +21,9 @@ app = Flask(__name__)
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
 
+# from https://testdriven.io/blog/csrf-flask/, https://rules.sonarsource.com/python/RSPEC-4502
+# csrf = CSRFProtect()
+# csrf.init_app(app)
 
 @login.user_loader
 def load_user(id):

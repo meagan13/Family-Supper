@@ -42,8 +42,6 @@ const deleteMemory = (memory) => {
 export const getMemories = () => async(dispatch) => {
     const res = await fetch('/api/memory/');
 
-    // console.log("inside the thunk")
-
     if (res.ok) {
         const memories = await res.json();
         await dispatch(loadMemories(memories))
@@ -52,19 +50,16 @@ export const getMemories = () => async(dispatch) => {
 }
 
 export const getMemoriesByRecipeThunk = (recipeId) => async(dispatch) => {
-    // const res = await fetch(`/api/memory/${ id }`);
-    // const res = await fetch(`/api/recipe/${ id }`);
     const res = await fetch(`/api/memory/recipeId/${ recipeId }/`);
-
-    const recipeMemories = await res.json();
+    const { allMemoriesByRecipe } = await res.json();
 
     if (res.ok) {
-        dispatch(loadMemoriesByRecipe(recipeMemories))
-        return recipeMemories
+        dispatch(loadMemoriesByRecipe(allMemoriesByRecipe))
+        return allMemoriesByRecipe
         // dispatch(loadMemoriesByRecipe(recipeMemoryText))
     }
 
-    return recipeMemories;
+    return allMemoriesByRecipe;
 }
 
 export const createMemoryThunk = memory => async (dispatch) => {
@@ -98,12 +93,14 @@ export const editMemoryThunk = (memory) => async(dispatch) => {
 }
 
 export const deleteMemoryThunk = (id) => async(dispatch) => {
-    const res = await fetch(`/api/memory/${ id }`, {
+    console.log("in delete thunk:", id)
+    const res = await fetch(`/api/memory/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedMemory = await res.json();
-        dispatch(deleteMemory(deleteMemory));
+        console.log("deleted memory:", deletedMemory)
+        dispatch(deleteMemory(deletedMemory.id));
     }
     return res;
 }
@@ -114,37 +111,26 @@ export default function memories(state = initialState, action) {
     let newState;
     switch (action.type) {
         case ADD_MEMORY: {
-            newState = {...state};
-            newState?.memories?.push(action.memory);
-            return newState;
-        }
-        case EDIT_MEMORY: {
             return {
                 ...state,
-                [action.memory.id]: {
-                    ...state[action.memory.id],
-                    ...action.memory
-                }
+                [action.memory.id]: action.memory
+            }
+        }
+        case EDIT_MEMORY: {
+            console.log("Action.memory", action.memory)
+            // newState = { ...state}
+            return {
+                ...state,
+                [action.memory.id]: action.memory
             }
         }
         case DELETE_MEMORY: {
-            newState = {...state};
-            for (let i=0; i<newState.memories.length; i++){
-                if (newState.memories[i] && (newState.memories[i].id === action.memory.id))
-                    delete newState.memories[i];
-            }
-            alert("Memory deleted!")
-            return newState;
-        }
-        case GET_MEMORIES: {
-            const allMemories = {};
-            action.memories.memories.forEach(memory => {
-                allMemories[memory.id] = memory;
-            });
-            newState = { ...allMemories }
+            newState = { ...state }
+            delete newState[action.memory];
             return newState;
         }
         case GET_MEMORIES_BY_RECIPE: {
+
             return action.memory;
         }
         default:

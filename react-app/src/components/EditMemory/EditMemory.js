@@ -16,15 +16,12 @@ const EditMemoryForm = (memory) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         memory = memory.memory
-        console.log("Memory in handleSubmit", memory)
-        console.log("memory.id:", memory.id)
         const editedMemory = {
            id: memory.id,
            user_id: sessionUser.id,
            memory_text: editedContent + " (edited)",
            recipe_id: memory.recipe_id
         };
-        console.log("Edited memory", editedMemory)
         await dispatch(editMemoryThunk(editedMemory))
 
     };

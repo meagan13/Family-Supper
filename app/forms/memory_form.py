@@ -6,6 +6,8 @@ from app.models import Memory
 v = [DataRequired()]
 
 class MemoryForm(FlaskForm):
+    # class Meta:
+    #     csrf = True  # https://rules.sonarsource.com/python/RSPEC-4502
     user_id = IntegerField("user_id", validators=v)
     memory_text = StringField("memory_text", validators=v)
     # memory_text = TextAreaField("memory_text", validators=v)

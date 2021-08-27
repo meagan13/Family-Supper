@@ -13,7 +13,7 @@ def memories():
 @memory_route.route('/recipeId/<int:id>/')
 def memoriesByRecipe(id):
     memories = Memory.query.filter(Memory.recipe_id == id).all()
-    return {"allMemories": [memory.to_dict() for memory in memories]}
+    return {"allMemoriesByRecipe": {memory.id:memory.to_dict() for memory in memories}}
 
 @memory_route.route('/', methods=["POST"])
 def postMemory():
@@ -28,7 +28,7 @@ def postMemory():
         db.session.add(new_memory)
         db.session.commit()
         return new_memory.to_dict()
-    return { 'error': 'the memory post route did not work'}
+    return { form.errors }
 
 @memory_route.route('/<int:id>/', methods=['PUT'])
 def editMemory(id):
@@ -40,8 +40,10 @@ def editMemory(id):
     if form.validate():
         print ("valid")
 
+    # print("form var:", form.data)
+    form['csrf_token'].data = request.cookies['csrf_token']
     print("form var:", form.data)
-    # form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
         print("Is form valid?")
         oldRecord = Memory.query.get(id)
@@ -51,7 +53,7 @@ def editMemory(id):
         db.session.commit()
 
         return oldRecord.to_dict()
-    return {'error': 'memory PUT route did not work'}
+    return {form.errors}
 
 
 @memory_route.route('/<int:id>/', methods=['DELETE'])
