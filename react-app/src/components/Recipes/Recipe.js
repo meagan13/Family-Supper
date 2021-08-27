@@ -14,7 +14,7 @@ function Recipes() {
         dispatch(getRecipes())
     }, [dispatch])
 
-    console.log("recipes:", recipes)
+    // console.log("recipes:", recipes)
 
     return (
         <>
