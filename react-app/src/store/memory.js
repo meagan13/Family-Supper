@@ -117,7 +117,7 @@ export default function memories(state = initialState, action) {
             }
         }
         case EDIT_MEMORY: {
-            console.log("Action.memory", action.memory)
+            // console.log("Action.memory", action.memory)
             // newState = { ...state}
             return {
                 ...state,

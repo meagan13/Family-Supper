@@ -15,7 +15,7 @@ import './OneRecipe.css';
 
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
-    const recipes = useSelector((state) => (state?.recipes))
+    const currentRecipe = useSelector((state) => (state?.recipes))
     const ingredients = useSelector((state) => (state?.ingredients))
     const ingredientsArr = Object.values(ingredients)
     const directions = useSelector((state) => (state?.directions))
@@ -26,7 +26,7 @@ function RecipeView() {
     const { recipeId } = useParams();
 
     // console.log("ingredients:", ingredients)
-    // console.log("recipes:", recipes)
+    console.log("recipes:", currentRecipe)
     // console.log("directions:", directions)
 
     useEffect(() => {
@@ -103,20 +103,20 @@ function RecipeView() {
     return (
         <>
             <div>
-                <h1>{recipes?.title}</h1>
+                <h1>{ currentRecipe?.title }</h1>
             </div>
 
             <div>
-                <h3>From the kitchen of {recipes?.author}</h3>
+                <h3>From the kitchen of { currentRecipe?.author }</h3>
             </div>
 
             <div>
-                <p>{recipes.description}</p>
+                <p>{ currentRecipe.description }</p>
             </div>
 
             <div>
-                <img src={recipes.food_img} alt="food" className="single-recipe-food-img"/>
-                <img src={recipes.card_img} alt="recipe card" className="single-recipe-card-img"/>
+                <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
+                <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
             </div>
 
             <div className="ingredients-list-div">
@@ -139,11 +139,11 @@ function RecipeView() {
 
             { sessionMemory }
             <div>
-                { recipes && Object.values(recipes).map(recipe => {
+                { currentRecipe && Object.values(currentRecipe).map(recipe => {
                     { userRecipeOptions(sessionUser, recipe)}
 
                 })}
-                {/* <EditRecipeForm /> */}
+                <EditRecipeForm recipe={ currentRecipe }/>
             </div>
 
             <div>

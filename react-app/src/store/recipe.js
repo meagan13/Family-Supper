@@ -2,8 +2,8 @@ const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
 const ADD_RECIPE = 'recipe/ADD_RECIPE';
 const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
-const EDIT_RECIPE = 'ingredient/EDIT_INGREDIENT';
-const DELETE_RECIPE = 'ingredient/DELETE_INGREDIENT';
+const EDIT_RECIPE = 'ingredient/EDIT_RECIPE';
+const DELETE_RECIPE = 'ingredient/DELETE_RECIPE';
 
 const loadRecipes = (recipes) => {
     return {
@@ -101,6 +101,7 @@ export const createRecipeThunk = (recipe) => async(dispatch) => {
 }
 
 export const editRecipeThunk = (recipe) => async(dispatch) => {
+    console.log("Recipe sent to thunk", recipe)
     const res = await fetch(`/api/recipe/${ recipe.id }/`, {
         method: "PUT",
         headers: {
@@ -157,7 +158,7 @@ export default function recipes(state = initialState, action) {
             }
         }
         case EDIT_RECIPE: {
-            console.log("Action.recipe", action.recipe)
+            // console.log("Action.recipe", action.recipe)
             return {
                 ...state,
                 [action.recipe.id]: action.recipe

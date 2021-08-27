@@ -1,5 +1,4 @@
 from flask import Blueprint, request
-# from flask_wtf.form import _is_submitted
 from app.models import Memory, db
 from app.forms.memory_form import MemoryForm
 
@@ -36,7 +35,6 @@ def editMemory(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print("Is form valid?")
         oldRecord = Memory.query.get(id)
         form.populate_obj(oldRecord)
 

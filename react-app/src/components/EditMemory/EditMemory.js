@@ -5,7 +5,7 @@ import './EditMemory.css';
 
 const EditMemoryForm = (memory) => {
     const sessionUser = useSelector(state => state.session.user)
-    const memories = useSelector((state) => state.memories)
+    // const memories = useSelector((state) => state.memories)
     // console.log("memories:", memories)
     const dispatch = useDispatch();
 

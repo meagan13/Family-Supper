@@ -19,8 +19,6 @@ def oneRecipe(id):
 def postRecipe():
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("In the recipe POST route")
-    print("form.data", form.data)
     if form.validate_on_submit():
         data = form.data
         new_recipe = Recipe(title=data["title"],
