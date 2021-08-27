@@ -25,18 +25,12 @@ const CreateRecipe = () => {
     const [card_img, setCard_img] = useState();
     const [category_id, setCategory_id] = useState();
 
-    const createTitle = (e) => {
-        console.log("Create title should be working");
-        setTitle(e.target.value);
-    }
+    const createTitle = (e) => setTitle(e.target.value);
     const createAuthor = (e) => setAuthor(e.target.value);
     const createDescription = (e) => setDescription(e.target.value);
     const createFoodImg = (e) => setFood_img(e.target.value);
     const createCardImg = (e) => setCard_img(e.target.value);
-    const createCategory_id = (e) => {
-        console.log("CREATE CATEGORY ID FUNCTION");
-        setCategory_id(Number(e.target.value));
-    }
+    const createCategory_id = (e) => setCategory_id(Number(e.target.value));
 
     const handleSubmit = async(e) => {
         e.preventDefault()

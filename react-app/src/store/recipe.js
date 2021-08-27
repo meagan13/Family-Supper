@@ -2,6 +2,8 @@ const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
 const ADD_RECIPE = 'recipe/ADD_RECIPE';
 const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
+const EDIT_RECIPE = 'ingredient/EDIT_INGREDIENT';
+const DELETE_RECIPE = 'ingredient/DELETE_INGREDIENT';
 
 const loadRecipes = (recipes) => {
     return {
@@ -25,6 +27,20 @@ const addIngredient = (ingredient) => ({
 const addRecipe = (recipe) => {
     return {
         type: ADD_RECIPE,
+        recipe
+    }
+}
+
+const editRecipe = (recipe) => {
+    return {
+        type: EDIT_RECIPE,
+        recipe
+    }
+}
+
+const deleteRecipe = (recipe) => {
+    return {
+        type: DELETE_RECIPE,
         recipe
     }
 }
@@ -84,6 +100,34 @@ export const createRecipeThunk = (recipe) => async(dispatch) => {
     return response;
 }
 
+export const editRecipeThunk = (recipe) => async(dispatch) => {
+    const res = await fetch(`/api/recipe/${ recipe.id }/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(recipe)
+    })
+    if(res.ok) {
+        const editedRecipe = await res.json();
+        dispatch(editRecipe(editedRecipe));
+    }
+    return res;
+}
+
+export const deleteRecipeThunk = (id) => async(dispatch) => {
+    console.log("in delete thunk:", id)
+    const res = await fetch(`/apirecipe/${ id }/`, {
+        method: "DELETE",
+    })
+    if (res.ok) {
+        const deletedRecipe = await res.json();
+        console.log("deleted recipe:", deletedRecipe)
+        dispatch(deleteRecipe(deletedRecipe.id));
+    }
+    return res;
+}
+
 const initialState = {}
 
 export default function recipes(state = initialState, action) {
@@ -111,6 +155,18 @@ export default function recipes(state = initialState, action) {
                 ...state,
                 [action.recipe.id]: action.recipe
             }
+        }
+        case EDIT_RECIPE: {
+            console.log("Action.recipe", action.recipe)
+            return {
+                ...state,
+                [action.recipe.id]: action.recipe
+            }
+        }
+        case DELETE_RECIPE: {
+            newState = { ...state }
+            delete newState[action.recipe];
+            return newState;
         }
         default:
             return state;
