@@ -7,14 +7,19 @@ import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import './OneRecipe.css';
+import AddIngredientForm from '../Ingredients/Ingredients';
+import CreateDirections from '../CreateDirections/CreateDirections';
 
 function RecipeView() {
     const sessionUser = useSelector(state => state.session.user)
-    const recipes = useSelector((state) => Object.values(state?.recipes))
+    // const recipes = useSelector((state) => Object.values(state?.recipes))
+    const recipes = useSelector((state) => (state?.recipes))
+
     const memories = useSelector((state) => (state.memories))
     const dispatch = useDispatch();
     const { recipeId } = useParams();
 
+    console.log("recipes:", recipes)
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
@@ -44,23 +49,25 @@ function RecipeView() {
         }
     }
 
-    function recipeDescription() {
-        return (
-            <>
-                <img src={ recipes?.food_img } className="single-food-img" alt="food item"/>
-                <img src={ recipes?.card_img } className="recipe-card-img" alt="recipe card"/>
-                <h1>{ recipes?.title }</h1>
-                <h3>{ recipes?.description }</h3>
+    // function recipeDescription() {
+    //     return (
+    //         <>
+    //             <img src={ recipes?.food_img } className="single-food-img" alt="food item"/>
+    //             <img src={ recipes?.card_img } className="recipe-card-img" alt="recipe card"/>
+    //             <h1>{ recipes?.title }</h1>
+    //             <h3>{ recipes?.description }</h3>
 
-            </>
-        )
-    }
+    //         </>
+    //     )
+    // }
 
     if(sessionUser) {
         sessionMemory = (
             <>
                 <h3>Welcome, { sessionUser?.username}! </h3>
                 <AddMemory />
+                <AddIngredientForm />
+                <CreateDirections />
             </>
         )
 
@@ -76,7 +83,14 @@ function RecipeView() {
     return (
         <>
             <h1>Individual Recipe Page</h1>
-            { recipes?.recipeId }
+            <h2>{recipes?.title}</h2>
+            <h3>From the kitchen of {recipes?.author}</h3>
+            <p>{recipes.description}</p>
+            <img src={recipes.food_img} alt="food" className="single-recipe-food-img"/>
+            <img src={recipes.card_img} alt="recipe card" className="single-recipe-card-img"/>
+
+
+            {/* { recipes?.recipeId } */}
             { sessionMemory }
             <div>
                 { memories && Object.values(memories).map(memory => (
