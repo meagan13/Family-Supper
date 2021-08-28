@@ -11,3 +11,59 @@
 .delete-memory-button {
     margin-left: 10px;
 }
+
+.recipe-heading-div {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(58, 95, 125);
+    border: 35px solid rgb(173, 96, 68);
+    margin-left: 10%;
+    margin-right: 10%;
+    box-sizing: border-box;
+
+}
+
+.recipe-title-text {
+    /* padding-bottom: 1%; */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    background-color: bisque;
+    padding: 1%;
+}
+
+.recipe-author-text {
+    font-family: 'Playball', cursive;
+    font-size: 35px;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.recipe-description-div {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-description-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 2%;
+    font-size: 25px;
+}
+
+.recipe-photos-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.recipe-photos-div img {
+    border-radius: 5%;
+    width: 40%;
+    height: 40%;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+    /* margin-left: 15px;
+    margin-right: 15px; */
+}

@@ -1,7 +1,8 @@
 .memory-form-div {
     border: 1px solid black;
-    margin: 10px;
+    margin-left: 10%;
     padding: 10px;
+    max-width: 300px;
 }
 
 /* .memory-text {

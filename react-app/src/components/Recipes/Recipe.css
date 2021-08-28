@@ -4,30 +4,62 @@
 
 .recipes-main-text {
     color: rgba(173, 96, 68);
-    font-family: 'Playball', cursive;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    font-size: 80px;
 }
 
+.home-header-imgs {
+    display: flex;
+    justify-content: center;
 
-/* .all-recipes-div {
+}
+
+.home-header-imgs img {
+    max-height: 300px;
+    max-width: 400px;
+    flex-grow: 1;
+}
+
+.motto-div {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(173, 96, 68);
+    margin: 1% 2% 1% 2%
+
+}
+
+.motto-text {
+    /* background-color: green; */
+    padding: 2%;
+    font-family: 'Playball', cursive;
+    font-size: 55px;
+    text-align: center;
+
+}
+
+.all-recipes-div {
     display: grid;
-    grid-template-columns: 1fr, 3fr, 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 15%, 85%;
     margin-left: 20%;
     margin-right: 20%;
     box-sizing: border-box;
-} */
+}
 
-/* .food-img-div {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    row-gap: 3em;
-    background-color: rgba(189, 189, 189, 0.95);
-    padding-bottom: 40px;
-    /* border: 5px solid black; */
-    /* box-sizing: border-box;
-    align-items: center;  */
+.food-img-div {
+    /* background-color: rgba(189, 189, 189, 0.95); */
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.food-img-div img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}

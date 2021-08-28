@@ -89,7 +89,6 @@ function RecipeView() {
     if(sessionUser) {
         sessionMemory = (
             <>
-                <h3>Welcome, { sessionUser?.username}! </h3>
                 <AddMemory />
                 {/* <AddIngredientForm />
                 <CreateDirections /> */}
@@ -107,19 +106,21 @@ function RecipeView() {
 
     return (
         <>
-            <div>
-                <h1>{ currentRecipe?.title }</h1>
+            <div className="recipe-heading-div">
+                <div className="recipe-title-div">
+                    <h1 className="recipe-title-text">{ currentRecipe?.title }</h1>
+                </div>
+
+                <div className="recipe-author-div">
+                    <h3 className="recipe-author-text">From the kitchen of { currentRecipe?.author }</h3>
+                </div>
             </div>
 
-            <div>
-                <h3>From the kitchen of { currentRecipe?.author }</h3>
+            <div className="recipe-description-div">
+                <p className="recipe-description-text">{ currentRecipe.description }</p>
             </div>
 
-            <div>
-                <p>{ currentRecipe.description }</p>
-            </div>
-
-            <div>
+            <div className="recipe-photos-div">
                 <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
                 <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
             </div>

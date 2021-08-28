@@ -1,3 +1,13 @@
+.nav-bar-div {
+    /* background-color: pink; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+}
+
 .title-text {
     /* color: rgb(122, 23, 37); */
     color: rgb(58, 95, 125);
@@ -6,8 +16,12 @@
     font-family:'Playball', cursive;
 }
 
-.navbar-text{
-    color: rgb(122, 23, 37);
+.welcome-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    align-self: flex-end
+}
+
+.navbar-text, .demo-link {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -32,6 +46,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    right: 0;
 }
 
 .dropdown-content a {
@@ -43,6 +58,7 @@
 
 .dropdown-content a:hover {
     background-color: #ddd;
+    background-color: rgb(173, 96, 68,.3);
 }
 
 .dropdown-div:hover .dropdown-content {
