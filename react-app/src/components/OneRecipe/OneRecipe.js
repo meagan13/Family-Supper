@@ -34,8 +34,8 @@ function RecipeView() {
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
-        dispatch(getIngredientsByRecipeThunk(recipeId))
-        dispatch(getDirectionsByRecipeThunk(recipeId))
+        // dispatch(getIngredientsByRecipeThunk(recipeId))
+        // dispatch(getDirectionsByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
     const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
@@ -79,7 +79,7 @@ function RecipeView() {
             return (
                 <div className="edit-and-delete-recipe-div">
                     <EditRecipeForm recipe={ currentRecipe } />
-                    <EditIngredientsForm recipe={ currentRecipe } />
+                    {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
                     <button className="edit-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
                 </div>
             )
@@ -124,23 +124,23 @@ function RecipeView() {
                 <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
             </div>
 
-            <div className="ingredients-list-div">
+            {/* <div className="ingredients-list-div">
                 <h3>Ingredients:</h3>
                 { ingredientsArr.map(ingredient => (
                     <div className="ingredient-div" id={ingredient.id}>
                         { ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name }
                     </div>
                 ))}
-            </div>
+            </div> */}
 
-            <div className="directions-list-div">
+            {/* <div className="directions-list-div">
                 <h3>Directions:</h3>
                 { directionsArr.map(direction => (
                     <div className="direction-div" id={direction.id}>
                         { direction.step_number }. { direction.instruction }
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             { sessionMemory }
             <div>

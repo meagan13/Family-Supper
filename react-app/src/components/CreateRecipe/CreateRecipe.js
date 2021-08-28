@@ -111,8 +111,8 @@ const CreateRecipe = () => {
                     </div>
                 </div>
 
-                <AddIngredientForm recipe={ recipeInfo }/>
-                <CreateDirections />
+                {/* <AddIngredientForm recipe={ recipeInfo }/>
+                <CreateDirections /> */}
 
                 <button className='recipe-submit-button' type='submit'>Submit</button>
             </form>
