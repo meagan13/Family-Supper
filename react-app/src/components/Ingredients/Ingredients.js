@@ -3,9 +3,9 @@ import { useState } from 'react';
 import recipes, { createIngredientThunk } from '../../store/recipe';
 import './Ingredients.css';
 
-const AddIngredientForm = () => {
+const AddIngredientForm = (recipe) => {
     const sessionUser = useSelector(state => state.session.user)
-    const recipeInfo = useSelector((state) => state.recipes)
+    const recipeInfo = useSelector((state) => state?.recipes)
     const dispatch = useDispatch();
 
     const [amt, setAmt] = useState();
@@ -14,26 +14,31 @@ const AddIngredientForm = () => {
     // const [recipeId, setRecipeId] = useState();
 
     const createAmt = (e) => setAmt(e.target.value);
-    const createMeasurement = (e) => setMeasurementId(e.target.value);
+    const createMeasurement = (e) => setMeasurementId(Number(e.target.value));
     const createIngredient = (e) => setIngredientName(e.target.value);
     // const createRecipeId = (e) => setRecipeId(e.target.value);
 
-    const handleSubmit = async(e) => {
+    const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
+
+        console.log("The create ingredient handleSubmit is working")
 
         const addIngredient = {
             amt,
             measurement_id,
             ingredient_name,
-            recipeId: recipes.recipe.id
+            recipeId: recipe.id
         }
 
         await dispatch(createIngredientThunk(addIngredient))
+        createAmt("")
+        createMeasurement("")
+        createIngredient("")
     }
 
     return (
         <div className="ingredient-form-div">
-            <form className="ingredient-form" onSubmit={handleSubmit}>
+            <form className="ingredient-form" onSubmit={addIngredienthandleSubmit}>
                 <div>
                     <div>
                         <label className="amt-number">Numeric Amount:
@@ -70,6 +75,7 @@ const AddIngredientForm = () => {
                                 <option value='21'>clove</option>
                             </select>
                         {/* </div> */}
+
                     </div>
                 </div>
 
@@ -79,6 +85,7 @@ const AddIngredientForm = () => {
                     </label>
                 </div>
 
+                <button className="ingredient-submit-button" type="submit">Add Ingredient</button>
             </form>
 
 

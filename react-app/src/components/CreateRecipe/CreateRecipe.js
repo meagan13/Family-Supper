@@ -9,7 +9,7 @@ import './CreateRecipe.css'
 
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
-    const recipeInfo = useSelector(state => state.recipes);
+    const recipeInfo = useSelector(state => state?.recipes);
 
     console.log("recipeInfo:", recipeInfo)
 
@@ -36,6 +36,8 @@ const CreateRecipe = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+
+        console.log("Inside the create recipe handlesubmit")
 
         const addRecipe = {
             title,
@@ -109,7 +111,7 @@ const CreateRecipe = () => {
                     </div>
                 </div>
 
-                <AddIngredientForm />
+                <AddIngredientForm recipe={ recipeInfo }/>
                 <CreateDirections />
 
                 <button className='recipe-submit-button' type='submit'>Submit</button>
