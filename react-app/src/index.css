@@ -1,9 +1,11 @@
 /* TODO Add site wide styles */
 
-button {
+a {
+    text-decoration: none;
+}
+/* button {
     border-radius: 5px;
     border: solid black 1px;
     background: rgb(236, 162, 172);
     font-family:cursive;
-}
-
+} */

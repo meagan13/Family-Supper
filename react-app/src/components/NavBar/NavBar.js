@@ -21,26 +21,31 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="home-link-div">
-          <NavLink to='/' exact={true} activeClassName='active' className="navbar-text">
-              Home
-          </NavLink>
-        </div>
+        <div className="dropdown-div">
+          <button className="dropdown-button">Menu</button>
+          <div className="dropdown-content">
+            <div className="home-link-div">
+              <NavLink to='/' exact={true} activeClassName='active' className="navbar-text">
+                  Home
+              </NavLink>
+            </div>
 
-        <div className="profile-link-div">
-          <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user-profile-link navbar-text'>
-            Profile
-          </NavLink>
-        </div>
+            <div className="profile-link-div">
+              <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user-profile-link navbar-text'>
+                Profile
+              </NavLink>
+            </div>
 
-        <div className="share-recipe-link-div">
-          <NavLink to={`/share-recipe`} exact={true} activeClassName='active' className='create-recipe-link navbar-text'>
-            Share a Recipe
-          </NavLink>
-        </div>
+            <div className="share-recipe-link-div">
+              <NavLink to={`/share-recipe`} exact={true} activeClassName='active' className='create-recipe-link navbar-text'>
+                Share a Recipe
+              </NavLink>
+            </div>
 
-        <div className="logout-button-div">
-          <LogoutButton user={sessionUser} className='logout-button' />
+            <div className="logout-link-div">
+              <LogoutButton user={sessionUser} className='logout-link' />
+            </div>
+          </div>
         </div>
       </>
     )
