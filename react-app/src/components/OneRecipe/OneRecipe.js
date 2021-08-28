@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { editRecipeThunk, getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
 import { deleteMemoryThunk, getMemoriesByRecipeThunk } from '../../store/memory';
 import { getIngredientsByRecipeThunk } from '../../store/ingredient';
@@ -24,6 +24,7 @@ function RecipeView() {
 
     const dispatch = useDispatch();
     const { recipeId } = useParams();
+    const history = useHistory();
 
     // console.log("ingredients:", ingredients)
     // console.log("recipes:", currentRecipe)
@@ -52,10 +53,12 @@ function RecipeView() {
     const handleDeleteRecipe = async(e, recipeIdToDelete) => {
         e.preventDefault();
 
-        return dispatch(deleteRecipeThunk(recipeIdToDelete))
-        .catch(async(res) => {
-            await res.josn();
-        })
+        dispatch(deleteRecipeThunk(recipeIdToDelete))
+            .catch(async(res) => {
+                await res.json();
+            })
+
+        history.push("/")
     }
 
 
@@ -73,10 +76,10 @@ function RecipeView() {
     function userRecipeOptions(sessionUser, recipe) {
         if (sessionUser && (sessionUser.id === recipe.user_id)) {
             return (
-                <>
-                    <EditRecipeForm recipe={recipe} />
+                <div className="edit-and-delete-recipe-div">
+                    <EditRecipeForm recipe={ currentRecipe } />
                     <button className="edit-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
-                </>
+                </div>
             )
         }
     }
@@ -139,11 +142,12 @@ function RecipeView() {
 
             { sessionMemory }
             <div>
-                { currentRecipe && Object.values(currentRecipe).map(recipe => {
+                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
                     { userRecipeOptions(sessionUser, recipe)}
 
-                })}
-                <EditRecipeForm recipe={ currentRecipe }/>
+                })} */}
+                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
+                { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
             <div>

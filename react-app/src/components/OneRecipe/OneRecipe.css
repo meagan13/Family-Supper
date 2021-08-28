@@ -2,8 +2,12 @@
     height: 200px;
 }
 
-.ingredients-list-div, .directions-list-div {
+.ingredients-list-div, .directions-list-div, .edit-and-delete-recipe-div {
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
+}
+
+.delete-memory-button {
+    margin-left: 10px;
 }

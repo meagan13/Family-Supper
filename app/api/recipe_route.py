@@ -31,7 +31,7 @@ def postRecipe():
         db.session.add(new_recipe)
         db.session.commit()
         return new_recipe.to_dict()
-    return { form.errors }
+    return form.errors
 
 
 @recipe_route.route('/<int:id>/', methods=['PUT'])
@@ -47,7 +47,7 @@ def editRecipe(id):
         db.session.commit()
 
         return oldRecord.to_dict()
-    return {form.errors}
+    return form.errors
 
 
 @recipe_route.route('/<int:id>/', methods=['DELETE'])
