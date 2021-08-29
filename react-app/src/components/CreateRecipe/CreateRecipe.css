@@ -11,7 +11,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     /* padding: 10% 16% 10% 15%; */
-    padding: 25px 215px 120px 165px;
+    padding: 25px 307px 175px 165px;
     object-fit: fill;
     /* width: 260px;
     height: 235px; */
@@ -33,7 +33,7 @@
     /* background-color: rgb(58, 95, 125); */
     border-radius: 5%;
     border: none;
-    padding: 3% 20% 3% 2%;
+    padding: 3% 50% 3% 2%;
 
 }
 
@@ -84,9 +84,13 @@
     background-color: rgb(173, 96, 68,.3);
 } */
 
-.category-dropdown-content select option:hover {
+select option {
     background-color: #ddd;
     background-color: rgb(173, 96, 68,.3);
+}
+
+select option:hover {
+    background-color: rgb(58, 95, 125, .3);
 }
 
 .category-dropdown-div:hover .category-dropdown-content {

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
+  const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -30,6 +32,14 @@ const SignUpForm = () => {
     setEmail(e.target.value);
   };
 
+  const updatePhoto = (e) => {
+    setImgUrl(e.target.value);
+  };
+
+  const updateBio = (e) => {
+    setBio(e.target.value);
+  };
+  
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -68,6 +78,24 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
+        <label>Photo</label>
+        <input
+          type="text"
+          name="imgUrl"
+          onChange={updatePhoto}
+          value={imgUrl}
+        ></input>
+      </div>
+      <div>
+        <label>About Me</label>
+        <input
+          type="text"
+          name="bio"
+          onChange={updateBio}
+          value={bio}
+        ></input>
+      </div>
+      <div>
         <label>Password</label>
         <input
           type='password'
@@ -77,7 +105,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type='password'
           name='repeat_password'
