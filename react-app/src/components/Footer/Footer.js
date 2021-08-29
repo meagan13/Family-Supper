@@ -10,7 +10,7 @@ const Footer = () => {
                 </div>
 
                 <div className="meagan-contact-info">
-                    <h3>Meagan Smith</h3>
+                    <h3 className="meagan-name-text">Meagan Smith</h3>
                     <a href="https://github.com/meagan13"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="github icon" className="github-icon"/></a>
                     <a href="https://www.linkedin.com/in/meaganhsmith"><img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-512.png" alt="LinkedIn icon" className="linkedin-icon" /></a>
                 </div>
