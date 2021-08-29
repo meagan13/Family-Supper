@@ -1,0 +1,25 @@
+#edit-memory-form-div.memory-form-div {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 90%;
+    min-width: 100px;
+    margin: 0;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid purple;
+}
+
+.memory-edit-button {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    /* float: right; */
+
+}
+
+.edit-memory-input {
+    margin:0;
+    background-color: orange;
+}

@@ -8,10 +8,6 @@
     padding: 10px;
 }
 
-.delete-memory-button {
-    margin-left: 10px;
-}
-
 .recipe-heading-div {
     display: flex;
     /* justify-content: flex-start; */
@@ -66,4 +62,36 @@
     margin-right: 10%; */
     /* margin-left: 15px;
     margin-right: 15px; */
+}
+
+.test-test-div {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: auto;
+    /* overflow: hidden; */
+
+}
+
+
+div > .memories-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-end; */
+    width: 15%;
+    min-width: 200px;
+    height: 300px;
+    border: 6px solid red;
+}
+
+.delete-memory-button {
+    /* margin-left: 10px; */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    margin-right: 13px;
+
 }

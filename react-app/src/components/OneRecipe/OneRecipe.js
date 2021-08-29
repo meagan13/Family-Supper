@@ -152,9 +152,9 @@ function RecipeView() {
                 { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
-            <div>
+            <div className="test-test-div">
                 { memories && Object.values(memories).map(memory => (
-                    <div className="memories-div" id={memory.id}>
+                    <div id="one-recipe-all-memories" className="memories-div" id={memory.id}>
                         <Memories memoryObj={ memory }/>
                         { userMemoryOptions(sessionUser, memory)}
                     </div>

@@ -27,13 +27,13 @@ const EditMemoryForm = (memory) => {
     };
 
     return (
-        <div className='memory-form-div'>
+        <div id="edit-memory-form-div" className='memory-form-div'>
             <form className='memory-form' onSubmit={handleSubmit}>
-                <label className="editContent">Edit Memory
-                    <input type="text" onChange={createEditedMemory}/>
+                <label className="edit-memory-label-text">
+                    <input className="edit-memory-input" type="text" onChange={createEditedMemory}/>
                 </label>
 
-                <button className='memory-edit-button' type='submit'>Submit</button>
+                <button className='memory-edit-button' type='submit'>Edit Memory</button>
             </form>
         </div>
     )

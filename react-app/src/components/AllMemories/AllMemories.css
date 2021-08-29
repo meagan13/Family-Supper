@@ -1,3 +1,23 @@
+.all-memories-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 15%; */
+    min-width: 100px;
+    height: 300px;
+    border: 2px solid green;
+}
+
+.memory-div {
+    border: 2px solid black;
+    width: 90%;
+    height: 90%;
+}
+
 .individual-memory-text {
     margin: 10px;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
 }
