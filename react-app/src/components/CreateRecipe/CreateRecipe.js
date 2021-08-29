@@ -61,36 +61,40 @@ const CreateRecipe = () => {
     }
 
     return (
-        <div>
+        <div className="recipe-card-div">
+            {/* <div className="tray-pic">
+                <img src="https://live.staticflickr.com/65535/51409194618_7cdaefd8b4_z.jpg" alt="empty recipe card on colorful breakfast tray" />
+            </div> */}
             <form className="recipe-form" onSubmit={handleSubmit}>
+
                 <div className="recipe-info-div">
-                    <div>
+                    <div className="title-div input-div">
                         <label className="title">
-                            <input type="text" value={title} onChange={createTitle} placeholder="Recipe name:" />
+                            <input className="input-test" type="text" value={title} onChange={createTitle} placeholder="Recipe name:" />
                         </label>
                     </div>
 
-                    <div>
+                    <div className="author-div input-div">
                         <label className="author">
                             <input type="text" value={author} onChange={createAuthor} placeholder="From the kitchen of:" />
                         </label>
                     </div>
 
-                    <div>
+                    <div className="description-div input-div">
                         <label className="description">
                             <input type="textarea" value={description} onChange={createDescription} placeholder="Please describe this recipe:" />
                         </label>
                     </div>
 
-                    <div>
+                    <div className="recipe-food-img-div input-div">
                         <label className="food-img">
-                            <input type="text" value={food_img} onChange={createFoodImg} placeholder="Link to photo of prepared dish:" />
+                            <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link:" />
                         </label>
                     </div>
 
-                    <div>
+                    <div className="recipe-card-img-div input-div">
                         <label className="card-img">
-                            <input type="text" value={card_img} onChange={createCardImg} placeholder="Link to photo of recipe card:" />
+                            <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link:" />
                         </label>
                     </div>
 

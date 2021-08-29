@@ -1,6 +1,36 @@
-.recipe-info-div {
-    border: 2px solid black;
+.recipe-card-div {
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.recipe-form {
+    /* position: absolute; */
+    background-image: url(https://live.staticflickr.com/65535/51409262708_a5dd050484_z.jpg);
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
+    /* padding: 10% 16% 10% 15%; */
+    padding: 120px 215px 120px 165px;
+    object-fit: fill;
+    /* width: 260px;
+    height: 235px; */
+}
+
+.tray-pic {
+    width: 50%;
+}
+
+input {
+    background-color: none;
+    border-radius: 5%;
+    border: none;
+}
+
+::placeholder {
+    color: rgb(173, 96, 68);
+}
+
+.input-div {
+    padding: 2%;
 }
