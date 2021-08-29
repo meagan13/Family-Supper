@@ -39,7 +39,7 @@ function User() {
         </div>
 
         <div>
-          { user.id }
+          ADD RECIPES HERE; BIO ISN'T WORKING
         </div>
 
         {/* <div className="user-recipes-content">
