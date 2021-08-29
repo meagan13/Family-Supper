@@ -1,0 +1,42 @@
+.signup-form-div {
+    display: flex;
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content: center;
+    border: 2px solid rgb(173, 96, 68);
+    /* max-width: 50%; */
+    padding: 1%;
+    border-radius: 5px;
+    background-color: bisque;
+}
+
+.signup-form {
+    width: 60%;
+}
+
+.signup-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-right: 1%;
+}
+
+input {
+    padding: 1%;
+    margin: 1%;
+    border-radius: 5px;
+    border: 1px solid rgb(173, 96, 68, .5);
+}
+
+.signup-button {
+    background-color: rgb(173, 96, 68, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(173, 96, 68);
+    padding: 1% 2% 1% 2%;
+    transition: ease .5s;
+}
+
+.signup-button:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
+}

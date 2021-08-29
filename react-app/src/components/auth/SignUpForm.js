@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -39,7 +40,7 @@ const SignUpForm = () => {
   const updateBio = (e) => {
     setBio(e.target.value);
   };
-  
+
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
@@ -53,69 +54,71 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Photo</label>
-        <input
-          type="text"
-          name="imgUrl"
-          onChange={updatePhoto}
-          value={imgUrl}
-        ></input>
-      </div>
-      <div>
-        <label>About Me</label>
-        <input
-          type="text"
-          name="bio"
-          onChange={updateBio}
-          value={bio}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Confirm Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    <div className="signup-form-div">
+      <form className="signup-form" onSubmit={onSignUp}>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+        <div>
+          <label className="signup-text">User Name</label>
+          <input
+            type='text'
+            name='username'
+            onChange={updateUsername}
+            value={username}
+          ></input>
+        </div>
+        <div>
+          <label className="signup-text">Email</label>
+          <input
+            type='text'
+            name='email'
+            onChange={updateEmail}
+            value={email}
+          ></input>
+        </div>
+        <div>
+          <label className="signup-text">Photo</label>
+          <input
+            type="text"
+            name="imgUrl"
+            onChange={updatePhoto}
+            value={imgUrl}
+          ></input>
+        </div>
+        <div>
+          <label className="signup-text">About Me</label>
+          <input
+            type="text"
+            name="bio"
+            onChange={updateBio}
+            value={bio}
+          ></input>
+        </div>
+        <div>
+          <label className="signup-text">Password</label>
+          <input
+            type='password'
+            name='password'
+            onChange={updatePassword}
+            value={password}
+          ></input>
+        </div>
+        <div>
+          <label className="signup-text">Confirm Password</label>
+          <input
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+          ></input>
+        </div>
+        <button className="signup-text signup-button" type='submit'>Sign Up</button>
+      </form>
+    </div>
   );
 };
 

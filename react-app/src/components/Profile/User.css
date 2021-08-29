@@ -1,0 +1,51 @@
+.profile-pic-name-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 1%;
+    margin-left: 5%;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    border: 15px solid rgba(58, 95, 125);
+}
+
+.username-text {
+    font-family: 'Playball', cursive;
+    font-size: 60px;
+    color: rgba(58, 95, 125);
+    margin-left: 1%;
+}
+
+.user-info-div {
+    display: flex;
+    flex-direction: column;
+    margin: 1% 0% 1% 5%;
+
+}
+
+.bio-text, .email-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 25px;
+    color: rgb(173, 96, 68);
+}
+
+.user-recipes-heading-div, .user-content-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1% 5% 1% 5%;
+}
+
+.my-recipes-text, .my-memories-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 40px;
+    color:rgba(58, 95, 125);
+}
+
+.user-recipes-div, .user-memories-div {
+    border: 1px solid black;
+    padding: 15%;
+}

@@ -23,25 +23,41 @@ function User() {
 
   return (
 
-    <div>
-        <h3>
-          Welcome, { user.username }!
-        </h3>
-        <p>
-          <strong>Email:</strong> { user.email }
-        </p>
-        <p>
-          <strong>About me:</strong> { user.bio }
-        </p>
+    <div className="profile-div">
+        <div className="profile-pic-name-div">
+          {/* <img className="profile-img" src={ user.imgUrl } alt="user profile image" /> */}
+          <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" />
+
+          <h3 className="username-text">
+            { user.username }
+          </h3>
+        </div>
+
+
+        <div className="user-info-div">
+          <p className="email-text">
+            <strong>Email:</strong> { user.email }
+          </p>
+
+          <p className="bio-text">
+            <strong>About me:</strong> { user.bio }
+          </p>
+        </div>
 
         <div className="user-recipes-heading-div">
           <h2 className="my-recipes-text">My Recipes</h2>
+          <h2 className="my-memories-text">My Memories</h2>
         </div>
 
-        <div>
-          ADD RECIPES HERE; BIO ISN'T WORKING
-        </div>
+        <div className="user-content-div">
+          <div className="user-recipes-div">
+            ADD RECIPES HERE
+          </div>
 
+          <div className="user-memories-div">
+            ADD MEMORIES HERE
+          </div>
+        </div>
         {/* <div className="user-recipes-content">
           {user.comment && user.comment.map(comment => (
             <div className="comment">
