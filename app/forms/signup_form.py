@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
+from wtforms.fields.simple import TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -24,4 +25,6 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
+    imgUrl = StringField('imgUrl', validators=[DataRequired()])
+    bio = TextAreaField('bio', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
