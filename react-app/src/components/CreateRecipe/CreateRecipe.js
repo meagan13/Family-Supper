@@ -99,19 +99,22 @@ const CreateRecipe = () => {
                     </div>
 
                     <div>
-                        <label>Recipe Category</label>
-                        {/* <div className="recipe-category-list"> */}
-                            <select className="category-select-list" value={category_id} onChange={createCategory_id}>
-                                <option value='1'>Soups</option>
-                                <option value='2'>Salads</option>
-                                <option value='3'>Appetizers</option>
-                                <option value='4'>Cookies</option>
-                                <option value='5'>Cakes and Desserts</option>
-                                <option value='6'>Muffins and Breads</option>
-                                <option value='7'>Vegetables and Sides</option>
-                                <option value='8'>Meats</option>
-                            </select>
-                        {/* </div> */}
+                        <div className="category-dropdown-div">
+                            <button className="category-dropdown-button">Recipe Category</button>
+                            {/* <label>Recipe Category</label> */}
+                            <div className="category-dropdown-content">
+                                <select className="category-select-list" value={category_id} onChange={createCategory_id}>
+                                    <option className="test" value='1'>Soups</option>
+                                    <option className="test" value='2'>Salads</option>
+                                    <option className="test" value='3'>Appetizers</option>
+                                    <option value='4'>Cookies</option>
+                                    <option value='5'>Cakes and Desserts</option>
+                                    <option value='6'>Muffins and Breads</option>
+                                    <option value='7'>Vegetables and Sides</option>
+                                    <option value='8'>Meats</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

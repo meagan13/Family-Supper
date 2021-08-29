@@ -11,7 +11,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     /* padding: 10% 16% 10% 15%; */
-    padding: 120px 215px 120px 165px;
+    padding: 25px 215px 120px 165px;
     object-fit: fill;
     /* width: 260px;
     height: 235px; */
@@ -21,16 +21,78 @@
     width: 50%;
 }
 
-input {
-    background-color: none;
+.title > input {
+    background-color: rgb(173, 96, 68);
     border-radius: 5%;
     border: none;
+    padding: 6% 20% 6% 2%;
+}
+
+.author > input, .description > input, .food-img > input, .card-img > input {
+    background-color: rgb(173, 96, 68);
+    /* background-color: rgb(58, 95, 125); */
+    border-radius: 5%;
+    border: none;
+    padding: 3% 20% 3% 2%;
+
 }
 
 ::placeholder {
-    color: rgb(173, 96, 68);
+    /* color: rgb(58, 95, 125); */
+    color: rgba(255, 228, 196, 0.733);
+    font-size: 16px;
 }
 
 .input-div {
     padding: 2%;
+}
+
+.category-dropdown-button {
+    background-color: rgb(173, 96, 68);
+    /* background-color: rgb(58, 95, 125); */
+    color: bisque;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5%;
+}
+
+.category-dropdown-div {
+    position: relative;
+    display: inline-block;
+}
+
+.category-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.category-dropdown-content option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* .category-dropdown-content option:hover {
+    background-color: #ddd;
+    background-color: rgb(173, 96, 68,.3);
+} */
+
+.category-dropdown-content select option:hover {
+    background-color: #ddd;
+    background-color: rgb(173, 96, 68,.3);
+}
+
+.category-dropdown-div:hover .category-dropdown-content {
+    display: block;
+}
+
+.category-dropdown-div:hover .category-dropdown-button {
+    background-color: rgb(58, 95, 125);
 }
