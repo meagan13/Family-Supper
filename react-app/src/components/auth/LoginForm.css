@@ -19,7 +19,7 @@
     padding-right: 1%;
 }
 
-input {
+.login-form.input {
     padding: 1%;
     margin: 1%;
     border-radius: 5px;

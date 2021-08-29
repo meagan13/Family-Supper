@@ -57,11 +57,16 @@ const SignUpForm = () => {
     <div className="signup-form-div">
       <div id="signup-form" className="form-container">
         <form className="signup-form" onSubmit={onSignUp}>
+          <div className="sign-form-title">
+            <h2 className="signup-form-title-text">Join the Family</h2>
+          </div>
+
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">User Name</label>
             <input
@@ -72,6 +77,7 @@ const SignUpForm = () => {
               value={username}
             ></input>
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">Email</label>
             <input
@@ -82,6 +88,7 @@ const SignUpForm = () => {
               value={email}
             ></input>
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">Photo</label>
             <input
@@ -92,6 +99,7 @@ const SignUpForm = () => {
               value={imgUrl}
             ></input>
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">About Me</label>
             <input
@@ -102,6 +110,7 @@ const SignUpForm = () => {
               value={bio}
             ></input>
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">Password</label>
             <input
@@ -112,6 +121,7 @@ const SignUpForm = () => {
               value={password}
             ></input>
           </div>
+
           <div className="signup-input-div">
             <label className="signup-text">Confirm Password</label>
             <input
@@ -123,7 +133,9 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
+
           <button className="signup-text signup-button" type='submit'>Sign Up</button>
+
         </form>
       </div>
     </div>
