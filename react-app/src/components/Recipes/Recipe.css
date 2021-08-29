@@ -49,17 +49,31 @@
 
 .food-img-div {
     /* background-color: rgba(189, 189, 189, 0.95); */
-    height: 150px;
-    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: .5s ease;
+    object-fit: contain;
 
 }
 
 .food-img-div img {
-    flex-shrink: 0;
+    /* flex: 1; */
+    /* flex-shrink: 0; */
     min-width: 100%;
     min-height: 100%;
+    /* object-fit: cover; */
+    object-fit: fill;
+    /* object-fit: none; */
+    /* object-fit: contain; */
+    /* object-fit: scale-down; */
+}
+
+.food-img-div:hover {
+    transform: scale(1.05);
 }
