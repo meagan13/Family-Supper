@@ -60,7 +60,7 @@ input.login-input {
 
 .login-button {
     float: right;
-    background-color: rgb(58, 95, 125, .7);
+    background-color: rgb(58, 95, 125, .9);
     border-radius: 5px;
     border: 1px solid rgb(173, 96, 68);
     padding: 2%;

@@ -61,9 +61,9 @@ input.signup-input {
 .signup-button {
     /* background-color: rgb(173, 96, 68, .7); */
     float: right;
-    background-color: rgb(58, 95, 125, .7);
+    background-color: rgb(58, 95, 125, .9);
     border-radius: 5px;
-    border: 1px solid rgb(173, 96, 68);
+    border: 1px solid rgb(58, 95, 125);
     padding: 2%;
     margin-top: 2%;
     transition: ease .25s;
