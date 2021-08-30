@@ -20,12 +20,13 @@ const CreateRecipe = () => {
     //     dispatch(createRecipeThunk())
     // }, [dispatch])
 
-    const [title, setTitle] = useState();
-    const [author, setAuthor] = useState();
-    const [description, setDescription] = useState();
-    const [food_img, setFood_img] = useState();
-    const [card_img, setCard_img] = useState();
-    const [category_id, setCategory_id] = useState();
+    const [errors, setErrors] = useState([])
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [description, setDescription] = useState('');
+    const [food_img, setFood_img] = useState('');
+    const [card_img, setCard_img] = useState('');
+    const [category_id, setCategory_id] = useState('');
 
     const createTitle = (e) => setTitle(e.target.value);
     const createAuthor = (e) => setAuthor(e.target.value);
@@ -36,36 +37,70 @@ const CreateRecipe = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        const errorData =[]
+        console.log("Error data array first:", errorData)
 
-        console.log("Inside the create recipe handlesubmit")
-
-        const addRecipe = {
-            title,
-            author,
-            description,
-            food_img,
-            card_img,
-            category_id,
-            user_id: sessionUser.id //added this
+        if(title === '') {
+            errorData.push('Please include a recipe title.')
         }
 
-        await dispatch(createRecipeThunk(addRecipe))
-        setTitle("");
-        setAuthor("");
-        setDescription("");
-        setFood_img("");
-        setCard_img("")
-        setCategory_id("")
-        history.push("/");
+        if(author === '') {
+            errorData.push("Please include the recipe author's name.")
+        }
+
+        if(description === '') {
+            errorData.push('Please include a description of this recipe.')
+        }
+
+        if(food_img === '') {
+            errorData.push('Please include a link to an image of this recipe.')
+        }
+
+        if(card_img === '') {
+            errorData.push('Please include a link to an image of the recipe card.')
+        }
+
+        if(category_id === '') {
+            errorData.push('Please select a category for this recipe.')
+        }
+
+        console.log("Error data array first:", errorData)
+        setErrors(errorData)
+
+        if(errorData.length === 0) {
+            console.log("Inside the create recipe handlesubmit")
+
+            const addRecipe = {
+                title,
+                author,
+                description,
+                food_img,
+                card_img,
+                category_id,
+                user_id: sessionUser.id //added this
+            }
+
+            await dispatch(createRecipeThunk(addRecipe))
+            setTitle("");
+            setAuthor("");
+            setDescription("");
+            setFood_img("");
+            setCard_img("")
+            setCategory_id("")
+            history.push("/");
+        }
 
     }
 
     return (
         <div className="recipe-card-div">
-            {/* <div className="tray-pic">
-                <img src="https://live.staticflickr.com/65535/51409194618_7cdaefd8b4_z.jpg" alt="empty recipe card on colorful breakfast tray" />
-            </div> */}
             <form className="recipe-form" onSubmit={handleSubmit}>
+
+                <div className="create-recipe-errors-div">
+                    {errors.map((error, i) => (
+                    <div key={i}>{error}</div>
+                    ))}
+                </div>
 
                 <div className="recipe-info-div">
                     <div className="title-div input-div">

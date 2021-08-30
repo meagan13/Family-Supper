@@ -57,6 +57,13 @@ const SignUpForm = () => {
     <div className="signup-form-div">
       <div id="signup-form" className="form-container">
         <form className="signup-form" onSubmit={onSignUp}>
+
+          <div className="signup-errors-div">
+            {errors.map((error, i) => (
+              <div key={i}>{error}</div>
+            ))}
+          </div>
+
           <div className="sign-form-title">
             <h2 className="signup-form-title-text">Join the Family</h2>
           </div>

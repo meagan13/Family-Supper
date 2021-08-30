@@ -108,6 +108,7 @@
 .card-img-div:hover, .one-recipe-food-img-div:hover {
     transform: scale(1.25);
     height: 100%;
+    /* border: 1px solid rgb(58, 95, 125); */
 }
 
 
