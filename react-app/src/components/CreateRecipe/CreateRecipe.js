@@ -36,9 +36,8 @@ const CreateRecipe = () => {
     const createCategory_id = (e) => setCategory_id(Number(e.target.value));
 
     const handleSubmit = async(e) => {
-        e.preventDefault()
-        const errorData =[]
-        console.log("Error data array first:", errorData)
+        e.preventDefault();
+        const errorData = [];
 
         if(title === '') {
             errorData.push('Please include a recipe title.')
@@ -64,7 +63,6 @@ const CreateRecipe = () => {
             errorData.push('Please select a category for this recipe.')
         }
 
-        console.log("Error data array first:", errorData)
         setErrors(errorData)
 
         if(errorData.length === 0) {
