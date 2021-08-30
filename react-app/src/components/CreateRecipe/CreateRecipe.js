@@ -63,7 +63,7 @@ const CreateRecipe = () => {
             errorData.push('Please select a category for this recipe.')
         }
 
-        setErrors(errorData)
+        setErrors(errorData);
 
         if(errorData.length === 0) {
             console.log("Inside the create recipe handlesubmit")

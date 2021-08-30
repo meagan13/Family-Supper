@@ -15,6 +15,7 @@ const EditRecipeForm = (recipe) => {
     const dispatch=useDispatch();
     const history = useHistory();
 
+    const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState(recipe.recipe.title);
     const [author, setAuthor] = useState(recipe.recipe.author);
     const [description, setDescription] = useState(recipe.recipe.description);
@@ -31,31 +32,59 @@ const EditRecipeForm = (recipe) => {
 
     const handleEditSubmit = async(e) => {
         e.preventDefault();
+        const errorData = [];
 
-        console.log("Recipes var in edit recipe component", recipes)
+        // console.log("Recipes var in edit recipe component", recipes)
 
         // console.log("Edit recipe button worked")
-        // why is recipe.id undefined??
-        const editedRecipe = {
-            id: recipe.recipe.id,
-            title,
-            author,
-            description,
-            food_img,
-            card_img,
-            category_id,
-            user_id: sessionUser.id
-        };
-        // console.log("Edited recipe payload:", editedRecipe)
+        if(title === '') {
+            errorData.push('Please include a recipe title.')
+        }
 
-        await dispatch(editRecipeThunk(editedRecipe))
-        setTitle("");
-        setAuthor("");
-        setDescription("");
-        setFood_img("");
-        setCard_img("")
-        setCategory_id("")
-        history.push(`/recipes/${ recipe.recipe.id }/`)
+        if(author === '') {
+            errorData.push("Please include the recipe author's name.")
+        }
+
+        if(description === '') {
+            errorData.push('Please include a description of this recipe.')
+        }
+
+        if(food_img === '') {
+            errorData.push('Please include a link to an image of this recipe.')
+        }
+
+        if(card_img === '') {
+            errorData.push('Please include a link to an image of the recipe card.')
+        }
+
+        if(category_id === '') {
+            errorData.push('Please select a category for this recipe.')
+        }
+
+        setErrors(errorData);
+
+        if(errorData.length === 0) {
+            const editedRecipe = {
+                id: recipe.recipe.id,
+                title,
+                author,
+                description,
+                food_img,
+                card_img,
+                category_id,
+                user_id: sessionUser.id
+            };
+            // console.log("Edited recipe payload:", editedRecipe)
+
+            await dispatch(editRecipeThunk(editedRecipe))
+            setTitle("");
+            setAuthor("");
+            setDescription("");
+            setFood_img("");
+            setCard_img("")
+            setCategory_id("")
+            history.push(`/recipes/${ recipe.recipe.id }/`)
+        }
     }
 
     return (
