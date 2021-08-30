@@ -19,10 +19,6 @@ const AddIngredientForm = (recipeInfo) => {
     const [measurement_id, setMeasurementId] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
 
-    // const createAmt = (e) => setAmt(e.target.value);
-    // const createMeasurement = (e) => setMeasurementId(Number(e.target.value));
-    // const createIngredient = (e) => setIngredientName(e.target.value);
-
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
         const errorData = [];
@@ -60,13 +56,17 @@ const AddIngredientForm = (recipeInfo) => {
                     ))}
                 </div>
 
-                <div>
-                    <div>
-                        <label className="amt-number">Numeric Amount:
-                            <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Amount" />
-                        </label>
-                    </div>
+                <div className="create-ingredient-intro-div">
+                    <h1 className="create-ingredient-intro-text">Add ingredients</h1>
+                    <h3 className="create-ingredient-instruct-text">Include as many as you'd like!</h3>
                 </div>
+
+                <div className="input-div">
+                    <label className="amt-number">Numeric Amount:
+                        <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Amount" />
+                    </label>
+                </div>
+
 
                 <div>
                     <div className="unit-content-div">
@@ -101,7 +101,7 @@ const AddIngredientForm = (recipeInfo) => {
                     </div>
                 </div>
 
-                <div>
+                <div className="input-div">
                     <label className="ingredient">
                         <input type="text" onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
                     </label>
