@@ -14,7 +14,7 @@ const CreateRecipe = () => {
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
-    console.log("recipeInfo:", recipeInfo)
+    // console.log("recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -40,7 +40,7 @@ const CreateRecipe = () => {
     const createCardImg = (e) => setCard_img(e.target.value);
     const createCategory_id = (e) => setCategory_id(Number(e.target.value));
 
-    console.log("STAGE:", stage);
+    // console.log("STAGE:", stage);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -73,7 +73,7 @@ const CreateRecipe = () => {
         setErrors(errorData);
 
         if(errorData.length === 0) {
-            console.log("Inside the create recipe handlesubmit")
+            // console.log("Inside the create recipe handlesubmit")
 
             const addRecipe = {
                 title,
@@ -98,12 +98,12 @@ const CreateRecipe = () => {
     }
 
     const nextStage = async() => {
-        console.log("stage after next:", stage)
+        // console.log("stage after next:", stage)
         await setStage(stage + 1);
     }
 
     const previousStage = async() => {
-        console.log("stage after previeous:", stage)
+        // console.log("stage after previeous:", stage)
         await setStage(stage - 1);
     }
 
