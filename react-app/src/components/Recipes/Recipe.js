@@ -50,10 +50,16 @@ function Recipes() {
 
             <div className="all-recipes-div">
                 { recipes.map(recipe => (
-                    <div className="food-img-div">
-                        <a href={`/recipes/${recipe.id}`} id={recipe.id}>
-                        <img src={ recipe.food_img } className="food-img" alt="food item" />
-                        </a>
+                    <div className="main-page-recipe-img-title">
+                        <div className="food-img-div">
+                            <a href={`/recipes/${recipe.id}`} id={recipe.id}>
+                            <img src={ recipe.food_img } className="food-img" alt="food item" />
+                            </a>
+
+                        </div>
+                        <div>
+                            <h3 className="all-recipes-food-title-text">{recipe.title}</h3>
+                        </div>
                     </div>
                 ))}
             </div>

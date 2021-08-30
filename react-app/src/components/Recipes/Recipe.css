@@ -75,3 +75,9 @@
 .food-img-div:hover {
     transform: scale(1.05);
 }
+
+.all-recipes-food-title-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    padding-bottom: 10%;
+}
