@@ -18,13 +18,10 @@ const AddIngredientForm = (recipeInfo) => {
     const [amt, setAmt] = useState(0);
     const [measurement_id, setMeasurementId] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
-    // const [recipeId, setRecipeId] = useState();
 
-    console.log("Amt:", amt)
     // const createAmt = (e) => setAmt(e.target.value);
     // const createMeasurement = (e) => setMeasurementId(Number(e.target.value));
     // const createIngredient = (e) => setIngredientName(e.target.value);
-    // const createRecipeId = (e) => setRecipeId(e.target.value);
 
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
@@ -48,9 +45,9 @@ const AddIngredientForm = (recipeInfo) => {
             console.log("addIngredient payload:", addIngredient)
 
             await dispatch(createIngredientThunk(addIngredient));
-
-            // createMeasurement("");
-            // createIngredient("");
+            setAmt("");
+            setMeasurementId("");
+            setIngredientName("");
         }
     }
 
