@@ -8,9 +8,9 @@ const CreateDirections = () => {
 
     const dispatch = useDispatch();
 
-    const [step_number, setStep_number] = useState();
+    const [step_number, setStep_number] = useState(0);
     // const [recipe_id, setRecipeId] = useState();
-    const [instruction, setInstruction] = useState();
+    const [instruction, setInstruction] = useState('');
 
     const createStep_number = (e) => setStep_number(e.target.value)
     // const createRecipe_id = (e) => setRecipeId(e.target.value)

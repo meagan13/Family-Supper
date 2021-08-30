@@ -14,7 +14,7 @@ import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import './OneRecipe.css';
 
-function RecipeView() {
+function RecipeView({recipeInfo}) {
     const sessionUser = useSelector(state => state.session.user)
     const currentRecipe = useSelector((state) => (state?.recipes))
     const ingredients = useSelector((state) => (state?.ingredients))
@@ -23,8 +23,16 @@ function RecipeView() {
     const directionsArr = Object.values(directions);
     const memories = useSelector((state) => (state.memories))
 
+    let { recipeId } = useParams();
+
     const dispatch = useDispatch();
-    const { recipeId } = useParams();
+    if(recipeInfo) {
+        recipeId = recipeInfo.id;
+    }
+
+    // console.log("Recipe Id:", recipeId)
+
+    // const { recipeId } = useParams();
     const history = useHistory();
 
     // console.log("ingredients:", ingredients)

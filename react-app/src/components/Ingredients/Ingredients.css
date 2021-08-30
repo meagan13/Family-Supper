@@ -1,6 +1,11 @@
 .ingredient-form-div {
-    border: 2px solid black;
+    border: 2px solid green;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
+}
+
+
+.ingredient-form-div ::placeholder {
+    color: black;
 }

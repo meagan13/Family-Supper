@@ -63,6 +63,8 @@ export const getIngredientsByRecipeThunk = (recipeId) => async(dispatch) => {
 }
 
 export const createIngredientThunk = ingredient => async (dispatch) => {
+    console.log("ingredient in create thunk:", ingredient)
+
     const response = await fetch(`/api/ingredient/`, {
         method: "POST",
         headers: {
@@ -72,6 +74,7 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
     })
     if (response.ok) {
         const newIngredient = await response.json();
+        console.log("new ingredient:", newIngredient)
         dispatch(addIngredient(newIngredient))
     }
     return response
