@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+// import { createDirectionThunk }
 import { useState } from 'react';
 import './CreateDirections.css'
 
@@ -25,7 +26,7 @@ const CreateDirections = () => {
             instruction
         }
 
-        // await dispatch(createDirectionsThunk(directions))
+        // await dispatch(createDirectionThunk(directions))
     }
 
     return (

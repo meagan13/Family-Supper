@@ -11,17 +11,19 @@ const AddIngredientForm = (recipeInfo) => {
 
     console.log('recipes in add ingredient form:', allRecipes)
     console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
-    console.log("Check amount:", allRecipes[1].amt)
+
+    console.log("add ingredient recipeInfo", recipeInfo)
 
     const [errors, setErrors] = useState([]);
-    const [amt, setAmt] = useState(1.0);
+    const [amt, setAmt] = useState(0);
     const [measurement_id, setMeasurementId] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
     // const [recipeId, setRecipeId] = useState();
 
-    const createAmt = (e) => setAmt(e.target.value);
-    const createMeasurement = (e) => setMeasurementId(Number(e.target.value));
-    const createIngredient = (e) => setIngredientName(e.target.value);
+    console.log("Amt:", amt)
+    // const createAmt = (e) => setAmt(e.target.value);
+    // const createMeasurement = (e) => setMeasurementId(Number(e.target.value));
+    // const createIngredient = (e) => setIngredientName(e.target.value);
     // const createRecipeId = (e) => setRecipeId(e.target.value);
 
     const addIngredienthandleSubmit = async(e) => {
@@ -40,15 +42,15 @@ const AddIngredientForm = (recipeInfo) => {
                 amt,
                 measurement_id,
                 ingredient_name,
-                recipe_id: recipeInfo.id
+                recipe_id: recipeInfo.recipe.id
             }
 
             console.log("addIngredient payload:", addIngredient)
 
             await dispatch(createIngredientThunk(addIngredient));
-            createAmt("");
-            createMeasurement("");
-            createIngredient("");
+
+            // createMeasurement("");
+            // createIngredient("");
         }
     }
 
@@ -64,7 +66,7 @@ const AddIngredientForm = (recipeInfo) => {
                 <div>
                     <div>
                         <label className="amt-number">Numeric Amount:
-                            <input type="number" step="0.1" onChange={createAmt} placeholder="Amount" />
+                            <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Amount" />
                         </label>
                     </div>
                 </div>
@@ -73,7 +75,7 @@ const AddIngredientForm = (recipeInfo) => {
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="select" className="create-unit-select-list" value={measurement_id} onChange={createMeasurement}>
+                            <select id="select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>
@@ -104,7 +106,7 @@ const AddIngredientForm = (recipeInfo) => {
 
                 <div>
                     <label className="ingredient">
-                        <input type="text" onChange={createIngredient} placeholder="Ingredient" />
+                        <input type="text" onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
                     </label>
                 </div>
 
