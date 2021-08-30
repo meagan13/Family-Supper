@@ -79,13 +79,15 @@
 
 .single-recipe-food-img  {
     width: 80%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border: 25px solid bisque;
     /* height: auto; */
 }
 
 .single-recipe-card-img {
     width: 80%;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border: 25px solid bisque;
 }
 
 @supports(object-fit: cover) {
