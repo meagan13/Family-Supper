@@ -77,12 +77,12 @@ const EditRecipeForm = (recipe) => {
             // console.log("Edited recipe payload:", editedRecipe)
 
             await dispatch(editRecipeThunk(editedRecipe))
-            setTitle("");
-            setAuthor("");
-            setDescription("");
-            setFood_img("");
-            setCard_img("")
-            setCategory_id("")
+            setTitle(title);
+            setAuthor(author);
+            setDescription(description);
+            setFood_img(food_img);
+            setCard_img(card_img)
+            setCategory_id(category_id)
             history.push(`/recipes/${ recipe.recipe.id }/`)
         }
     }
@@ -90,6 +90,12 @@ const EditRecipeForm = (recipe) => {
     return (
         <div className='edit-recipe-form-div'>
             <form className='recipe-form' onSubmit={handleEditSubmit}>
+                <div className="edit-recipe-errors-div">
+                    {errors.map((error, i) => (
+                    <div key={i}>{error}</div>
+                    ))}
+                </div>
+
                 <div>
                     <label className="edit-recipe edit-recipe-title">Edit Recipe Title
                         <input type="text" value={title} onChange={createEdTitle}/>
