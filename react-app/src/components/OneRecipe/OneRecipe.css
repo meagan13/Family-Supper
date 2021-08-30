@@ -48,7 +48,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    padding: 2%;
     background-color: pink;
+    background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
+    border: 15px solid rgb(173, 96, 68);
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
@@ -63,6 +66,7 @@
     width: 50%;
     height: auto;
     max-height: 100%;
+;
 }
 
 .card-img-div {
@@ -75,13 +79,13 @@
 
 .single-recipe-food-img  {
     width: 80%;
-    border-radius: 3px;
+    border-radius: 5px;
     /* height: auto; */
 }
 
 .single-recipe-card-img {
     width: 80%;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 @supports(object-fit: cover) {
