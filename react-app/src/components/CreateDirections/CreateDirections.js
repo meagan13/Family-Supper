@@ -39,6 +39,8 @@ const CreateDirections = () => {
                     <input type="text" onChange={createInstruction} placeholder="Add instruction step:" />
                 </label>
 
+                <button className="direction-submit-button" type="submit">Add Direction</button>
+
             </form>
 
         </div>

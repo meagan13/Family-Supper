@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import TextField, IntegerField, SubmitField
 from wtforms.fields.core import FloatField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
 
 v = [DataRequired()]
 

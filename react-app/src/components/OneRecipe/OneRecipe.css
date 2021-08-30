@@ -1,13 +1,204 @@
-.single-recipe-food-img, .single-recipe-card-img {
-    height: 200px;
-}
-
 .ingredients-list-div, .directions-list-div, .edit-and-delete-recipe-div {
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 
+.recipe-heading-div {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(58, 95, 125);
+    border: 35px solid rgb(173, 96, 68);
+    margin-left: 10%;
+    margin-right: 10%;
+    box-sizing: border-box;
+
+}
+
+.recipe-title-text {
+    /* padding-bottom: 1%; */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    background-color: bisque;
+    padding: 1%;
+}
+
+.recipe-author-text {
+    font-family: 'Playball', cursive;
+    font-size: 35px;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.recipe-description-div {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-description-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 2%;
+    font-size: 25px;
+}
+
+.recipe-photos-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2%;
+    background-color: pink;
+    background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
+    border: 15px solid rgb(173, 96, 68);
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    transition: 1s ease;
+    box-sizing: border-box;
+}
+
+.one-recipe-food-img-div {
+    /* width: 45%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    max-height: 100%;
+;
+}
+
+.card-img-div {
+    width: 80%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-recipe-food-img  {
+    width: 80%;
+    /* border-radius: 5px; */
+    border: 25px solid bisque;
+    /* height: auto; */
+}
+
+.single-recipe-card-img {
+    width: 80%;
+    /* border-radius: 5px; */
+    border: 25px solid bisque;
+}
+
+@supports(object-fit: cover) {
+    .food-img-div img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .card-img-div img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.card-img-div:hover, .one-recipe-food-img-div:hover {
+    transform: scale(1.25);
+    height: 100%;
+    /* border: 1px solid rgb(58, 95, 125); */
+}
+
+
+/* .single-recipe-food-img {
+    margin-left: 20%;
+    height: 100%;
+    width: 100%;
+    border: 5px solid black;
+} */
+
+/* .card-img-div {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .single-recipe-card-img {
+    margin-right: 20%;
+    border-radius: 5%;
+    /* width: 20%; */
+    /* height: 80%; */
+    /* width: 100%;
+    height:100%;
+    transition: ease 1s; */
+*/
+
+/* .single-recipe-card-img:hover, .single-recipe-food-img:hover {
+    transform: scale(1.5);
+    border: 5px solid black;
+
+} */
+
+.login-to-share-memory-div {
+    border: 5px solid black;
+    display: flex;
+
+}
+
+.login-to-share-memory-text {
+    font-family: 'Playball', cursive;
+    font-size: 45px;
+    text-align: center;
+    padding: 2%;
+}
+
+.memory-scroll-div {
+    display: flex;
+    /* overflow: hidden; */
+}
+
+.memory-scroll-div {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: auto;
+
+}
+
+.memory-div {
+    padding-top: 5%;
+}
+
+.memory-scroll-div > .memories-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-items: flex-end; */
+    width: 15%;
+    min-width: 200px;
+    height: 300px;
+    /* border: 6px solid red; */
+    margin: .5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(173, 96, 68);
+}
+
 .delete-memory-button {
-    margin-left: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    margin-bottom: 5%;
+    background-color:rgb(58, 95, 125);
+    color: bisque;
+
 }

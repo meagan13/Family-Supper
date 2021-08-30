@@ -9,7 +9,8 @@ import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
-// import AddIngredientForm from '../Ingredients/Ingredients';
+import AddIngredientForm from '../Ingredients/Ingredients';
+import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import './OneRecipe.css';
 
@@ -33,8 +34,8 @@ function RecipeView() {
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
-        dispatch(getIngredientsByRecipeThunk(recipeId))
-        dispatch(getDirectionsByRecipeThunk(recipeId))
+        // dispatch(getIngredientsByRecipeThunk(recipeId))
+        // dispatch(getDirectionsByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
     const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
@@ -78,6 +79,7 @@ function RecipeView() {
             return (
                 <div className="edit-and-delete-recipe-div">
                     <EditRecipeForm recipe={ currentRecipe } />
+                    {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
                     <button className="edit-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
                 </div>
             )
@@ -87,7 +89,6 @@ function RecipeView() {
     if(sessionUser) {
         sessionMemory = (
             <>
-                <h3>Welcome, { sessionUser?.username}! </h3>
                 <AddMemory />
                 {/* <AddIngredientForm />
                 <CreateDirections /> */}
@@ -96,51 +97,68 @@ function RecipeView() {
 
     } else {
         sessionMemory = (
-            <>
-                <h3>Welcome!</h3>
-                <h3>Log in to share a memory of this dish.</h3>
-            </>
+            <div className="login-to-share-memory-div">
+                <h3 className="login-to-share-memory-text">Log in to share a memory of this dish.</h3>
+            </div>
         )
     }
 
     return (
-        <>
-            <div>
-                <h1>{ currentRecipe?.title }</h1>
+        <div className="one-recipe-view-div">
+            <div className="recipe-heading-div">
+                <div className="recipe-title-div">
+                    <h1 className="recipe-title-text">{ currentRecipe?.title }</h1>
+                </div>
+
+                <div className="recipe-author-div">
+                    <h3 className="recipe-author-text">From the kitchen of { currentRecipe?.author }</h3>
+                </div>
             </div>
 
-            <div>
-                <h3>From the kitchen of { currentRecipe?.author }</h3>
+            <div className="recipe-description-div">
+                <p className="recipe-description-text">{ currentRecipe.description }</p>
             </div>
 
-            <div>
-                <p>{ currentRecipe.description }</p>
+            <div className="recipe-photos-div">
+                <div className="one-recipe-food-img-div">
+                    <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
+                </div>
+
+                <div className="card-img-div">
+                    <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
+                </div>
             </div>
 
-            <div>
-                <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
-                <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
-            </div>
-
-            <div className="ingredients-list-div">
+            {/* <div className="ingredients-list-div">
                 <h3>Ingredients:</h3>
                 { ingredientsArr.map(ingredient => (
                     <div className="ingredient-div" id={ingredient.id}>
                         { ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name }
                     </div>
                 ))}
-            </div>
+            </div> */}
 
-            <div className="directions-list-div">
+            {/* <div className="directions-list-div">
                 <h3>Directions:</h3>
                 { directionsArr.map(direction => (
                     <div className="direction-div" id={direction.id}>
                         { direction.step_number }. { direction.instruction }
                     </div>
                 ))}
+            </div> */}
+            <div className="session-memory-div">
+                { sessionMemory }
             </div>
 
-            { sessionMemory }
+            <div className="memory-scroll-div">
+                { memories && Object.values(memories).map(memory => (
+                    <div id="one-recipe-all-memories" className="memories-div" id={memory.id}>
+                        <Memories memoryObj={ memory }/>
+                        { userMemoryOptions(sessionUser, memory)}
+                    </div>
+                ))}
+            </div>
+
             <div>
                 {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
                     { userRecipeOptions(sessionUser, recipe)}
@@ -149,18 +167,7 @@ function RecipeView() {
                 {/* <EditRecipeForm recipe={ currentRecipe }/> */}
                 { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
-
-            <div>
-                { memories && Object.values(memories).map(memory => (
-                    <div className="memories-div" id={memory.id}>
-                        <Memories memoryObj={ memory }/>
-                        { userMemoryOptions(sessionUser, memory)}
-                    </div>
-                ))}
-            </div>
-
-
-        </>
+        </div>
     )
 }
 

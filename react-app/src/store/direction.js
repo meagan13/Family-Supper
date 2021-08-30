@@ -130,7 +130,6 @@ export default function directions(state = initialState, action) {
             return newState;
         }
         case GET_DIRECTIONS_BY_RECIPE: {
-
             return action.direction;
         }
         default:

@@ -1,0 +1,76 @@
+.login-form-div {
+    margin-left: 0;
+    height: 100%;
+    /* width: 100%; */
+    background-image: url("https://live.staticflickr.com/65535/51410379697_d4a8d89244_z.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid rgb(173, 96, 68, .5); */
+    padding: 25%;
+    background-color: bisque;
+}
+
+#login-form.form-container {
+    width: 30%;
+    display: flex;
+    position: absolute;
+    float: right;
+    background-color: rgb(173, 96, 68);
+    height: auto;
+    min-width: 300px;
+    justify-content: center;
+    padding: 1%;
+    margin-right: 8em;
+    top: 30%;
+    left: 10%;
+    border-radius: 5px;
+}
+
+.login-form-title-text {
+    font-family: 'Playball', cursive;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 5%;
+}
+
+.login-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-right: 1%;
+    font-size: 20px;
+}
+
+.login-input {
+    padding: 1%;
+    margin: 1%;
+    /* border-radius: 5px; */
+    border: 1px solid rgb(173, 96, 68, .5);
+}
+
+input.login-input {
+    width: 90%;
+    border: 0px solid darkgrey;
+    border-bottom-width: 2px;
+    background-color: transparent;
+    padding: 1%;
+}
+
+.login-button {
+    float: right;
+    background-color: rgb(58, 95, 125, .9);
+    border-radius: 5px;
+    border: 1px solid rgb(173, 96, 68);
+    padding: 2%;
+    margin-top: 2%;
+    transition: ease .25s;
+}
+
+.login-button:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
+}

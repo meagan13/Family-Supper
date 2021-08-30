@@ -10,16 +10,17 @@ const EditRecipeForm = (recipe) => {
 
     // console.log("recipes state test:", recipes?.author)
     // console.log("Recipe passed to form:", recipe)
+    // console.log("Recipe title:", recipe?.recipe.title)
 
     const dispatch=useDispatch();
     const history = useHistory();
 
-    const [title, setTitle] = useState();
-    const [author, setAuthor] = useState();
-    const [description, setDescription] = useState();
-    const [food_img, setFood_img] = useState();
-    const [card_img, setCard_img] = useState();
-    const [category_id, setCategory_id] = useState();
+    const [title, setTitle] = useState(recipe.recipe.title);
+    const [author, setAuthor] = useState(recipe.recipe.author);
+    const [description, setDescription] = useState(recipe.recipe.description);
+    const [food_img, setFood_img] = useState(recipe.recipe.food_img);
+    const [card_img, setCard_img] = useState(recipe.recipe.card_img);
+    const [category_id, setCategory_id] = useState(recipe.recipe.category_id);
 
     const createEdTitle = (e) => setTitle(e.target.value);
     const createEdAuthor = (e) => setAuthor(e.target.value);
@@ -62,31 +63,31 @@ const EditRecipeForm = (recipe) => {
             <form className='recipe-form' onSubmit={handleEditSubmit}>
                 <div>
                     <label className="edit-recipe edit-recipe-title">Edit Recipe Title
-                        <input type="text" value={recipe.title} onChange={createEdTitle}/>
+                        <input type="text" value={title} onChange={createEdTitle}/>
                     </label>
                 </div>
 
                 <div>
                     <label className="edit-recipe edit-recipe-author">Edit Author
-                        <input type="text" value={recipe.author} onChange={createEdAuthor} />
+                        <input type="text" value={author} onChange={createEdAuthor} />
                     </label>
                 </div>
 
                 <div>
                     <label className="edit-recipe edit-recipe-description">Edit Description
-                        <input type="text" value={recipe.description} onChange={createEdDescription} />
+                        <input type="text" value={description} onChange={createEdDescription} />
                     </label>
                 </div>
 
                 <div>
                     <label className="edit-recipe edit-recipe-food_img">Edit Food Photo
-                        <input type="text" value={recipe.food_img} onChange={createEdFoodImg} />
+                        <input type="text" value={food_img} onChange={createEdFoodImg} />
                     </label>
                 </div>
 
                 <div>
                     <label className="edit-recipe edit-recipe-card_img">Edit Recipe Card Photo
-                        <input type="text" value={recipe.card_img} onChange={createEdCardImg} />
+                        <input type="text" value={card_img} onChange={createEdCardImg} />
                     </label>
                 </div>
 

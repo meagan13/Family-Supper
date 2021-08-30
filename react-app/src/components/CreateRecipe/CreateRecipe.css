@@ -1,6 +1,76 @@
-.recipe-info-div {
-    border: 2px solid black;
+.recipe-card-div {
+    /* margin-top: 4%; */
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.recipe-form {
+    width: 90%;
+}
+
+.recipe-form {
+    background-image: url(https://live.staticflickr.com/65535/51412298779_d602569205_o.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10% 31.5% 10% 31.5%;
+    object-fit: fill;
+}
+
+.title > input, .author > input, .description > input, .food-img > input, .card-img > input {
+    background-color: rgb(173, 96, 68);
+    /* background-color: rgb(58, 95, 125); */
+    border-radius: 5%;
+    border: none;
+    padding: 2% 35% 2% 2%;
+
+}
+
+::placeholder {
+    /* color: rgb(58, 95, 125); */
+    color: rgba(255, 228, 196, 0.733);
+    font-size: 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.input-div {
+    padding: 2%;
+}
+
+.category-content-div select {
+    padding: 2% 35% 2% 2%;
+    border-radius: 3px;
+    background-color: rgb(173, 96, 68);
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba(255, 228, 196, 0.733);
+    font-size: 16px;
+}
+
+.category-content-div select option {
+    background-color: rgb(173, 96, 68,.3);
+}
+
+.recipe-submit-button {
+    float: right;
+    background-color: rgb(58, 95, 125, .9);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    padding: 2%;
+    margin-top: 2%;
+    transition: ease .25s;
+    font-size: 16px;
+}
+
+.recipe-submit-button:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
 }

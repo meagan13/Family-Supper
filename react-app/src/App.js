@@ -11,12 +11,15 @@ import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/Profile/User';
+// import Modal from './components/Modal/Modal';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
 import Footer from './components/Footer/Footer';
 import { authenticate } from './store/session';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  // const [show, setShow] = useState(false);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +36,10 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      {/* <button onClick={() => setShow(true)}>Show Modal</button>
+      <Modal title="My Modal" onClose={() => setShow(false)} onSubmit={() => setShow(false)} show={show}>
+        <p>Sign Up</p>
+      </Modal> */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

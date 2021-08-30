@@ -4,9 +4,13 @@ h2, h3, p {
 }
 
 .footer-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 2%;
     border: 1px solid black;
     margin-top: 1%;
+    background-color: rgb(58, 95, 125);
 }
 
 .github-icon {
@@ -17,7 +21,7 @@ h2, h3, p {
 }
 
 .linkedin-icon {
-    height: 50px;
+    height: 47px;
     margin: 5px;
     /* -webkit-filter: drop-shadow(1px 1px 1px #000000); */
 
@@ -25,4 +29,31 @@ h2, h3, p {
 
 .logo-footer {
     height: 100px;
+    border-radius: 50%;
+}
+
+.meagan-name-text {
+    font-family: 'Playball', cursive;
+    font-size: 25px;
+    text-align: center;
+}
+
+.repo-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: .5s ease;
+    text-align: right;
+}
+
+.repo-text:hover {
+    transform: scale(1.05);
+}
+
+.acknowledge {
+    width: 25%;
+}
+
+.acknowledge-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-style: italic;
+    text-align: center;
 }
