@@ -138,6 +138,18 @@
 
 } */
 
+.login-to-share-memory-div {
+    border: 5px solid black;
+    display: flex;
+
+}
+
+.login-to-share-memory-text {
+    font-family: 'Playball', cursive;
+    font-size: 45px;
+    text-align: center;
+    padding: 2%;
+}
 
 .memory-scroll-div {
     display: flex;

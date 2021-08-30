@@ -97,9 +97,9 @@ function RecipeView() {
 
     } else {
         sessionMemory = (
-            <>
-                <h3>Log in to share a memory of this dish.</h3>
-            </>
+            <div className="login-to-share-memory-div">
+                <h3 className="login-to-share-memory-text">Log in to share a memory of this dish.</h3>
+            </div>
         )
     }
 
