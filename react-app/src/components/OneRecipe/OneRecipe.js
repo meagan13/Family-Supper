@@ -146,15 +146,8 @@ function RecipeView() {
                     </div>
                 ))}
             </div> */}
-
-            { sessionMemory }
-            <div>
-                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
-                    { userRecipeOptions(sessionUser, recipe)}
-
-                })} */}
-                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
-                { userRecipeOptions(sessionUser, currentRecipe)}
+            <div className="session-memory-div">
+                { sessionMemory }
             </div>
 
             <div className="memory-scroll-div">
@@ -166,7 +159,14 @@ function RecipeView() {
                 ))}
             </div>
 
+            <div>
+                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
+                    { userRecipeOptions(sessionUser, recipe)}
 
+                })} */}
+                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
+                { userRecipeOptions(sessionUser, currentRecipe)}
+            </div>
         </div>
     )
 }

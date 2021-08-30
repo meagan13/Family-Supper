@@ -30,12 +30,16 @@ const AddMemory = () => {
 
     return (
         <div className="add-memory-form-div">
-            <form className="memory-form" onSubmit={handleSubmit}>
-                <label className="memory-text-label">
-                    <input className="memory-text" type="text" onChange={createText} value={memory_text} placeholder="Share a memory of this dish!" />
-                </label>
+            <form className="add-memory-form" onSubmit={handleSubmit}>
+                <div className="add-memory-text-div">
+                    <label className="add-memory-text-label">
+                        <input className="memory-text" type="text" onChange={createText} value={memory_text} placeholder="Share a memory of this dish!" />
+                    </label>
+                </div>
 
-                <button className="memory-submit-button" type="submit">Share</button>
+                <div className="add-memory-button-div">
+                    <button className="memory-submit-button" type="submit">Share</button>
+                </div>
             </form>
 
         </div>
