@@ -54,7 +54,7 @@
     max-height: 250px;
     max-width: 250px;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     transition: .5s ease;
     object-fit: contain;
 
