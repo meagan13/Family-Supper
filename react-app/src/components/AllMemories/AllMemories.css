@@ -6,11 +6,11 @@
     /* max-width: 15%; */
     min-width: 100px;
     height: 300px;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .memory-div {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 90%;
     height: 90%;
     background-image: url("https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg");

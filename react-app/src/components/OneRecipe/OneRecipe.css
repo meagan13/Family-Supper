@@ -145,7 +145,7 @@
 }
 
 .memory-scroll-div {
-    background-color: green;
+    /* background-color: green; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -154,6 +154,10 @@
     margin-right: 5%;
     overflow: auto;
 
+}
+
+.memory-div {
+    padding-top: 5%;
 }
 
 .memory-scroll-div > .memories-div {
@@ -165,8 +169,10 @@
     width: 15%;
     min-width: 200px;
     height: 300px;
-    border: 6px solid red;
+    /* border: 6px solid red; */
     margin: .5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     background-color: rgb(173, 96, 68);
 }
 
