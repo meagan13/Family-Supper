@@ -17,9 +17,9 @@ const EditIngredientsForm = (recipe) => {
     const [ingredient_name, setIngredientName] = useState();
     // const [recipe_id, setRecipe_id] = useState();
 
-    const createAmt = (e) => setAmt(e.target.value);
-    const createMeasurement = (e) => setMeasurementId(e.target.value);
-    const createIngredient = (e) => setIngredientName(e.target.value);
+    const editAmt = (e) => setAmt(e.target.value);
+    const editMeasurement = (e) => setMeasurementId(e.target.value);
+    const editIngredient = (e) => setIngredientName(e.target.value);
     // const createRecipe_id = (e) => setRecipe_id(e.target.value);
 
     const handleIngredientEditSubmit = async(e) => {
@@ -34,9 +34,9 @@ const EditIngredientsForm = (recipe) => {
         }
 
         await dispatch(editIngredientThunk(editedIngredients))
-        createAmt("")
-        createMeasurement("")
-        createIngredient("")
+        editAmt("")
+        editMeasurement("")
+        editIngredient("")
         history.push(`/recipes/${ recipe.recipe.id }/`)
     }
 
@@ -45,13 +45,14 @@ const EditIngredientsForm = (recipe) => {
             <form className="edit-ingredient-form" onSubmit={handleIngredientEditSubmit}>
                 <div>
                     <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
-                        <input type="float" value={ingredients.amt} onChange={createAmt} />
+                        <input type="float" value={ingredients.amt} onChange={editAmt} />
                     </label>
                 </div>
 
                 <div>
                     <label className="edit-ingredients edit-ingredients-measurement_id">Edit Ingredient Unit of Measure
-                        <select className="unit-select-list" value={measurement_id} onChange={createMeasurement}>
+                        <select className="edit-unit-select-list" value={measurement_id} onChange={editMeasurement}>
+                            <option selected disabled hidden>Select a Unit of Measure</option>
                             <option value='1'>cup</option>
                             <option value='2'>tablespoon</option>
                             <option value='3'>teaspoon</option>
@@ -79,9 +80,11 @@ const EditIngredientsForm = (recipe) => {
 
                 <div>
                     <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Name
-                        <input type="text" value={ingredients.amt} onChange={createIngredient} />
+                        <input type="text" value={ingredients.amt} onChange={editIngredient} />
                     </label>
                 </div>
+
+                <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
 
             </form>
 

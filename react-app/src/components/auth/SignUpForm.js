@@ -17,8 +17,37 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    const errorData = [];
+
+    if(username === '') {
+      errorData.push("Please enter a username.")
+    }
+
+    if(!email.includes('@')) {
+      errorData.push("Please enter a valid email.")
+    }
+
+    if(imgUrl === '') {
+      errorData.push("Please include a user photo.")
+    }
+
+    if(bio === '') {
+      errorData.push("Please share a little about yourself.")
+    }
+
+    if(password === '') {
+      errorData.push('A password is required.')
+    }
+
+    if(password && password !== repeatPassword) {
+      errorData.push('Passwords do not match')
+    }
+
+    setErrors(errorData);
+    
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, imgUrl, bio, password, repeatPassword));
       if (data) {
         setErrors(data)
       }
@@ -68,11 +97,11 @@ const SignUpForm = () => {
             <h2 className="signup-form-title-text">Join the Family</h2>
           </div>
 
-          <div>
+          {/* <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
-          </div>
+          </div> */}
 
           <div className="signup-input-div">
             <label className="signup-text">User Name</label>
