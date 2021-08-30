@@ -9,6 +9,10 @@ function Memories({memoryObj}) {
             <div className="memory-div">
                 <p className="individual-memory-text">{memoryObj?.memory_text}</p>
             </div>
+
+            <label className="memory-user-label">
+                <p className="individual-memory-user-text">- {memoryObj.user_id}</p>
+            </label>
         </div>
     )
 

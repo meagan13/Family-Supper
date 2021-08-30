@@ -12,7 +12,6 @@
 .home-header-imgs {
     display: flex;
     justify-content: center;
-
 }
 
 .home-header-imgs img {
@@ -35,7 +34,6 @@
     font-family: 'Playball', cursive;
     font-size: 55px;
     text-align: center;
-
 }
 
 .all-recipes-div {
@@ -53,8 +51,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    height: 150px;
-    width: 150px;
+    max-height: 250px;
+    max-width: 250px;
     border-radius: 5px;
     margin-bottom: 5px;
     transition: .5s ease;
@@ -67,8 +65,8 @@
     /* flex-shrink: 0; */
     min-width: 100%;
     min-height: 100%;
-    /* object-fit: cover; */
-    object-fit: fill;
+    object-fit: cover;
+    /* object-fit: fill; */
     /* object-fit: none; */
     /* object-fit: contain; */
     /* object-fit: scale-down; */

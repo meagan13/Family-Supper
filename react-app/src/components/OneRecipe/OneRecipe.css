@@ -1,7 +1,3 @@
-.single-recipe-food-img, .single-recipe-card-img {
-    height: 200px;
-}
-
 .ingredients-list-div, .directions-list-div, .edit-and-delete-recipe-div {
     border: 1px solid black;
     margin: 10px;
@@ -51,20 +47,95 @@
 .recipe-photos-div {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    background-color: pink;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    transition: 1s ease;
 }
 
-.recipe-photos-div img {
+.one-recipe-food-img-div {
+    /* width: 45%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    max-height: 100%;
+}
+
+.card-img-div {
+    width: 80%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-recipe-food-img  {
+    width: 80%;
+    border-radius: 3px;
+    /* height: auto; */
+}
+
+.single-recipe-card-img {
+    width: 80%;
+    border-radius: 3px;
+}
+
+@supports(object-fit: cover) {
+    .food-img-div img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .card-img-div img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.card-img-div:hover, .one-recipe-food-img-div:hover {
+    transform: scale(1.25);
+    height: 100%;
+}
+
+
+/* .single-recipe-food-img {
+    margin-left: 20%;
+    height: 100%;
+    width: 100%;
+    border: 5px solid black;
+} */
+
+/* .card-img-div {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .single-recipe-card-img {
+    margin-right: 20%;
     border-radius: 5%;
-    width: 40%;
-    height: 40%;
-    /* margin-left: 10%;
-    margin-right: 10%; */
-    /* margin-left: 15px;
-    margin-right: 15px; */
-}
+    /* width: 20%; */
+    /* height: 80%; */
+    /* width: 100%;
+    height:100%;
+    transition: ease 1s; */
+*/
 
-.test-test-div {
+/* .single-recipe-card-img:hover, .single-recipe-food-img:hover {
+    transform: scale(1.5);
+    border: 5px solid black;
+
+} */
+
+
+.memory-scroll-div {
     display: flex;
     margin-left: 5%;
     margin-right: 5%;
@@ -83,7 +154,7 @@ div > .memories-div {
     width: 15%;
     min-width: 200px;
     height: 300px;
-    /* border: 6px solid red; */
+    border: 6px solid red;
     margin: .5%;
     background-color: rgb(173, 96, 68);
 }

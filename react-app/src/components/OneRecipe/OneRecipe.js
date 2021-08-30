@@ -104,7 +104,7 @@ function RecipeView() {
     }
 
     return (
-        <>
+        <div className="one-recipe-view-div">
             <div className="recipe-heading-div">
                 <div className="recipe-title-div">
                     <h1 className="recipe-title-text">{ currentRecipe?.title }</h1>
@@ -120,8 +120,13 @@ function RecipeView() {
             </div>
 
             <div className="recipe-photos-div">
-                <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
-                <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
+                <div className="one-recipe-food-img-div">
+                    <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
+                </div>
+
+                <div className="card-img-div">
+                    <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
+                </div>
             </div>
 
             {/* <div className="ingredients-list-div">
@@ -152,7 +157,7 @@ function RecipeView() {
                 { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
-            <div className="test-test-div">
+            <div className="memory-scroll-div">
                 { memories && Object.values(memories).map(memory => (
                     <div id="one-recipe-all-memories" className="memories-div" id={memory.id}>
                         <Memories memoryObj={ memory }/>
@@ -162,7 +167,7 @@ function RecipeView() {
             </div>
 
 
-        </>
+        </div>
     )
 }
 

@@ -1,7 +1,7 @@
-.memory-form-div {
+.add-memory-form-div {
     flex-direction: row;
-    /* border: 1px solid black; */
-    margin-left: 10%;
+    border: 1px solid black;
+    /* margin-left: 10%; */
     padding: 10px;
     max-width: 300px;
 }
