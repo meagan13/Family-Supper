@@ -42,7 +42,7 @@ const LoginForm = () => {
           </div>
 
           <div className="login-form-title">
-            <h2 className="login-form-title-text">Login to Family Supper</h2>
+            <h2 className="login-form-title-text">Welcome home!</h2>
           </div>
 
           <div className="login-input-div">
