@@ -149,9 +149,10 @@ export default function recipes(state = initialState, action) {
             return newState;
         }
         case ADD_INGREDIENT: {
-            newState = {...state};
-            newState.ingredients.push(action.ingredient);
-            return newState;
+            return {
+                ...state,
+                [action.ingredient.id]: action.ingredient
+            }
         }
         case ADD_RECIPE:{
             return {

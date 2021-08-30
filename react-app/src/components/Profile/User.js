@@ -1,12 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getMemories } from '../../store/memory';
+import { getRecipes } from '../../store/recipe';
 import './User.css'
 
 function User() {
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
   const { userId }  = useParams();
 
+  const recipes = useSelector(state => state?.recipes)
+  const recipesArr = Object.values(recipes)
+
+  const memories = useSelector(state => state?.memories)
+  const memoriesArr = Object.values(memories)
+
+  const [user, setUser] = useState({});
+
+  const myRecipes = recipesArr.filter(recipe => recipe && recipe?.user_id === userId)
+
+  console.log("memories state:", memories)
+  console.log("memories array:", memoriesArr)
+  console.log("user id from useParams:", userId)
+  console.log("My recipes:", myRecipes)
+  console.log("recipes in profile:", recipes)
+  console.log("recipes array:", recipesArr)
+
   useEffect(() => {
+    dispatch(getRecipes())
+    dispatch(getMemories())
     if (!userId) {
       return;
     }
@@ -15,7 +37,7 @@ function User() {
       const user = await response.json();
       setUser(user);
     })();
-  }, [userId]);
+  }, [dispatch, userId]);
 
   if (!user) {
     return null;
@@ -51,11 +73,19 @@ function User() {
 
         <div className="user-content-div">
           <div className="user-recipes-div">
-            ADD RECIPES HERE
+            { recipesArr?.map(recipe => (
+              <div className="user-recipes-div" id={recipe?.id}>
+                {recipe?.user_id} { userId } {recipe?.title}
+              </div>
+            ))}
           </div>
 
           <div className="user-memories-div">
-            ADD MEMORIES HERE
+            { recipesArr?.map(recipe => (
+              <div className="user-recipes-div" id={recipe?.id}>
+                {recipe?.id?.memories} { userId }
+              </div>
+            ))}
           </div>
         </div>
         {/* <div className="user-recipes-content">

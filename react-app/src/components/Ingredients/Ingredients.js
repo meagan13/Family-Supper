@@ -1,15 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import recipes, { createIngredientThunk } from '../../store/recipe';
+import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
-const AddIngredientForm = (recipe) => {
-    const sessionUser = useSelector(state => state.session.user)
-    const recipeInfo = useSelector((state) => state?.recipes)
+const AddIngredientForm = (recipeInfo) => {
+    const sessionUser = useSelector(state => state?.session.user)
+    const allRecipes = useSelector((state) => state?.recipes)
+
     const dispatch = useDispatch();
 
+    console.log('recipes in add ingredient form:', allRecipes)
+    console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
+    console.log("Check amount:", allRecipes[1].amt)
+
     const [errors, setErrors] = useState([]);
-    const [amt, setAmt] = useState(0);
+    const [amt, setAmt] = useState(1.0);
     const [measurement_id, setMeasurementId] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
     // const [recipeId, setRecipeId] = useState();
@@ -35,7 +40,7 @@ const AddIngredientForm = (recipe) => {
                 amt,
                 measurement_id,
                 ingredient_name,
-                recipeId: recipe.id
+                recipe_id: recipeInfo.id
             }
 
             console.log("addIngredient payload:", addIngredient)
