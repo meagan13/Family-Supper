@@ -114,9 +114,19 @@ export default function ingredients(state = initialState, action) {
     let newState;
     switch (action.type) {
         case ADD_INGREDIENT: {
+            console.log("Action.ingredient:", action.ingredient)
+            console.log("ingredients from reducer:", ingredients)
             return {
                 ...state,
-                [action.ingredient.id]: action.ingredient
+                [action.ingredient.recipe_id]: {
+                    ...state[action.ingredient.recipe_id],
+                    // ingredients:[action.ingredient]
+                    // ingredients: [...state[action.ingredient.recipe_id], action.ingredient.id]
+                    // ingredients: [ ...state[action.ingredient.recipe_id], action.ingredient]
+                    // ingredients: ["string of random text"]
+                    ingredients:[ingredients.push(action.ingredient)]
+
+                }
             }
         }
         case EDIT_INGREDIENT: {

@@ -20,3 +20,7 @@ class Ingredient(db.Model):
             'ingredient_name': self.ingredient_name,
             'recipe_id': self.recipe_id,
         }
+
+    # def get_recipe_ingredients(self) {
+    #     return self.recipe_id.
+    # }

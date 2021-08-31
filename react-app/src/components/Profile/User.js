@@ -10,21 +10,22 @@ function User() {
   const { userId }  = useParams();
 
   const recipes = useSelector(state => state?.recipes)
-  const recipesArr = Object.values(recipes)
+  const recipesArr = Object.values(useSelector(state => state?.recipes))
 
   const memories = useSelector(state => state?.memories)
   const memoriesArr = Object.values(memories)
 
   const [user, setUser] = useState({});
 
-  const myRecipes = recipesArr.filter(recipe => recipe && recipe?.user_id === userId)
+  console.log("User - recipes:", recipes)
+  console.log("User - recipesArr:", recipesArr)
 
-  console.log("memories state:", memories)
-  console.log("memories array:", memoriesArr)
-  console.log("user id from useParams:", userId)
-  console.log("My recipes:", myRecipes)
-  console.log("recipes in profile:", recipes)
-  console.log("recipes array:", recipesArr)
+  // console.log("memories state:", memories)
+  // console.log("memories array:", memoriesArr)
+  // console.log("user id from useParams:", userId)
+
+  // console.log("recipes in profile:", recipes)
+  // console.log("recipes array:", recipesArr)
 
   useEffect(() => {
     dispatch(getRecipes())
@@ -42,6 +43,9 @@ function User() {
   if (!user) {
     return null;
   }
+
+  const myRecipes = recipesArr.filter(recipe => recipe && recipe?.user_id === userId)
+  console.log("User - My recipes:", myRecipes)
 
   return (
 
