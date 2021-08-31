@@ -9,6 +9,7 @@ const CreateDirections = (recipeInfo) => {
 
     const dispatch = useDispatch();
 
+    const [errors, setErrors] = useState([]);
     const [step_number, setStep_number] = useState(0);
     // const [recipe_id, setRecipeId] = useState();
     const [instruction, setInstruction] = useState('');
@@ -16,19 +17,40 @@ const CreateDirections = (recipeInfo) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        const errorData = [];
 
-        const directions = {
-            step_number,
-            instruction,
-            recipe_id: recipeInfo?.recipe.id,
+        if(step_number <= 0) {
+            errorData.push("Please add a direction step number.")
         }
 
-        await dispatch(createDirectionThunk(directions))
+        if(instruction === '') {
+            errorData.push("Please include a direction/step.")
+        }
+
+        setErrors(errorData);
+
+        if(errorData.length === 0) {
+            const directions = {
+                step_number,
+                instruction,
+                recipe_id: recipeInfo?.recipe.id,
+            }
+
+            await dispatch(createDirectionThunk(directions))
+            setStep_number(0);
+            setInstruction('');
+        }
     }
 
     return (
         <div className="create-directions-div">
             <form className="create-directions-form" onSubmit={handleSubmit}>
+
+                <div className="create-direction-errors-div">
+                    {errors.map((error, i) => (
+                    <div key={i}>{error}</div>
+                    ))}
+                </div>
 
                 <div className="create-directions-intro-div">
                     <h1 className="create-directions-intro-text">Add directions</h1>

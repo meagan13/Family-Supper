@@ -114,19 +114,22 @@ export default function ingredients(state = initialState, action) {
     let newState;
     switch (action.type) {
         case ADD_INGREDIENT: {
-            console.log("Action.ingredient:", action.ingredient)
-            console.log("ingredients from reducer:", ingredients)
+            // console.log("Action.ingredient:", action.ingredient)
+            // console.log("ingredients from reducer:", action.ingredients)
             return {
+                // ...state, ...action.ingredients //Ed's add reducer, for me adds an ingredient as a recipe, doesn't work
                 ...state,
-                [action.ingredient.recipe_id]: {
-                    ...state[action.ingredient.recipe_id],
-                    // ingredients:[action.ingredient]
-                    // ingredients: [...state[action.ingredient.recipe_id], action.ingredient.id]
-                    // ingredients: [ ...state[action.ingredient.recipe_id], action.ingredient]
-                    // ingredients: ["string of random text"]
-                    ingredients:[ingredients.push(action.ingredient)]
+                [action.ingredient.recipe_id]: action.ingredient
+                // {
+                //     // ...state[action.ingredient.recipe_id],
+                //     // ingredients:[action.ingredient]
+                //     // ingredients: [...state[action.ingredient.recipe_id], action.ingredient.id]
+                //     // ingredients: [ ...state[action.ingredient.recipe_id], action.ingredient]
+                //     // ingredients: ["string of random text"]
+                //     // ingredients:[ingredients.push(action.ingredient)] //this one kind of works
+                //     ingredients:[...state[action.ingredient], ...action.ingredient]
 
-                }
+                // }
             }
         }
         case EDIT_INGREDIENT: {
