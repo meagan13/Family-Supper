@@ -183,6 +183,8 @@ const CreateRecipe = () => {
 
     let createRecipeDOM = (
         <>
+            {/* ADD ERROR HANDLING */}
+
             {(stage === 1 && formDOM)}
             {(stage === 2 && <AddIngredientForm recipe={ recipeInfo }/>)}
             {(stage === 3 && <CreateDirections recipe={ recipeInfo } />)}
