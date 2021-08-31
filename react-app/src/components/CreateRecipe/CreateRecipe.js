@@ -15,7 +15,7 @@ const CreateRecipe = () => {
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
-    console.log("All recipes array in CreateRecipe component", allRecipes)
+    // console.log("All recipes array in CreateRecipe component", allRecipes)
     console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();

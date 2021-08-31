@@ -93,13 +93,13 @@ export const editDirectionThunk = (direction) => async(dispatch) => {
 }
 
 export const deleteDirectionThunk = (id) => async(dispatch) => {
-    console.log("in direction thunk:", id)
+    // console.log("in direction thunk:", id)
     const res = await fetch(`/api/direction/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedDirection = await res.json();
-        console.log("deleted direction:", deletedDirection)
+        // console.log("deleted direction:", deletedDirection)
         dispatch(deleteDirection(deletedDirection.id));
     }
     return res;
@@ -117,7 +117,7 @@ export default function directions(state = initialState, action) {
             }
         }
         case EDIT_DIRECTION: {
-            console.log("Action.direction", action.direction)
+            // console.log("Action.direction", action.direction)
             // newState = { ...state}
             return {
                 ...state,

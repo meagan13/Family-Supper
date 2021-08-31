@@ -63,7 +63,7 @@ export const getIngredientsByRecipeThunk = (recipeId) => async(dispatch) => {
 }
 
 export const createIngredientThunk = ingredient => async (dispatch) => {
-    console.log("ingredient in create thunk:", ingredient)
+    // console.log("ingredient in create thunk:", ingredient)
 
     const response = await fetch(`/api/ingredient/`, {
         method: "POST",
@@ -74,7 +74,7 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
     })
     if (response.ok) {
         const newIngredient = await response.json();
-        console.log("new ingredient:", newIngredient)
+        // console.log("new ingredient:", newIngredient)
         dispatch(addIngredient(newIngredient))
     }
     return response
@@ -96,13 +96,13 @@ export const editIngredientThunk = (ingredient) => async(dispatch) => {
 }
 
 export const deleteIngredientThunk = (id) => async(dispatch) => {
-    console.log("in ingredient thunk:", id)
+    // console.log("in ingredient thunk:", id)
     const res = await fetch(`/api/ingredient/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedIngredient = await res.json();
-        console.log("deleted ingredient:", deletedIngredient)
+        // console.log("deleted ingredient:", deletedIngredient)
         dispatch(deleteIngredient(deletedIngredient.id));
     }
     return res;
@@ -133,7 +133,7 @@ export default function ingredients(state = initialState, action) {
             }
         }
         case EDIT_INGREDIENT: {
-            console.log("Action.ingredient", action.ingredient)
+            // console.log("Action.ingredient", action.ingredient)
             // newState = { ...state}
             return {
                 ...state,

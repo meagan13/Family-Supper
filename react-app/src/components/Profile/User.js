@@ -17,8 +17,8 @@ function User() {
 
   const [user, setUser] = useState({});
 
-  console.log("User - recipes:", recipes)
-  console.log("User - recipesArr:", recipesArr)
+  // console.log("User - recipes:", recipes)
+  // console.log("User - recipesArr:", recipesArr)
 
   // console.log("memories state:", memories)
   // console.log("memories array:", memoriesArr)
@@ -45,7 +45,7 @@ function User() {
   }
 
   const myRecipes = recipesArr.filter(recipe => recipe && recipe?.user_id === userId)
-  console.log("User - My recipes:", myRecipes)
+  // console.log("User - My recipes:", myRecipes)
 
   return (
 

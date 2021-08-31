@@ -5,13 +5,13 @@ import './AllMemories.css'
 
 function Memories({memoryObj}) {
 
-    console.log("AllMemories memoryObj:", memoryObj)
+    // console.log("AllMemories memoryObj:", memoryObj)
 
     const currentRecipe = useSelector(state => state?.recipes)
     const users = useSelector((state) => state?.users)
 
-    console.log("users from memories:", users)
-    console.log("currentRecipe from AllMemories:", currentRecipe)
+    // console.log("users from memories:", users)
+    // console.log("currentRecipe from AllMemories:", currentRecipe)
 
     return (
         <div className="all-memories-div">

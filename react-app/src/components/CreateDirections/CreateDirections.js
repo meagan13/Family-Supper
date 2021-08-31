@@ -3,11 +3,18 @@ import { useState } from 'react';
 import { createDirectionThunk } from '../../store/direction';
 import './CreateDirections.css'
 
-const CreateDirections = (recipeInfo) => {
+
+
+const CreateDirections = ({recipe}) => {
     const sessionUser = useSelector(state => state?.session.user)
     const allRecipes = useSelector((state) => state?.recipes)
+    const directions = useSelector((state) => state?.directions)
 
     const dispatch = useDispatch();
+
+    console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
+    console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
+    console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
 
     const [errors, setErrors] = useState([]);
     const [step_number, setStep_number] = useState(0);
@@ -33,7 +40,7 @@ const CreateDirections = (recipeInfo) => {
             const directions = {
                 step_number,
                 instruction,
-                recipe_id: recipeInfo?.recipe.id,
+                recipe_id: recipe.id,
             }
 
             await dispatch(createDirectionThunk(directions))
@@ -60,13 +67,13 @@ const CreateDirections = (recipeInfo) => {
                 <div className="create-step-div input-div">
                     <div>
                         <label className="step-number input-div">
-                            <input className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
+                            <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
                         </label>
                     </div>
 
                     <div className="create-directions-text-div">
                         <label className="directions-label">
-                            <input type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
+                            <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
                         </label>
                     </div>
                 </div>

@@ -85,7 +85,7 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
 // }
 
 export const createRecipeThunk = (recipe) => async(dispatch) => {
-    console.log("INSIDE the createRecipeThunk", recipe)
+    // console.log("INSIDE the createRecipeThunk", recipe)
     const response = await fetch('/api/recipe/', {
         method: "POST",
         headers: {
@@ -101,7 +101,7 @@ export const createRecipeThunk = (recipe) => async(dispatch) => {
 }
 
 export const editRecipeThunk = (recipe) => async(dispatch) => {
-    console.log("Recipe sent to thunk", recipe)
+    // console.log("Recipe sent to thunk", recipe)
     const res = await fetch(`/api/recipe/${ recipe.id }/`, {
         method: "PUT",
         headers: {
@@ -112,20 +112,20 @@ export const editRecipeThunk = (recipe) => async(dispatch) => {
 
     if(res.ok) {
         const editedRecipe = await res.json();
-        console.log("check editReceipe var:", editedRecipe)
+        // console.log("check editReceipe var:", editedRecipe)
         dispatch(editRecipe(editedRecipe));
     }
     return res;
 }
 
 export const deleteRecipeThunk = (id) => async(dispatch) => {
-    console.log("in delete thunk:", id)
+    // console.log("in delete thunk:", id)
     const res = await fetch(`/api/recipe/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedRecipe = await res.json();
-        console.log("deleted recipe:", deletedRecipe)
+        // console.log("deleted recipe:", deletedRecipe)
         dispatch(deleteRecipe(deletedRecipe.id));
     }
     return res;
@@ -162,7 +162,7 @@ export default function recipes(state = initialState, action) {
         }
         case EDIT_RECIPE: {
 
-            console.log("Action.recipe:", action.recipe)
+            // console.log("Action.recipe:", action.recipe)
             return {
                 ...state,
                 ...action.recipe

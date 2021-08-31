@@ -93,13 +93,13 @@ export const editMemoryThunk = (memory) => async(dispatch) => {
 }
 
 export const deleteMemoryThunk = (id) => async(dispatch) => {
-    console.log("in delete thunk:", id)
+    // console.log("in delete thunk:", id)
     const res = await fetch(`/api/memory/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedMemory = await res.json();
-        console.log("deleted memory:", deletedMemory)
+        // console.log("deleted memory:", deletedMemory)
         dispatch(deleteMemory(deletedMemory.id));
     }
     return res;
