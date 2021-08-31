@@ -1,5 +1,5 @@
 .ingredient-form-div {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 95%;
     display: flex;
     justify-content: center;
@@ -37,12 +37,19 @@
     object-fit: fill;
 }
 
+.amt-number {
+    font-family: 'Noto Sans JP', sans-serif;
+
+
+}
 .amt-number > input, .ingredient > input {
     background-color: rgb(173, 96, 68);
     /* background-color: rgb(58, 95, 125); */
     border-radius: 5%;
     border: none;
     padding: 2% 35% 2% 2%;
+    color: rgba(255, 228, 196, 0.733);
+
 }
 
 ::placeholder {

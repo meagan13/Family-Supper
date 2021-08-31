@@ -28,14 +28,26 @@ const CreateDirections = (recipeInfo) => {
 
     return (
         <div className="create-directions-div">
-            <form className="directions-form" onSubmit={handleSubmit}>
-                <label className="step-number">
-                    <input type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Instruction step number:"/>
-                </label>
+            <form className="create-directions-form" onSubmit={handleSubmit}>
 
-                <label>
-                    <input type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Add instruction step:" />
-                </label>
+                <div className="create-directions-intro-div">
+                    <h1 className="create-directions-intro-text">Add directions</h1>
+                    <h3 className='create-directions-instruct-text'>One step at a time!</h3>
+                </div>
+
+                <div className="create-step-div input-div">
+                    <div>
+                        <label className="step-number input-div">
+                            <input className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
+                        </label>
+                    </div>
+
+                    <div className="create-directions-text-div">
+                        <label className="directions-label">
+                            <input type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
+                        </label>
+                    </div>
+                </div>
 
                 <button className="direction-submit-button" type="submit">Add Direction</button>
 

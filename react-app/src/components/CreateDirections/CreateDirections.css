@@ -1,6 +1,107 @@
 .create-directions-div {
     border: 2px solid black;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.create-directions-intro-text {
+    font-family: 'Playball', cursive;
+    font-size: 50px;
+    padding: 0;
+    margin:0;
+}
+
+.create-directions-instruct-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 3%;
+    margin:0;
+}
+
+.create-directions-form {
+    width: 90%;
+}
+
+.create-directions-form {
+    background-image: url(https://live.staticflickr.com/65535/51412298779_d602569205_o.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10% 31.5% 10% 31.5%;
+    object-fit: fill;
+}
+
+.create-step-div {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+
+.step-number > input, .directions-label > input {
+    background-color: rgb(173, 96, 68);
+    /* background-color: rgb(58, 95, 125); */
+    border-radius: 5%;
+    border: none;
+    /* padding: 2% 35% 2% 2%; */
+    color: rgba(255, 228, 196, 0.6);
+    font-size: 16px;
+}
+
+.step-number {
+    width: 10%;
+    min-width: 15px;
+    /* border: 5px solid purple; */
+}
+
+.directions-label {
+    /* border: 5px solid red; */
+    width: 90%;
+    text-align: left;
+}
+
+.create-directions-text-div {
+    width: 100%;
+}
+
+.step-number > .step-input {
+    padding: 2%;
+    width: 25%;
+    min-width: 15px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.directions-label > input{
+    padding: 2%;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.direction-submit-button {
+    float: right;
+    background-color: rgb(58, 95, 125, .9);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    padding: 2%;
+    margin-top: 2%;
+    transition: ease .25s;
+    font-size: 16px;
+}
+
+.direction-submit-button:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
 }
