@@ -3,12 +3,20 @@ import { useState } from 'react';
 import { createDirectionThunk } from '../../store/direction';
 import './CreateDirections.css'
 
-const CreateDirections = (recipeInfo) => {
+
+
+const CreateDirections = ({recipe}) => {
     const sessionUser = useSelector(state => state?.session.user)
     const allRecipes = useSelector((state) => state?.recipes)
+    const directions = useSelector((state) => state?.directions)
 
     const dispatch = useDispatch();
 
+    console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
+    console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
+    console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
+
+    const [errors, setErrors] = useState([]);
     const [step_number, setStep_number] = useState(0);
     // const [recipe_id, setRecipeId] = useState();
     const [instruction, setInstruction] = useState('');
@@ -16,19 +24,40 @@ const CreateDirections = (recipeInfo) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
+        const errorData = [];
 
-        const directions = {
-            step_number,
-            instruction,
-            recipe_id: recipeInfo?.recipe.id,
+        if(step_number <= 0) {
+            errorData.push("Please add a direction step number.")
         }
 
-        await dispatch(createDirectionThunk(directions))
+        if(instruction === '') {
+            errorData.push("Please include a direction/step.")
+        }
+
+        setErrors(errorData);
+
+        if(errorData.length === 0) {
+            const directions = {
+                step_number,
+                instruction,
+                recipe_id: recipe.id,
+            }
+
+            await dispatch(createDirectionThunk(directions))
+            setStep_number(0);
+            setInstruction('');
+        }
     }
 
     return (
         <div className="create-directions-div">
             <form className="create-directions-form" onSubmit={handleSubmit}>
+
+                <div className="create-direction-errors-div">
+                    {errors.map((error, i) => (
+                    <div key={i}>{error}</div>
+                    ))}
+                </div>
 
                 <div className="create-directions-intro-div">
                     <h1 className="create-directions-intro-text">Add directions</h1>
@@ -38,13 +67,13 @@ const CreateDirections = (recipeInfo) => {
                 <div className="create-step-div input-div">
                     <div>
                         <label className="step-number input-div">
-                            <input className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
+                            <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
                         </label>
                     </div>
 
                     <div className="create-directions-text-div">
                         <label className="directions-label">
-                            <input type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
+                            <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
                         </label>
                     </div>
                 </div>

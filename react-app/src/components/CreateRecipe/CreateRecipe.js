@@ -11,10 +11,12 @@ import './CreateRecipe.css'
 
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
+    const allRecipes = useSelector(state => Object.values(state?.recipes))
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
-    // console.log("recipeInfo:", recipeInfo)
+    // console.log("All recipes array in CreateRecipe component", allRecipes)
+    console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -192,18 +194,10 @@ const CreateRecipe = () => {
             {(stage === 5 && <Redirect to='/'/> )}
             {/* {formDOM} */}
             {stage < 4 && <button className="next-button" onClick={nextStage}>Next</button>}
-            {/* {stage > 1 && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
+            {stage > 1 && <button className="previous-button" onClick={previousStage}>Previous</button>}
             {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
         </>
     )
-
-    // if(stage === 2) {
-    //     formDOM = <AddIngredientForm recipe={ recipeInfo }
-    // }
-
-    // if(stage === 3) {
-    //     formDOM = <CreateDirections recipe={ recipeInfo } />
-    // }
 
     return (
         <div className="recipe-card-div">
