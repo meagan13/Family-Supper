@@ -74,6 +74,11 @@ function PreviewRecipe(recipeInfo) {
         history.push("/")
     }
 
+    const handleHome = async(e) => {
+        e.preventDefault();
+
+        history.push('/');
+    }
 
     function userMemoryOptions(sessionUser, memory) {
         if (sessionUser && (sessionUser?.id === memory?.user_id)) {
@@ -118,6 +123,9 @@ function PreviewRecipe(recipeInfo) {
     return (
         <>
             <div className="preview-div">
+                <div className="recipe-added-message-div">
+                    <h1 className="recipe-added-message-text">Your recipe has been added!</h1>
+                </div>
 
                 <div className="preview-title-div">
                     <h1>{ recipeInfo && recipeInfo?.recipe.title }</h1>
@@ -143,8 +151,9 @@ function PreviewRecipe(recipeInfo) {
                 </div>
 
                 <div>
-                    <h3>Click next to complete your recipe submission.</h3>
-                    <p>Click previous to review your submission first.</p>
+                    <button className="return-home-button" onClick={handleHome}>Close</button>
+                    {/* <h3>Click next to complete your recipe submission.</h3>
+                    <p>Click previous to review your submission first.</p> */}
                 </div>
 
             </div>
