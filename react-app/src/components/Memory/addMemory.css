@@ -17,13 +17,14 @@
     max-width: 300px; */
 }
 .session-memory-div {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     /* border: 3px solid green; */
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 1%;
     background-color: rgb(173, 96, 68);
 }

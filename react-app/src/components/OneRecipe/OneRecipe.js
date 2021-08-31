@@ -88,7 +88,7 @@ function RecipeView({recipeInfo}) {
                 <div className="edit-and-delete-recipe-div">
                     <EditRecipeForm recipe={ currentRecipe } />
                     {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
-                    <button className="edit-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
+                    <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
                 </div>
             )
         }
@@ -98,8 +98,6 @@ function RecipeView({recipeInfo}) {
         sessionMemory = (
             <>
                 <AddMemory />
-                {/* <AddIngredientForm />
-                <CreateDirections /> */}
             </>
         )
 
@@ -154,7 +152,9 @@ function RecipeView({recipeInfo}) {
                     </div>
                 ))}
             </div> */}
+
             <div className="session-memory-div">
+                { userRecipeOptions(sessionUser, currentRecipe)}
                 { sessionMemory }
             </div>
 
@@ -173,7 +173,7 @@ function RecipeView({recipeInfo}) {
 
                 })} */}
                 {/* <EditRecipeForm recipe={ currentRecipe }/> */}
-                { userRecipeOptions(sessionUser, currentRecipe)}
+                {/* { userRecipeOptions(sessionUser, currentRecipe)} */}
             </div>
         </div>
     )

@@ -121,6 +121,11 @@ const CreateRecipe = () => {
             ))}
         </div>
 
+        <div className="create-recipe-template-intro-div">
+            <h1 className="create-recipe-template-intro-text">Let's get started!</h1>
+            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information:</h3>
+        </div>
+
         <div className="recipe-info-div">
             <div className="title-div input-div">
                 <label className="title">
@@ -157,7 +162,7 @@ const CreateRecipe = () => {
                     {/* <button className="category-dropdown-button">Recipe Category</button> */}
                     {/* <label>Recipe Category</label> */}
                     <div className="category-content-div">
-                        <select id="select" className="category-select-list" value={category_id} onChange={createCategory_id}>
+                        <select id="create-recipe-select" className="category-select-list" value={category_id} onChange={createCategory_id}>
                             <option selected disabled hidden>Select a Recipe Category</option>
                             <option className="test" value='1'>Soups</option>
                             <option className="test" value='2'>Salads</option>

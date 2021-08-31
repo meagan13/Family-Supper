@@ -89,7 +89,7 @@ const EditRecipeForm = (recipe) => {
 
     return (
         <div className='edit-recipe-form-div'>
-            <form className='recipe-form' onSubmit={handleEditSubmit}>
+            <form className='edit-recipe-form' onSubmit={handleEditSubmit}>
                 <div className="edit-recipe-errors-div">
                     {errors.map((error, i) => (
                     <div key={i}>{error}</div>
@@ -127,20 +127,21 @@ const EditRecipeForm = (recipe) => {
                 </div>
 
                 <div>
-                        <label>Recipe Category</label>
-                        {/* <div className="recipe-category-list"> */}
-                            <select className="category-select-list" value={category_id} onChange={createEdCategory_id}>
-                                <option value='1'>Soups</option>
-                                <option value='2'>Salads</option>
-                                <option value='3'>Appetizers</option>
-                                <option value='4'>Cookies</option>
-                                <option value='5'>Cakes and Desserts</option>
-                                <option value='6'>Muffins and Breads</option>
-                                <option value='7'>Vegetables and Sides</option>
-                                <option value='8'>Meats</option>
-                            </select>
-                        {/* </div> */}
+                    {/* <label>Recipe Category</label> */}
+                    <div className="edit-category-div">
+                        <select id="edit-recipe-select" className="edit-category-select-list" value={category_id} onChange={createEdCategory_id}>
+                            <option selected disabled hidden>Select a Category:</option>
+                            <option value='1'>Soups</option>
+                            <option value='2'>Salads</option>
+                            <option value='3'>Appetizers</option>
+                            <option value='4'>Cookies</option>
+                            <option value='5'>Cakes and Desserts</option>
+                            <option value='6'>Muffins and Breads</option>
+                            <option value='7'>Vegetables and Sides</option>
+                            <option value='8'>Meats</option>
+                        </select>
                     </div>
+                </div>
 
                 <button className='recipe-edit-button' type='submit'>Edit Recipe</button>
             </form>

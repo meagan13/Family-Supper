@@ -117,8 +117,37 @@ function PreviewRecipe(recipeInfo) {
 
     return (
         <>
-            { recipeInfo && recipeInfo?.recipe.title }
-            <h1>Test</h1>
+            <div className="preview-div">
+
+                <div className="preview-title-div">
+                    <h1>{ recipeInfo && recipeInfo?.recipe.title }</h1>
+                    <h2>From the kitchen of {recipeInfo?.recipe.author}</h2>
+                </div>
+
+                <div className="preview-ingredients-div">
+                    <h3>Ingredients:</h3>
+                    { Object.values(ingredients).map(ingredient => (
+                        <div className="preview-ingredient-div">
+                            {ingredient.amt} {ingredient.measurement_id} { ingredient.ingredient_name}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="preview-directions-div">
+                    <h3>Directions:</h3>
+                    { Object.values(directions).map(direction => {
+                        <div className="preview-directions-div">
+                            {direction.step_number} {direction.instruction}
+                        </div>
+                    })}
+                </div>
+
+                <div>
+                    <h3>Click next to complete your recipe submission.</h3>
+                    <p>Click previous to review your submission first.</p>
+                </div>
+
+            </div>
         </>
     )
 }
