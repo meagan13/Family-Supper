@@ -85,11 +85,13 @@ function RecipeView({recipeInfo}) {
     function userRecipeOptions(sessionUser, recipe) {
         if (sessionUser && (sessionUser.id === recipe.user_id)) {
             return (
-                <div className="edit-and-delete-recipe-div">
-                    <EditRecipeForm recipe={ currentRecipe } />
-                    {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
-                    <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
-                </div>
+                <>
+                    <div className="edit-and-delete-recipe-div">
+                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
+                        <EditRecipeForm recipe={ currentRecipe } />
+                        {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
+                    </div>
+                </>
             )
         }
     }

@@ -1,28 +1,78 @@
-.edit-recipe-form{
-    border: 5px solid green;
-    margin-top: 2%;
+.edit-recipe-form-div {
+    display: flex;
+    box-sizing: border-box;
+    border: 5px solid rgb(58, 95, 125);
+    /* margin-top: 2%; */
     margin-bottom: 2%;
     padding: 1%;
+    background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
 }
 
+.edit-recipe-form {
+    background-color: rgb(58, 95, 125);
+    padding: 2%;
+    margin: 10%;
+    width: 80%;
+}
 /* .edit-recipe-form-div {
     border: 5px solid green;
 } */
 
 .edit-recipe {
     font-family: 'Noto Sans JP', sans-serif;
-    padding-bottom: 5%;
+    padding-bottom: 1%;
     margin-bottom: 5%;
+}
+
+#edit-recipe-select {
+    border-radius: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border: 1px solid rgb(58, 95, 125);
 }
 
 .edit-recipe > input {
     font-family: 'Noto Sans JP', sans-serif;
+    color: rgb(58, 95, 125);
+    margin-left: 2%;
+    width: 60%;
+    /* border-radius: 3%; */
+}
+
+.edit-recipe-cat-label {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.edit-category-select-list {
+    margin-left: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 0;
 }
 
 .edit-category-select-list > option {
     font-family: 'Noto Sans JP', sans-serif;
+    color: rgb(58, 95, 125);
+}
+
+.edit-memory-title-text-div {
+    margin-bottom: 5%;
 }
 
 .recipe-edit-button {
-    
+    float: right;
+    background-color: rgb(173, 96, 68, .9);
+    border-radius: 5px;
+    border: 1px solid rgb(173, 96, 68);
+    padding: 2%;
+    /* margin-top: 4%; */
+    /* margin-bottom: 4%;; */
+    transition: ease .25s;
+}
+
+.recipe-edit-button:hover {
+    background-color: rgb(173, 96, 68, .9);
+    border-radius: 5px;
+    border: 1px solid rgb(173, 96, 68);
+    transform: scale(1.05);
 }

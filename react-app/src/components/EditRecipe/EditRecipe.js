@@ -96,39 +96,39 @@ const EditRecipeForm = (recipe) => {
                     ))}
                 </div>
 
-                <div>
+                <div className="edit-memory-title-text-div">
                     <label className="edit-recipe edit-recipe-title">Edit Recipe Title
                         <input type="text" value={title} onChange={createEdTitle}/>
                     </label>
                 </div>
 
-                <div>
+                <div className="edit-memory-title-text-div">
                     <label className="edit-recipe edit-recipe-author">Edit Author
                         <input type="text" value={author} onChange={createEdAuthor} />
                     </label>
                 </div>
 
-                <div>
+                <div className="edit-memory-title-text-div">
                     <label className="edit-recipe edit-recipe-description">Edit Description
                         <input type="text" value={description} onChange={createEdDescription} />
                     </label>
                 </div>
 
-                <div>
+                <div className="edit-memory-title-text-div">
                     <label className="edit-recipe edit-recipe-food_img">Edit Food Photo
                         <input type="text" value={food_img} onChange={createEdFoodImg} />
                     </label>
                 </div>
 
-                <div>
+                <div className="edit-memory-title-text-div">
                     <label className="edit-recipe edit-recipe-card_img">Edit Recipe Card Photo
                         <input type="text" value={card_img} onChange={createEdCardImg} />
                     </label>
                 </div>
 
-                <div>
-                    {/* <label>Recipe Category</label> */}
+                <div className="edit-recipe">
                     <div className="edit-category-div">
+                        <label className="edit-recipe-cat-label">Recipe Category</label>
                         <select id="edit-recipe-select" className="edit-category-select-list" value={category_id} onChange={createEdCategory_id}>
                             <option selected disabled hidden>Select a Category:</option>
                             <option value='1'>Soups</option>
