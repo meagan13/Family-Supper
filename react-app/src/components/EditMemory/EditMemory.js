@@ -33,6 +33,7 @@ const EditMemoryForm = (memory) => {
                recipe_id: memory.recipe_id
             };
             await dispatch(editMemoryThunk(editedMemory))
+            setMemory_text(memory_text)
         }
 
     };

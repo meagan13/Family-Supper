@@ -81,8 +81,8 @@ const EditRecipeForm = (recipe) => {
             setAuthor(author);
             setDescription(description);
             setFood_img(food_img);
-            setCard_img(card_img)
-            setCategory_id(category_id)
+            setCard_img(card_img);
+            setCategory_id(category_id);
             history.push(`/recipes/${ recipe.recipe.id }/`)
         }
     }

@@ -39,13 +39,13 @@ function PreviewRecipe(recipeInfo) {
     // const { recipeId } = useParams();
     const history = useHistory();
 
-    // console.log("ingredients:", ingredients)
-    console.log("recipe:", currentRecipe)
-    // console.log("directions:", directions)
+    console.log("preview ingredients:", ingredients)
+    console.log("current recipe:", currentRecipe)
+    console.log("preview directions:", directions)
 
     useEffect(() => {
-        // dispatch(getOneRecipe(recipeId))
-        // dispatch(getMemoriesByRecipeThunk(recipeId))
+        dispatch(getOneRecipe(recipeId))
+        dispatch(getMemoriesByRecipeThunk(recipeId))
         dispatch(getIngredientsByRecipeThunk(recipeId))
         dispatch(getDirectionsByRecipeThunk(recipeId))
     }, [dispatch, recipeId, recipeInfo]);
