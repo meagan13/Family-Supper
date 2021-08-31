@@ -87,3 +87,27 @@
     border: 1px solid rgb(58, 95, 125);
     transform: scale(1.05);
 }
+
+.recipe-card-div > .next-button {
+    background-color: bisque;
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 25%;
+    padding: .5% 1% .5% 1%;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Playball', cursive;
+    font-size: 25px;
+}
+
+.previous-button {
+    background-color: bisque;
+    position: absolute;
+    margin-left: 80%;
+    margin-top: 16%;
+    padding: .5% 1% .5% 1%;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Playball', cursive;
+    font-size: 25px;
+}
