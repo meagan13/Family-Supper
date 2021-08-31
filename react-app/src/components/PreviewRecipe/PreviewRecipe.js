@@ -131,7 +131,7 @@ function PreviewRecipe({ recipe }) {
                     <h1 className="recipe-added-message-text">Your recipe has been added!</h1>
                 </div>
 
-                <div className="preview-title-div">
+                {/* <div className="preview-title-div">
                     <h1>{ recipe && recipe?.title }</h1>
                     <h2>From the kitchen of {recipe?.author}</h2>
                 </div>
@@ -152,7 +152,7 @@ function PreviewRecipe({ recipe }) {
                             {direction?.id.step_number} {direction?.id.instruction}
                         </div>
                     })}
-                </div>
+                </div> */}
 
                 <div>
                     <button className="return-home-button" onClick={handleHome}>Close</button>
