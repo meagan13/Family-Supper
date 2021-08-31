@@ -42,8 +42,8 @@ function RecipeView({recipeInfo}) {
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))
         dispatch(getMemoriesByRecipeThunk(recipeId))
-        // dispatch(getIngredientsByRecipeThunk(recipeId))
-        // dispatch(getDirectionsByRecipeThunk(recipeId))
+        dispatch(getIngredientsByRecipeThunk(recipeId))
+        dispatch(getDirectionsByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
     const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
@@ -137,23 +137,23 @@ function RecipeView({recipeInfo}) {
                 </div>
             </div>
 
-            {/* <div className="ingredients-list-div">
+            <div className="ingredients-list-div">
                 <h3>Ingredients:</h3>
                 { ingredientsArr.map(ingredient => (
                     <div className="ingredient-div" id={ingredient.id}>
                         { ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name }
                     </div>
                 ))}
-            </div> */}
+            </div>
 
-            {/* <div className="directions-list-div">
+            <div className="directions-list-div">
                 <h3>Directions:</h3>
                 { directionsArr.map(direction => (
                     <div className="direction-div" id={direction.id}>
                         { direction.step_number }. { direction.instruction }
                     </div>
                 ))}
-            </div> */}
+            </div>
 
             <div className="session-memory-div">
                 { userRecipeOptions(sessionUser, currentRecipe)}
