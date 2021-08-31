@@ -1,7 +1,12 @@
-.ingredients-list-div, .directions-list-div, .edit-and-delete-recipe-div {
+.ingredients-list-div, .directions-list-div {
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
+}
+
+.edit-and-delete-recipe-div {
+    border: 5px solid purple;
+    padding: 1%;
 }
 
 .recipe-heading-div {
@@ -201,4 +206,8 @@
     background-color:rgb(58, 95, 125);
     color: bisque;
 
+}
+
+.delete-recipe-button {
+    background-color: red;
 }

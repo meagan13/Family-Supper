@@ -1,6 +1,28 @@
-/* .edit-recipe-form-div {
-    border: 1px solid black;
+.edit-recipe-form{
+    border: 5px solid green;
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 1%;
+}
+
+/* .edit-recipe-form-div {
+    border: 5px solid green;
 } */
+
+.edit-recipe {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+}
+
+.edit-recipe > input {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.edit-category-select-list > option {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.recipe-edit-button {
+    
+}

@@ -72,7 +72,7 @@ const AddIngredientForm = (recipeInfo) => {
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
+                            <select id="create-unit-select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>

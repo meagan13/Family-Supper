@@ -162,7 +162,7 @@ const CreateRecipe = () => {
                     {/* <button className="category-dropdown-button">Recipe Category</button> */}
                     {/* <label>Recipe Category</label> */}
                     <div className="category-content-div">
-                        <select id="select" className="category-select-list" value={category_id} onChange={createCategory_id}>
+                        <select id="create-recipe-select" className="category-select-list" value={category_id} onChange={createCategory_id}>
                             <option selected disabled hidden>Select a Recipe Category</option>
                             <option className="test" value='1'>Soups</option>
                             <option className="test" value='2'>Salads</option>
