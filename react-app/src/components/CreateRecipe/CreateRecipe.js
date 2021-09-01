@@ -88,12 +88,12 @@ const CreateRecipe = () => {
             }
 
             await dispatch(createRecipeThunk(addRecipe))
-            setTitle("");
-            setAuthor("");
-            setDescription("");
-            setFood_img("");
-            setCard_img("")
-            setCategory_id("")
+            setTitle(`Submitted: ${title}`);
+            setAuthor(`Submitted: ${author}`);
+            setDescription(`Submitted: ${description}`);
+            setFood_img(`Submitted: ${food_img}`);
+            setCard_img(`Submitted: ${card_img}`);
+            setCategory_id("9");
             // history.push("/");
         }
 
@@ -174,6 +174,7 @@ const CreateRecipe = () => {
                             <option value='6'>Muffins and Breads</option>
                             <option value='7'>Vegetables and Sides</option>
                             <option value='8'>Meats</option>
+                            <option selected disabled hidden value='9'>Category Submitted!</option>
                         </select>
                     </div>
                 </div>

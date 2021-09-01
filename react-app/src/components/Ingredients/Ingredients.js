@@ -63,7 +63,7 @@ const AddIngredientForm = ({recipe}) => {
 
                 <div className="input-div">
                     <label className="amt-number">Numeric Amount:
-                        <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Amount" />
+                        <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 
@@ -72,7 +72,7 @@ const AddIngredientForm = ({recipe}) => {
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="create-unit-select" className="create-unit-select-list" value={measurement} onChange={(e) => setMeasurement(Number(e.target.value))}>
+                            {/* <select id="create-unit-select" className="create-unit-select-list" value={measurement} onChange={(e) => setMeasurement(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>
@@ -95,15 +95,15 @@ const AddIngredientForm = ({recipe}) => {
                                 <option value='19'>can</option>
                                 <option value='20'>jar</option>
                                 <option value='21'>clove</option>
-                            </select>
+                            </select> */}
                         {/* </div> */}
 
                     </div>
                 </div>
 
                 <div className="input-div">
-                    <label className="ingredient">
-                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
+                    <label className="ingredient">Units of Ingredient:
+                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
                     </label>
                 </div>
 
