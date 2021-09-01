@@ -146,7 +146,7 @@ function PreviewRecipe({ recipe }) {
                     <h3>Ingredients:</h3>
                     { Object.values(ingredients).map(ingredient => (
                         <div className="preview-ingredient-div">
-                            {ingredient.amt} {ingredient.measurement_id} { ingredient.ingredient_name}
+                            {ingredient.amt} {ingredient.measurement} { ingredient.ingredient_name}
                         </div>
                     ))}
                 </div>

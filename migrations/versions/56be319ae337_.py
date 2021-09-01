@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2e451b95eafb
-Revises:
-Create Date: 2021-08-25 12:27:33.135885
+Revision ID: 56be319ae337
+Revises: 
+Create Date: 2021-09-01 11:11:57.226945
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2e451b95eafb'
+revision = '56be319ae337'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,17 +23,11 @@ def upgrade():
     sa.Column('cat_name', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('units',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('unit_name', sa.String(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
-    )
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('hashed_password', sa.String(length=255), nullable=False),
-    sa.Column('img_url', sa.String(), nullable=True),
+    sa.Column('imgUrl', sa.String(), nullable=True),
     sa.Column('bio', sa.String(length=500), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
@@ -55,18 +49,17 @@ def upgrade():
     op.create_table('directions',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('step_number', sa.Integer(), nullable=False),
-    sa.Column('recipe_id', sa.Integer(), nullable=False),
     sa.Column('instruction', sa.Text(), nullable=False),
+    sa.Column('recipe_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('ingredients',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('amt', sa.Float(), nullable=True),
-    sa.Column('measurement_id', sa.Integer(), nullable=True),
+    sa.Column('measurement', sa.String(), nullable=True),
     sa.Column('ingredient_name', sa.String(), nullable=False),
     sa.Column('recipe_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['measurement_id'], ['units.id'], ),
     sa.ForeignKeyConstraint(['recipe_id'], ['recipes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -91,6 +84,5 @@ def downgrade():
     op.drop_table('directions')
     op.drop_table('recipes')
     op.drop_table('users')
-    op.drop_table('units')
     op.drop_table('categories')
     # ### end Alembic commands ###

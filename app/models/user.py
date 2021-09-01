@@ -9,16 +9,16 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-    img_url = db.Column(db.String)
+    imgUrl = db.Column(db.String)
     bio = db.Column(db.String(500))
+    password = db.Column(db.String(255), nullable=False)
 
     recipes = db.relationship("Recipe", back_populates="user")
     memories = db.relationship("Memory", back_populates="user")
 
     @property
     def password(self):
-        return self.hashed_password
+        return self.password
 
     @password.setter
     def password(self, password):
@@ -31,5 +31,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'imgUrl': self.imgUrl,
+            'bio': self.bio,
+            'password': self.password
         }

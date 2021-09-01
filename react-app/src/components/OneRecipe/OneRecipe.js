@@ -142,7 +142,7 @@ function RecipeView({recipeInfo}) {
                     <h3 className="one-recipe-ingredients-title-text">Ingredients:</h3>
                     { ingredientsArr.map(ingredient => (
                         <div className="ingredient-div" id={ingredient.id}>
-                            <p className="one-recipe-ing-dir-text">{ ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name } </p>
+                            <p className="one-recipe-ing-dir-text">{ ingredient.amt } { ingredient.measurement } { ingredient.ingredient_name } </p>
                         </div>
                     ))}
                 </div>

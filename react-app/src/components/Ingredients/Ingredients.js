@@ -16,7 +16,7 @@ const AddIngredientForm = ({recipe}) => {
 
     const [errors, setErrors] = useState([]);
     const [amt, setAmt] = useState(0);
-    const [measurement_id, setMeasurementId] = useState(0);
+    const [measurement, setMeasurement] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
 
     const addIngredienthandleSubmit = async(e) => {
@@ -33,7 +33,7 @@ const AddIngredientForm = ({recipe}) => {
         if(errorData.length === 0) {
             const addIngredient = {
                 amt,
-                measurement_id,
+                measurement,
                 ingredient_name,
                 recipe_id: recipe.id
             }
@@ -42,7 +42,7 @@ const AddIngredientForm = ({recipe}) => {
 
             await dispatch(createIngredientThunk(addIngredient));
             setAmt("");
-            setMeasurementId("");
+            setMeasurement("");
             setIngredientName("Set ingredient name reset test");
         }
     }
@@ -72,7 +72,7 @@ const AddIngredientForm = ({recipe}) => {
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="create-unit-select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
+                            <select id="create-unit-select" className="create-unit-select-list" value={measurement} onChange={(e) => setMeasurement(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>
