@@ -48,6 +48,12 @@
     color:rgb(58, 95, 125);
 }
 
+.add-memory-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .memory-text {
     margin: 10px;
     width: 85%;

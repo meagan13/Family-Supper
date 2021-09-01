@@ -15,6 +15,12 @@
     justify-content: center;
 }
 
+.edit-memory-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .memory-edit-button {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 15px;

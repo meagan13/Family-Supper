@@ -20,7 +20,7 @@ const AddMemory = () => {
         const errorData = [];
 
         if(memory_text === '') {
-            errorData.push('Please add text to share a memory')
+            errorData.push('Please add text to share a memory.')
         }
 
         setErrors(errorData);
