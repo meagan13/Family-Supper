@@ -77,12 +77,17 @@ const AddIngredientForm = ({recipe}) => {
                     <h3 className="create-ingredient-instruct-text">Include as many as you'd like!</h3>
                 </div>
 
-                <div className="input-div">
+                <div className="amt-input-div">
                     <label className="amt-number">Numeric Amount:
                         <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 
+                <div className="ingredient-input-div">
+                    <label className="ingredient">Units of Ingredient:
+                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
+                    </label>
+                </div>
 
                 <div>
                     <div className="unit-content-div">
@@ -117,11 +122,6 @@ const AddIngredientForm = ({recipe}) => {
                     </div>
                 </div>
 
-                <div className="input-div">
-                    <label className="ingredient">Units of Ingredient:
-                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
-                    </label>
-                </div>
 
                 <button className="ingredient-submit-button" type="submit">Add Ingredient</button>
             </form>
