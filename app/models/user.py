@@ -9,9 +9,9 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-    img_url = db.Column(db.String)
+    imgUrl = db.Column(db.String(500))
     bio = db.Column(db.String(500))
+    hashed_password = db.Column(db.String(300), nullable=False)
 
     recipes = db.relationship("Recipe", back_populates="user")
     memories = db.relationship("Memory", back_populates="user")
@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
 
     @password.setter
     def password(self, password):
+
         self.hashed_password = generate_password_hash(password)
 
     def check_password(self, password):
@@ -31,5 +32,7 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'imgUrl': self.imgUrl,
+            'bio': self.bio,
         }
