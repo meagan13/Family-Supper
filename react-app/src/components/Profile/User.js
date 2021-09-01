@@ -51,8 +51,8 @@ function User() {
 
     <div className="profile-div">
         <div className="profile-pic-name-div">
-          {/* <img className="profile-img" src={ user.imgUrl } alt="user profile image" /> */}
-          <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" />
+          <img className="profile-img" src={ user.imgUrl } alt="user profile image" />
+          {/* <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" /> */}
 
           <h3 className="username-text">
             { user.username }
