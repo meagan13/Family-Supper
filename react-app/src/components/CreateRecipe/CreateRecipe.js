@@ -33,7 +33,7 @@ const CreateRecipe = () => {
     const [description, setDescription] = useState('');
     const [food_img, setFood_img] = useState('');
     const [card_img, setCard_img] = useState('');
-    const [category_id, setCategory_id] = useState('');
+    const [category_id, setCategory_id] = useState('0');
 
     const createTitle = (e) => setTitle(e.target.value);
     const createAuthor = (e) => setAuthor(e.target.value);
@@ -88,12 +88,12 @@ const CreateRecipe = () => {
             }
 
             await dispatch(createRecipeThunk(addRecipe))
-            setTitle("");
-            setAuthor("");
-            setDescription("");
-            setFood_img("");
-            setCard_img("")
-            setCategory_id("")
+            setTitle(`Submitted: ${title}`);
+            setAuthor(`Submitted: ${author}`);
+            setDescription(`Submitted: ${description}`);
+            setFood_img(`Submitted: ${food_img}`);
+            setCard_img(`Submitted: ${card_img}`);
+            setCategory_id("9");
             // history.push("/");
         }
 
@@ -165,7 +165,7 @@ const CreateRecipe = () => {
                     {/* <label>Recipe Category</label> */}
                     <div className="category-content-div">
                         <select id="create-recipe-select" className="category-select-list" value={category_id} onChange={createCategory_id}>
-                            <option selected disabled hidden>Select a Recipe Category</option>
+                            <option selected disabled hidden value='0'>Select a Recipe Category</option>
                             <option className="test" value='1'>Soups</option>
                             <option className="test" value='2'>Salads</option>
                             <option className="test" value='3'>Appetizers</option>
@@ -174,6 +174,7 @@ const CreateRecipe = () => {
                             <option value='6'>Muffins and Breads</option>
                             <option value='7'>Vegetables and Sides</option>
                             <option value='8'>Meats</option>
+                            <option selected disabled hidden value='9'>Category Submitted!</option>
                         </select>
                     </div>
                 </div>

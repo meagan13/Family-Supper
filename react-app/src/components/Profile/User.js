@@ -44,8 +44,8 @@ function User() {
     return null;
   }
 
-  const myRecipes = recipesArr.filter(recipe => recipe && recipe?.user_id === userId)
-  // console.log("User - My recipes:", myRecipes)
+  const myRecipes = recipesArr?.filter(recipe => recipe?.user_id === userId)
+  console.log("User - My recipes:", myRecipes)
 
   return (
 
@@ -76,10 +76,16 @@ function User() {
         </div>
 
         <div className="user-content-div">
+
+          {/* <div className="user-recipes-div">
+            { myRecipes }
+          </div> */}
+
           <div className="user-recipes-div">
             { recipesArr?.map(recipe => (
               <div className="user-recipes-div" id={recipe?.id}>
                 {recipe?.user_id} { userId } {recipe?.title}
+                {/* {recipe?.user_id === userId ? recipe?.title:null} */}
               </div>
             ))}
           </div>
