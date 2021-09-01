@@ -37,8 +37,9 @@
 .return-home-button {
     float: right;
     background-color: rgb(58, 95, 125, .9);
+    border: 1px solid rgb(58, 95, 125);
     border-radius: 5px;
-    padding: 2%;
+    padding: 25%;
     margin-top: 2%;
     transition: ease .25s;
     font-size: 25px;
