@@ -6,30 +6,34 @@
     background-image: url(https://live.staticflickr.com/65535/51411120286_478d926216_o.jpg);
     background-position: center;
     background-size: cover;
-    width: 80%;
+    width: 100%;
     /* height: 100%; */
     margin: 2%;
+    max-height: 700px;
 
 }
 
 .recipe-added-message-div {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
+    background-color: rgb(58, 95, 125, .4);
+    margin:25%;
 }
 
 .recipe-added-message-text {
     font-family: 'Playball', cursive;
     text-align: center;
     font-size: 60px;
-    padding-bottom: 50%;
-    padding-top: 15%;
+    /* padding-bottom: 50%;
+    padding-top: 15%; */
 }
 
 .return-home-button-div {
     margin: 2%;
 }
 
-.return-home-button {
+/* .return-home-button {
     background-color: green;
     padding: 2% 1% 2% 1%;
-}
+    margin: 0;
+} */
