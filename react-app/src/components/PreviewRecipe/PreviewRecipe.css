@@ -17,23 +17,37 @@
     /* height: 100%;
     width: 100%; */
     background-color: rgb(58, 95, 125, .4);
-    margin:25%;
+    margin-top:10%;
 }
 
 .recipe-added-message-text {
     font-family: 'Playball', cursive;
     text-align: center;
     font-size: 60px;
+    padding: 1%;
     /* padding-bottom: 50%;
     padding-top: 15%; */
 }
 
 .return-home-button-div {
-    margin: 2%;
+    margin-top: 2%;
+    margin-bottom: 20%;
 }
 
-/* .return-home-button {
-    background-color: green;
-    padding: 2% 1% 2% 1%;
-    margin: 0;
-} */
+.return-home-button {
+    float: right;
+    background-color: rgb(58, 95, 125, .9);
+    border-radius: 5px;
+    padding: 2%;
+    margin-top: 2%;
+    transition: ease .25s;
+    font-size: 25px;
+
+}
+
+.return-home-button:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5px;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
+}
