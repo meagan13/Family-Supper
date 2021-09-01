@@ -42,7 +42,8 @@
     /* background-color: rgb(58, 95, 125); */
     border-radius: 5%;
     border: none;
-    padding: 2% 35% 2% 2%;
+    padding: 2%;
+    width: 80%;
 
 }
 

@@ -60,13 +60,18 @@
 .step-number {
     width: 10%;
     min-width: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
     /* border: 5px solid purple; */
+    margin-left: 0;
 }
 
 .directions-label {
     /* border: 5px solid red; */
     width: 90%;
     text-align: left;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
 }
 
 .create-directions-text-div {
@@ -75,10 +80,11 @@
 
 .step-number > .step-input {
     padding: 2%;
-    width: 25%;
+    width: 5%;
     min-width: 15px;
     margin-top: 3%;
     margin-bottom: 3%;
+    margin-left: 1%;
 }
 
 .directions-label > input{

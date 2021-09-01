@@ -64,18 +64,16 @@ const CreateDirections = ({recipe}) => {
                     <h3 className='create-directions-instruct-text'>One step at a time!</h3>
                 </div>
 
-                <div className="create-step-div input-div">
-                    <div>
-                        <label className="step-number input-div">Step Number:
-                            <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
-                        </label>
-                    </div>
+                <div className="create-step-div-input-div">
+                    <label className="step-number">Step Number:
+                        <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
+                    </label>
+                </div>
 
-                    <div className="create-directions-text-div">
-                        <label className="directions-label">Direction:
-                            <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
-                        </label>
-                    </div>
+                <div className="create-direction-input-div">
+                    <label className="directions-label">Direction:
+                        <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
+                    </label>
                 </div>
 
                 <button className="direction-submit-button" type="submit">Add Direction</button>
