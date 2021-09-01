@@ -5,7 +5,7 @@ import './CreateDirections.css'
 
 
 
-const CreateDirections = ({recipe}) => {
+const CreateDirections = ({recipe, setShowNext}) => {
     const sessionUser = useSelector(state => state?.session.user)
     const allRecipes = useSelector((state) => state?.recipes)
     const directions = useSelector((state) => state?.directions)
@@ -37,6 +37,9 @@ const CreateDirections = ({recipe}) => {
         setErrors(errorData);
 
         if(errorData.length === 0) {
+
+            setShowNext(true);
+            
             const directions = {
                 step_number,
                 instruction,
