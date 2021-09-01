@@ -40,11 +40,11 @@ const NavBar = () => {
               </NavLink>
             </div>
 
-            <div className="profile-link-div">
+            {/* <div className="profile-link-div">
               <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active' className='user-profile-link navbar-text'>
                 My Profile
               </NavLink>
-            </div>
+            </div> */}
 
             <div className="share-recipe-link-div">
               <NavLink to={`/share-recipe`} exact={true} activeClassName='active' className='create-recipe-link navbar-text'>

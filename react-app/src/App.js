@@ -10,7 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/Profile/User';
+// import User from './components/Profile/User';
 // import Modal from './components/Modal/Modal';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
 import Footer from './components/Footer/Footer';
@@ -50,9 +50,9 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/share-recipe' exact={true} >
           <CreateRecipe />
           {/* <EditRecipeForm /> */}
