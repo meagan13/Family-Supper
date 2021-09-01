@@ -12,9 +12,10 @@ const AddIngredientForm = ({recipe}) => {
     // console.log('recipes in add ingredient form:', allRecipes)
     // console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
 
-    console.log("add ingredient recipe", recipe)
+    // console.log("add ingredient recipe", recipe)
 
     const [errors, setErrors] = useState([]);
+    const [ingArr, setIngArr] = useState([]);
     const [amt, setAmt] = useState(0);
     const [measurement, setMeasurement] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
@@ -22,13 +23,18 @@ const AddIngredientForm = ({recipe}) => {
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
         const errorData = [];
-        // console.log("The create ingredient handleSubmit is working")
+        const ingredientArr = ["test one", "test two"];
 
         if(ingredient_name === '') {
             errorData.push('Please add an ingredient.')
+        } else {
+            ingredientArr.push(ingredient_name)
         }
 
         setErrors(errorData);
+        setIngArr(ingredientArr);
+
+        console.log("updated ingArr state:", ingArr)
 
         if(errorData.length === 0) {
             const addIngredient = {
@@ -43,9 +49,13 @@ const AddIngredientForm = ({recipe}) => {
             await dispatch(createIngredientThunk(addIngredient));
             setAmt("");
             setMeasurement("");
-            setIngredientName("Set ingredient name reset test");
+            setIngredientName("");
+            // ingredientArr.push("This is a test")
+            console.log("Ingredient array:", ingredientArr)
         }
     }
+
+
 
     return (
         <div className="ingredient-form-div">
@@ -53,6 +63,12 @@ const AddIngredientForm = ({recipe}) => {
                 <div className="create-ingredient-errors-div">
                     {errors.map((error, i) => (
                     <div key={i}>{error}</div>
+                    ))}
+                </div>
+
+                <div className="render-ingredients-div">
+                    {ingArr.map((ingredient, i) => (
+                    <div key={i}>{ingredient?.measurement}</div>
                     ))}
                 </div>
 
