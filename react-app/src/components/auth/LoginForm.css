@@ -30,6 +30,12 @@
     border-radius: 5px;
 }
 
+.login-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .login-form-title-text {
     font-family: 'Playball', cursive;
     text-align: center;

@@ -9,6 +9,12 @@
     margin-right: 2.5%;
 }
 
+.create-direction-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .create-directions-intro-text {
     font-family: 'Playball', cursive;
     font-size: 50px;
