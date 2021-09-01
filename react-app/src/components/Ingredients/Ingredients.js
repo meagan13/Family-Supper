@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
-const AddIngredientForm = ({recipe}) => {
+const AddIngredientForm = ({recipe, setShowNext}) => {
     const sessionUser = useSelector(state => state?.session.user)
     const allRecipes = useSelector((state) => state?.recipes)
 
@@ -37,6 +37,9 @@ const AddIngredientForm = ({recipe}) => {
         console.log("updated ingArr state:", ingArr)
 
         if(errorData.length === 0) {
+
+            setShowNext(true);
+
             const addIngredient = {
                 amt,
                 measurement,
@@ -79,7 +82,7 @@ const AddIngredientForm = ({recipe}) => {
 
                 <div className="amt-input-div">
                     <label className="amt-number">Numeric Amount:
-                        <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
+                        <input value={amt} type="number" step="0.1" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 

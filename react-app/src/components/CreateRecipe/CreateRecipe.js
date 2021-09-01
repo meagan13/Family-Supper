@@ -25,9 +25,11 @@ const CreateRecipe = () => {
         dispatch(getRecipes())
     }, [dispatch])
 
+
     const [errors, setErrors] = useState([]);
     const [stage, setStage] = useState(1);
-    const [viewPreview, setViewPreview] = useState(false)
+    const [showNext, setShowNext] = useState(false);
+    const [viewPreview, setViewPreview] = useState(false);
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
@@ -43,6 +45,14 @@ const CreateRecipe = () => {
     const createCategory_id = (e) => setCategory_id(Number(e.target.value));
 
     // console.log("STAGE:", stage);
+
+    useEffect(() => {
+        console.log("Stage is:", stage)
+        if(stage > 1) {
+            setShowNext(false)
+            console.log("Setting stage")
+        }
+    }, [stage])
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -76,6 +86,8 @@ const CreateRecipe = () => {
 
         if(errorData.length === 0) {
             // console.log("Inside the create recipe handlesubmit")
+
+            setShowNext(true);
 
             const addRecipe = {
                 title,
@@ -189,15 +201,18 @@ const CreateRecipe = () => {
             {/* ADD ERROR HANDLING */}
 
             {(stage === 1 && formDOM)}
-            {(stage === 2 && <AddIngredientForm recipe={ recipeInfo }/>)}
-            {(stage === 3 && <CreateDirections recipe={ recipeInfo } />)}
+            {(stage === 2 && <AddIngredientForm recipe={ recipeInfo } setShowNext={setShowNext}/>)}
+            {(stage === 3 && <CreateDirections recipe={ recipeInfo } setShowNext={setShowNext}/>)}
             {(stage === 4 && <PreviewRecipe recipe={ recipeInfo } />)}
             {(stage === 5 && <Redirect to='/'/> )}
             {/* {formDOM} */}
-            {stage < 4 && <button className="next-button" onClick={nextStage}>Next</button>}
-            {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>}
-            {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
-        </>
+
+            {/* {showNext} ( */}
+                {stage < 4 && <button disabled={!showNext} className="next-button" onClick={nextStage}>Next</button>}
+                {/* {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
+                {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
+            {/* ) */}
+            </>
     )
 
     return (
