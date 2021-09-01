@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     imgUrl = db.Column(db.String)
     bio = db.Column(db.String(500))
-    password = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(300), nullable=False)
 
     recipes = db.relationship("Recipe", back_populates="user")
     memories = db.relationship("Memory", back_populates="user")
@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
 
     @password.setter
     def password(self, password):
-        self.hashed_password = generate_password_hash(password)
+        self.password = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
