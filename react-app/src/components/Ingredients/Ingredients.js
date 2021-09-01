@@ -16,8 +16,8 @@ const AddIngredientForm = ({recipe}) => {
 
     const [errors, setErrors] = useState([]);
     const [ingArr, setIngArr] = useState([]);
-    const [amt, setAmt] = useState(0);
-    const [measurement, setMeasurement] = useState(0);
+    const [amt, setAmt] = useState();
+    const [measurement, setMeasurement] = useState();
     const [ingredient_name, setIngredientName] = useState('');
 
     const addIngredienthandleSubmit = async(e) => {
