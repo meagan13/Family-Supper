@@ -16,7 +16,7 @@ def postIngredient():
     if form.validate_on_submit():
         data = form.data
         new_ingredient = Ingredient(amt=data["amt"],
-                            measurement_id=data["measurement_id"],
+                            measurement=data["measurement"],
                             ingredient_name=data["ingredient_name"],
                             recipe_id=data["recipe_id"])
         db.session.add(new_ingredient)

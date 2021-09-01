@@ -63,7 +63,7 @@ export const getIngredientsByRecipeThunk = (recipeId) => async(dispatch) => {
 }
 
 export const createIngredientThunk = ingredient => async (dispatch) => {
-    console.log("ingredient in create thunk:", ingredient)
+    // console.log("ingredient in create thunk:", ingredient)
 
     const response = await fetch(`/api/ingredient/`, {
         method: "POST",
@@ -74,7 +74,7 @@ export const createIngredientThunk = ingredient => async (dispatch) => {
     })
     if (response.ok) {
         const newIngredient = await response.json();
-        console.log("new ingredient:", newIngredient)
+        // console.log("new ingredient:", newIngredient)
         dispatch(addIngredient(newIngredient))
     }
     return response
@@ -96,13 +96,13 @@ export const editIngredientThunk = (ingredient) => async(dispatch) => {
 }
 
 export const deleteIngredientThunk = (id) => async(dispatch) => {
-    console.log("in ingredient thunk:", id)
+    // console.log("in ingredient thunk:", id)
     const res = await fetch(`/api/ingredient/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedIngredient = await res.json();
-        console.log("deleted ingredient:", deletedIngredient)
+        // console.log("deleted ingredient:", deletedIngredient)
         dispatch(deleteIngredient(deletedIngredient.id));
     }
     return res;
@@ -114,13 +114,26 @@ export default function ingredients(state = initialState, action) {
     let newState;
     switch (action.type) {
         case ADD_INGREDIENT: {
+            // console.log("Action.ingredient:", action.ingredient)
+            // console.log("ingredients from reducer:", action.ingredients)
             return {
+                // ...state, ...action.ingredients //Ed's add reducer, for me adds an ingredient as a recipe, doesn't work
                 ...state,
-                [action.ingredient.id]: action.ingredient
+                [action.ingredient.recipe_id]: action.ingredient
+                // {
+                //     // ...state[action.ingredient.recipe_id],
+                //     // ingredients:[action.ingredient]
+                //     // ingredients: [...state[action.ingredient.recipe_id], action.ingredient.id]
+                //     // ingredients: [ ...state[action.ingredient.recipe_id], action.ingredient]
+                //     // ingredients: ["string of random text"]
+                //     // ingredients:[ingredients.push(action.ingredient)] //this one kind of works
+                //     ingredients:[...state[action.ingredient], ...action.ingredient]
+
+                // }
             }
         }
         case EDIT_INGREDIENT: {
-            console.log("Action.ingredient", action.ingredient)
+            // console.log("Action.ingredient", action.ingredient)
             // newState = { ...state}
             return {
                 ...state,

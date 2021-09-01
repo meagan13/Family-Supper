@@ -13,13 +13,15 @@ import AddIngredientForm from '../Ingredients/Ingredients';
 import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import { compose } from 'redux';
-// import './OneRecipe.css';
+import './PreviewRecipe.css';
 
-function PreviewRecipe(recipeInfo) {
+//recipeInfo
+
+function PreviewRecipe({ recipe }) {
     let { recipeId } = useParams();
 
-    if(recipeInfo) {
-        recipeId = recipeInfo.recipe.id;
+    if(recipe) {
+        recipeId = recipe.id;
     }
 
     const sessionUser = useSelector(state => state.session.user)
@@ -32,9 +34,11 @@ function PreviewRecipe(recipeInfo) {
 
     const dispatch = useDispatch();
 
-    console.log("Recipe Info from Preview:", recipeInfo)
+    console.log("Recipe prop passed into Preview:", recipe)
     console.log("recipeId in Preview:", recipeId)
     // console.log("Preview Recipe Id:", recipeId)
+    console.log("Directions from preivew recipe:", directions)
+    console.log("Directions array:", directionsArr)
 
     // const { recipeId } = useParams();
     const history = useHistory();
@@ -48,7 +52,7 @@ function PreviewRecipe(recipeInfo) {
         dispatch(getMemoriesByRecipeThunk(recipeId))
         dispatch(getIngredientsByRecipeThunk(recipeId))
         dispatch(getDirectionsByRecipeThunk(recipeId))
-    }, [dispatch, recipeId, recipeInfo]);
+    }, [dispatch, recipeId]);
 
     // const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
 
@@ -127,16 +131,22 @@ function PreviewRecipe(recipeInfo) {
                     <h1 className="recipe-added-message-text">Your recipe has been added!</h1>
                 </div>
 
-                <div className="preview-title-div">
-                    <h1>{ recipeInfo && recipeInfo?.recipe.title }</h1>
-                    <h2>From the kitchen of {recipeInfo?.recipe.author}</h2>
+                <div className="return-home-button-div">
+                    <button className="return-home-button" onClick={handleHome}>Close</button>
+                    {/* <h3>Click next to complete your recipe submission.</h3>
+                    <p>Click previous to review your submission first.</p> */}
+                </div>
+
+                {/* <div className="preview-title-div">
+                    <h1>{ recipe && recipe?.title }</h1>
+                    <h2>From the kitchen of {recipe?.author}</h2>
                 </div>
 
                 <div className="preview-ingredients-div">
                     <h3>Ingredients:</h3>
                     { Object.values(ingredients).map(ingredient => (
                         <div className="preview-ingredient-div">
-                            {ingredient.amt} {ingredient.measurement_id} { ingredient.ingredient_name}
+                            {ingredient.amt} {ingredient.measurement} { ingredient.ingredient_name}
                         </div>
                     ))}
                 </div>
@@ -145,16 +155,10 @@ function PreviewRecipe(recipeInfo) {
                     <h3>Directions:</h3>
                     { Object.values(directions).map(direction => {
                         <div className="preview-directions-div">
-                            {direction.step_number} {direction.instruction}
+                            {direction?.id.step_number} {direction?.id.instruction}
                         </div>
                     })}
-                </div>
-
-                <div>
-                    <button className="return-home-button" onClick={handleHome}>Close</button>
-                    {/* <h3>Click next to complete your recipe submission.</h3>
-                    <p>Click previous to review your submission first.</p> */}
-                </div>
+                </div> */}
 
             </div>
         </>

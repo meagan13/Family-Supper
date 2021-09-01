@@ -137,22 +137,24 @@ function RecipeView({recipeInfo}) {
                 </div>
             </div>
 
-            <div className="ingredients-list-div">
-                <h3>Ingredients:</h3>
-                { ingredientsArr.map(ingredient => (
-                    <div className="ingredient-div" id={ingredient.id}>
-                        { ingredient.amt } { ingredient.measurement_id } { ingredient.ingredient_name }
-                    </div>
-                ))}
-            </div>
+            <div className="one-recipe-ingredient-directions-div">
+                <div className="ingredients-list-div">
+                    <h3 className="one-recipe-ingredients-title-text">Ingredients:</h3>
+                    { ingredientsArr.map(ingredient => (
+                        <div className="ingredient-div" id={ingredient.id}>
+                            <p className="one-recipe-ing-dir-text">{ ingredient.amt } { ingredient.measurement } { ingredient.ingredient_name } </p>
+                        </div>
+                    ))}
+                </div>
 
-            <div className="directions-list-div">
-                <h3>Directions:</h3>
-                { directionsArr.map(direction => (
-                    <div className="direction-div" id={direction.id}>
-                        { direction.step_number }. { direction.instruction }
-                    </div>
-                ))}
+                <div className="directions-list-div">
+                    <h3 className="one-recipe-directions-title-text">Directions:</h3>
+                    { directionsArr.map(direction => (
+                        <div className="direction-div" id={direction.id}>
+                            <p className="one-recipe-ing-dir-text">{ direction.step_number }. { direction.instruction }</p>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className="session-memory-div">

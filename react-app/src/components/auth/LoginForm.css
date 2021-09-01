@@ -62,7 +62,6 @@ input.login-input {
     float: right;
     background-color: rgb(58, 95, 125, .9);
     border-radius: 5px;
-    border: 1px solid rgb(173, 96, 68);
     padding: 2%;
     margin-top: 2%;
     transition: ease .25s;

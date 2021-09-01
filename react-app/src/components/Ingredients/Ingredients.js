@@ -3,26 +3,26 @@ import { useState } from 'react';
 import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
-const AddIngredientForm = (recipeInfo) => {
+const AddIngredientForm = ({recipe}) => {
     const sessionUser = useSelector(state => state?.session.user)
     const allRecipes = useSelector((state) => state?.recipes)
 
     const dispatch = useDispatch();
 
-    console.log('recipes in add ingredient form:', allRecipes)
-    console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
+    // console.log('recipes in add ingredient form:', allRecipes)
+    // console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
 
-    console.log("add ingredient recipeInfo", recipeInfo)
+    console.log("add ingredient recipe", recipe)
 
     const [errors, setErrors] = useState([]);
     const [amt, setAmt] = useState(0);
-    const [measurement_id, setMeasurementId] = useState(0);
+    const [measurement, setMeasurement] = useState(0);
     const [ingredient_name, setIngredientName] = useState('');
 
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
         const errorData = [];
-        console.log("The create ingredient handleSubmit is working")
+        // console.log("The create ingredient handleSubmit is working")
 
         if(ingredient_name === '') {
             errorData.push('Please add an ingredient.')
@@ -33,17 +33,17 @@ const AddIngredientForm = (recipeInfo) => {
         if(errorData.length === 0) {
             const addIngredient = {
                 amt,
-                measurement_id,
+                measurement,
                 ingredient_name,
-                recipe_id: recipeInfo.recipe.id
+                recipe_id: recipe.id
             }
 
-            console.log("addIngredient payload:", addIngredient)
+            // console.log("addIngredient payload:", addIngredient)
 
             await dispatch(createIngredientThunk(addIngredient));
             setAmt("");
-            setMeasurementId("");
-            setIngredientName("");
+            setMeasurement("");
+            setIngredientName("Set ingredient name reset test");
         }
     }
 
@@ -72,7 +72,7 @@ const AddIngredientForm = (recipeInfo) => {
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="create-unit-select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
+                            <select id="create-unit-select" className="create-unit-select-list" value={measurement} onChange={(e) => setMeasurement(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>
@@ -103,7 +103,7 @@ const AddIngredientForm = (recipeInfo) => {
 
                 <div className="input-div">
                     <label className="ingredient">
-                        <input type="text" onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
+                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
                     </label>
                 </div>
 

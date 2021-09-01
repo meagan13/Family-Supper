@@ -1,9 +1,8 @@
 const GET_RECIPES = 'recipe/GET_RECIPES';
 const GET_ONE_RECIPE = 'recipe/GET_ONE_RECIPE';
 const ADD_RECIPE = 'recipe/ADD_RECIPE';
-const ADD_INGREDIENT = 'ingredient/ADD_INGREDIENT';
-const EDIT_RECIPE = 'ingredient/EDIT_RECIPE';
-const DELETE_RECIPE = 'ingredient/DELETE_RECIPE';
+const EDIT_RECIPE = 'recipe/EDIT_RECIPE';
+const DELETE_RECIPE = 'recipe/DELETE_RECIPE';
 
 const loadRecipes = (recipes) => {
     return {
@@ -18,11 +17,6 @@ const getOne = (recipe) => {
         recipe
     }
 }
-
-const addIngredient = (ingredient) => ({
-    type: ADD_INGREDIENT,
-    ingredient
-})
 
 const addRecipe = (recipe) => {
     return {
@@ -68,24 +62,8 @@ export const getOneRecipe = (recipeId) => async(dispatch) => {
     return recipeInfo;
 }
 
-
-export const createIngredientThunk = ingredient => async (dispatch) => {
-    const response = await fetch(`/api/ingredient/`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(ingredient)
-    })
-    if (response.ok) {
-        const newIngredient = await response.json();
-        dispatch(addIngredient(newIngredient))
-    }
-    return response;
-}
-
 export const createRecipeThunk = (recipe) => async(dispatch) => {
-    console.log("INSIDE the createRecipeThunk", recipe)
+    // console.log("INSIDE the createRecipeThunk", recipe)
     const response = await fetch('/api/recipe/', {
         method: "POST",
         headers: {
@@ -101,7 +79,7 @@ export const createRecipeThunk = (recipe) => async(dispatch) => {
 }
 
 export const editRecipeThunk = (recipe) => async(dispatch) => {
-    console.log("Recipe sent to thunk", recipe)
+    // console.log("Recipe sent to thunk", recipe)
     const res = await fetch(`/api/recipe/${ recipe.id }/`, {
         method: "PUT",
         headers: {
@@ -112,20 +90,20 @@ export const editRecipeThunk = (recipe) => async(dispatch) => {
 
     if(res.ok) {
         const editedRecipe = await res.json();
-        console.log("check editReceipe var:", editedRecipe)
+        // console.log("check editReceipe var:", editedRecipe)
         dispatch(editRecipe(editedRecipe));
     }
     return res;
 }
 
 export const deleteRecipeThunk = (id) => async(dispatch) => {
-    console.log("in delete thunk:", id)
+    // console.log("in delete thunk:", id)
     const res = await fetch(`/api/recipe/${ id }/`, {
         method: "DELETE",
     })
     if (res.ok) {
         const deletedRecipe = await res.json();
-        console.log("deleted recipe:", deletedRecipe)
+        // console.log("deleted recipe:", deletedRecipe)
         dispatch(deleteRecipe(deletedRecipe.id));
     }
     return res;
@@ -148,12 +126,6 @@ export default function recipes(state = initialState, action) {
             newState = action.recipe;
             return newState;
         }
-        case ADD_INGREDIENT: {
-            return {
-                ...state,
-                [action.ingredient.id]: action.ingredient
-            }
-        }
         case ADD_RECIPE:{
             return {
                 ...state,
@@ -162,7 +134,7 @@ export default function recipes(state = initialState, action) {
         }
         case EDIT_RECIPE: {
 
-            console.log("Action.recipe:", action.recipe)
+            // console.log("Action.recipe:", action.recipe)
             return {
                 ...state,
                 ...action.recipe

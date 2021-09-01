@@ -15,7 +15,7 @@ const CreateRecipe = () => {
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
-    console.log("All recipes array in CreateRecipe component", allRecipes)
+    // console.log("All recipes array in CreateRecipe component", allRecipes)
     console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
@@ -194,7 +194,7 @@ const CreateRecipe = () => {
             {(stage === 5 && <Redirect to='/'/> )}
             {/* {formDOM} */}
             {stage < 4 && <button className="next-button" onClick={nextStage}>Next</button>}
-            {/* {stage > 1 && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
+            {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>}
             {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
         </>
     )
