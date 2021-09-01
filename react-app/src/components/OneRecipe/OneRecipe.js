@@ -129,11 +129,17 @@ function RecipeView({recipeInfo}) {
 
             <div className="recipe-photos-div">
                 <div className="one-recipe-food-img-div">
-                    <img src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"/>
+                    <img
+                        onError={(event)=>event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_26d9df4a42_o.jpg")}
+                        src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"
+                    />
                 </div>
 
                 <div className="card-img-div">
-                    <img src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"/>
+                    <img
+                        onError={(event)=>event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418987519_5c0a973db4_o.jpg") }
+                        src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"
+                    />
                 </div>
             </div>
 
