@@ -13,7 +13,7 @@ import AddIngredientForm from '../Ingredients/Ingredients';
 import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
 import { compose } from 'redux';
-// import './OneRecipe.css';
+import './PreviewRecipe.css';
 
 //recipeInfo
 
@@ -131,6 +131,12 @@ function PreviewRecipe({ recipe }) {
                     <h1 className="recipe-added-message-text">Your recipe has been added!</h1>
                 </div>
 
+                <div className="return-home-button-div">
+                    <button className="return-home-button" onClick={handleHome}>Close</button>
+                    {/* <h3>Click next to complete your recipe submission.</h3>
+                    <p>Click previous to review your submission first.</p> */}
+                </div>
+
                 {/* <div className="preview-title-div">
                     <h1>{ recipe && recipe?.title }</h1>
                     <h2>From the kitchen of {recipe?.author}</h2>
@@ -153,12 +159,6 @@ function PreviewRecipe({ recipe }) {
                         </div>
                     })}
                 </div> */}
-
-                <div>
-                    <button className="return-home-button" onClick={handleHome}>Close</button>
-                    {/* <h3>Click next to complete your recipe submission.</h3>
-                    <p>Click previous to review your submission first.</p> */}
-                </div>
 
             </div>
         </>
