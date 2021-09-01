@@ -51,6 +51,15 @@
     color: rgba(255, 228, 196, 0.733);
 }
 
+.create-ingredient-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    text-align: center;
+    /* background-color: rgb(58, 95, 125, .5); */
+    font-weight: bold;
+}
+
 .amt-number > input {
     width: 5%;
     min-width: 40px;

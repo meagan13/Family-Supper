@@ -12,7 +12,9 @@
 .create-direction-errors-div {
     font-family: 'Noto Sans JP', sans-serif;
     padding-bottom: 5%;
+    padding-top: 5%;
     text-align: center;
+    font-weight: bold;
 }
 
 .create-directions-intro-text {

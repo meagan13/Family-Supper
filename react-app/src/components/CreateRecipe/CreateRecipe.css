@@ -12,7 +12,10 @@
 .create-recipe-errors-div {
     font-family: 'Noto Sans JP', sans-serif;
     padding-bottom: 5%;
+    padding-top: 5%;
     text-align: center;
+    /* background-color: rgb(58, 95, 125, .5); */
+    font-weight: bold;
 }
 
 .create-recipe-template-intro-text {
