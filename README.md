@@ -1,9 +1,7 @@
-# The App
+# Family Supper
+
 Family Supper by Meagan Smith: https://family-supper.herokuapp.com
 
-
-
-# Family Supper
 Family Supper is an app where families can preserve and share hand-written recipe cards and memories about family dishes. It is a fullstack React app with with a Redux state manager and a backend using Python, Flask, SQL-Alchemy, and PostgresSQL. 
 
 * Visit the <a href='https://family-supper.herokuapp.com/'>Family Supper</a> App Live
