@@ -1,0 +1,55 @@
+.not-found-page-div {
+    /* height: 100%; */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 400px;
+    background-image: url(https://live.staticflickr.com/65535/51419019827_1a23fcdace_o.jpg);
+    background-repeat: no repeat;
+    background-position: center;
+    background-size: cover;
+    object-fit: fill;
+}
+
+.not-found-text-div {
+    padding-top: 5%;
+}
+
+.not-found-text {
+    /* height: 100%; */
+    text-align: center;
+    padding: 5%;
+    margin-top: 2%;
+    font-family: 'Playball', cursive;
+    font-size: 60px;
+}
+
+.not-found-home-div {
+    padding-bottom: 20%;
+}
+
+.return-home-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.return-home-link {
+    color: black;
+    background-color: rgb(58, 95, 125, .8);
+    border-radius: 5%;
+    padding: 1%;
+    background-color: rgb(58, 95, 125, .8);
+    border: 1px solid rgb(58, 95, 125);
+    margin-top: 2%;
+    transition: ease .25s;
+    font-size: 25px;
+}
+
+.return-home-link:hover {
+    background-color: rgb(58, 95, 125, .7);
+    border-radius: 5%;
+    border: 1px solid rgb(58, 95, 125);
+    transform: scale(1.05);
+}
