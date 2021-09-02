@@ -21,7 +21,7 @@ function RecipeView({recipeInfo}) {
     const ingredientsArr = Object.values(ingredients)
     const directions = useSelector((state) => (state?.directions))
     const directionsArr = Object.values(directions);
-    const memories = useSelector((state) => (state.memories))
+    const memories = useSelector((state) => (state?.memories))
 
     let { recipeId } = useParams();
 
@@ -87,7 +87,7 @@ function RecipeView({recipeInfo}) {
             return (
                 <>
                     <div className="edit-and-delete-recipe-div">
-                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe.id)}>Delete Recipe</button>
+                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
                         <EditRecipeForm recipe={ currentRecipe } />
                         {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
                     </div>
@@ -124,21 +124,21 @@ function RecipeView({recipeInfo}) {
             </div>
 
             <div className="recipe-description-div">
-                <p className="recipe-description-text">{ currentRecipe.description }</p>
+                <p className="recipe-description-text">{ currentRecipe?.description }</p>
             </div>
 
             <div className="recipe-photos-div">
                 <div className="one-recipe-food-img-div">
                     <img
                         onError={(event)=>event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_26d9df4a42_o.jpg")}
-                        src={ currentRecipe.food_img} alt="food" className="single-recipe-food-img"
+                        src={ currentRecipe?.food_img} alt="food" className="single-recipe-food-img"
                     />
                 </div>
 
                 <div className="card-img-div">
                     <img
                         onError={(event)=>event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418987519_5c0a973db4_o.jpg") }
-                        src={ currentRecipe.card_img} alt="recipe card" className="single-recipe-card-img"
+                        src={ currentRecipe?.card_img} alt="recipe card" className="single-recipe-card-img"
                     />
                 </div>
             </div>
@@ -147,8 +147,8 @@ function RecipeView({recipeInfo}) {
                 <div className="ingredients-list-div">
                     <h3 className="one-recipe-ingredients-title-text">Ingredients:</h3>
                     { ingredientsArr.map(ingredient => (
-                        <div className="ingredient-div" id={ingredient.id}>
-                            <p className="one-recipe-ing-dir-text">{ ingredient.amt } { ingredient.measurement } { ingredient.ingredient_name } </p>
+                        <div className="ingredient-div" id={ingredient?.id}>
+                            <p className="one-recipe-ing-dir-text">{ ingredient?.amt } { ingredient?.measurement } { ingredient.ingredient_name } </p>
                         </div>
                     ))}
                 </div>
@@ -157,7 +157,7 @@ function RecipeView({recipeInfo}) {
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
                     { directionsArr.map(direction => (
                         <div className="direction-div" id={direction.id}>
-                            <p className="one-recipe-ing-dir-text">{ direction.step_number }. { direction.instruction }</p>
+                            <p className="one-recipe-ing-dir-text">{ direction?.step_number }. { direction?.instruction }</p>
                         </div>
                     ))}
                 </div>
