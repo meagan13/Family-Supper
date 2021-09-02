@@ -31,6 +31,11 @@
     margin:0;
 }
 
+.create-recipe-click-next-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-style: italic;
+}
+
 .recipe-form {
     width: 90%;
 }
