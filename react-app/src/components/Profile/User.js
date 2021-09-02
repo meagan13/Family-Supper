@@ -89,7 +89,9 @@ function User() {
               <div className="single-user-recipes-div" id={recipe?.id}>
 
                 <div className="profile-food-img-div">
-                  <a href={`/recipes/${recipe?.id}`}><img src={recipe.food_img} alt="food" className="profile-food-img" /></a>
+                  <a href={`/recipes/${recipe?.id}`}><img
+                    onError={(event) => event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_9c3fcb2090_w.jpg")}
+                    src={recipe.food_img} alt="food" className="profile-food-img" /></a>
                 </div>
 
                 <div className="profile-recipe-name-div">
