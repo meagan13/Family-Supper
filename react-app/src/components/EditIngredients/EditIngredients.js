@@ -1,24 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import ingredients, { editIngredientThunk } from '../../store/ingredient';
+import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
 const EditIngredientsForm = (recipe) => {
-    const sessionUser = useSelector(state => state.session.user)
-    const recipes = ((state) => (state?.recipes))
+    // const sessionUser = useSelector(state => state.session.user)
+    // const recipes = ((state) => (state?.recipes))
     const ingredients = ((state) => state?.ingredients)
 
     const dispatch=useDispatch();
     const history = useHistory();
 
     const [amt, setAmt] = useState();
-    const [measurement_id, setMeasurementId] = useState();
+    const [measurement, setMeasurement] = useState();
     const [ingredient_name, setIngredientName] = useState();
     // const [recipe_id, setRecipe_id] = useState();
 
     const editAmt = (e) => setAmt(e.target.value);
-    const editMeasurement = (e) => setMeasurementId(e.target.value);
+    const editMeasurement = (e) => setMeasurement(e.target.value);
     const editIngredient = (e) => setIngredientName(e.target.value);
     // const createRecipe_id = (e) => setRecipe_id(e.target.value);
 
@@ -28,7 +28,7 @@ const EditIngredientsForm = (recipe) => {
         const editedIngredients = {
             id: ingredients.id,
             amt,
-            measurement_id,
+            measurement,
             ingredient_name,
             recipe_id: recipe.recipe.id
         }
@@ -50,8 +50,8 @@ const EditIngredientsForm = (recipe) => {
                 </div>
 
                 <div>
-                    <label className="edit-ingredients edit-ingredients-measurement_id">Edit Ingredient Unit of Measure
-                        <select className="edit-unit-select-list" value={measurement_id} onChange={editMeasurement}>
+                    <label className="edit-ingredients edit-ingredients-measurement">Edit Ingredient Unit of Measure
+                        <select className="edit-unit-select-list" value={measurement} onChange={editMeasurement}>
                             <option selected disabled hidden>Select a Unit of Measure</option>
                             <option value='1'>cup</option>
                             <option value='2'>tablespoon</option>

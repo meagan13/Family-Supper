@@ -30,6 +30,12 @@
     border-radius: 5px;
 }
 
+.signup-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .signup-form-title-text {
     font-family: 'Playball', cursive;
     text-align: center;

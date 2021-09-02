@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import './AllMemories.css'
 
@@ -7,8 +7,8 @@ function Memories({memoryObj}) {
 
     // console.log("AllMemories memoryObj:", memoryObj)
 
-    const currentRecipe = useSelector(state => state?.recipes)
-    const users = useSelector((state) => state?.users)
+    // const currentRecipe = useSelector(state => state?.recipes)
+    // const users = useSelector((state) => state?.users)
 
     // console.log("users from memories:", users)
     // console.log("currentRecipe from AllMemories:", currentRecipe)
@@ -19,10 +19,10 @@ function Memories({memoryObj}) {
                 <p className="individual-memory-text">{memoryObj?.memory_text}</p>
             </div>
 
-            <label className="memory-user-label">
-                {/* <p>{memoryObj.user_id.users.id}</p> */}
+            {/* <label className="memory-user-label">
                 <p className="individual-memory-user-text">- {memoryObj.user_id}</p>
-            </label>
+            </label> */}
+
         </div>
     )
 

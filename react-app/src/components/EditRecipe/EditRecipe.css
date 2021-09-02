@@ -18,6 +18,12 @@
     border: 5px solid green;
 } */
 
+.edit-recipe-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
 .edit-recipe {
     font-family: 'Noto Sans JP', sans-serif;
     padding-bottom: 1%;

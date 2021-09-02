@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { createMemoryThunk, editMemoryThunk, deleteMemoryThunk } from '../../store/memory';
+import { createMemoryThunk } from '../../store/memory';
 import './addMemory.css'
 
 const AddMemory = () => {
@@ -20,7 +20,7 @@ const AddMemory = () => {
         const errorData = [];
 
         if(memory_text === '') {
-            errorData.push('Please add text to share a memory')
+            errorData.push('Please add text to share a memory.')
         }
 
         setErrors(errorData);

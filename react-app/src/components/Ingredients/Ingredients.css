@@ -47,9 +47,34 @@
     /* background-color: rgb(58, 95, 125); */
     border-radius: 5%;
     border: none;
-    padding: 2% 35% 2% 2%;
+    padding: 2%;
     color: rgba(255, 228, 196, 0.733);
+}
 
+.create-ingredient-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    text-align: center;
+    /* background-color: rgb(58, 95, 125, .5); */
+    font-weight: bold;
+}
+
+.amt-number > input {
+    width: 5%;
+    min-width: 40px;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    margin-top: 5%;
+}
+
+.ingredient > input {
+    width: 80%;
+    margin-top: 1%;
+}
+
+.ingredient {
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 ::placeholder {
@@ -59,9 +84,9 @@
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-.input-div {
+/* .input-div {
     padding: 2%;
-}
+} */
 
 .unit-content-div select {
     padding: 2% 15% 2% 2%;

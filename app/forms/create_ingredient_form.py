@@ -7,7 +7,7 @@ v = [DataRequired()]
 
 class IngredientForm(FlaskForm):
     amt = FloatField("amt")
-    measurement_id = IntegerField("measurement_id")
+    measurement = TextField("measurement")
     ingredient_name = TextField("ingredient_name", v)
     recipe_id = IntegerField("recipe_id", v)
     submit = SubmitField("Submit")

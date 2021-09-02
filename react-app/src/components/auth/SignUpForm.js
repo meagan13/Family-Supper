@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
@@ -45,7 +45,7 @@ const SignUpForm = () => {
     }
 
     setErrors(errorData);
-    
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, imgUrl, bio, password, repeatPassword));
       if (data) {

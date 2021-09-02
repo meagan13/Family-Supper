@@ -9,6 +9,15 @@
     margin-right: 2.5%;
 }
 
+.create-recipe-errors-div {
+    font-family: 'Noto Sans JP', sans-serif;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    text-align: center;
+    /* background-color: rgb(58, 95, 125, .5); */
+    font-weight: bold;
+}
+
 .create-recipe-template-intro-text {
     font-family: 'Playball', cursive;
     font-size: 50px;
@@ -20,6 +29,11 @@
     font-family: 'Noto Sans JP', sans-serif;
     padding-bottom: 3%;
     margin:0;
+}
+
+.create-recipe-click-next-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-style: italic;
 }
 
 .recipe-form {
@@ -42,7 +56,8 @@
     /* background-color: rgb(58, 95, 125); */
     border-radius: 5%;
     border: none;
-    padding: 2% 35% 2% 2%;
+    padding: 2%;
+    width: 80%;
 
 }
 

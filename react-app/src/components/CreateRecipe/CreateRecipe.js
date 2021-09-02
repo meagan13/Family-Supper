@@ -1,39 +1,41 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // import { createMemoryThunk } from '../../store/recipe';
 import { createRecipeThunk, getRecipes } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
-import RecipeView from '../OneRecipe/OneRecipe';
+// import RecipeView from '../OneRecipe/OneRecipe';
 import PreviewRecipe from '../PreviewRecipe/PreviewRecipe';
 import './CreateRecipe.css'
 
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
-    const allRecipes = useSelector(state => Object.values(state?.recipes))
+    // const allRecipes = useSelector(state => Object.values(state?.recipes))
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
     // console.log("All recipes array in CreateRecipe component", allRecipes)
-    console.log("create recipe recipeInfo:", recipeInfo)
+    // console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
         dispatch(getRecipes())
     }, [dispatch])
 
+
     const [errors, setErrors] = useState([]);
     const [stage, setStage] = useState(1);
-    const [viewPreview, setViewPreview] = useState(false)
+    const [showNext, setShowNext] = useState(false);
+    // const [viewPreview, setViewPreview] = useState(false);
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [food_img, setFood_img] = useState('');
     const [card_img, setCard_img] = useState('');
-    const [category_id, setCategory_id] = useState('');
+    const [category_id, setCategory_id] = useState('0');
 
     const createTitle = (e) => setTitle(e.target.value);
     const createAuthor = (e) => setAuthor(e.target.value);
@@ -43,6 +45,14 @@ const CreateRecipe = () => {
     const createCategory_id = (e) => setCategory_id(Number(e.target.value));
 
     // console.log("STAGE:", stage);
+
+    useEffect(() => {
+        // console.log("Stage is:", stage)
+        if(stage > 1) {
+            setShowNext(false)
+            // console.log("Setting stage")
+        }
+    }, [stage])
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -77,6 +87,8 @@ const CreateRecipe = () => {
         if(errorData.length === 0) {
             // console.log("Inside the create recipe handlesubmit")
 
+            setShowNext(true);
+
             const addRecipe = {
                 title,
                 author,
@@ -88,12 +100,12 @@ const CreateRecipe = () => {
             }
 
             await dispatch(createRecipeThunk(addRecipe))
-            setTitle("");
-            setAuthor("");
-            setDescription("");
-            setFood_img("");
-            setCard_img("")
-            setCategory_id("")
+            setTitle(`Submitted: ${title}`);
+            setAuthor(`Submitted: ${author}`);
+            setDescription(`Submitted: ${description}`);
+            setFood_img(`Submitted: ${food_img}`);
+            setCard_img(`Submitted: ${card_img}`);
+            setCategory_id("9");
             // history.push("/");
         }
 
@@ -104,15 +116,15 @@ const CreateRecipe = () => {
         await setStage(stage + 1);
     }
 
-    const previousStage = async() => {
-        // console.log("stage after previeous:", stage)
-        await setStage(stage - 1);
-    }
+    // const previousStage = async() => {
+    //     // console.log("stage after previeous:", stage)
+    //     await setStage(stage - 1);
+    // }
 
-    const previewRecipe = () => {
-        // console.log("stage after previeous:", stage)
-        setViewPreview(!viewPreview)
-    }
+    // const previewRecipe = () => {
+    //     // console.log("stage after previeous:", stage)
+    //     setViewPreview(!viewPreview)
+    // }
 
     let formDOM = (
         <form className="recipe-form" onSubmit={handleSubmit}>
@@ -125,7 +137,8 @@ const CreateRecipe = () => {
 
         <div className="create-recipe-template-intro-div">
             <h1 className="create-recipe-template-intro-text">Let's get started!</h1>
-            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information:</h3>
+            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information and then click <strong>Add Recipe Info.</strong></h3>
+            <h3 className="create-recipe-click-next-text">Click next when you're ready to add ingredients!</h3>
         </div>
 
         <div className="recipe-info-div">
@@ -149,13 +162,13 @@ const CreateRecipe = () => {
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link:" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (photo link with .png or .jpg):" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link:" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (photo link with .png or .jpg):" />
                 </label>
             </div>
 
@@ -165,7 +178,7 @@ const CreateRecipe = () => {
                     {/* <label>Recipe Category</label> */}
                     <div className="category-content-div">
                         <select id="create-recipe-select" className="category-select-list" value={category_id} onChange={createCategory_id}>
-                            <option selected disabled hidden>Select a Recipe Category</option>
+                            <option selected disabled hidden value='0'>Select a Recipe Category</option>
                             <option className="test" value='1'>Soups</option>
                             <option className="test" value='2'>Salads</option>
                             <option className="test" value='3'>Appetizers</option>
@@ -174,6 +187,7 @@ const CreateRecipe = () => {
                             <option value='6'>Muffins and Breads</option>
                             <option value='7'>Vegetables and Sides</option>
                             <option value='8'>Meats</option>
+                            <option selected disabled hidden value='9'>Category Submitted!</option>
                         </select>
                     </div>
                 </div>
@@ -188,15 +202,18 @@ const CreateRecipe = () => {
             {/* ADD ERROR HANDLING */}
 
             {(stage === 1 && formDOM)}
-            {(stage === 2 && <AddIngredientForm recipe={ recipeInfo }/>)}
-            {(stage === 3 && <CreateDirections recipe={ recipeInfo } />)}
+            {(stage === 2 && <AddIngredientForm recipe={ recipeInfo } setShowNext={setShowNext}/>)}
+            {(stage === 3 && <CreateDirections recipe={ recipeInfo } setShowNext={setShowNext}/>)}
             {(stage === 4 && <PreviewRecipe recipe={ recipeInfo } />)}
             {(stage === 5 && <Redirect to='/'/> )}
             {/* {formDOM} */}
-            {stage < 4 && <button className="next-button" onClick={nextStage}>Next</button>}
-            {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>}
-            {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
-        </>
+
+            {/* {showNext} ( */}
+                {stage < 4 && <button disabled={!showNext} className="next-button" onClick={nextStage}>Next</button>}
+                {/* {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
+                {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
+            {/* ) */}
+            </>
     )
 
     return (

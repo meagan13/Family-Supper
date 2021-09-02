@@ -1,39 +1,48 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
-const AddIngredientForm = ({recipe}) => {
-    const sessionUser = useSelector(state => state?.session.user)
-    const allRecipes = useSelector((state) => state?.recipes)
+const AddIngredientForm = ({recipe, setShowNext}) => {
+    // const sessionUser = useSelector(state => state?.session.user)
+    // const allRecipes = useSelector((state) => state?.recipes)
 
     const dispatch = useDispatch();
 
     // console.log('recipes in add ingredient form:', allRecipes)
     // console.log("Check ingredients for recipe 1", allRecipes[1].ingredients)
 
-    console.log("add ingredient recipe", recipe)
+    // console.log("add ingredient recipe", recipe)
 
     const [errors, setErrors] = useState([]);
-    const [amt, setAmt] = useState(0);
-    const [measurement_id, setMeasurementId] = useState(0);
+    const [ingArr, setIngArr] = useState([]);
+    const [amt, setAmt] = useState();
+    const [measurement, setMeasurement] = useState();
     const [ingredient_name, setIngredientName] = useState('');
 
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
         const errorData = [];
-        // console.log("The create ingredient handleSubmit is working")
+        const ingredientArr = ["test one", "test two"];
 
         if(ingredient_name === '') {
             errorData.push('Please add an ingredient.')
+        } else {
+            ingredientArr.push(ingredient_name)
         }
 
         setErrors(errorData);
+        setIngArr(ingredientArr);
+
+        // console.log("updated ingArr state:", ingArr)
 
         if(errorData.length === 0) {
+
+            setShowNext(true);
+
             const addIngredient = {
                 amt,
-                measurement_id,
+                measurement,
                 ingredient_name,
                 recipe_id: recipe.id
             }
@@ -42,10 +51,14 @@ const AddIngredientForm = ({recipe}) => {
 
             await dispatch(createIngredientThunk(addIngredient));
             setAmt("");
-            setMeasurementId("");
-            setIngredientName("Set ingredient name reset test");
+            setMeasurement("");
+            setIngredientName("");
+            // ingredientArr.push("This is a test")
+            // console.log("Ingredient array:", ingredientArr)
         }
     }
+
+
 
     return (
         <div className="ingredient-form-div">
@@ -56,23 +69,35 @@ const AddIngredientForm = ({recipe}) => {
                     ))}
                 </div>
 
-                <div className="create-ingredient-intro-div">
-                    <h1 className="create-ingredient-intro-text">Add ingredients</h1>
-                    <h3 className="create-ingredient-instruct-text">Include as many as you'd like!</h3>
+                <div className="render-ingredients-div">
+                    {ingArr.map((ingredient, i) => (
+                    <div key={i}>{ingredient?.measurement}</div>
+                    ))}
                 </div>
 
-                <div className="input-div">
+                <div className="create-ingredient-intro-div">
+                    <h1 className="create-ingredient-intro-text">Add ingredients</h1>
+                    <h3 className="create-ingredient-instruct-text">Click <strong>Add Ingredient</strong> before entering another ingredient.</h3>
+                    <h3 className="create-ingredient-instruct-text">Click <strong>Next</strong> when you are ready to add instructions!</h3>
+                </div>
+
+                <div className="amt-input-div">
                     <label className="amt-number">Numeric Amount:
-                        <input value={amt} type="number" step="0.1" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Amount" />
+                        <input value={amt} type="number" step="0.1" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 
+                <div className="ingredient-input-div">
+                    <label className="ingredient">Units of Ingredient:
+                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
+                    </label>
+                </div>
 
                 <div>
                     <div className="unit-content-div">
                         {/* <label>Choose a Unit:</label> */}
                         {/* <div className="unit-list"> */}
-                            <select id="create-unit-select" className="create-unit-select-list" value={measurement_id} onChange={(e) => setMeasurementId(Number(e.target.value))}>
+                            {/* <select id="create-unit-select" className="create-unit-select-list" value={measurement} onChange={(e) => setMeasurement(Number(e.target.value))}>
                                 <option selected disabled hidden>Select a Unit of Measure</option>
                                 <option value='1'>cup</option>
                                 <option value='2'>tablespoon</option>
@@ -95,17 +120,12 @@ const AddIngredientForm = ({recipe}) => {
                                 <option value='19'>can</option>
                                 <option value='20'>jar</option>
                                 <option value='21'>clove</option>
-                            </select>
+                            </select> */}
                         {/* </div> */}
 
                     </div>
                 </div>
 
-                <div className="input-div">
-                    <label className="ingredient">
-                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ingredient" />
-                    </label>
-                </div>
 
                 <button className="ingredient-submit-button" type="submit">Add Ingredient</button>
             </form>
