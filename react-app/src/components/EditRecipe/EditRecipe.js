@@ -6,7 +6,7 @@ import './EditRecipe.css'
 
 const EditRecipeForm = (recipe) => {
     const sessionUser = useSelector(state => state.session.user)
-    const recipes = ((state) => (state?.recipes))
+    // const recipes = ((state) => (state?.recipes))
 
     // console.log("recipes state test:", recipes?.author)
     // console.log("Recipe passed to form:", recipe)

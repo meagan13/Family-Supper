@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
 const AddIngredientForm = ({recipe, setShowNext}) => {
-    const sessionUser = useSelector(state => state?.session.user)
-    const allRecipes = useSelector((state) => state?.recipes)
+    // const sessionUser = useSelector(state => state?.session.user)
+    // const allRecipes = useSelector((state) => state?.recipes)
 
     const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
         setErrors(errorData);
         setIngArr(ingredientArr);
 
-        console.log("updated ingArr state:", ingArr)
+        // console.log("updated ingArr state:", ingArr)
 
         if(errorData.length === 0) {
 
@@ -54,7 +54,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             setMeasurement("");
             setIngredientName("");
             // ingredientArr.push("This is a test")
-            console.log("Ingredient array:", ingredientArr)
+            // console.log("Ingredient array:", ingredientArr)
         }
     }
 

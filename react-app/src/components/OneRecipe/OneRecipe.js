@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
-import { editRecipeThunk, getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
+import { useParams, useHistory } from 'react-router-dom';
+import { getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
 import { deleteMemoryThunk, getMemoriesByRecipeThunk } from '../../store/memory';
 import { getIngredientsByRecipeThunk } from '../../store/ingredient';
 import { getDirectionsByRecipeThunk } from '../../store/direction';
@@ -9,9 +9,9 @@ import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
-import AddIngredientForm from '../Ingredients/Ingredients';
-import EditIngredientsForm from '../EditIngredients/EditIngredients';
-import CreateDirections from '../CreateDirections/CreateDirections';
+// import AddIngredientForm from '../Ingredients/Ingredients';
+// import EditIngredientsForm from '../EditIngredients/EditIngredients';
+// import CreateDirections from '../CreateDirections/CreateDirections';
 import './OneRecipe.css';
 
 function RecipeView({recipeInfo}) {
@@ -46,7 +46,7 @@ function RecipeView({recipeInfo}) {
         dispatch(getDirectionsByRecipeThunk(recipeId))
     }, [dispatch, recipeId]);
 
-    const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
+    // const recipeMemoryText = Object.values(memories)?.map(memory => memory.memory_text)
 
     let sessionMemory;
 

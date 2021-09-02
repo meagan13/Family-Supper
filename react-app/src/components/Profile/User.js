@@ -45,7 +45,7 @@ function User() {
   }
 
   const myRecipes = recipesArr?.filter(recipe => recipe?.user_id === userId)
-  console.log("User - My recipes:", myRecipes)
+  // console.log("User - My recipes:", myRecipes)
 
   return (
 

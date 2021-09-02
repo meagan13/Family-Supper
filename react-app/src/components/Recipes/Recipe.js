@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../store/recipe';
-import Memories from '../AllMemories/AllMemories';
+// import Memories from '../AllMemories/AllMemories';
 import './Recipe.css'
 
 function Recipes() {
