@@ -9,11 +9,14 @@ function User() {
   const dispatch = useDispatch();
   const { userId }  = useParams();
 
-  const recipes = useSelector(state => state?.recipes)
+  // const recipes = useSelector(state => state?.recipes)
   const recipesArr = Object.values(useSelector(state => state?.recipes))
+  const myRecipes = recipesArr?.filter(recipe => recipe?.user_id == userId)
 
-  const memories = useSelector(state => state?.memories)
-  const memoriesArr = Object.values(memories)
+
+  // const memories = useSelector(state => state?.memories)
+  const memoriesArr = Object.values(useSelector(state => state?.memories))
+  const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
 
   const [user, setUser] = useState({});
 
@@ -44,14 +47,14 @@ function User() {
     return null;
   }
 
-  const myRecipes = recipesArr?.filter(recipe => recipe?.user_id === userId)
+
   // console.log("User - My recipes:", myRecipes)
 
   return (
 
     <div className="profile-div">
         <div className="profile-pic-name-div">
-          <img className="profile-img" src={ user.imgUrl } alt="user profile image" />
+          <img className="profile-img" src={ user.imgUrl } alt="user profile" />
           {/* <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" /> */}
 
           <h3 className="username-text">
@@ -72,7 +75,7 @@ function User() {
 
         <div className="user-recipes-heading-div">
           <h2 className="my-recipes-text">My Recipes</h2>
-          <h2 className="my-memories-text">My Memories</h2>
+          {/* <h2 className="my-memories-text">My Memories</h2> */}
         </div>
 
         <div className="user-content-div">
@@ -82,31 +85,29 @@ function User() {
           </div> */}
 
           <div className="user-recipes-div">
-            { recipesArr?.map(recipe => (
-              <div className="user-recipes-div" id={recipe?.id}>
-                {recipe?.user_id} { userId } {recipe?.title}
-                {/* {recipe?.user_id === userId ? recipe?.title:null} */}
+            { myRecipes?.map(recipe => (
+              <div className="single-user-recipes-div" id={recipe?.id}>
+
+                <div className="profile-food-img-div">
+                  <a href={`/recipes/${recipe?.id}`}><img src={recipe.food_img} alt="food" className="profile-food-img" /></a>
+                </div>
+
+                <div className="profile-recipe-name-div">
+                  {<a className="profile-recipe-name-link" href={`/recipes/${recipe?.id}`}>{recipe?.title}</a>}
+                </div>
+
               </div>
             ))}
           </div>
 
-          <div className="user-memories-div">
-            { recipesArr?.map(recipe => (
-              <div className="user-recipes-div" id={recipe?.id}>
-                {recipe?.id?.memories} { userId }
+          {/* <div className="user-memories-div">
+            { myMemories?.map(memory => (
+              <div className="user-memories-div" id={memory?.id}>
+                {memory?.memory_text}
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
-        {/* <div className="user-recipes-content">
-          {user.comment && user.comment.map(comment => (
-            <div className="comment">
-              <a href={`/course/${comment?.course_id}`} >
-                {comment?.content}
-              </a>
-            </div>
-          ))}
-        </div> */}
 
     </div>
 
