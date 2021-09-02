@@ -162,13 +162,13 @@ const CreateRecipe = () => {
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link:" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (link with .png or .jpg):" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link:" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (link with .png or .jpg):" />
                 </label>
             </div>
 
