@@ -137,7 +137,7 @@ const CreateRecipe = () => {
 
         <div className="create-recipe-template-intro-div">
             <h1 className="create-recipe-template-intro-text">Let's get started!</h1>
-            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information and then click <strong>Add Recipe Info</strong></h3>
+            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information and then click <strong>Add Recipe Info.</strong></h3>
             <h3 className="create-recipe-click-next-text">Click next when you're ready to add ingredients!</h3>
         </div>
 
