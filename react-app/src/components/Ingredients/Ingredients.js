@@ -34,7 +34,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
         setErrors(errorData);
         setIngArr(ingredientArr);
 
-        console.log("updated ingArr state:", ingArr)
+        // console.log("updated ingArr state:", ingArr)
 
         if(errorData.length === 0) {
 
@@ -54,7 +54,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             setMeasurement("");
             setIngredientName("");
             // ingredientArr.push("This is a test")
-            console.log("Ingredient array:", ingredientArr)
+            // console.log("Ingredient array:", ingredientArr)
         }
     }
 

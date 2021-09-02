@@ -16,7 +16,7 @@ const CreateRecipe = () => {
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
     // console.log("All recipes array in CreateRecipe component", allRecipes)
-    console.log("create recipe recipeInfo:", recipeInfo)
+    // console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -47,10 +47,10 @@ const CreateRecipe = () => {
     // console.log("STAGE:", stage);
 
     useEffect(() => {
-        console.log("Stage is:", stage)
+        // console.log("Stage is:", stage)
         if(stage > 1) {
             setShowNext(false)
-            console.log("Setting stage")
+            // console.log("Setting stage")
         }
     }, [stage])
 

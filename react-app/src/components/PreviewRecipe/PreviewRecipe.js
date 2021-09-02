@@ -34,18 +34,18 @@ function PreviewRecipe({ recipe }) {
 
     const dispatch = useDispatch();
 
-    console.log("Recipe prop passed into Preview:", recipe)
-    console.log("recipeId in Preview:", recipeId)
+    // console.log("Recipe prop passed into Preview:", recipe)
+    // console.log("recipeId in Preview:", recipeId)
     // console.log("Preview Recipe Id:", recipeId)
-    console.log("Directions from preivew recipe:", directions)
-    console.log("Directions array:", directionsArr)
+    // console.log("Directions from preivew recipe:", directions)
+    // console.log("Directions array:", directionsArr)
 
     // const { recipeId } = useParams();
     const history = useHistory();
 
-    console.log("preview ingredients:", ingredients)
-    console.log("current recipe:", currentRecipe)
-    console.log("preview directions:", directions)
+    // console.log("preview ingredients:", ingredients)
+    // console.log("current recipe:", currentRecipe)
+    // console.log("preview directions:", directions)
 
     useEffect(() => {
         dispatch(getOneRecipe(recipeId))

@@ -12,9 +12,9 @@ const CreateDirections = ({recipe, setShowNext}) => {
 
     const dispatch = useDispatch();
 
-    console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
-    console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
-    console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
+    // console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
+    // console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
+    // console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
 
     const [errors, setErrors] = useState([]);
     const [step_number, setStep_number] = useState(0);
@@ -39,7 +39,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
         if(errorData.length === 0) {
 
             setShowNext(true);
-            
+
             const directions = {
                 step_number,
                 instruction,
