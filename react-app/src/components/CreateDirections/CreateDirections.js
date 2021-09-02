@@ -65,16 +65,19 @@ const CreateDirections = ({recipe, setShowNext}) => {
                 <div className="create-directions-intro-div">
                     <h1 className="create-directions-intro-text">Add directions</h1>
                     <h3 className='create-directions-instruct-text'>One step at a time!</h3>
+                    <h4 className='create-directions-instruct-text'>1. Add directions one at a time</h4>
+                    <h4 className='create-directions-instruct-text'> 2. Click <strong>Add Direction</strong> before adding the next step.</h4>
+                    <h4 className='create-directions-instruct-text'>3. Click <strong>Next</strong> when you are ready to submit your recipe.</h4>
                 </div>
 
-                <div className="create-step-div-input-div">
+                {/* <div className="create-step-div-input-div">
                     <label className="step-number">Step Number:
                         <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
                     </label>
-                </div>
+                </div> */}
 
                 <div className="create-direction-input-div">
-                    <label className="directions-label">Direction:
+                    <label className="directions-label">
                         <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
                     </label>
                 </div>

@@ -107,8 +107,8 @@
 .recipe-card-div > .next-button {
     background-color: bisque;
     position: absolute;
-    margin-left: 30%;
-    margin-top: 45%;
+    margin-left: 45%;
+    margin-top: 30%;
     padding: .5% 1% .5% 1%;
     border-radius: 3px;
     border: none;
