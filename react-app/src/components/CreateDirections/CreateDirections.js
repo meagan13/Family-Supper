@@ -6,9 +6,9 @@ import './CreateDirections.css'
 
 
 const CreateDirections = ({recipe, setShowNext}) => {
-    const sessionUser = useSelector(state => state?.session.user)
-    const allRecipes = useSelector((state) => state?.recipes)
-    const directions = useSelector((state) => state?.directions)
+    // const sessionUser = useSelector(state => state?.session.user)
+    // const allRecipes = useSelector((state) => state?.recipes)
+    // const directions = useSelector((state) => state?.directions)
 
     const dispatch = useDispatch();
 

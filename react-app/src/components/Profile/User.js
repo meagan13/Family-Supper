@@ -9,11 +9,11 @@ function User() {
   const dispatch = useDispatch();
   const { userId }  = useParams();
 
-  const recipes = useSelector(state => state?.recipes)
+  // const recipes = useSelector(state => state?.recipes)
   const recipesArr = Object.values(useSelector(state => state?.recipes))
 
   const memories = useSelector(state => state?.memories)
-  const memoriesArr = Object.values(memories)
+  // const memoriesArr = Object.values(memories)
 
   const [user, setUser] = useState({});
 
@@ -51,7 +51,7 @@ function User() {
 
     <div className="profile-div">
         <div className="profile-pic-name-div">
-          <img className="profile-img" src={ user.imgUrl } alt="user profile image" />
+          <img className="profile-img" src={ user.imgUrl } alt="user profile" />
           {/* <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" /> */}
 
           <h3 className="username-text">

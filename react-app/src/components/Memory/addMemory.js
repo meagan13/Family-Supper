@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { createMemoryThunk, editMemoryThunk, deleteMemoryThunk } from '../../store/memory';
+import { createMemoryThunk } from '../../store/memory';
 import './addMemory.css'
 
 const AddMemory = () => {

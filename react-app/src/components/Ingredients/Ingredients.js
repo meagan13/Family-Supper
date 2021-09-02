@@ -4,8 +4,8 @@ import { createIngredientThunk } from '../../store/ingredient';
 import './Ingredients.css';
 
 const AddIngredientForm = ({recipe, setShowNext}) => {
-    const sessionUser = useSelector(state => state?.session.user)
-    const allRecipes = useSelector((state) => state?.recipes)
+    // const sessionUser = useSelector(state => state?.session.user)
+    // const allRecipes = useSelector((state) => state?.recipes)
 
     const dispatch = useDispatch();
 

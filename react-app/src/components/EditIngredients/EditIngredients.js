@@ -6,7 +6,7 @@ import './EditIngredients.css'
 
 const EditIngredientsForm = (recipe) => {
     const sessionUser = useSelector(state => state.session.user)
-    const recipes = ((state) => (state?.recipes))
+    // const recipes = ((state) => (state?.recipes))
     const ingredients = ((state) => state?.ingredients)
 
     const dispatch=useDispatch();

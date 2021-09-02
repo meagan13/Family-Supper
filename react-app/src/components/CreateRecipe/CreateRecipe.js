@@ -5,13 +5,13 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { createRecipeThunk, getRecipes } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
-import RecipeView from '../OneRecipe/OneRecipe';
+// import RecipeView from '../OneRecipe/OneRecipe';
 import PreviewRecipe from '../PreviewRecipe/PreviewRecipe';
 import './CreateRecipe.css'
 
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
-    const allRecipes = useSelector(state => Object.values(state?.recipes))
+    // const allRecipes = useSelector(state => Object.values(state?.recipes))
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
@@ -19,7 +19,7 @@ const CreateRecipe = () => {
     // console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
         dispatch(getRecipes())
@@ -116,10 +116,10 @@ const CreateRecipe = () => {
         await setStage(stage + 1);
     }
 
-    const previousStage = async() => {
-        // console.log("stage after previeous:", stage)
-        await setStage(stage - 1);
-    }
+    // const previousStage = async() => {
+    //     // console.log("stage after previeous:", stage)
+    //     await setStage(stage - 1);
+    // }
 
     const previewRecipe = () => {
         // console.log("stage after previeous:", stage)
