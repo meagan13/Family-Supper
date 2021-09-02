@@ -77,7 +77,8 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
 
                 <div className="create-ingredient-intro-div">
                     <h1 className="create-ingredient-intro-text">Add ingredients</h1>
-                    <h3 className="create-ingredient-instruct-text">Include as many as you'd like!</h3>
+                    <h3 className="create-ingredient-instruct-text">Click <strong>Add Ingredient</strong> before entering another ingredient.</h3>
+                    <h3 className="create-ingredient-instruct-text">Click <strong>Next</strong> when you are ready to add instructions!</h3>
                 </div>
 
                 <div className="amt-input-div">
