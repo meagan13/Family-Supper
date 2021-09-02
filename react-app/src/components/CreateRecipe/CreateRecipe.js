@@ -137,7 +137,8 @@ const CreateRecipe = () => {
 
         <div className="create-recipe-template-intro-div">
             <h1 className="create-recipe-template-intro-text">Let's get started!</h1>
-            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information:</h3>
+            <h3 className="create-recipe-template-instruct-text">Enter your recipe's basic information and then click <strong>Add Recipe Info</strong></h3>
+            <h3 className="create-recipe-click-next-text">Click next when you're ready to add ingredients!</h3>
         </div>
 
         <div className="recipe-info-div">
@@ -161,13 +162,13 @@ const CreateRecipe = () => {
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link:" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (photo link with .png or .jpg):" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link:" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (photo link with .png or .jpg):" />
                 </label>
             </div>
 

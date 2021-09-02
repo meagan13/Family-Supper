@@ -39,7 +39,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
         if(errorData.length === 0) {
 
             setShowNext(true);
-            
+
             const directions = {
                 step_number,
                 instruction,
@@ -64,11 +64,12 @@ const CreateDirections = ({recipe, setShowNext}) => {
 
                 <div className="create-directions-intro-div">
                     <h1 className="create-directions-intro-text">Add directions</h1>
-                    <h3 className='create-directions-instruct-text'>One step at a time!</h3>
+                    <h3 className='create-directions-instruct-text'>Click <strong>Add Direction</strong> before adding the next step.</h3>
+                    <h3 className='create-directions-instruct-text'>Click <strong>Next</strong> when you're ready to submit your recipe!</h3>
                 </div>
 
                 <div className="create-step-div-input-div">
-                    <label className="step-number">Step Number:
+                    <label className="step-number">Step Number (required):
                         <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
                     </label>
                 </div>
