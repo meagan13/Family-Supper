@@ -20,6 +20,10 @@
 
 }
 
+.recipe-title-div {
+    width: 80%;
+}
+
 .recipe-title-text {
     /* padding-bottom: 1%; */
     font-family: 'Noto Sans JP', sans-serif;
