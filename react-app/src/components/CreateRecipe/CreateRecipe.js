@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // import { createMemoryThunk } from '../../store/recipe';
 import { createRecipeThunk, getRecipes } from '../../store/recipe';
 import AddIngredientForm from '../Ingredients/Ingredients';
 import CreateDirections from '../CreateDirections/CreateDirections';
-import RecipeView from '../OneRecipe/OneRecipe';
+// import RecipeView from '../OneRecipe/OneRecipe';
 import PreviewRecipe from '../PreviewRecipe/PreviewRecipe';
 import './CreateRecipe.css'
 
 const CreateRecipe = () => {
     const sessionUser = useSelector(state => state.session.user);
-    const allRecipes = useSelector(state => Object.values(state?.recipes))
+    // const allRecipes = useSelector(state => Object.values(state?.recipes))
 
     const recipeInfo = useSelector(state => Object.values(state?.recipes)[Object.values(state.recipes).length - 1]);
 
     // console.log("All recipes array in CreateRecipe component", allRecipes)
-    console.log("create recipe recipeInfo:", recipeInfo)
+    // console.log("create recipe recipeInfo:", recipeInfo)
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(() => {
         dispatch(getRecipes())
@@ -29,7 +29,7 @@ const CreateRecipe = () => {
     const [errors, setErrors] = useState([]);
     const [stage, setStage] = useState(1);
     const [showNext, setShowNext] = useState(false);
-    const [viewPreview, setViewPreview] = useState(false);
+    // const [viewPreview, setViewPreview] = useState(false);
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
@@ -47,10 +47,10 @@ const CreateRecipe = () => {
     // console.log("STAGE:", stage);
 
     useEffect(() => {
-        console.log("Stage is:", stage)
+        // console.log("Stage is:", stage)
         if(stage > 1) {
             setShowNext(false)
-            console.log("Setting stage")
+            // console.log("Setting stage")
         }
     }, [stage])
 
@@ -116,15 +116,15 @@ const CreateRecipe = () => {
         await setStage(stage + 1);
     }
 
-    const previousStage = async() => {
-        // console.log("stage after previeous:", stage)
-        await setStage(stage - 1);
-    }
+    // const previousStage = async() => {
+    //     // console.log("stage after previeous:", stage)
+    //     await setStage(stage - 1);
+    // }
 
-    const previewRecipe = () => {
-        // console.log("stage after previeous:", stage)
-        setViewPreview(!viewPreview)
-    }
+    // const previewRecipe = () => {
+    //     // console.log("stage after previeous:", stage)
+    //     setViewPreview(!viewPreview)
+    // }
 
     let formDOM = (
         <form className="recipe-form" onSubmit={handleSubmit}>

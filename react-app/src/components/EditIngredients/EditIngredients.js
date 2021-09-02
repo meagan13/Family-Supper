@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import ingredients, { editIngredientThunk } from '../../store/ingredient';
+import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
 const EditIngredientsForm = (recipe) => {
-    const sessionUser = useSelector(state => state.session.user)
-    const recipes = ((state) => (state?.recipes))
+    // const sessionUser = useSelector(state => state.session.user)
+    // const recipes = ((state) => (state?.recipes))
     const ingredients = ((state) => state?.ingredients)
 
     const dispatch=useDispatch();

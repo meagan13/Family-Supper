@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { createDirectionThunk } from '../../store/direction';
 import './CreateDirections.css'
@@ -6,15 +6,15 @@ import './CreateDirections.css'
 
 
 const CreateDirections = ({recipe, setShowNext}) => {
-    const sessionUser = useSelector(state => state?.session.user)
-    const allRecipes = useSelector((state) => state?.recipes)
-    const directions = useSelector((state) => state?.directions)
+    // const sessionUser = useSelector(state => state?.session.user)
+    // const allRecipes = useSelector((state) => state?.recipes)
+    // const directions = useSelector((state) => state?.directions)
 
     const dispatch = useDispatch();
 
-    console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
-    console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
-    console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
+    // console.log("Recipe passed to create directions:", recipe) //correct, the original recipe info
+    // console.log("allRecipes var from CreateDirections component:", allRecipes) //correct, all recipes that exist
+    // console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
 
     const [errors, setErrors] = useState([]);
     const [step_number, setStep_number] = useState(0);
