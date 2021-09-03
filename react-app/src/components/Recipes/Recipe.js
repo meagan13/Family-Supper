@@ -61,7 +61,7 @@ function Recipes() {
                             </a>
 
                         </div>
-                        <div>
+                        <div className="all-recipes-food-title-div">
                             <h3 className="all-recipes-food-title-text">{recipe.title}</h3>
                         </div>
                     </div>
