@@ -1,10 +1,14 @@
 .main-page-recipe-img-title {
-    background-color: rgb(173, 96, 68, .7);
+    /* background-color: rgb(173, 96, 68, .7); */
     display: flex;
     flex-direction: column;
     justify-content: baseline;
     align-items: center;
-    padding: 4%;
+    width: 20%;
+    min-width: 250px;
+    margin-left: 1%;
+    margin-right: 2%;
+    /* padding: 4%; */
 }
 
 /* .food-img {
@@ -46,12 +50,28 @@
 }
 
 .all-recipes-div {
-    display: grid;
+    display: flex;
+    box-sizing: border-box;
+    align-items: flex-start;
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    /* max-height: 500px; */
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(173, 96, 68, .8);
+    /* display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 15%, 85%;
     margin-left: 20%;
     margin-right: 20%;
-    box-sizing: border-box;
+    box-sizing: border-box; */
 }
 
 .food-img-div {
@@ -83,6 +103,10 @@
 
 .food-img-div:hover {
     transform: scale(1.05);
+}
+
+.all-recipes-food-title-div {
+    width: 70%;
 }
 
 .all-recipes-food-title-text {
