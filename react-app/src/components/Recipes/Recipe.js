@@ -56,7 +56,7 @@ function Recipes() {
                         <div className="food-img-div">
                             <a href={`/recipes/${recipe.id}`} id={recipe.id}>
                             <img className="food-img" alt="food item"
-                                onError={(event) => event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_26d9df4a42_o.jpg")}
+                                onError={(event) => event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_9c3fcb2090_w.jpg")}
                                 src={ recipe.food_img } />
                             </a>
 
