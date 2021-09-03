@@ -44,12 +44,17 @@
 .recipe-description-div {
     display: flex;
     justify-content: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .recipe-description-text {
     font-family: 'Noto Sans JP', sans-serif;
     padding: 2%;
-    font-size: 25px;
+    font-size: 35px;
+    text-align: center;
+    font-style: italic;
 }
 
 .recipe-photos-div {
