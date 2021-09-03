@@ -15,7 +15,7 @@ function User() {
 
 
   // const memories = useSelector(state => state?.memories)
-  const memoriesArr = Object.values(useSelector(state => state?.memories))
+  // const memoriesArr = Object.values(useSelector(state => state?.memories))
   // const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
 
   const [user, setUser] = useState({});

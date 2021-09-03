@@ -170,7 +170,7 @@ function RecipeView({recipeInfo}) {
 
             <div className="memory-scroll-div">
                 { memories && Object.values(memories).map(memory => (
-                    <div id="one-recipe-all-memories" className="memories-div" id={memory.id}>
+                    <div id="one-recipe-all-memories" className="memories-div" key={memory.id}>
                         <Memories memoryObj={ memory }/>
                         { userMemoryOptions(sessionUser, memory)}
                     </div>

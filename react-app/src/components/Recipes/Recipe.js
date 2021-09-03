@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../store/recipe';
-import Memories from '../AllMemories/AllMemories';
+// import Memories from '../AllMemories/AllMemories';
 import './Recipe.css'
 
 function Recipes() {
@@ -55,9 +55,9 @@ function Recipes() {
                     <div className="main-page-recipe-img-title">
                         <div className="food-img-div">
                             <a href={`/recipes/${recipe.id}`} id={recipe.id}>
-                            <img
+                            <img className="food-img" alt="food item"
                                 onError={(event) => event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_26d9df4a42_o.jpg")}
-                                src={ recipe.food_img } className="food-img" alt="food item" />
+                                src={ recipe.food_img } />
                             </a>
 
                         </div>
