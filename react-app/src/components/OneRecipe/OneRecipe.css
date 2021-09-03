@@ -142,11 +142,14 @@
     /* margin-left: 2%;
     margin-right: 1%; */
     padding: 2%;
+    min-width: 175px;
+
 }
 
 .directions-list-div {
     width: 60%;
     background-color: bisque;
+    /* background-color: green; */
     /* margin-right: 2%;
     margin-left: 1%; */
     padding: 2%;
