@@ -62,12 +62,24 @@ const CreateRecipe = () => {
             errorData.push('Please include a recipe title.')
         }
 
+        if(title.length > 50) {
+            errorData.push('Recipe title can be no longer than 50 characters.')
+        }
+
         if(author === '') {
             errorData.push("Please include the recipe author's name.")
         }
 
+        if(author.length > 50) {
+            errorData.push('Recipe author can be no longer than 50 characters.')
+        }
+
         if(description === '') {
             errorData.push('Please include a description of this recipe.')
+        }
+
+        if(description.length > 200) {
+            errorData.push('Recipe description can be no longer than 200 characters.')
         }
 
         if(food_img === '') {

@@ -22,6 +22,10 @@ const EditMemoryForm = (memory) => {
             errorData.push('Please add text to edit this memory.');
         }
 
+        if(memory_text.length > 150) {
+            errorData.push('Memories must be 1-150 characters long.')
+        }
+
         setErrors(errorData)
 
         if(errorData.length === 0) {
