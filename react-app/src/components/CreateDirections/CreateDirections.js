@@ -34,6 +34,10 @@ const CreateDirections = ({recipe, setShowNext}) => {
             errorData.push("Please include a direction/step.")
         }
 
+        if(instruction.length > 200) {
+            errorData.push('Each recipe instruction step should be no longer than 200 characters.')
+        }
+
         setErrors(errorData);
 
         if(errorData.length === 0) {

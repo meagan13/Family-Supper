@@ -24,17 +24,21 @@ const SignUpForm = () => {
       errorData.push("Please enter a username.")
     }
 
+    if(username.length > 50) {
+      errorData.push('Please enter a username that is 50 characters or fewer.')
+    }
+
     if(!email.includes('@')) {
       errorData.push("Please enter a valid email.")
     }
 
-    // if(imgUrl === '') {
-    //   errorData.push("Please include a user photo.")
-    // }
+    if(email.length > 50) {
+      errorData.push('Please enter an email address that is 50 characters or fewer.')
+    }
 
-    // if(bio === '') {
-    //   errorData.push("Please share a little about yourself.")
-    // }
+    if(bio.length > 300) {
+      errorData.push("Please enter a bio that is 300 characters or fewer.")
+    }
 
     if(password === '') {
       errorData.push('A password is required.')
@@ -48,9 +52,9 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, imgUrl, bio, password, repeatPassword));
-      if (data) {
-        setErrors(data)
-      }
+      // if (data) {
+      //   setErrors(prevState => [...prevState, ...data])
+      // }
     }
   };
 
@@ -96,12 +100,6 @@ const SignUpForm = () => {
           <div className="sign-form-title">
             <h2 className="signup-form-title-text">Join the Family</h2>
           </div>
-
-          {/* <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div> */}
 
           <div className="signup-input-div">
             <label className="signup-text">User Name {`(required)`}</label>
