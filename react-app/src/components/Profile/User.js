@@ -16,9 +16,11 @@ function User() {
 
   // const memories = useSelector(state => state?.memories)
   const memoriesArr = Object.values(useSelector(state => state?.memories))
-  const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
+  // const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
 
   const [user, setUser] = useState({});
+  // const [bio, setBio] = useState(user.bio)
+  // console.log("User bio:", user.bio)
 
   // console.log("User - recipes:", recipes)
   // console.log("User - recipesArr:", recipesArr)
@@ -47,14 +49,15 @@ function User() {
     return null;
   }
 
-
   // console.log("User - My recipes:", myRecipes)
 
   return (
 
     <div className="profile-div">
         <div className="profile-pic-name-div">
-          <img className="profile-img" src={ user.imgUrl } alt="user profile" />
+          <img className="profile-img"
+            onError={(event) => event.target.setAttribute("src", "https://image.pngaaa.com/189/734189-middle.png")}
+            src={ user.imgUrl } alt="user profile" />
           {/* <img className="profile-img" src="https://live.staticflickr.com/65535/50951145667_870fc85517_z.jpg" alt="placeholder" /> */}
 
           <h3 className="username-text">
@@ -69,8 +72,9 @@ function User() {
           </p>
 
           <p className="bio-text">
-            <strong>About me:</strong> { user.bio }
+            <strong>About me:</strong> I am a Family Supper user! { user.bio }
           </p>
+
         </div>
 
         <div className="user-recipes-heading-div">
