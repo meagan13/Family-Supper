@@ -23,6 +23,11 @@ const AddMemory = () => {
             errorData.push('Please add text to share a memory.')
         }
 
+        if(memory_text.length > 150) {
+            errorData.push('Memories must be 1-150 characters long.')
+        }
+
+        console.log("memory length", memory_text.length)
         setErrors(errorData);
 
         if(errorData.length === 0) {
