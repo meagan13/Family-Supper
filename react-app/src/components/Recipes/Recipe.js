@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../store/recipe';
-// import Memories from '../AllMemories/AllMemories';
+import Memories from '../AllMemories/AllMemories';
 import './Recipe.css'
 
 function Recipes() {
     const dispatch = useDispatch()
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const recipes = useSelector((state) => Object.values(state?.recipes))
     // const recipes = useSelector(state => state?.recipes)
 
-    let sessionRecipe;
+    // let sessionRecipe;
 
     useEffect(() => {
         dispatch(getRecipes())
@@ -18,19 +18,19 @@ function Recipes() {
 
     // console.log("recipes:", recipes)
 
-    if(sessionUser) {
-        sessionRecipe = (
-            <>
-                <h1 className="recipes-main-text">{ sessionUser?.username}'s Family Recipes </h1>
-            </>
-        )
-    } else {
-        sessionRecipe = (
-            <>
-                <h1 className="recipes-main-text">Recipes</h1>
-            </>
-        )
-    }
+    // if(sessionUser) {
+    //     sessionRecipe = (
+    //         <>
+    //             <h1 className="recipes-main-text">{ sessionUser?.username}'s Family Recipes </h1>
+    //         </>
+    //     )
+    // } else {
+    //     sessionRecipe = (
+    //         <>
+    //             <h1 className="recipes-main-text">Recipes</h1>
+    //         </>
+    //     )
+    // }
 
     return (
         <>
@@ -45,7 +45,9 @@ function Recipes() {
             </div>
 
             <div className="recipes-title-div">
-                { sessionRecipe }
+
+                <h1 className="recipes-main-text">All Recipes</h1>
+                {/* { sessionRecipe } */}
             </div>
 
             <div className="all-recipes-div">
@@ -53,9 +55,7 @@ function Recipes() {
                     <div className="main-page-recipe-img-title">
                         <div className="food-img-div">
                             <a href={`/recipes/${recipe.id}`} id={recipe.id}>
-                            <img
-                                onError={(event)=>event.target.setAttribute("src", "https://live.staticflickr.com/65535/51418222296_9c3fcb2090_w.jpg")}
-                                src={ recipe.food_img } className="food-img" alt="food item" />
+                            <img src={ recipe.food_img } className="food-img" alt="food item" />
                             </a>
 
                         </div>
