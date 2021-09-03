@@ -29,9 +29,18 @@ Family Supper is an app where families can preserve and share hand-written recip
 * **Logged-out users** are able to view all memories shared about specific recipes. They are not able to add, edit, or delete memories.
 * **Logged-in users** are also able to create memories from an individual recipe page. Logged-in users are able to edit or delete memories they have posted.
 
+![memory](https://user-images.githubusercontent.com/80067572/132074297-6247d32b-f7d8-4a05-832f-eea04e53457b.gif)
+
 ### Recipes
 * **Logged-out users** are able to view all recipes posted to the website by all registered users. They are not able to create, edit, or delete recipes.
 * **Logged-in users** are also able to create recipes, and users who create recipes can also edit or delete those recipes. 
+
+![recipe](https://user-images.githubusercontent.com/80067572/132074724-e17218b5-9e24-4e4f-9b02-cbba6dde74e3.gif)
+
+### Profile
+* **Logged-out users** are not able to view a profile page
+* **Logged-in users** are able to view their user information and the recipes that they have posted in their profile.
+
 
 ## Planning and Database
 ### Database Schema
