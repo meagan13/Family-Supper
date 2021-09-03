@@ -10,7 +10,7 @@ const EditMemoryForm = (memory) => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    const [memory_text, setMemory_text] = useState('');
+    const [memory_text, setMemory_text] = useState(memory.memory.memory_text);
 
     const createEditedMemory = (e) => setMemory_text(e.target.value);
 
@@ -52,7 +52,7 @@ const EditMemoryForm = (memory) => {
                 </div>
 
                 <label className="edit-memory-label-text">
-                    <input className="edit-memory-input" type="text" onChange={createEditedMemory}/>
+                    <input value={memory_text} placeholder={memory_text} className="edit-memory-input" type="text" onChange={createEditedMemory}/>
                 </label>
 
                 <button className='memory-edit-button' type='submit'>Edit Memory</button>
