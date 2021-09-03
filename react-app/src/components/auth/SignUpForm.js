@@ -24,17 +24,25 @@ const SignUpForm = () => {
       errorData.push("Please enter a username.")
     }
 
+    if(username.length > 50) {
+      errorData.push('Please enter a username that is 50 characters or fewer.')
+    }
+
     if(!email.includes('@')) {
       errorData.push("Please enter a valid email.")
+    }
+
+    if(email.length > 50) {
+      errorData.push('Please enter an email address that is 50 characters or fewer.')
     }
 
     // if(imgUrl === '') {
     //   errorData.push("Please include a user photo.")
     // }
 
-    // if(bio === '') {
-    //   errorData.push("Please share a little about yourself.")
-    // }
+    if(bio.length > 300) {
+      errorData.push("Please enter a bio that is 300 characters or fewer.")
+    }
 
     if(password === '') {
       errorData.push('A password is required.')
