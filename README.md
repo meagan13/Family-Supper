@@ -18,6 +18,20 @@ Family Supper is an app where families can preserve and share hand-written recip
 | 7. [Contact Information](#contact-information) |
 | 8. [Special Thanks](#special-thanks) |
 
+## Features
+### Sign In, Sign Up, and Demo
+* **All users** have the option to sign into an existing account or to create an account.
+* The **Demo** option gives the user full access to the site without having to create an account or log into the site.
+
+![signin-login-demo](https://user-images.githubusercontent.com/80067572/132060470-d6115ebb-f891-4f6f-bc06-4e0fe84542e1.gif)
+
+### Memories
+* **Logged-out users** are able to view all memories shared about specific recipes. They are not able to add, edit, or delete memories.
+* **Logged-in users** are also able to create memories from an individual recipe page. Logged-in users are able to edit or delete memories they have posted.
+
+### Recipes
+* **Logged-out users** are able to view all recipes posted to the website by all registered users. They are not able to create, edit, or delete recipes.
+* **Logged-in users** are also able to create recipes, and users who create recipes can also edit or delete those recipes. 
 
 ## Planning and Database
 ### Database Schema
@@ -28,19 +42,6 @@ Family Supper offers users the opportunity to share family recipes and their mem
 
 ### Wireframes
 Outlines of each page of Family Supper can be found [here](https://github.com/meagan13/Family-Supper/wiki/Wireframes). 
-
-## Features
-### Sign In, Sign Up, and Demo
-* **All users** have the option to sign into an existing account or to create an account.
-* The **Demo** option gives the user full access to the site without having to create an account or log into the site.
-
-### Memories
-* **Logged-out users** are able to view all memories shared about specific recipes. They are not able to add, edit, or delete memories.
-* **Logged-in users** are also able to create memories from an individual recipe page. Logged-in users are able to edit or delete memories they have posted.
-
-### Recipes
-* **Logged-out users** are able to view all recipes posted to the website by all registered users. They are not able to create, edit, or delete recipes.
-* **Logged-in users** are also able to create recipes, and users who create recipes can also edit or delete those recipes. 
 
 ## Technologies
 * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/-JavaScript-F7DF1E?logo=JavaScript&logoColor=333333" /></a>
