@@ -28,13 +28,13 @@ const SignUpForm = () => {
       errorData.push("Please enter a valid email.")
     }
 
-    if(imgUrl === '') {
-      errorData.push("Please include a user photo.")
-    }
+    // if(imgUrl === '') {
+    //   errorData.push("Please include a user photo.")
+    // }
 
-    if(bio === '') {
-      errorData.push("Please share a little about yourself.")
-    }
+    // if(bio === '') {
+    //   errorData.push("Please share a little about yourself.")
+    // }
 
     if(password === '') {
       errorData.push('A password is required.')
@@ -104,7 +104,7 @@ const SignUpForm = () => {
           </div> */}
 
           <div className="signup-input-div">
-            <label className="signup-text">User Name</label>
+            <label className="signup-text">User Name {`(required)`}</label>
             <input
               className="signup-input"
               type='text'
@@ -115,7 +115,7 @@ const SignUpForm = () => {
           </div>
 
           <div className="signup-input-div">
-            <label className="signup-text">Email</label>
+            <label className="signup-text">Email {`(required)`}</label>
             <input
               className="signup-input"
               type='text'
@@ -126,7 +126,7 @@ const SignUpForm = () => {
           </div>
 
           <div className="signup-input-div">
-            <label className="signup-text">Photo</label>
+            <label className="signup-text">My Profile Photo Link</label>
             <input
               className="signup-input"
               type="text"
@@ -148,7 +148,7 @@ const SignUpForm = () => {
           </div>
 
           <div className="signup-input-div">
-            <label className="signup-text">Password</label>
+            <label className="signup-text">Password {`(required)`}</label>
             <input
               className="signup-input"
               type='password'
@@ -159,7 +159,7 @@ const SignUpForm = () => {
           </div>
 
           <div className="signup-input-div">
-            <label className="signup-text">Confirm Password</label>
+            <label className="signup-text">Confirm Password {`(required)`}</label>
             <input
               className="signup-input"
               type='password'
