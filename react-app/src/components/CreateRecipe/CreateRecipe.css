@@ -103,6 +103,11 @@
     transform: scale(1.05);
 }
 
+.recipe-submit-button[disabled]:hover {
+    background-color: rgb(58, 95, 125, .9);
+    transform: none;
+}
+
 .recipe-card-div > .next-button {
     background-color: bisque;
     position: absolute;
