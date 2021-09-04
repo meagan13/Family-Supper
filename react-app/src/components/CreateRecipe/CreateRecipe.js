@@ -27,6 +27,7 @@ const CreateRecipe = () => {
 
 
     const [errors, setErrors] = useState([]);
+    const [addRecipe, setAddRecipe] = useState(true);
     const [stage, setStage] = useState(1);
     const [showNext, setShowNext] = useState(false);
     // const [viewPreview, setViewPreview] = useState(false);
@@ -100,6 +101,7 @@ const CreateRecipe = () => {
             // console.log("Inside the create recipe handlesubmit")
 
             setShowNext(true);
+            setAddRecipe(false);
 
             const addRecipe = {
                 title,
@@ -205,7 +207,7 @@ const CreateRecipe = () => {
                 </div>
             </div>
         </div>
-        <button className='recipe-submit-button' type='submit'>Add Recipe Info</button>
+        <button disabled={!addRecipe} className='recipe-submit-button' type='submit'>Add Recipe Info</button>
         </form>
     )
 
