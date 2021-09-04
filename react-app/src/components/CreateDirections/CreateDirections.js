@@ -79,11 +79,11 @@ const CreateDirections = ({recipe, setShowNext}) => {
                 </div> */}
 
                 <div className="create-step-div-input-div">
-                    <label className="step-number">Step Number: { step_number } </label>
+                    <label className="step-number">Step { step_number }: </label>
                 </div>
 
                 <div className="create-direction-input-div">
-                    <label className="directions-label">Direction:
+                    <label className="directions-label">
                         <input value={instruction} type="text" onChange={(e) => setInstruction(e.target.value)} placeholder="Ex: Mix together dry ingredients." />
                     </label>
                 </div>

@@ -45,13 +45,14 @@
     object-fit: fill;
 }
 
-.create-step-div {
+.create-step-div-input-div {
     /* background-color: green; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
+    margin-top: 4%;
 
 }
 
@@ -66,10 +67,10 @@
 }
 
 .step-number {
-    width: 10%;
+    width: 50%;
     min-width: 15px;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     /* border: 5px solid purple; */
     margin-left: 0;
 }
