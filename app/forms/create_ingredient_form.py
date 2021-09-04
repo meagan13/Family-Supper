@@ -9,6 +9,6 @@ v = [DataRequired()]
 class IngredientForm(FlaskForm):
     amt = FloatField("amt")
     measurement = TextField("measurement")
-    ingredient_name = TextField("ingredient_name", validators=[DataRequired(), Length(min=1, max=50, message="Ingredient much be 1-50 characters long.")])
+    ingredient_name = TextField("ingredient_name", validators=[DataRequired(), Length(min=1, max=100, message="Ingredient much be 1-50 characters long.")])
     recipe_id = IntegerField("recipe_id", v)
     submit = SubmitField("Submit")
