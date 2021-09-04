@@ -72,7 +72,7 @@ function User() {
           </p>
 
           <p className="bio-text">
-            <strong>About me:</strong> I am a Family Supper user! { user.bio }
+            <strong>About me:</strong> I'm part of the Family! { user.bio }
           </p>
 
         </div>
