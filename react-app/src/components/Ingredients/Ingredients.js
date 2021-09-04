@@ -87,7 +87,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
 
                 <div className="amt-input-div">
                     <label className="amt-number">Numeric Amount:
-                        <input value={amt} type="number" step="0.1" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
+                        <input value={amt} type="number" step="0.01" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 
