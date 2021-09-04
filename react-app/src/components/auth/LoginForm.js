@@ -14,10 +14,32 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
 
+    // const errorData = [];
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     }
+
+    // if(email.length > 50) {
+    //   errorData.push("Email address must be no longer than 50 chracters.")
+    // }
+
+    // if(email.length < 4) {
+    //   errorData.push("Email must be at least three characters long.")
+    // }
+
+    // if(email === "") {
+    //   errorData.push("Please enter an email.")
+    // }
+
+    // if(!email.includes("@")) {
+    //   errorData.push("Please enter a valid email.")
+    // }
+
+    // if(!password === user.password) {
+    //   errorData.push("Password is incorrect.")
+    // }
   };
 
   const updateEmail = (e) => {

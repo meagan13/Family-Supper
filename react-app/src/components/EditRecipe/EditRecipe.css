@@ -22,6 +22,9 @@
     font-family: 'Noto Sans JP', sans-serif;
     padding-bottom: 5%;
     text-align: center;
+    color: black;
+    font-style: italic;
+    font-size: 24px;
 }
 
 .edit-recipe {

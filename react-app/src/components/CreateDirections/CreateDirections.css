@@ -15,6 +15,9 @@
     padding-top: 5%;
     text-align: center;
     font-weight: bold;
+    color: black;
+    font-style: italic;
+    font-size: 24px;
 }
 
 .create-directions-intro-text {

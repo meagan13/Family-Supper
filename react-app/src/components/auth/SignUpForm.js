@@ -25,7 +25,7 @@ const SignUpForm = () => {
     }
 
     if(username.length > 50) {
-      errorData.push('Please enter a username that is 50 characters or fewer.')
+      errorData.push('Username can be no more than 50 characters.')
     }
 
     if(!email.includes('@')) {
@@ -33,7 +33,7 @@ const SignUpForm = () => {
     }
 
     if(email.length > 50) {
-      errorData.push('Please enter an email address that is 50 characters or fewer.')
+      errorData.push('Email can be no more than 50 characters.')
     }
 
     if(bio.length > 300) {
@@ -45,7 +45,7 @@ const SignUpForm = () => {
     }
 
     if(password && password !== repeatPassword) {
-      errorData.push('Passwords do not match')
+      errorData.push('Passwords do not match.')
     }
 
     setErrors(errorData);

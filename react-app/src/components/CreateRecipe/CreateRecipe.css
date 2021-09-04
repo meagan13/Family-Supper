@@ -16,6 +16,9 @@
     text-align: center;
     /* background-color: rgb(58, 95, 125, .5); */
     font-weight: bold;
+    color: black;
+    font-style: italic;
+    font-size: 24px;
 }
 
 .create-recipe-template-intro-text {
