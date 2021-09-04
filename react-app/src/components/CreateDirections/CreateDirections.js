@@ -72,10 +72,14 @@ const CreateDirections = ({recipe, setShowNext}) => {
                     <h3 className='create-directions-instruct-text'>Click <strong>Next</strong> when you're ready to submit your recipe!</h3>
                 </div>
 
-                <div className="create-step-div-input-div">
+                {/* <div className="create-step-div-input-div">
                     <label className="step-number">Step Number:
-                        <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
+                        <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} />
                     </label>
+                </div> */}
+
+                <div className="create-step-div-input-div">
+                    <label className="step-number">Step Number: { step_number } </label>
                 </div>
 
                 <div className="create-direction-input-div">
