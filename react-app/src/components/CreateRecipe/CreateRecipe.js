@@ -156,31 +156,31 @@ const CreateRecipe = () => {
         <div className="recipe-info-div">
             <div className="title-div input-div">
                 <label className="title">
-                    <input className="input-test" type="text" value={title} onChange={createTitle} placeholder="Recipe name:" />
+                    <input className="input-test" type="text" value={title} onChange={createTitle} placeholder="Recipe name" />
                 </label>
             </div>
 
             <div className="author-div input-div">
                 <label className="author">
-                    <input type="text" value={author} onChange={createAuthor} placeholder="From the kitchen of:" />
+                    <input type="text" value={author} onChange={createAuthor} placeholder="From the kitchen of" />
                 </label>
             </div>
 
             <div className="description-div input-div">
                 <label className="description">
-                    <input type="textarea" value={description} onChange={createDescription} placeholder="Please describe this recipe:" />
+                    <input type="textarea" value={description} onChange={createDescription} placeholder="Recipe description" />
                 </label>
             </div>
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (photo link with .png or .jpg):" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (link with .png/.jpg)" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (photo link with .png or .jpg):" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (link with .png/.jpg)" />
                 </label>
             </div>
 

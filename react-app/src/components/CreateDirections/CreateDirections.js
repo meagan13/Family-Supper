@@ -17,7 +17,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
     // console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
 
     const [errors, setErrors] = useState([]);
-    const [step_number, setStep_number] = useState(0);
+    const [step_number, setStep_number] = useState(1);
     // const [recipe_id, setRecipeId] = useState();
     const [instruction, setInstruction] = useState('');
 
@@ -51,7 +51,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
             }
 
             await dispatch(createDirectionThunk(directions))
-            setStep_number(0);
+            setStep_number(step_number + 1);
             setInstruction('');
         }
     }
@@ -73,7 +73,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
                 </div>
 
                 <div className="create-step-div-input-div">
-                    <label className="step-number">Step Number (required):
+                    <label className="step-number">Step Number:
                         <input value={step_number} className="step-input" type="integer" onChange={(e) => setStep_number(e.target.value)} placeholder="Ex: 1"/>
                     </label>
                 </div>
