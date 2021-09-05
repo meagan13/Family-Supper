@@ -61,13 +61,13 @@ const EditRecipeForm = (recipe) => {
             errorData.push('Recipe description can be no longer than 200 characters.')
         }
 
-        if(food_img === '') {
-            errorData.push('Please include a link to an image of this recipe.')
-        }
+        // if(food_img === '') {
+        //     errorData.push('Please include a link to an image of this recipe.')
+        // }
 
-        if(card_img === '') {
-            errorData.push('Please include a link to an image of the recipe card.')
-        }
+        // if(card_img === '') {
+        //     errorData.push('Please include a link to an image of the recipe card.')
+        // }
 
         if(category_id === '') {
             errorData.push('Please select a category for this recipe.')
