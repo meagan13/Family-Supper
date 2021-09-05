@@ -83,13 +83,13 @@ const CreateRecipe = () => {
             errorData.push('Recipe description can be no longer than 200 characters.')
         }
 
-        if(food_img === '') {
-            errorData.push('Please include a link to an image of this recipe.')
-        }
+        // if(food_img === '' || food_img !== "NA" || !food_img.includes('.png') || !food_img.includes('.jpg')) {
+        //     errorData.push('Please include a .jpg/.png link to an image of this recipe or type NA.')
+        // }
 
-        if(card_img === '') {
-            errorData.push('Please include a link to an image of the recipe card.')
-        }
+        // if(card_img === '' || card_img !== "NA") {
+        //     errorData.push('Please include a .jpg/.png link to an image of the recipe card or type NA.')
+        // }
 
         if(category_id === '') {
             errorData.push('Please select a category for this recipe.')
@@ -120,7 +120,7 @@ const CreateRecipe = () => {
             setFood_img(`Submitted: ${food_img}`);
             setCard_img(`Submitted: ${card_img}`);
             setCategory_id("9");
-        
+
         }
 
     }
@@ -176,13 +176,13 @@ const CreateRecipe = () => {
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo (link with .png/.jpg)" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link url (optional)" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo (link with .png/.jpg)" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link url (optional)" />
                 </label>
             </div>
 
