@@ -235,8 +235,19 @@
 }
 
 .delete-recipe-button {
-    background-color: rgb(58, 95, 125);
+    /* background-color: rgb(58, 95, 125); */
+    background-color: bisque;
     align-self: flex-start;
     /* margin-bottom: 2%; */
     margin-top: 2%;
+    border: 1px solid black;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    transition: .5s ease;
+
+    /* border-radius: 5px; */
+}
+
+.delete-recipe-button:hover {
+    transform: scale(1.05);
 }

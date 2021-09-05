@@ -120,7 +120,7 @@ const CreateRecipe = () => {
             setFood_img(`Submitted: ${food_img}`);
             setCard_img(`Submitted: ${card_img}`);
             setCategory_id("9");
-            // history.push("/");
+        
         }
 
     }
@@ -213,21 +213,16 @@ const CreateRecipe = () => {
 
     let createRecipeDOM = (
         <>
-            {/* ADD ERROR HANDLING */}
-
             {(stage === 1 && formDOM)}
             {(stage === 2 && <AddIngredientForm recipe={ recipeInfo } setShowNext={setShowNext}/>)}
             {(stage === 3 && <CreateDirections recipe={ recipeInfo } setShowNext={setShowNext}/>)}
             {(stage === 4 && <PreviewRecipe recipe={ recipeInfo } />)}
             {(stage === 5 && <Redirect to='/'/> )}
-            {/* {formDOM} */}
 
-            {/* {showNext} ( */}
-                {stage < 4 && <button disabled={!showNext} className="next-button" onClick={nextStage}>Next</button>}
-                {/* {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
-                {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
-            {/* ) */}
-            </>
+            {stage < 4 && <button disabled={!showNext} className="next-button" onClick={nextStage}>Next</button>}
+            {/* {(stage > 1 && stage < 4) && <button className="previous-button" onClick={previousStage}>Previous</button>} */}
+            {stage === 5 && <button className="complete-recipe" onClick={nextStage}>Submit Recipe</button>}
+        </>
     )
 
     return (
