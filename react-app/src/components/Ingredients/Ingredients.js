@@ -57,7 +57,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             setAmt("");
             setMeasurement("");
             setIngredientName("");
-            alert(`${amt} ${ingredient_name} has been added to your recipe.`)
+            alert(`${amt} ${ingredient_name} added to your recipe.`)
             // ingredientArr.push("This is a test")
             // console.log("Ingredient array:", ingredientArr)
         }
