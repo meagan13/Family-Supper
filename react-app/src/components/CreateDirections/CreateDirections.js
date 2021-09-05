@@ -34,13 +34,15 @@ const CreateDirections = ({recipe, setShowNext}) => {
             errorData.push("Please include a direction/step.")
         }
 
-        if(instruction.length > 200) {
+        if(instruction?.length > 200) {
             errorData.push('Each recipe instruction step should be no longer than 200 characters.')
         }
 
+        console.log("Instruction length:", instruction.length)
+
         setErrors(errorData);
 
-        if(errorData.length === 0) {
+        if(errorData?.length === 0) {
 
             setShowNext(true);
 
@@ -53,6 +55,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
             await dispatch(createDirectionThunk(directions))
             setStep_number(step_number + 1);
             setInstruction('');
+            // setInstruction(instruction);
         }
     }
 
@@ -60,8 +63,9 @@ const CreateDirections = ({recipe, setShowNext}) => {
         <div className="create-directions-div">
             <form className="create-directions-form" onSubmit={handleSubmit}>
 
+                {console.log("errorData:", errors)}
                 <div className="create-direction-errors-div">
-                    {errors.map((error, i) => (
+                    {errors?.map((error, i) => (
                     <div key={i}>{error}</div>
                     ))}
                 </div>
