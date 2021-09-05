@@ -22,6 +22,10 @@
     margin:0;
 }
 
+.create-ingredient-intro-div > h4 {
+    font-style: italic;
+}
+
 .ingredient-form {
     width: 90%;
 }
@@ -116,4 +120,9 @@
     border-radius: 5px;
     border: 1px solid rgb(58, 95, 125);
     transform: scale(1.05);
+}
+
+.ingredient-submit-button[disabled]:hover {
+    background-color: rgb(58, 95, 125, .9);
+    transform: none;
 }

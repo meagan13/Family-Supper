@@ -127,3 +127,8 @@
     border: 1px solid rgb(58, 95, 125);
     transform: scale(1.05);
 }
+
+.direction-submit-button[disabled]:hover {
+    background-color: rgb(58, 95, 125, .9);
+    transform: none;
+}

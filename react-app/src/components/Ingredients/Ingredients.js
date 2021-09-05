@@ -15,10 +15,24 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
     // console.log("add ingredient recipe", recipe)
 
     const [errors, setErrors] = useState([]);
+    const [hideIngButton, setHideIngButton] = useState((true));
     const [ingArr, setIngArr] = useState([]);
     const [amt, setAmt] = useState();
     const [measurement, setMeasurement] = useState();
     const [ingredient_name, setIngredientName] = useState('');
+
+
+    // window.onload=function() {
+    //     const ingredientInput = document.getElementById('ingredient-input');
+    //     ingredientInput.addEventListener("keyup", () => {
+    //         setHideIngButton(true)
+    //     })
+    // }
+
+    const onIngredientChange = (e) => {
+        setIngredientName(e.target.value);
+        setHideIngButton(false);
+    }
 
     const addIngredienthandleSubmit = async(e) => {
         e.preventDefault();
@@ -57,10 +71,12 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             setAmt("");
             setMeasurement("");
             setIngredientName("");
+            setHideIngButton(true);
             alert(`${amt} ${ingredient_name} added to your recipe.`)
             // ingredientArr.push("This is a test")
             // console.log("Ingredient array:", ingredientArr)
         }
+
     }
 
 
@@ -82,19 +98,26 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
 
                 <div className="create-ingredient-intro-div">
                     <h1 className="create-ingredient-intro-text">Add ingredients</h1>
-                    <h3 className="create-ingredient-instruct-text">Click <strong>Add Ingredient</strong> before entering another ingredient.</h3>
-                    <h3 className="create-ingredient-instruct-text">Click <strong>Next</strong> when you are ready to add instructions!</h3>
+                    <h2 className="create-ingredient-instruct-text">Add as many ingredients as you'd like! </h2>
+                    <h4 className="create-ingredient-instruct-text">Click <strong>Add Ingredient</strong> before entering another ingredient.</h4>
+                    <h4 className="create-ingredient-instruct-text">Click <strong>Next</strong> when you have finished entering ingredients and are ready to add directions.</h4>
                 </div>
 
                 <div className="amt-input-div">
                     <label className="amt-number">Numeric Amount:
-                        <input value={amt} type="number" step="0.01" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
+                        <input id="amt-input" value={amt} type="number" step="0.01" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
                     </label>
                 </div>
 
+                {/* <div className="ingredient-input-div">
+                    <label className="ingredient">Units of Ingredient:
+                        <input id="ingredient-input" type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
+                    </label>
+                </div> */}
+
                 <div className="ingredient-input-div">
                     <label className="ingredient">Units of Ingredient:
-                        <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} placeholder="Ex: cups of flour" />
+                        <input id="ingredient-input" type="text" value={ingredient_name} onChange={onIngredientChange} placeholder="Ex: cups of flour" />
                     </label>
                 </div>
 
@@ -132,7 +155,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
                 </div>
 
 
-                <button className="ingredient-submit-button" type="submit">Add Ingredient</button>
+                <button disabled={hideIngButton} className="ingredient-submit-button" type="submit">Add Ingredient</button>
             </form>
 
 
