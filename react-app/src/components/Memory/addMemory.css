@@ -72,6 +72,7 @@
     padding: 2%;
     margin-top: 2%;
     transition: ease .25s;
+    font-size: 16px;
 }
 
 .memory-submit-button:hover {

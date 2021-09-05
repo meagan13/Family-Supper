@@ -2,8 +2,8 @@
     display: flex;
     box-sizing: border-box;
     border: 5px solid rgb(58, 95, 125);
-    /* margin-top: 2%; */
-    margin-bottom: 2%;
+    margin-top: 2%;
+    /* margin-bottom: 2%; */
     padding: 1%;
     background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
 }
@@ -77,6 +77,7 @@
     /* margin-top: 4%; */
     /* margin-bottom: 4%;; */
     transition: ease .25s;
+    font-size: 16px;
 }
 
 .recipe-edit-button:hover {

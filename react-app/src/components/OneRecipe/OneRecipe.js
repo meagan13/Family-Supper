@@ -87,9 +87,10 @@ function RecipeView({recipeInfo}) {
             return (
                 <>
                     <div className="edit-and-delete-recipe-div">
-                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
+                        {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
                         <EditRecipeForm recipe={ currentRecipe } />
                         {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
+                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
                     </div>
                 </>
             )

@@ -2,9 +2,12 @@
 .edit-and-delete-recipe-div {
     /* border: 5px solid purple; */
     /* padding: 2%; */
+    display: flex;
+    flex-direction: column;
     width: 50%;
     margin-left: 2%;
     margin-right: 1%;
+    margin-bottom: 2%;
 }
 
 .recipe-heading-div {
@@ -237,14 +240,15 @@
 .delete-recipe-button {
     /* background-color: rgb(58, 95, 125); */
     background-color: bisque;
-    align-self: flex-start;
+    align-self: flex-end;
     /* margin-bottom: 2%; */
-    margin-top: 2%;
+    /* margin-top: 2%; */
     border: 1px solid black;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 16px;
     transition: .5s ease;
-
+    border-radius: 5px;
+    padding: 1%;
     /* border-radius: 5px; */
 }
 
