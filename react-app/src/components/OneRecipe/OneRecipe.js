@@ -27,7 +27,7 @@ function RecipeView({recipeInfo}) {
 
     const dispatch = useDispatch();
     if(recipeInfo) {
-        recipeId = recipeInfo.id;
+        recipeId = recipeInfo?.id;
     }
 
     // console.log("Recipe Id:", recipeId)
@@ -72,18 +72,18 @@ function RecipeView({recipeInfo}) {
 
 
     function userMemoryOptions(sessionUser, memory) {
-        if (sessionUser && (sessionUser.id === memory.user_id)) {
+        if (sessionUser && (sessionUser?.id === memory?.user_id)) {
             return (
                 <>
                     <EditMemoryForm memory={memory} />
-                    <button className="delete-memory-button" onClick={(e) => handleDeleteMemory(e, memory.id)}>Delete Memory</button>
+                    <button className="delete-memory-button" onClick={(e) => handleDeleteMemory(e, memory?.id)}>Delete Memory</button>
                 </>
             )
         }
     }
 
     function userRecipeOptions(sessionUser, recipe) {
-        if (sessionUser && (sessionUser.id === recipe.user_id)) {
+        if (sessionUser && (sessionUser?.id === recipe?.user_id)) {
             return (
                 <>
                     <div className="edit-and-delete-recipe-div">
@@ -170,7 +170,7 @@ function RecipeView({recipeInfo}) {
 
             <div className="memory-scroll-div">
                 { memories && Object.values(memories).map(memory => (
-                    <div id="one-recipe-all-memories" className="memories-div" key={memory.id}>
+                    <div id="one-recipe-all-memories" className="memories-div" key={memory?.id}>
                         <Memories memoryObj={ memory }/>
                         { userMemoryOptions(sessionUser, memory)}
                     </div>
