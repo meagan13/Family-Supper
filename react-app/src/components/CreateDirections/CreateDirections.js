@@ -38,7 +38,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
             errorData.push('Each recipe instruction step should be no longer than 200 characters.')
         }
 
-        console.log("Instruction length:", instruction.length)
+        // console.log("Instruction length:", instruction.length)
 
         setErrors(errorData);
 
@@ -63,11 +63,12 @@ const CreateDirections = ({recipe, setShowNext}) => {
         <div className="create-directions-div">
             <form className="create-directions-form" onSubmit={handleSubmit}>
 
-                {console.log("errorData:", errors)}
+                {/* {console.log("errorData:", errors)} */}
                 <div className="create-direction-errors-div">
                     {errors?.map((error, i) => (
                     <div key={i}>{error}</div>
                     ))}
+
                 </div>
 
                 <div className="create-directions-intro-div">

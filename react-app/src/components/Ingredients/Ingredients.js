@@ -32,7 +32,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
         }
 
         if(ingredient_name.length > 100) {
-            errorData.push('Ingredients can be no longer than 50 characters.')
+            errorData.push('Ingredients can be no longer than 100 characters.')
         }
 
         setErrors(errorData);
