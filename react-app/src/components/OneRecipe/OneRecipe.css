@@ -169,6 +169,7 @@
     font-family: 'Noto Sans JP', sans-serif;
     padding-top: .5%;
     padding-bottom: .5%;
+    overflow: auto;
 }
 
 .login-to-share-memory-div {
