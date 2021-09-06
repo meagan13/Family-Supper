@@ -17,14 +17,14 @@ const CreateDirections = ({recipe, setShowNext}) => {
     // console.log("Directions from create directions component:", directions) //correct, the instructions that were added to that recipe
 
     const [errors, setErrors] = useState([]);
-    const [hideDirButton, setHideDirButton] = useState((true));
+    // const [hideDirButton, setHideDirButton] = useState((true));
     const [step_number, setStep_number] = useState(1);
     // const [recipe_id, setRecipeId] = useState();
     const [instruction, setInstruction] = useState('');
 
     const onDirectionChange = (e) => {
         setInstruction(e.target.value);
-        setHideDirButton(false);
+        // setHideDirButton(false);
     }
 
     const handleSubmit = async(e) => {
@@ -60,7 +60,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
             await dispatch(createDirectionThunk(directions))
             setStep_number(step_number + 1);
             setInstruction('');
-            setHideDirButton(true);
+            // setHideDirButton(true);
             alert(`${step_number}. ${instruction} added to your recipe.`)
 
             // setInstruction(instruction);
@@ -102,7 +102,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
                     </label>
                 </div>
 
-                <button disabled={hideDirButton} className="direction-submit-button" type="submit">Add Direction</button>
+                <button className="direction-submit-button" type="submit">Add Direction</button>
 
             </form>
 
