@@ -15,7 +15,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
     // console.log("add ingredient recipe", recipe)
 
     const [errors, setErrors] = useState([]);
-    const [hideIngButton, setHideIngButton] = useState((true));
+    // const [hideIngButton, setHideIngButton] = useState((true));
     const [ingArr, setIngArr] = useState([]);
     const [amt, setAmt] = useState();
     const [measurement, setMeasurement] = useState();
@@ -31,7 +31,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
 
     const onIngredientChange = (e) => {
         setIngredientName(e.target.value);
-        setHideIngButton(false);
+        // setHideIngButton(false);
     }
 
     const addIngredienthandleSubmit = async(e) => {
@@ -71,7 +71,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             setAmt("");
             setMeasurement("");
             setIngredientName("");
-            setHideIngButton(true);
+            // setHideIngButton(true);
             alert(`${amt} ${ingredient_name} added to your recipe.`)
             // ingredientArr.push("This is a test")
             // console.log("Ingredient array:", ingredientArr)
@@ -155,7 +155,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
                 </div>
 
 
-                <button disabled={hideIngButton} className="ingredient-submit-button" type="submit">Add Ingredient</button>
+                <button className="ingredient-submit-button" type="submit">Add Ingredient</button>
             </form>
 
 
