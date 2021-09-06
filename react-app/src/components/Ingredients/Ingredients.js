@@ -86,7 +86,7 @@ const AddIngredientForm = ({recipe, setShowNext}) => {
             <form className="ingredient-form" onSubmit={addIngredienthandleSubmit}>
                 <div className="create-ingredient-errors-div">
                     {errors.map((error, i) => (
-                    <div key={i}>{error}</div>
+                    <div key={i}><p>{error}</p></div>
                     ))}
                 </div>
 

@@ -74,7 +74,7 @@ const CreateDirections = ({recipe, setShowNext}) => {
                 {/* {console.log("errorData:", errors)} */}
                 <div className="create-direction-errors-div">
                     {errors?.map((error, i) => (
-                    <div key={i}>{error}</div>
+                    <div key={i}><p>{error}</p></div>
                     ))}
 
                 </div>
