@@ -153,7 +153,7 @@ const CreateRecipe = () => {
 
         <div className="create-recipe-errors-div">
             {errors.map((error, i) => (
-            <div key={i}>{error}</div>
+            <div key={i}><p>{error}</p></div>
             ))}
         </div>
 
