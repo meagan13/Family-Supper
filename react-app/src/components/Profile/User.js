@@ -51,7 +51,7 @@ function User() {
     return null;
   }
 
-  if(user.bio !== "") {
+  if(user.bio) {
     sessionBio = (
       <div className="bio-text-div">
         <h2 className="bio-text"><strong>About me:</strong> { user.bio }</h2>
