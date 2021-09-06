@@ -83,15 +83,23 @@ const CreateRecipe = () => {
             errorData.push('Recipe description can be no longer than 200 characters.')
         }
 
-        // if(food_img === '' || food_img !== "NA" || !food_img.includes('.png') || !food_img.includes('.jpg')) {
-        //     errorData.push('Please include a .jpg/.png link to an image of this recipe or type NA.')
+        if(food_img === '') {
+            errorData.push('Please include a link to an image of this food item, or enter NA.')
+        }
+
+        // if(!food_img.includes('.png') || !food_img.includes('.jpg')) {
+        //     errorData.push('Please include a link to an image of this food item.')
         // }
 
-        // if(card_img === '' || card_img !== "NA") {
-        //     errorData.push('Please include a .jpg/.png link to an image of the recipe card or type NA.')
+        if(card_img === '') {
+            errorData.push('Please include a link to an image of the recipe card, or enter NA.')
+        }
+
+        // if(!card_img.includes('.png') || !card_img.includes('.jpg')) {
+        //     errorData.push('Please include a .jpg/.png link to an image of the recipe card item.')
         // }
 
-        if(category_id === '') {
+        if(category_id === '0') {
             errorData.push('Please select a category for this recipe.')
         }
 
