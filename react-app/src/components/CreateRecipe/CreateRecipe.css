@@ -11,15 +11,28 @@
 
 .create-recipe-errors-div {
     font-family: 'Noto Sans JP', sans-serif;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    padding: 5%;
     text-align: center;
     /* background-color: rgb(58, 95, 125, .5); */
     font-weight: bold;
-    color: black;
+    /* color: rgb(173, 96, 68); */
+    /* background-color: bisque; */
     font-style: italic;
-    font-size: 24px;
+    font-size: 18px;
+    margin-bottom: 1%;
+    border-radius: 10px;
 }
+
+.create-recipe-errors-div > div {
+    background-color: rgb(173, 96, 68, .9);
+    padding: 2%;
+
+}
+
+.create-recipe-errors-div > div > p {
+    color:bisque;
+}
+
 
 .create-recipe-template-intro-text {
     font-family: 'Playball', cursive;

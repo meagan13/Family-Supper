@@ -128,6 +128,7 @@ const CreateRecipe = () => {
             setFood_img(`Submitted: ${food_img}`);
             setCard_img(`Submitted: ${card_img}`);
             setCategory_id("9");
+            alert(`${ title } recipe information added! Click Next to add ingredients.`)
 
         }
 
@@ -153,7 +154,7 @@ const CreateRecipe = () => {
 
         <div className="create-recipe-errors-div">
             {errors.map((error, i) => (
-            <div key={i}>{error}</div>
+            <div key={i}><p>{error}</p></div>
             ))}
         </div>
 
