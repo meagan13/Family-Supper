@@ -19,7 +19,7 @@ function User() {
   // const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
 
   const [user, setUser] = useState({});
-  // const [bio, setBio] = useState(user.bio)
+  const [bio, setBio] = useState(user.bio)
   // console.log("User bio:", user.bio)
 
   // console.log("User - recipes:", recipes)
@@ -31,6 +31,8 @@ function User() {
 
   // console.log("recipes in profile:", recipes)
   // console.log("recipes array:", recipesArr)
+
+  let sessionBio;
 
   useEffect(() => {
     dispatch(getRecipes())
@@ -49,6 +51,13 @@ function User() {
     return null;
   }
 
+  if(user.bio !== "") {
+    sessionBio = (
+      <div className="bio-text-div">
+        <h2 className="bio-text"><strong>About me:</strong> { user.bio }</h2>
+      </div>
+    )
+  }
   // console.log("User - My recipes:", myRecipes)
 
   return (
@@ -71,9 +80,9 @@ function User() {
             <strong>Email:</strong> { user.email }
           </p>
 
-          <p className="bio-text">
-            <strong>About me:</strong> I'm part of the Family! { user.bio }
-          </p>
+          <div>
+            { sessionBio }
+          </div>
 
         </div>
 
