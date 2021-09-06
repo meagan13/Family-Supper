@@ -52,9 +52,9 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, imgUrl, bio, password, repeatPassword));
-      // if (data) {
-      //   setErrors(prevState => [...prevState, ...data])
-      // }
+      if (data) {
+        setErrors(prevState => [...prevState, ...data])
+      }
     }
   };
 

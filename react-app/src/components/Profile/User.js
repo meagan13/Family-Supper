@@ -19,7 +19,7 @@ function User() {
   // const myMemories = memoriesArr?.filter(memory => memory?.user_id == userId)
 
   const [user, setUser] = useState({});
-  const [bio, setBio] = useState(user.bio)
+  // const [bio, setBio] = useState(user.bio)
   // console.log("User bio:", user.bio)
 
   // console.log("User - recipes:", recipes)
