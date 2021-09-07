@@ -53,7 +53,7 @@ An image of tables and relationships can be found [here](https://github.com/meag
 Family Supper offers users the opportunity to share family recipes and their memories associated with them. Learn more about the user experience [here](https://github.com/meagan13/Family-Supper/wiki/User-Stories).
 
 ### Wireframes
-Outlines of each page of Family Supper can be found [here](https://github.com/meagan13/Family-Supper/wiki/Wireframes). 
+Design mock-ups of each page of Family Supper can be found [here](https://github.com/meagan13/Family-Supper/wiki/Wireframes). 
 
 ## Technologies
 * <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/-JavaScript-F7DF1E?logo=JavaScript&logoColor=333333" /></a>
