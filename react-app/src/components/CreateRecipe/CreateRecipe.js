@@ -84,20 +84,20 @@ const CreateRecipe = () => {
         }
 
         if(food_img === '') {
-            errorData.push('Please include a link to an image of this food item, or enter NA.')
+            errorData.push('Please include a .jpg or .png link to an image of this food item.')
         }
 
-        // if(!food_img.includes('.png') || !food_img.includes('.jpg')) {
-        //     errorData.push('Please include a link to an image of this food item.')
-        // }
+        if((food_img && !food_img.includes(".png")) && (food_img && !food_img.includes(".jpg"))) {
+            errorData.push('Please enter a .jpg or .png link to an image of the food item.')
+        }
 
         if(card_img === '') {
-            errorData.push('Please include a link to an image of the recipe card, or enter NA.')
+            errorData.push('Please include a .jpg or .png link to an image of the recipe card.')
         }
 
-        // if(!card_img.includes('.png') || !card_img.includes('.jpg')) {
-        //     errorData.push('Please include a .jpg/.png link to an image of the recipe card item.')
-        // }
+        if((card_img && !card_img.includes(".png")) && (card_img && !card_img.includes(".jpg"))) {
+            errorData.push('Please include a .jpg or .png link to an image of the recipe card item.')
+        }
 
         if(category_id === '0') {
             errorData.push('Please select a category for this recipe.')
@@ -185,13 +185,13 @@ const CreateRecipe = () => {
 
             <div className="recipe-food-img-div input-div">
                 <label className="food-img">
-                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link url (or NA)" />
+                    <input type="text" value={food_img} onChange={createFoodImg} placeholder="Food photo link url (.jpg or .png)" />
                 </label>
             </div>
 
             <div className="recipe-card-img-div input-div">
                 <label className="card-img">
-                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link url (or NA)" />
+                    <input type="text" value={card_img} onChange={createCardImg} placeholder="Recipe card photo link url (.jpg or .png)" />
                 </label>
             </div>
 
