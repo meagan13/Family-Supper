@@ -69,8 +69,12 @@ Outlines of each page of Family Supper can be found [here](https://github.com/me
 ## Backend Overview
 The backend of Family Supper was created using Flask and WTForms. Flask was an ideal choice for its compatibility with the latest technologies, proven performance, and flexibility. WTForms allows for the use of csrfProtection of user data and built-in data validations. 
 
+[Backend Routes](https://github.com/meagan13/Family-Supper/wiki/API-Routes)
+
 ## Frontend Overview
 The frontend of Family Supper was created using React and Redux to provide easy access to data store and state. Redux wraps the state in a store that listens for updates and then updates code that depends on changes in that state. React is beneficial for its ability to create re-usable components.
+
+[Frontend Routes](https://github.com/meagan13/Family-Supper/wiki/Frontend-Routes)
 
 ## Installation
 To build/run project locally, please follow these steps:
