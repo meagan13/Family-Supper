@@ -137,7 +137,6 @@ npm start
 
 ## Future Features
 There are a number of exciting features on the horizon for Family Supper. Please visit again to find:
-* **User Profile**: displays a logged-in user's information, including the recipes and memories that they have posted
 * **Category Filter**: allows users to selected a specific category and see all recipes classified by that category
 * **Edit/Delete Ingredients and Directions**: users will be able to edit or delete the ingredients or directions of a recipe
 * **Family Members**: limit access to only members of your family, allowing for more privacy and closer sharing
