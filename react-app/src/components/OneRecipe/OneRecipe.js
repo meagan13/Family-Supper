@@ -10,7 +10,8 @@ import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
 // import AddIngredientForm from '../Ingredients/Ingredients';
-// import EditIngredientsForm from '../EditIngredients/EditIngredients';
+import EditIngredientsForm from '../EditIngredients/EditIngredients';
+import EditDirectionsForm from '../EditDirections/EditDirections';
 // import CreateDirections from '../CreateDirections/CreateDirections';
 import './OneRecipe.css';
 
@@ -89,7 +90,8 @@ function RecipeView({recipeInfo}) {
                     <div className="edit-and-delete-recipe-div">
                         {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
                         <EditRecipeForm recipe={ currentRecipe } />
-                        {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
+                        <EditIngredientsForm recipe={ currentRecipe } />
+                        <EditDirectionsForm recipe={ currentRecipe } />
                         <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
                     </div>
                 </>

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
@@ -6,13 +6,13 @@ import './EditIngredients.css'
 
 const EditIngredientsForm = (recipe) => {
     // const sessionUser = useSelector(state => state.session.user)
-    // const recipes = ((state) => (state?.recipes))
-    const ingredients = ((state) => state?.ingredients)
+    // const recipes = useSelector((state) => (state?.recipes))
+    const ingredients = useSelector((state) => state?.ingredients)
 
     const dispatch=useDispatch();
     const history = useHistory();
 
-    const [amt, setAmt] = useState();
+    const [amt, setAmt] = useState(1);
     const [measurement, setMeasurement] = useState();
     const [ingredient_name, setIngredientName] = useState();
     // const [recipe_id, setRecipe_id] = useState();
@@ -49,7 +49,7 @@ const EditIngredientsForm = (recipe) => {
                     </label>
                 </div>
 
-                <div>
+                {/* <div>
                     <label className="edit-ingredients edit-ingredients-measurement">Edit Ingredient Unit of Measure
                         <select className="edit-unit-select-list" value={measurement} onChange={editMeasurement}>
                             <option selected disabled hidden>Select a Unit of Measure</option>
@@ -76,10 +76,10 @@ const EditIngredientsForm = (recipe) => {
                             <option value='21'>clove</option>
                         </select>
                     </label>
-                </div>
+                </div> */}
 
                 <div>
-                    <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Name
+                    <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
                         <input type="text" value={ingredients.amt} onChange={editIngredient} />
                     </label>
                 </div>
