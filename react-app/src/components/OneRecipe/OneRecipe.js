@@ -9,10 +9,12 @@ import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
+import Ingredients from '../AllIngredients/AllIngredients';
 // import AddIngredientForm from '../Ingredients/Ingredients';
 import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import EditDirectionsForm from '../EditDirections/EditDirections';
 // import CreateDirections from '../CreateDirections/CreateDirections';
+import Directions from '../AllDirections/AllDirections';
 import './OneRecipe.css';
 
 function RecipeView({recipeInfo}) {
@@ -83,14 +85,15 @@ function RecipeView({recipeInfo}) {
         }
     }
 
-    function userRecipeOptions(sessionUser, recipe) {
+    function userRecipeOptions(sessionUser, recipe, ingredient) {
         if (sessionUser && (sessionUser?.id === recipe?.user_id)) {
             return (
                 <>
+                    {console.log("ingredient", ingredient)}
                     <div className="edit-and-delete-recipe-div">
                         {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
                         <EditRecipeForm recipe={ currentRecipe } />
-                        <EditIngredientsForm recipe={ currentRecipe } />
+                        <EditIngredientsForm ingredient={ ingredient } />
                         <EditDirectionsForm recipe={ currentRecipe } />
                         <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
                     </div>
@@ -156,6 +159,24 @@ function RecipeView({recipeInfo}) {
                     ))}
                 </div>
 
+                <div>
+                    <h1>Ingredients from the component</h1>
+                    { ingredients && Object.values(ingredients).map(ingredient => (
+                        <div>
+                            <Ingredients ingredientObj={ingredient}/>
+                        </div>
+                    ))}
+                </div>
+
+                <div>
+                    <h1>Directions from the component</h1>
+                    { directions && Object.values(directions).map(direction => (
+                        <div>
+                            <Directions directionObj={direction} />
+                        </div>
+                    ))}
+                </div>
+
                 <div className="directions-list-div">
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
                     { directionsArr.map(direction => (
@@ -176,6 +197,15 @@ function RecipeView({recipeInfo}) {
                     <div id="one-recipe-all-memories" className="memories-div" key={memory?.id}>
                         <Memories memoryObj={ memory }/>
                         { userMemoryOptions(sessionUser, memory)}
+                    </div>
+                ))}
+            </div>
+
+            <div>
+                { ingredients && Object.values(ingredients).map(ingredient => (
+                    <div>
+                        <Ingredients ingredientObj={ ingredient }/>
+                        { userRecipeOptions(sessionUser, ingredient)}
                     </div>
                 ))}
             </div>

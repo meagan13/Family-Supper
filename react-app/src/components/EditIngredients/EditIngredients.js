@@ -4,7 +4,7 @@ import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
-const EditIngredientsForm = (recipe) => {
+const EditIngredientsForm = (ingredient) => {
     // const sessionUser = useSelector(state => state.session.user)
     // const recipes = useSelector((state) => (state?.recipes))
     const ingredients = useSelector((state) => state?.ingredients)
@@ -26,18 +26,18 @@ const EditIngredientsForm = (recipe) => {
         e.preventDefault();
 
         const editedIngredients = {
-            id: ingredients.id,
+            id: ingredient.id,
             amt,
             measurement,
             ingredient_name,
-            recipe_id: recipe.recipe.id
+            recipe_id: ingredient.recipe.id
         }
 
         await dispatch(editIngredientThunk(editedIngredients))
         editAmt("")
         editMeasurement("")
         editIngredient("")
-        history.push(`/recipes/${ recipe.recipe.id }/`)
+        history.push(`/recipes/${ ingredient.recipe_id }/`)
     }
 
     return (
@@ -45,7 +45,7 @@ const EditIngredientsForm = (recipe) => {
             <form className="edit-ingredient-form" onSubmit={handleIngredientEditSubmit}>
                 <div>
                     <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
-                        <input type="float" value={ingredients.amt} onChange={editAmt} />
+                        <input type="float" placeholder={ingredients.amt} value={ingredients.amt} onChange={editAmt} />
                     </label>
                 </div>
 
@@ -80,7 +80,7 @@ const EditIngredientsForm = (recipe) => {
 
                 <div>
                     <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
-                        <input type="text" value={ingredients.amt} onChange={editIngredient} />
+                        <input type="text" value={ingredient.amt} onChange={editIngredient} />
                     </label>
                 </div>
 
