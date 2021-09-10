@@ -16,3 +16,40 @@
     padding: 1%;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+.edit-ingredient-amt > input {
+    width: 10%;
+    min-width: 25px;
+    margin-left: 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba(58, 95, 125);
+    border-radius: 3px;
+    border: none;
+}
+
+.edit-ingredient-name > input {
+    width: 90%;
+    margin-left: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.edit-ingredient-amt > input::placeholder, .edit-ingredient-name > input::placeholder {
+    color: rgba(58, 95, 125);
+}
+
+.edit-ingredient-button {
+    margin-left: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: rgba(173, 96, 68);
+    border-radius: 5px;
+    border: 1px solid rgba(173, 96, 68);
+    padding: 1%;
+    transition: .5s ease;
+}
+
+.edit-ingredient-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(173, 96, 68, .8);
+}

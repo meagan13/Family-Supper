@@ -235,7 +235,7 @@
 }
 
 .one-recipe-edit-ingredient-form-div {
-    width: 45%;
+    width: 43%;
     margin: 2%;
     max-height: 500px;
     overflow-y: scroll;
@@ -243,7 +243,7 @@
 }
 
 .one-recipe-edit-directions-form-div {
-    width: 45%;
+    width: 43%;
     margin: 2%;
     max-height: 500px;
     overflow-y: scroll;
