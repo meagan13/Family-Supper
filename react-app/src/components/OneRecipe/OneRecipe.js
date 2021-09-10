@@ -93,15 +93,33 @@ function RecipeView({recipeInfo}) {
         if (sessionUser && (sessionUser?.id === recipe?.user_id)) {
             return (
                 <div className="click-edit-div">
-                    <button onClick={showEditClick}>Edit Recipe</button>
+                    <div className="edit-recipe-button-div">
+                        <button className="edit-recipe-button" onClick={showEditClick}>Edit Recipe</button>
+                    </div>
+
                     {showEdit ?
                         <div className="edit-and-delete-recipe-div">
-                            {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
-                            <EditRecipeForm recipe={ currentRecipe } />
-                            <EditIngredientsForm ingredientsObj={ ingredients } />
-                            <EditDirectionsForm directionsObj={ directions } />
-                            <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
-                            <button onClick={hideEditClick}>Close Edit Recipe</button>
+                            <div className="close-recipe-edit-button-div">
+                                <button onClick={hideEditClick}>Close Edit Recipe</button>
+                            </div>
+                            
+                            <div className="one-recipe-edit-recipe-form-div">
+                                <EditRecipeForm recipe={ currentRecipe } />
+                            </div>
+
+                            <div className="one-recipe-edit-ingredient-form-div">
+                                <EditIngredientsForm ingredientsObj={ ingredients } />
+                            </div>
+
+                            <div className="one-recipe-edit-directions-form-div">
+                                <EditDirectionsForm directionsObj={ directions } />
+                            </div>
+
+                            <div className="delete-recipe-button-div">
+                                <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
+                            </div>
+
+
                         </div>
                     : null}
                 </div>
@@ -157,45 +175,32 @@ function RecipeView({recipeInfo}) {
             </div>
 
             <div className="one-recipe-ingredient-directions-div">
+
                 <div className="ingredients-list-div">
                     <h3 className="one-recipe-ingredients-title-text">Ingredients:</h3>
-                    { ingredientsArr.map(ingredient => (
-                        <div className="ingredient-div" id={ingredient?.id}>
-                            <p className="one-recipe-ing-dir-text">{ ingredient?.amt } { ingredient?.measurement } { ingredient.ingredient_name } </p>
-                        </div>
-                    ))}
-                </div>
-
-                <div>
-                    <h1>Ingredients from the component</h1>
                     { ingredients && Object.values(ingredients).map(ingredient => (
-                        <div>
+                        <div className="ingredient-div" id={ingredient?.id}>
                             <Ingredients ingredientObj={ingredient}/>
-                        </div>
-                    ))}
-                </div>
-
-                <div>
-                    <h1>Directions from the component</h1>
-                    { directions && Object.values(directions).map(direction => (
-                        <div>
-                            <Directions directionObj={direction} />
                         </div>
                     ))}
                 </div>
 
                 <div className="directions-list-div">
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
-                    { directionsArr.map(direction => (
+                    { directions && Object.values(directions).map(direction => (
                         <div className="direction-div" id={direction.id}>
-                            <p className="one-recipe-ing-dir-text">{ direction?.step_number }. { direction?.instruction }</p>
+                            <Directions directionObj={direction} />
                         </div>
                     ))}
                 </div>
+
+            </div>
+
+            <div className="edit-full-recipe-div">
+                { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
             <div className="session-memory-div">
-                { userRecipeOptions(sessionUser, currentRecipe)}
                 { sessionMemory }
             </div>
 
@@ -208,14 +213,6 @@ function RecipeView({recipeInfo}) {
                 ))}
             </div>
 
-            <div>
-                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
-                    { userRecipeOptions(sessionUser, recipe)}
-
-                })} */}
-                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
-                {/* { userRecipeOptions(sessionUser, currentRecipe)} */}
-            </div>
         </div>
     )
 }

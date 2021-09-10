@@ -3,9 +3,11 @@
     /* border: 5px solid purple; */
     /* padding: 2%; */
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-left: 2%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 2%;
 }
@@ -173,6 +175,63 @@
     padding-top: .5%;
     padding-bottom: .5%;
     overflow: auto;
+}
+
+
+.edit-full-recipe-div {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+
+.click-edit-div {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+.close-recipe-edit-button-div {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+}
+
+.one-recipe-edit-recipe-form-div {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.one-recipe-edit-ingredient-form-div {
+    width: 48%;
+}
+
+.one-recipe-edit-directions-form-div {
+    width: 48%;
+    margin: 2%;
+}
+
+.session-memory-div {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid green; */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    background-color: rgb(173, 96, 68);
 }
 
 .login-to-share-memory-div {

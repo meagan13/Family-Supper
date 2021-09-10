@@ -6,7 +6,7 @@ function Directions({directionObj}) {
     // {console.log("direction object:", directionObj)}
     return (
         <>
-            <p>{directionObj?.step_number} {directionObj?.instruction}</p>
+            <p className="one-recipe-ing-dir-text">{directionObj?.step_number}. {directionObj?.instruction}</p>
         </>
     )
 }
