@@ -1,0 +1,26 @@
+.search-page-div {
+    /* background-color: green; */
+    width: 30%;
+}
+
+.search-div > input {
+    border: 2px solid #3a5f7dcc;
+    border-radius: 5px;
+    padding: 1%;
+    width: 60%;
+}
+
+.clear-search-button {
+    background-color: rgba(58, 95, 125, .8);
+    margin-left: 2%;
+    border-radius: 3px;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: 1px solid rgba(58, 95, 125, .8);
+    padding: 1%;
+    transition: .5s ease;
+}
+
+.clear-search-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(58, 95, 125, .6);
+}

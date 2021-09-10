@@ -1,4 +1,5 @@
 import React from 'react';
+import './RecipeList.css'
 
 const RecipeList = ({recipeList=[]}) => {
     return (
@@ -7,7 +8,7 @@ const RecipeList = ({recipeList=[]}) => {
           if (data) {
             return (
               <>
-                <div key={index}>
+                <div className="search-recipe-text-div" key={index}>
                     {<a href={`/recipes/${data?.id}`}>{data?.title}</a>}
                 </div>
               </>

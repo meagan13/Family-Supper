@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import './SearchBar.css'
 
 const SearchBar = ({input:keyword, onChange:setKeyword}) => {
     const history = useHistory();
@@ -9,15 +10,15 @@ const SearchBar = ({input:keyword, onChange:setKeyword}) => {
     }
 
     return (
-        <div>
-            <input
-            key="random1"
-            value={keyword}
-            placeholder={"search recipes"}
-            onChange={(e) => setKeyword(e.target.value)}
+        <div className="search-div">
+            <input className="search-input"
+                key="random1"
+                value={keyword}
+                // placeholder={"search recipes"}
+                onChange={(e) => setKeyword(e.target.value)}
             />
 
-            <button onClick={clearSearch}>Clear Search</button>
+            <button className="clear-search-button" onClick={clearSearch}>Clear Search</button>
         </div>
   );
 }
