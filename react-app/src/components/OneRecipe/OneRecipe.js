@@ -102,13 +102,23 @@ function RecipeView({recipeInfo}) {
                             <div className="close-recipe-edit-button-div">
                                 <button onClick={hideEditClick}>Close Edit Recipe</button>
                             </div>
-                            
+
                             <div className="one-recipe-edit-recipe-form-div">
                                 <EditRecipeForm recipe={ currentRecipe } />
                             </div>
 
-                            <div className="one-recipe-edit-ingredient-form-div">
+                            {/* <div className="one-recipe-edit-ingredient-form-div">
                                 <EditIngredientsForm ingredientsObj={ ingredients } />
+                            </div> */}
+
+                            <div className="one-recipe-edit-ingredient-form-div">
+                                {ingredientsArr?.map((ingredient, i) => {
+                                    return <div>
+                                        {/* {ingredient?.ingredient_name}
+                                        <h2>Nothing rendering insiden map</h2> */}
+                                        <EditIngredientsForm ingredientObj={ ingredient } />
+                                    </div>
+                                })}
                             </div>
 
                             <div className="one-recipe-edit-directions-form-div">

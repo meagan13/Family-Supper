@@ -9,12 +9,12 @@ function SearchPage() {
 
     const fetchRecipes = async() => {
         return await fetch('/api/recipe/')
-        .then(res => res.json())
-        .then(recipes => {
-            setRecipeList(recipes)
-            console.log("recipes from SearchPage:", recipes)
-            setRecipeListDefault(recipes)
-        });
+            .then(res => res.json())
+            .then(recipes => {
+                setRecipeList(recipes)
+                console.log("recipes from SearchPage:", recipes)
+                setRecipeListDefault(recipes)
+            });
     }
 
     const updateInput = async(input) => {
