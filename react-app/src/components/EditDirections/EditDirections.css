@@ -1,0 +1,18 @@
+.edit-directions-scroll-div {
+    background-color: green;
+}
+
+.edit-directions-form-div {
+    background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
+    padding: 3%;
+    margin: 2%;
+    border: 5px solid rgba(58, 95, 125);
+}
+
+.edit-directions-form {
+    border: 2px solid black;
+    margin: 2%;
+    background-color: rgba(58, 95, 125);
+    padding: 1%;
+    font-family: 'Noto Sans JP', sans-serif;
+}

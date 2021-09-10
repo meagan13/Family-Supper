@@ -40,7 +40,6 @@ const EditIngredientsForm = ({ingredientObj}) => {
     }
 
     return (
-
         <div className="edit-ingredients-form-div">
             <form className="edit-ingredient-form" onSubmit={(e)=>handleIngredientEditSubmit(e)}>
 
