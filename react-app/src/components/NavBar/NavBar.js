@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
 import LogoutButton from '../auth/LogoutButton';
+// import SearchPage from '../SearchPage/SearchPage';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -100,11 +100,11 @@ const NavBar = () => {
         <a href="/"><h1 className="title-text">Family Supper</h1></a>
       </div>
 
-      {/* <div>
-        { sessionRecipe }
-      </div> */}
+    {/* <div className="search-page-div">
+      <SearchPage />
+    </div> */}
 
-      <div className="right-nav">
+    <div className="right-nav">
         {sessionLinks}
       </div>
     </div>
