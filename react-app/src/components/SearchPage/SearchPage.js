@@ -1,49 +1,46 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import RecipeList from '../RecipeList/RecipeList';
 
-function SearchPage() {
+const SearchPage = (props) => {
     const [input, setInput] = useState('');
     const [recipeListDefault, setRecipeListDefault] = useState();
     const [recipeList, setRecipeList] = useState();
 
-    const fetchRecipes = async() => {
+    const fetchData = async () => {
         return await fetch('/api/recipe/')
-            .then(res => res.json())
-            .then(recipes => {
-                setRecipeList(recipes)
-                console.log("recipes from SearchPage:", recipes)
-                setRecipeListDefault(recipes)
+            .then(response => response.json())
+            .then(data => {
+                setRecipeList(data)
+                setRecipeListDefault(data)
+
+                // console.log("recipeListDefault", recipeListDefault.recipes)
             });
     }
 
-    const updateInput = async(input) => {
-        console.log("recipeListDefault", recipeListDefault)
-        const filtered = recipeListDefault.filter(recipe => {
+    const updateInput = async (input) => {
+        const filtered = recipeListDefault.recipes?.filter(recipe => {
+            // console.log("filtered", filtered)
             return recipe.title.toLowerCase().includes(input.toLowerCase())
         })
+
         setInput(input);
         setRecipeList(filtered);
     }
 
     useEffect(() => {
-        fetchRecipes()
+        fetchData()
     }, []);
-
 
     return (
         <>
-            {/* <input
-                type="text"
-                key="inputKey"
-                value={input}
-                placeholder={"search recipes"}
-                onChange={(e) => updateInput(e.target.value)}
-            /> */}
-            <SearchBar input={input} onChange={updateInput} />
+            <SearchBar
+                input={input}
+                onChange={updateInput}
+            />
             <RecipeList recipeList={recipeList}/>
         </>
     );
 }
 
-export default SearchPage;
+export default SearchPage

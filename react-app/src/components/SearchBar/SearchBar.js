@@ -1,16 +1,18 @@
-const SearchBar = () => (
-    <form action="/" method="get">
-        {/* <label htmlFor="header-search">
-            <span className="visually-hidden">Search recipes</span>
-        </label> */}
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search recipes"
-            name="s"
-        />
-        <button type="submit">Search Button</button>
-    </form>
-);
+import React from 'react';
 
-export default SearchBar;
+const SearchBar = ({input:keyword, onChange:setKeyword}) => {
+  return (
+        <div>
+            <input
+            key="random1"
+            value={keyword}
+            placeholder={"search recipes"}
+            onChange={(e) => setKeyword(e.target.value)}
+            />
+
+            <button>Close Search</button>
+        </div>
+  );
+}
+
+export default SearchBar
