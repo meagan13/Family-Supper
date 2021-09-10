@@ -239,7 +239,7 @@
     margin: 2%;
     max-height: 500px;
     overflow-y: scroll;
-    border: 1px solid rgb(58, 95, 125);
+    border: 5px solid rgb(58, 95, 125);
 }
 
 .one-recipe-edit-directions-form-div {
@@ -247,7 +247,7 @@
     margin: 2%;
     max-height: 500px;
     overflow-y: scroll;
-    border: 1px solid rgb(58, 95, 125);
+    border: 5px solid rgb(58, 95, 125);
 }
 
 .session-memory-div {
