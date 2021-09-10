@@ -38,7 +38,7 @@ function RecipeView({recipeInfo}) {
     // const { recipeId } = useParams();
     const history = useHistory();
 
-    // console.log("ingredients:", ingredients)
+    // console.log("recipe view ingredients:", ingredients)
     // console.log("recipes:", currentRecipe)
     // console.log("directions:", directions)
 
@@ -93,7 +93,7 @@ function RecipeView({recipeInfo}) {
                     <div className="edit-and-delete-recipe-div">
                         {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
                         <EditRecipeForm recipe={ currentRecipe } />
-                        <EditIngredientsForm ingredient={ ingredient } />
+                        <EditIngredientsForm ingredientsObj={ ingredients } />
                         <EditDirectionsForm recipe={ currentRecipe } />
                         <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
                     </div>

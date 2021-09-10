@@ -3,7 +3,7 @@ import './AllDirections.css'
 
 function Directions({directionObj}) {
 
-    {console.log("direction object:", directionObj)}
+    // {console.log("direction object:", directionObj)}
     return (
         <>
             <p>{directionObj?.step_number} {directionObj?.instruction}</p>

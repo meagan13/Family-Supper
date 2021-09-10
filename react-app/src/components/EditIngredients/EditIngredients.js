@@ -4,49 +4,71 @@ import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
-const EditIngredientsForm = (ingredient) => {
+const EditIngredientsForm = ({ingredientsObj}) => {
     // const sessionUser = useSelector(state => state.session.user)
     // const recipes = useSelector((state) => (state?.recipes))
     const ingredients = useSelector((state) => state?.ingredients)
 
+    // console.log("ingredients from edit:", ingredientsObj)
+
     const dispatch=useDispatch();
     const history = useHistory();
 
-    const [amt, setAmt] = useState(1);
-    const [measurement, setMeasurement] = useState();
-    const [ingredient_name, setIngredientName] = useState();
+    const [amt, setAmt] = useState(0);
+    const [measurement, setMeasurement] = useState(1);
+    const [ingredient_name, setIngredientName] = useState("Placeholder");
     // const [recipe_id, setRecipe_id] = useState();
 
-    const editAmt = (e) => setAmt(e.target.value);
-    const editMeasurement = (e) => setMeasurement(e.target.value);
-    const editIngredient = (e) => setIngredientName(e.target.value);
+    // const editMeasurement = (e) => setMeasurement(e.target.value);
+    // const editIngredient = (e) => setIngredientName(e.target.value);
     // const createRecipe_id = (e) => setRecipe_id(e.target.value);
 
-    const handleIngredientEditSubmit = async(e) => {
+    const handleIngredientEditSubmit = async(e, ingredient) => {
         e.preventDefault();
 
-        const editedIngredients = {
+        console.log("e.target.value", e.target.value)
+        console.log("ingredient", ingredient)
+        console.log("in the handleSubmit")
+        const editedIngredient = {
             id: ingredient.id,
             amt,
             measurement,
             ingredient_name,
-            recipe_id: ingredient.recipe.id
+            recipe_id: ingredient.recipe_id
         }
 
-        await dispatch(editIngredientThunk(editedIngredients))
-        editAmt("")
-        editMeasurement("")
-        editIngredient("")
-        history.push(`/recipes/${ ingredient.recipe_id }/`)
+        console.log("editedIngredient:", editedIngredient)
+        await dispatch(editIngredientThunk(editedIngredient))
+        setAmt(2);
+        setIngredientName("TESTING");
+        // history.push(`/recipes/${ ingredient.recipe_id }/`)
     }
 
     return (
         <div className="edit-ingredients-form-div">
-            <form className="edit-ingredient-form" onSubmit={handleIngredientEditSubmit}>
                 <div>
-                    <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
-                        <input type="float" placeholder={ingredients.amt} value={ingredients.amt} onChange={editAmt} />
-                    </label>
+                    {ingredients && Object.values(ingredientsObj)?.map((ingredient, i) => (
+                        <form className="edit-ingredient-form" onSubmit={(e)=>handleIngredientEditSubmit(e, ingredient)}>
+                            <div key={i}>
+
+                                    <p>From editIng Components: {ingredient.ingredient_name}</p>
+
+                                    <div>
+                                        <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
+                                            <input type="float" placeholder={ingredient?.amt} value={ingredient?.amt} onChange={(e) => setAmt(e.target.value)} />
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
+                                            <input type="text" value={ingredient?.ingredient_name} onChange={console.log("change name")} />
+                                        </label>
+                                    </div>
+
+                                <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
+                            </div>
+                        </form>
+                    ))}
                 </div>
 
                 {/* <div>
@@ -77,16 +99,6 @@ const EditIngredientsForm = (ingredient) => {
                         </select>
                     </label>
                 </div> */}
-
-                <div>
-                    <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
-                        <input type="text" value={ingredient.amt} onChange={editIngredient} />
-                    </label>
-                </div>
-
-                <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
-
-            </form>
 
         </div>
     )

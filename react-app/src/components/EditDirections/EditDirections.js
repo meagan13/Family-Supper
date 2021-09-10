@@ -23,7 +23,7 @@ const EditDirectionsForm = (recipe) => {
 
         const errorData = [];
 
-        if(step_number === null) {
+        if(step_number === 0) {
             errorData.push("Please include a step number.")
         }
 
