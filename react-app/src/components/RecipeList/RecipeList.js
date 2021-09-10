@@ -8,7 +8,7 @@ const RecipeList = ({recipeList=[]}) => {
         if (data) {
           return (
             <div key={index}>
-              <h1>{data[0].title}</h1>
+              <li key={data.id}>{data.title}</li>
 	    </div>
     	   )
     	 }

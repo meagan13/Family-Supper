@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import RecipeList from '../RecipeList/RecipeList';
 
-const SearchPage = (props) => {
+function SearchPage() {
     const [input, setInput] = useState('');
     const [recipeListDefault, setRecipeListDefault] = useState();
     const [recipeList, setRecipeList] = useState();
@@ -12,11 +12,13 @@ const SearchPage = (props) => {
         .then(res => res.json())
         .then(recipes => {
             setRecipeList(recipes)
+            console.log("recipes from SearchPage:", recipes)
             setRecipeListDefault(recipes)
         });
     }
 
-    const updateInput = async (input) => {
+    const updateInput = async(input) => {
+        console.log("recipeListDefault", recipeListDefault)
         const filtered = recipeListDefault.filter(recipe => {
             return recipe.title.toLowerCase().includes(input.toLowerCase())
         })
@@ -31,7 +33,13 @@ const SearchPage = (props) => {
 
     return (
         <>
-            <h1>Recipe List</h1>
+            {/* <input
+                type="text"
+                key="inputKey"
+                value={input}
+                placeholder={"search recipes"}
+                onChange={(e) => updateInput(e.target.value)}
+            /> */}
             <SearchBar input={input} onChange={updateInput} />
             <RecipeList recipeList={recipeList}/>
         </>
