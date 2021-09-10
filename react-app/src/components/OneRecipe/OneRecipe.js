@@ -100,7 +100,7 @@ function RecipeView({recipeInfo}) {
                     {showEdit ?
                         <div className="edit-and-delete-recipe-div">
                             <div className="close-recipe-edit-button-div">
-                                <button onClick={hideEditClick}>Close Edit Recipe</button>
+                                <button className="edit-recipe-button" onClick={hideEditClick}>Close Edit Recipe</button>
                             </div>
 
                             <div className="one-recipe-edit-recipe-form-div">

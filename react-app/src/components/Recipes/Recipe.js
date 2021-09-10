@@ -50,9 +50,9 @@ function Recipes() {
                 {/* { sessionRecipe } */}
             </div>
 
-            <div>
+            {/* <div>
                 <h2>Category Placeholder</h2>
-            </div>
+            </div> */}
 
             <div className="all-recipes-div">
                 { recipes.map(recipe => (
