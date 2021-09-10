@@ -17,11 +17,6 @@ const EditIngredientsForm = ({ingredientsObj}) => {
     const [amt, setAmt] = useState(0);
     const [measurement, setMeasurement] = useState(1);
     const [ingredient_name, setIngredientName] = useState("Placeholder");
-    // const [recipe_id, setRecipe_id] = useState();
-
-    // const editMeasurement = (e) => setMeasurement(e.target.value);
-    // const editIngredient = (e) => setIngredientName(e.target.value);
-    // const createRecipe_id = (e) => setRecipe_id(e.target.value);
 
     const handleIngredientEditSubmit = async(e, ingredient) => {
         e.preventDefault();
@@ -39,8 +34,8 @@ const EditIngredientsForm = ({ingredientsObj}) => {
 
         console.log("editedIngredient:", editedIngredient)
         await dispatch(editIngredientThunk(editedIngredient))
-        setAmt(2);
-        setIngredientName("TESTING");
+        // setAmt(2);
+        // setIngredientName("TESTING");
         // history.push(`/recipes/${ ingredient.recipe_id }/`)
     }
 
@@ -51,19 +46,19 @@ const EditIngredientsForm = ({ingredientsObj}) => {
                         <form className="edit-ingredient-form" onSubmit={(e)=>handleIngredientEditSubmit(e, ingredient)}>
                             <div key={i}>
 
-                                    <p>From editIng Components: {ingredient.ingredient_name}</p>
+                                <p>From editIng Component: {ingredient.ingredient_name}</p>
 
-                                    <div>
-                                        <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
-                                            <input type="float" placeholder={ingredient?.amt} value={ingredient?.amt} onChange={(e) => setAmt(e.target.value)} />
-                                        </label>
-                                    </div>
+                                <div>
+                                    <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
+                                        <input type="float" placeholder={ingredient?.amt} value={ingredient?.amt} onChange={(e) => setAmt(e.target.value)} />
+                                    </label>
+                                </div>
 
-                                    <div>
-                                        <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
-                                            <input type="text" value={ingredient?.ingredient_name} onChange={console.log("change name")} />
-                                        </label>
-                                    </div>
+                                <div>
+                                    <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
+                                        <input type="text" value={ingredient?.ingredient_name} onChange={(e) => setIngredientName(e.target.value)} />
+                                    </label>
+                                </div>
 
                                 <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
                             </div>

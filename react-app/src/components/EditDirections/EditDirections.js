@@ -4,21 +4,18 @@ import { editDirectionThunk } from '../../store/direction';
 import { useHistory } from 'react-router-dom';
 import './EditDirections.css'
 
-const EditDirectionsForm = (recipe) => {
+const EditDirectionsForm = ({directionsObj}) => {
     const directions = (state => state?.directions)
 
     const dispatch = useDispatch();
     const history = useHistory();
 
     const [errors, setErrors] = useState([]);
-    const [step_number, setStep_number] = useState(recipe.step_number);
+    const [step_number, setStep_number] = useState(1);
     // const [recipe_id, setRecipe_id] = useState(recipe.id)
-    const [instruction, setInstruction] = useState(recipe.instruction);
+    const [instruction, setInstruction] = useState("Test");
 
-    const editStep = (e) => setStep_number(e.target.value);
-    const editIntruction = (e) => setInstruction(e.target.value);
-
-    const handleEditSubmit = async(e) => {
+    const handleEditSubmit = async(e, direction) => {
         e.preventDefault();
 
         const errorData = [];
@@ -39,7 +36,7 @@ const EditDirectionsForm = (recipe) => {
 
         if(errorData.length === 0) {
             const editedDirections = {
-                id: recipe.id,
+                id: direction.id,
                 step_number,
                 instruction
             };
@@ -47,35 +44,40 @@ const EditDirectionsForm = (recipe) => {
             await dispatch(editDirectionThunk(editedDirections));
             setStep_number(step_number);
             setInstruction(instruction);
-            history.push(`/recipes/${ recipe.recipe.id }/`)
+            history.push(`/recipes/${ direction.recipe_id }/`)
         }
     }
 
     return (
-        <div className='edit-directions-div'>
-            <form className='edit-directions-form' onSubmit={handleEditSubmit}>
-                <div className="edit-directions-errors-div">
-                        {errors.map((error, i) => (
-                        <div key={i}>{error}</div>
-                        ))}
-                </div>
+        <div className='edit-directions-form-div'>
+            <div>
+                {directions && Object.values(directionsObj)?.map((direction, i) => (
+                    <form className='edit-directions-form' onSubmit={(e)=>handleEditSubmit(e, direction)}>
+                        <div className="edit-directions-errors-div">
+                                {errors.map((error, i) => (
+                                    <div key={i}>{error}</div>
+                                ))}
+                        </div>
 
-                <div className="edit-directions-title-text-div">
-                    <label className="edit-directions edit-directions-title">Edit Step Number
-                        <input type="number" value={step_number} onChange={setStep_number} />
-                    </label>
-                </div>
+                        <p>From editDir Component: {direction?.step_number}. {direction?.instruction} </p>
 
-                <div className="edit-direction-text-div">
-                    <label className="edit-direction-description">Edit Direction
-                        <input type="text" value={instruction} onChange={setInstruction} />
-                    </label>
-                </div>
+                        <div className="edit-directions-title-text-div">
+                            <label className="edit-directions edit-directions-title">Edit Step Number
+                                <input type="number" placeholder={ direction?.step_number} value={step_number} onChange={(e) => setStep_number(e.target.value)} />
+                            </label>
+                        </div>
 
-                <button className="edit-direction-button" type="submit">Edit Direction</button>
+                        <div className="edit-direction-text-div">
+                            <label className="edit-direction-description">Edit Direction
+                                <input type="text" placeholder={ direction?.instruction } value={instruction} onChange={(e) => setInstruction(e.target.value)} />
+                            </label>
+                        </div>
 
-            </form>
+                        <button className="edit-direction-button" type="submit">Edit Direction</button>
 
+                    </form>
+                ))}
+            </div>
         </div>
     )
 }
