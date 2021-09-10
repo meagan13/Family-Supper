@@ -14,6 +14,7 @@ const EditIngredientsForm = ({ingredientsObj}) => {
     const dispatch=useDispatch();
     const history = useHistory();
 
+    const [hideEdit, setHideEdit] = useState(false)
     const [amt, setAmt] = useState(0);
     const [measurement, setMeasurement] = useState(1);
     const [ingredient_name, setIngredientName] = useState("Placeholder");

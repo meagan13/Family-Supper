@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
@@ -32,6 +32,8 @@ function RecipeView({recipeInfo}) {
     if(recipeInfo) {
         recipeId = recipeInfo?.id;
     }
+
+    const [showEdit, setShowEdit] = useState(false)
 
     // console.log("Recipe Id:", recipeId)
 
@@ -73,6 +75,8 @@ function RecipeView({recipeInfo}) {
         history.push("/")
     }
 
+    const showEditClick = () => setShowEdit(true);
+    const hideEditClick = () => setShowEdit(false);
 
     function userMemoryOptions(sessionUser, memory) {
         if (sessionUser && (sessionUser?.id === memory?.user_id)) {
@@ -88,15 +92,19 @@ function RecipeView({recipeInfo}) {
     function userRecipeOptions(sessionUser, recipe) {
         if (sessionUser && (sessionUser?.id === recipe?.user_id)) {
             return (
-                <>
-                    <div className="edit-and-delete-recipe-div">
-                        {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
-                        <EditRecipeForm recipe={ currentRecipe } />
-                        <EditIngredientsForm ingredientsObj={ ingredients } />
-                        <EditDirectionsForm directionsObj={ directions } />
-                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
-                    </div>
-                </>
+                <div className="click-edit-div">
+                    <button onClick={showEditClick}>Edit Recipe</button>
+                    {showEdit ?
+                        <div className="edit-and-delete-recipe-div">
+                            {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
+                            <EditRecipeForm recipe={ currentRecipe } />
+                            <EditIngredientsForm ingredientsObj={ ingredients } />
+                            <EditDirectionsForm directionsObj={ directions } />
+                            <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
+                            <button onClick={hideEditClick}>Close Edit Recipe</button>
+                        </div>
+                    : null}
+                </div>
             )
         }
     }
@@ -196,15 +204,6 @@ function RecipeView({recipeInfo}) {
                     <div id="one-recipe-all-memories" className="memories-div" key={memory?.id}>
                         <Memories memoryObj={ memory }/>
                         { userMemoryOptions(sessionUser, memory)}
-                    </div>
-                ))}
-            </div>
-
-            <div>
-                { ingredients && Object.values(ingredients).map(ingredient => (
-                    <div>
-                        <Ingredients ingredientObj={ ingredient }/>
-                        { userRecipeOptions(sessionUser, ingredient)}
                     </div>
                 ))}
             </div>
