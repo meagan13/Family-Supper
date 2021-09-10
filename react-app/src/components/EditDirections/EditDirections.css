@@ -1,11 +1,11 @@
-.edit-ingredients-form-div {
+.edit-directions-form-div {
     background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
     padding: 3%;
     margin: 2%;
     border: 5px solid rgba(58, 95, 125);
 }
 
-.edit-ingredient-form {
+.edit-directions-form {
     /* border: 2px solid black; */
     margin: 2%;
     background-color: rgba(58, 95, 125);
@@ -13,7 +13,7 @@
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-.edit-ingredient-amt > input {
+.edit-directions-title > input {
     width: 30px;
     margin-left: 5px;
     font-family: 'Noto Sans JP', sans-serif;
@@ -22,18 +22,18 @@
     border: none;
 }
 
-.edit-ingredient-name > input {
+.edit-direction-description > input {
     width: 90%;
     margin-left: 5px;
     border-radius: 3px;
     border: none;
 }
 
-.edit-ingredient-amt > input::placeholder, .edit-ingredient-name > input::placeholder {
+.edit-directions-title > input::placeholder, .edit-direction-description > input::placeholder {
     color: rgba(58, 95, 125);
 }
 
-.edit-ingredient-button {
+.edit-direction-button {
     margin-left: 5px;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -44,7 +44,7 @@
     transition: .5s ease;
 }
 
-.edit-ingredient-button:hover {
+.edit-direction-button:hover {
     transform: scale(1.05);
     background-color: rgba(173, 96, 68, .8);
 }

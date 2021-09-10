@@ -3,9 +3,11 @@
     /* border: 5px solid purple; */
     /* padding: 2%; */
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-left: 2%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 98%;
+    flex-wrap: wrap;
+    margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 2%;
 }
@@ -173,6 +175,92 @@
     padding-top: .5%;
     padding-bottom: .5%;
     overflow: auto;
+}
+
+
+.edit-full-recipe-div {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+
+.click-edit-div {
+    background-color: rgb(173, 96, 68);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 1%;
+}
+
+.edit-recipe-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-recipe-button {
+    padding: 1%;
+    border: 1px solid rgb(58, 95, 125);
+    border-radius: 5px;
+    width: 30%;
+    font-size: 20px;
+    background-color:rgb(58, 95, 125);
+    color: bisque;
+    transition: 1s ease;
+}
+
+.edit-recipe-button:hover {
+    transform: scale(1.05);
+    background-color: rgb(58, 95, 125, .8);
+}
+
+.close-recipe-edit-button-div {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+}
+
+.one-recipe-edit-recipe-form-div {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.one-recipe-edit-ingredient-form-div {
+    width: 43%;
+    margin: 2%;
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 5px solid rgb(58, 95, 125);
+}
+
+.one-recipe-edit-directions-form-div {
+    width: 43%;
+    margin: 2%;
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 5px solid rgb(58, 95, 125);
+}
+
+.session-memory-div {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid green; */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    background-color: rgb(173, 96, 68);
 }
 
 .login-to-share-memory-div {

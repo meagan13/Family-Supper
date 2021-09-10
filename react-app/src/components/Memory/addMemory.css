@@ -23,19 +23,6 @@
     max-width: 300px; */
 }
 
-.session-memory-div {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 3px solid green; */
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 1%;
-    background-color: rgb(173, 96, 68);
-}
-
 .add-memory-form {
     /* border: 3px solid purple; */
     padding: 4%;

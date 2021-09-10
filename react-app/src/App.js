@@ -15,6 +15,7 @@ import User from './components/Profile/User';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
+// import SearchPage from './components/SearchPage/SearchPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -36,11 +37,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar/>
       {/* <button onClick={() => setShow(true)}>Show Modal</button>
       <Modal title="My Modal" onClose={() => setShow(false)} onSubmit={() => setShow(false)} show={show}>
         <p>Sign Up</p>
       </Modal> */}
+      {/* <SearchPage /> */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

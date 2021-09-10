@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
@@ -9,9 +9,12 @@ import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
+import Ingredients from '../AllIngredients/AllIngredients';
 // import AddIngredientForm from '../Ingredients/Ingredients';
-// import EditIngredientsForm from '../EditIngredients/EditIngredients';
+import EditIngredientsForm from '../EditIngredients/EditIngredients';
+import EditDirectionsForm from '../EditDirections/EditDirections';
 // import CreateDirections from '../CreateDirections/CreateDirections';
+import Directions from '../AllDirections/AllDirections';
 import './OneRecipe.css';
 
 function RecipeView({recipeInfo}) {
@@ -30,12 +33,14 @@ function RecipeView({recipeInfo}) {
         recipeId = recipeInfo?.id;
     }
 
+    const [showEdit, setShowEdit] = useState(false)
+
     // console.log("Recipe Id:", recipeId)
 
     // const { recipeId } = useParams();
     const history = useHistory();
 
-    // console.log("ingredients:", ingredients)
+    // console.log("recipe view ingredients:", ingredients)
     // console.log("recipes:", currentRecipe)
     // console.log("directions:", directions)
 
@@ -70,6 +75,8 @@ function RecipeView({recipeInfo}) {
         history.push("/")
     }
 
+    const showEditClick = () => setShowEdit(true);
+    const hideEditClick = () => setShowEdit(false);
 
     function userMemoryOptions(sessionUser, memory) {
         if (sessionUser && (sessionUser?.id === memory?.user_id)) {
@@ -85,14 +92,47 @@ function RecipeView({recipeInfo}) {
     function userRecipeOptions(sessionUser, recipe) {
         if (sessionUser && (sessionUser?.id === recipe?.user_id)) {
             return (
-                <>
-                    <div className="edit-and-delete-recipe-div">
-                        {/* <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button> */}
-                        <EditRecipeForm recipe={ currentRecipe } />
-                        {/* <EditIngredientsForm recipe={ currentRecipe } /> */}
-                        <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
+                <div className="click-edit-div">
+                    <div className="edit-recipe-button-div">
+                        <button className="edit-recipe-button" onClick={showEditClick}>Edit Recipe</button>
                     </div>
-                </>
+
+                    {showEdit ?
+                        <div className="edit-and-delete-recipe-div">
+                            <div className="close-recipe-edit-button-div">
+                                <button className="edit-recipe-button" onClick={hideEditClick}>Close</button>
+                            </div>
+
+                            <div className="one-recipe-edit-recipe-form-div">
+                                <EditRecipeForm recipe={ currentRecipe } />
+                            </div>
+
+                            <div className="one-recipe-edit-ingredient-form-div">
+                                {ingredientsArr?.map((ingredient, i) => {
+                                    return <div>
+                                        {/* {ingredient?.ingredient_name}
+                                        <h2>Nothing rendering insiden map</h2> */}
+                                        <EditIngredientsForm ingredientObj={ ingredient } />
+                                    </div>
+                                })}
+                            </div>
+
+                            <div className="one-recipe-edit-directions-form-div">
+                                {directionsArr?.map((direction, i) => {
+                                    return <div>
+                                        <EditDirectionsForm directionObj={ direction } />
+                                    </div>
+                                })}
+                            </div>
+
+                            <div className="delete-recipe-button-div">
+                                <button className="delete-recipe-button" onClick={(e) => handleDeleteRecipe(e, recipe?.id)}>Delete Recipe</button>
+                            </div>
+
+
+                        </div>
+                    : null}
+                </div>
             )
         }
     }
@@ -145,27 +185,32 @@ function RecipeView({recipeInfo}) {
             </div>
 
             <div className="one-recipe-ingredient-directions-div">
+
                 <div className="ingredients-list-div">
                     <h3 className="one-recipe-ingredients-title-text">Ingredients:</h3>
-                    { ingredientsArr.map(ingredient => (
+                    { ingredients && Object.values(ingredients).map(ingredient => (
                         <div className="ingredient-div" id={ingredient?.id}>
-                            <p className="one-recipe-ing-dir-text">{ ingredient?.amt } { ingredient?.measurement } { ingredient.ingredient_name } </p>
+                            <Ingredients ingredientObj={ingredient}/>
                         </div>
                     ))}
                 </div>
 
                 <div className="directions-list-div">
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
-                    { directionsArr.map(direction => (
+                    { directions && Object.values(directions).map(direction => (
                         <div className="direction-div" id={direction.id}>
-                            <p className="one-recipe-ing-dir-text">{ direction?.step_number }. { direction?.instruction }</p>
+                            <Directions directionObj={direction} />
                         </div>
                     ))}
                 </div>
+
+            </div>
+
+            <div className="edit-full-recipe-div">
+                { userRecipeOptions(sessionUser, currentRecipe)}
             </div>
 
             <div className="session-memory-div">
-                { userRecipeOptions(sessionUser, currentRecipe)}
                 { sessionMemory }
             </div>
 
@@ -178,14 +223,6 @@ function RecipeView({recipeInfo}) {
                 ))}
             </div>
 
-            <div>
-                {/* { currentRecipe && Object.values(currentRecipe).map(recipe => {
-                    { userRecipeOptions(sessionUser, recipe)}
-
-                })} */}
-                {/* <EditRecipeForm recipe={ currentRecipe }/> */}
-                {/* { userRecipeOptions(sessionUser, currentRecipe)} */}
-            </div>
         </div>
     )
 }

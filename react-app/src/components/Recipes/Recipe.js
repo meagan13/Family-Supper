@@ -50,6 +50,10 @@ function Recipes() {
                 {/* { sessionRecipe } */}
             </div>
 
+            {/* <div>
+                <h2>Category Placeholder</h2>
+            </div> */}
+
             <div className="all-recipes-div">
                 { recipes.map(recipe => (
                     <div className="main-page-recipe-img-title">

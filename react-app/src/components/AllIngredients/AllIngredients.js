@@ -3,12 +3,10 @@ import React from 'react';
 import './AllIngredients.css'
 
 function Ingredients({ingredientObj}) {
-
+    // console.log("ingredientObj", ingredientObj)
     return (
         <>
-            <h3>{ingredientObj.recipe_id}</h3>
-            <p>{ingredientObj?.memory_text}</p>
-
+            <p className="one-recipe-ing-dir-text">{ingredientObj?.amt} {ingredientObj?.measurement} {ingredientObj?.ingredient_name}</p>
         </>
     )
 
