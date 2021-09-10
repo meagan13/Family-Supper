@@ -7,8 +7,8 @@ const RecipeList = ({recipeList=[]}) => {
     { Object.values(recipeList).map((data,index) => {
         if (data) {
           return (
-            <div key={data?.title}>
-              <h1>{data?.title}</h1>
+            <div key={index}>
+              <h1>{data[0].title}</h1>
 	    </div>
     	   )
     	 }
