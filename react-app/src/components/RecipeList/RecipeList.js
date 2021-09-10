@@ -6,7 +6,7 @@ const RecipeList = ({recipeList=[]}) => {
     <>
       <div>
         {/* <button className="dropdown-button">Search Test</button> */}
-        <div className>
+        <div className="search-results-div">
           { Object.values(recipeList).map((data,index) => {
               if (data) {
                 return (

@@ -1,5 +1,6 @@
 .nav-bar-div {
     /* background-color: pink; */
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
