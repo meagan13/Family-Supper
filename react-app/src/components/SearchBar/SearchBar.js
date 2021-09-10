@@ -1,7 +1,14 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const SearchBar = ({input:keyword, onChange:setKeyword}) => {
-  return (
+    const history = useHistory();
+
+    const clearSearch = () => {
+        window.location.reload(false)
+    }
+
+    return (
         <div>
             <input
             key="random1"
@@ -10,7 +17,7 @@ const SearchBar = ({input:keyword, onChange:setKeyword}) => {
             onChange={(e) => setKeyword(e.target.value)}
             />
 
-            <button>Close Search</button>
+            <button onClick={clearSearch}>Clear Search</button>
         </div>
   );
 }
