@@ -107,10 +107,6 @@ function RecipeView({recipeInfo}) {
                                 <EditRecipeForm recipe={ currentRecipe } />
                             </div>
 
-                            {/* <div className="one-recipe-edit-ingredient-form-div">
-                                <EditIngredientsForm ingredientsObj={ ingredients } />
-                            </div> */}
-
                             <div className="one-recipe-edit-ingredient-form-div">
                                 {ingredientsArr?.map((ingredient, i) => {
                                     return <div>
@@ -122,7 +118,11 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-directions-form-div">
-                                <EditDirectionsForm directionsObj={ directions } />
+                                {directionsArr?.map((direction, i) => {
+                                    return <div>
+                                        <EditDirectionsForm directionObj={ direction } />
+                                    </div>
+                                })}
                             </div>
 
                             <div className="delete-recipe-button-div">
