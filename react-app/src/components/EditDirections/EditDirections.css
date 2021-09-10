@@ -1,7 +1,3 @@
-.edit-directions-scroll-div {
-    background-color: green;
-}
-
 .edit-directions-form-div {
     background-image: url(https://live.staticflickr.com/65535/51411489576_5ea46e0433_t.jpg);
     padding: 3%;
@@ -15,4 +11,40 @@
     background-color: rgba(58, 95, 125);
     padding: 1%;
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+.edit-directions-title > input {
+    width: 30px;
+    margin-left: 5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba(58, 95, 125);
+    border-radius: 3px;
+    border: none;
+}
+
+.edit-direction-description > input {
+    width: 90%;
+    margin-left: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.edit-directions-title > input::placeholder, .edit-direction-description > input::placeholder {
+    color: rgba(58, 95, 125);
+}
+
+.edit-direction-button {
+    margin-left: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: rgba(173, 96, 68);
+    border-radius: 5px;
+    border: 1px solid rgba(173, 96, 68);
+    padding: 1%;
+    transition: .5s ease;
+}
+
+.edit-direction-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(173, 96, 68, .8);
 }
