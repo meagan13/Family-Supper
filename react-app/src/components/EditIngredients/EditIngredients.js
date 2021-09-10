@@ -40,25 +40,26 @@ const EditIngredientsForm = ({ingredientObj}) => {
     }
 
     return (
+
         <div className="edit-ingredients-form-div">
             <form className="edit-ingredient-form" onSubmit={(e)=>handleIngredientEditSubmit(e)}>
-                <div>
-                    <div>
+
+                    <div className="edit-ingredient-amt-div">
                         <label className="edit-ingredients edit-ingredient-amt">Edit Ingredient Amount
                             <input type="float" placeholder={amt} value={amt} onChange={(e) => setAmt(e.target.value)} />
                         </label>
                     </div>
 
-                    <div>
+                    <div className="edit-ingredient-name-div">
                         <label className="edit-ingredients edit-ingredient-name">Edit Ingredient Unit and Name
                             <input type="text" value={ingredient_name} onChange={(e) => setIngredientName(e.target.value)} />
                         </label>
                     </div>
 
                     <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
-                </div>
             </form>
         </div>
+
     )
 }
 
