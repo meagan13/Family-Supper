@@ -27,6 +27,10 @@ const SearchPage = (props) => {
 
         setInput(input);
         setRecipeList(filtered);
+
+        if(input === "") {
+            setRecipeList("");
+        }
     }
 
     useEffect(() => {
