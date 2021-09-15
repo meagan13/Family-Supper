@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { getOneRecipe, deleteRecipeThunk } from '../../store/recipe';
 import { deleteMemoryThunk, getMemoriesByRecipeThunk } from '../../store/memory';
-import { getIngredientsByRecipeThunk } from '../../store/ingredient';
-import { getDirectionsByRecipeThunk } from '../../store/direction';
+import { getIngredientsByRecipeThunk, deleteIngredientThunk } from '../../store/ingredient';
+import { getDirectionsByRecipeThunk, deleteDirectionThunk } from '../../store/direction';
 import AddMemory from '../Memory/addMemory';
 import Memories from '../AllMemories/AllMemories';
 import EditMemoryForm from '../EditMemory/EditMemory';
@@ -75,6 +75,24 @@ function RecipeView({recipeInfo}) {
         history.push("/")
     }
 
+    const deleteIngredient = async(e, ingredientIdToDelete) => {
+        e.preventDefault();
+
+        return dispatch(deleteIngredientThunk(ingredientIdToDelete))
+            .catch(async(res) => {
+                await res.json();
+            });
+    }
+
+    const deleteDirection = async(e, directionIdToDelete) => {
+        e.preventDefault();
+
+        return dispatch(deleteDirectionThunk(directionIdToDelete))
+            .catch(async(res) => {
+                await res.json();
+            });
+    }
+
     const showEditClick = () => setShowEdit(true);
     const hideEditClick = () => setShowEdit(false);
 
@@ -113,6 +131,7 @@ function RecipeView({recipeInfo}) {
                                         {/* {ingredient?.ingredient_name}
                                         <h2>Nothing rendering insiden map</h2> */}
                                         <EditIngredientsForm ingredientObj={ ingredient } />
+                                        {/* <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredient?.id)}>Delete Ingredient</button> */}
                                     </div>
                                 })}
                             </div>
@@ -121,6 +140,7 @@ function RecipeView({recipeInfo}) {
                                 {directionsArr?.map((direction, i) => {
                                     return <div>
                                         <EditDirectionsForm directionObj={ direction } />
+                                        {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, direction?.id)}>Delete Step</button> */}
                                     </div>
                                 })}
                             </div>

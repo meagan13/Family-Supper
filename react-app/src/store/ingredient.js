@@ -102,7 +102,7 @@ export const deleteIngredientThunk = (id) => async(dispatch) => {
     })
     if (res.ok) {
         const deletedIngredient = await res.json();
-        // console.log("deleted ingredient:", deletedIngredient)
+        console.log("deleted ingredient:", deletedIngredient)
         dispatch(deleteIngredient(deletedIngredient.id));
     }
     return res;
