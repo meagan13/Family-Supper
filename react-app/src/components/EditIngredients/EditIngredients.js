@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { deleteIngredientThunk, editIngredientThunk } from '../../store/ingredient';
+import { editIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
@@ -9,7 +9,7 @@ const EditIngredientsForm = ({ingredientObj}) => {
     // const recipes = useSelector((state) => (state?.recipes))
     const ingredients = useSelector((state) => state?.ingredients)
     // console.log("In the EditIngredientForm component")
-    // console.log("ingredient from edit:", ingredientObj)
+    console.log("ingredient from edit:", ingredientObj.id)
 
     const dispatch=useDispatch();
     const history = useHistory();
@@ -39,14 +39,14 @@ const EditIngredientsForm = ({ingredientObj}) => {
         history.push(`/recipes/${ ingredientObj?.recipe_id }/`)
     }
 
-    const deleteIngredient = async(e, ingredientIdToDelete) => {
-        e.preventDefault();
+    // const deleteIngredient = async(e, ingredientIdToDelete) => {
+    //     e.preventDefault();
 
-        return dispatch(deleteIngredientThunk(ingredientIdToDelete))
-            .catch(async(res) => {
-                await res.json();
-            });
-    }
+    //     return dispatch(deleteIngredientThunk(ingredientIdToDelete))
+    //         .catch(async(res) => {
+    //             await res.json();
+    //         });
+    // }
 
     return (
         <div className="edit-ingredients-form-div">
@@ -66,7 +66,7 @@ const EditIngredientsForm = ({ingredientObj}) => {
 
                     <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
 
-                    <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredientObj?.id)}>Delete Ingredient</button>
+                    {/* <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredientObj?.id)}>Delete Ingredient</button> */}
             </form>
         </div>
 

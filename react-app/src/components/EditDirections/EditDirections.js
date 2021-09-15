@@ -49,6 +49,15 @@ const EditDirectionsForm = ({directionObj}) => {
         }
     }
 
+    // const deleteDirection = async(e, directionIdToDelete) => {
+    //     e.preventDefault();
+
+    //     return dispatch(deleteDirectionThunk(directionIdToDelete))
+    //         .catch(async(res) => {
+    //             await res.json();
+    //         });
+    // }
+
     return (
         <div className='edit-directions-form-div'>
             <form className='edit-directions-form' onSubmit={(e)=>handleEditSubmit(e)}>
@@ -72,6 +81,7 @@ const EditDirectionsForm = ({directionObj}) => {
 
                 <button className="edit-direction-button" type="submit">Edit Direction</button>
 
+                {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, directionObj?.id)}>Delete Step</button> */}
             </form>
         </div>
     )
