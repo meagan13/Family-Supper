@@ -131,7 +131,7 @@ function RecipeView({recipeInfo}) {
                                         {/* {ingredient?.ingredient_name}
                                         <h2>Nothing rendering insiden map</h2> */}
                                         <EditIngredientsForm ingredientObj={ ingredient } />
-                                        <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredient?.id)}>Delete Ingredient</button>
+                                        {/* <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredient?.id)}>Delete Ingredient</button> */}
                                     </div>
                                 })}
                             </div>
@@ -140,7 +140,7 @@ function RecipeView({recipeInfo}) {
                                 {directionsArr?.map((direction, i) => {
                                     return <div>
                                         <EditDirectionsForm directionObj={ direction } />
-                                        <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, direction?.id)}>Delete Step</button>
+                                        {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, direction?.id)}>Delete Step</button> */}
                                     </div>
                                 })}
                             </div>

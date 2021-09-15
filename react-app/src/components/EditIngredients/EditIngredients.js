@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { editIngredientThunk } from '../../store/ingredient';
+import { editIngredientThunk, deleteIngredientThunk } from '../../store/ingredient';
 import { useHistory } from 'react-router-dom';
 import './EditIngredients.css'
 
@@ -39,14 +39,14 @@ const EditIngredientsForm = ({ingredientObj}) => {
         history.push(`/recipes/${ ingredientObj?.recipe_id }/`)
     }
 
-    // const deleteIngredient = async(e, ingredientIdToDelete) => {
-    //     e.preventDefault();
+    const deleteIngredient = async(e, ingredientIdToDelete) => {
+        e.preventDefault();
 
-    //     return dispatch(deleteIngredientThunk(ingredientIdToDelete))
-    //         .catch(async(res) => {
-    //             await res.json();
-    //         });
-    // }
+        return dispatch(deleteIngredientThunk(ingredientIdToDelete))
+            .catch(async(res) => {
+                await res.json();
+            });
+    }
 
     return (
         <div className="edit-ingredients-form-div">

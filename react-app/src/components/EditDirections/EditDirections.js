@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { editDirectionThunk } from '../../store/direction';
+import { editDirectionThunk, deleteDirectionThunk } from '../../store/direction';
 import { useHistory } from 'react-router-dom';
 import './EditDirections.css'
 
@@ -15,7 +15,7 @@ const EditDirectionsForm = ({directionObj}) => {
     // const [recipe_id, setRecipe_id] = useState(recipe.id)
     const [instruction, setInstruction] = useState(directionObj?.instruction);
 
-    const handleEditSubmit = async(e, direction) => {
+    const handleEditSubmit = async(e) => {
         e.preventDefault();
 
         const errorData = [];
@@ -43,20 +43,24 @@ const EditDirectionsForm = ({directionObj}) => {
             };
 
             await dispatch(editDirectionThunk(editedDirections));
-            setStep_number(step_number);
-            setInstruction(instruction);
-            history.push(`/recipes/${ directionObj.recipe_id }/`)
+            // setStep_number(step_number);
+            // setInstruction(instruction);
+            // history.push(`/recipes/${ directionObj.recipe_id }/`)
         }
     }
 
-    // const deleteDirection = async(e, directionIdToDelete) => {
-    //     e.preventDefault();
+    const deleteDirection = async(e, directionIdToDelete) => {
+        e.preventDefault();
 
-    //     return dispatch(deleteDirectionThunk(directionIdToDelete))
-    //         .catch(async(res) => {
-    //             await res.json();
-    //         });
-    // }
+        //return
+        await dispatch(deleteDirectionThunk(directionIdToDelete))
+            .catch(async(res) => {
+                await res.json();
+            });
+        setStep_number("");
+        setInstruction("");
+        history.push(`/recipes/${ directionObj.recipe_id }/`);
+    }
 
     return (
         <div className='edit-directions-form-div'>
