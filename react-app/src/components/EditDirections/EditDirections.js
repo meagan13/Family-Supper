@@ -85,7 +85,7 @@ const EditDirectionsForm = ({directionObj}) => {
 
                 <button className="edit-direction-button" type="submit">Edit Direction</button>
 
-                {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, directionObj?.id)}>Delete Step</button> */}
+                <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, directionObj?.id)}>Delete Step</button>
             </form>
         </div>
     )
