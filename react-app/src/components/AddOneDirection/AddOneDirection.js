@@ -63,12 +63,9 @@ const AddOneDirection = ({recipe}) => {
 
                 </div>
 
-                {/* <div className="create-one-direction-intro-div">
-                    <h1 className="create-directions-intro-text">Add directions</h1>
-                    <h2 className="create-directions-instruct-text">Add as many directions as you need!</h2>
-                    <h4 className='create-directions-instruct-text'>Click <strong>Add Direction</strong> before adding the next step.</h4>
-                    <h4 className='create-directions-instruct-text'>Click <strong>Next</strong> when you're ready to submit your recipe.</h4>
-                </div> */}
+                <div className="add-one-direction-intro-div">
+                    <p className="add-one-direction-intro-text">Add step:</p>
+                </div>
 
                 <div className="create-one-step-div">
                     <label className="one-step-number">
@@ -78,7 +75,7 @@ const AddOneDirection = ({recipe}) => {
 
                 <div className="create-one-direction-div">
                     <label className="one-direction-label">
-                        <input value={instruction} type="text" onChange={onDirectionChange} placeholder="Add step" />
+                        <input value={instruction} type="text" onChange={onDirectionChange} placeholder="Direction" />
                     </label>
                 </div>
 

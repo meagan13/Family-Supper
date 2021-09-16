@@ -1,41 +1,69 @@
 .create-one-direction-form {
     display: flex;
-    border: 2px solid green;
+    border-radius: 5px;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: bisque;
     margin-left: 2%;
+    margin-top: 1%;
     width: 100%;
+    padding: 2%;
+}
+
+.add-one-direction-intro-div {
+    width: 120%;
+}
+
+.add-one-direction-intro-div > p {
+    font-family:'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    padding: 2%;
 }
 
 .create-one-step-div {
     width: 10%;
     margin-right: 5%;
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
 }
 
 .create-one-direction-div {
-    width: 90%;
-}
-
-.one-step-number > input::placeholder, .one-direction-label > input::placeholder {
-    color: black;
-    font-size: 12px;
-}
-
-.one-step-number > input {
     width: 80%;
 }
 
+.one-step-number > input::placeholder, .one-direction-label > input::placeholder {
+    color: rgba(58, 95, 125, .8);
+    font-size: 16px;
+    padding: 1%;
+}
+
+.create-one-direction-div > input {
+    width: 100%;
+}
+.one-step-number > input {
+    width: 80%;
+    padding: 10%;
+    border-radius: 3px;
+    border: 1px solid rgb(173, 96, 68);
+}
+
 .one-direction-label > input {
-    width: 95%;
+    width: 100%;
+    padding: 1%;
+    border-radius: 3px;
+    border: 1px solid rgb(173, 96, 68);
 }
 
 .one-direction-submit-button {
     border-radius: 50px;
     border: none;
-    background-color: rgb(173, 96, 68);
+    background-color: bisque;
     padding: 0px;
+    transition: .5 ease;
+}
 
+.one-direction-submit-button:hover {
+    transform: scale(1.1);
 }
 
 .one-direction-submit-button-icon {

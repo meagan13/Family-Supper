@@ -1,0 +1,65 @@
+.add-one-ingredient-form {
+    display: flex;
+    /* border: 2px solid rgb(173, 96, 68); */
+    border-radius: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    margin-left: 2%;
+    margin-top: 1%;
+    width: 90%;
+    padding: 2%;
+}
+
+.add-one-ingredient-intro-div {
+    width: 100%;
+}
+
+.add-one-ingredient-intro-div > p {
+    font-family:'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    padding: 2%;
+}
+
+.add-one-amt-input-div {
+    width: 10%;
+    margin-right: 5%;
+    /* border: 2px solid purple; */
+}
+
+.add-one-ingredient-input-div {
+    width: 70%;
+}
+
+.add-one-amt-number > input::placeholder, .add-one-ingredient > input::placeholder {
+    color: rgba(58, 95, 125, .8);
+    font-size: 16px;
+    padding: 1%;
+}
+
+.add-one-amt-number > input {
+    width: 80%;
+    padding: 10%;
+    border-radius: 3px;
+    border: 1px solid rgb(173, 96, 68);
+}
+
+.add-one-ingredient > input {
+    width: 95%;
+    padding: 1%;
+    border-radius: 3px;
+    border: 1px solid rgb(173, 96, 68);
+}
+
+.add-one-ingredient-submit-button {
+    border-radius: 50px;
+    border: none;
+    background-color: bisque;
+    padding: 0px;
+    transition: .5 ease;
+}
+
+.add-one-ingredient-submit-button:hover {
+    transform: scale(1.1);
+}

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { createIngredientThunk } from '../../store/ingredient';
+import MyImage from '../AddOneDirection/plus.png'
 import './AddOneIngredient.css';
 
 const AddOneIngredient = ({recipe}) => {
@@ -52,40 +53,37 @@ const AddOneIngredient = ({recipe}) => {
     }
 
         return (
-            <div className="one-ingredient-form-div">
-                <form className="one-ingredient-form" onSubmit={addIngredienthandleSubmit}>
+            <div className="add-one-ingredient-form-div">
+                <form className="add-one-ingredient-form" onSubmit={addIngredienthandleSubmit}>
                     <div className="create-one-ingredient-errors-div">
                         {errors.map((error, i) => (
                         <div key={i}><p>{error}</p></div>
                         ))}
                     </div>
 
-                    <div className="render-one-ingredient-div">
+                    <div className="render-add-one-ingredient-div">
                         {ingArr.map((ingredient, i) => (
                         <div key={i}>{ingredient?.measurement}</div>
                         ))}
                     </div>
 
-                    {/* <div className="create-one-ingredient-intro-div">
-                        <h1 className="create-one-ingredient-intro-text">Add ingredients</h1>
-                        <h2 className="create-one-ingredient-instruct-text">Add as many ingredients as you'd like! </h2>
-                        <h4 className="create-one-ingredient-instruct-text">Click <strong>Add Ingredient</strong> before entering another ingredient.</h4>
-                        <h4 className="create-one-ingredient-instruct-text">Click <strong>Next</strong> when you have finished entering ingredients and are ready to add directions.</h4>
-                    </div> */}
+                    <div className="add-one-ingredient-intro-div">
+                        <p className="add-one-ingredient-intro-text">Add ingredient:</p>
+                    </div>
 
-                    <div className="amt-input-div">
-                        <label className="amt-number">Numeric Amount:
-                            <input id="amt-input" value={amt} type="number" step="0.01" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="Ex: 1." />
+                    <div className="add-one-amt-input-div">
+                        <label className="add-one-amt-number">
+                            <input id="add-one-amt-input" value={amt} type="number" step="0.01" precision="2" min='0' onChange={(e) => setAmt(e.target.value)} placeholder="#" />
                         </label>
                     </div>
 
-                    <div className="ingredient-input-div">
-                        <label className="one-ingredient">Units of Ingredient:
-                            <input id="one-ingredient-input" type="text" value={ingredient_name} onChange={onIngredientChange} placeholder="Ex: cups of flour" />
+                    <div className="add-one-ingredient-input-div">
+                        <label className="add-one-ingredient">
+                            <input id="add-one-ingredient-input" type="text" value={ingredient_name} onChange={onIngredientChange} placeholder="Ex: cups of flour" />
                         </label>
                     </div>
 
-                    <button className="one-ingredient-submit-button" type="submit">Add Ingredient</button>
+                    <button className="add-one-ingredient-submit-button" type="submit"><img className="one-direction-submit-button-icon" src={MyImage} /></button>
                 </form>
 
             </div>
