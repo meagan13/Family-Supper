@@ -17,6 +17,12 @@
     font-family:'Playball', cursive;
 }
 
+.search-page-div {
+    /* display: flex; */
+    /* align-content: center;
+    justify-content: center; */
+}
+
 .welcome-text {
     font-family: 'Noto Sans JP', sans-serif;
     align-self: flex-end
