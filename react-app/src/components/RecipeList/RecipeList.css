@@ -1,11 +1,16 @@
 .search-results-div {
     background-color: white;
     position: absolute;
-    padding: 1%;
+    /* padding: 1%; */
     margin-left: 1.5%;
+}
+
+.search-recipe-text-div {
+    margin: 2%;
 }
 
 .search-recipe-text-div > a{
     font-family: 'Noto Sans JP', sans-serif;
     color: rgba(58, 95, 125);
+    /* margin-top: 5%; */
 }

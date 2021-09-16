@@ -3,11 +3,6 @@ import React from 'react';
 import './SearchBar.css'
 
 const SearchBar = ({input:keyword, onChange:setKeyword}) => {
-    // const history = useHistory();
-
-    // const clearSearch = () => {
-    //     window.location.reload(false)
-    // }
 
     return (
         <div className="search-div">
