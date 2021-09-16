@@ -66,7 +66,7 @@ const EditIngredientsForm = ({ingredientObj}) => {
 
                     <button className="edit-ingredient-button" type="submit">Edit Ingredient</button>
 
-                    {/* <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredientObj?.id)}>Delete Ingredient</button> */}
+                    <button className="delete-ingredient-button" type="submit" onClick={(e) => deleteIngredient(e, ingredientObj?.id)}>Delete Ingredient</button>
             </form>
         </div>
 
