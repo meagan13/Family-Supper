@@ -14,7 +14,7 @@ const SearchBar = ({input:keyword, onChange:setKeyword}) => {
             <input className="search-input"
                 key="random1"
                 value={keyword}
-                placeholder={"search recipes"}
+                placeholder={"search recipe titles"}
                 onChange={(e) => setKeyword(e.target.value)}
             />
 
