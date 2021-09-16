@@ -1,0 +1,43 @@
+.create-one-direction-form {
+    display: flex;
+    border: 2px solid green;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    width: 100%;
+}
+
+.create-one-step-div {
+    width: 10%;
+    margin-right: 5%;
+    border: 2px solid purple;
+}
+
+.create-one-direction-div {
+    width: 90%;
+}
+
+.one-step-number > input::placeholder, .one-direction-label > input::placeholder {
+    color: black;
+    font-size: 12px;
+}
+
+.one-step-number > input {
+    width: 80%;
+}
+
+.one-direction-label > input {
+    width: 95%;
+}
+
+.one-direction-submit-button {
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(173, 96, 68);
+    padding: 0px;
+
+}
+
+.one-direction-submit-button-icon {
+    height: 20px;
+}

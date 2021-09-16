@@ -1,13 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { createDirectionThunk } from '../../store/direction';
+import MyImage from '../AddOneDirection/plus.png'
 import './AddOneDirection.css'
 
 const AddOneDirection = ({recipe}) => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    const [step_number, setStep_number] = useState();
+    const [step_number, setStep_number] = useState('');
     const [instruction, setInstruction] = useState('');
 
     const onStepChange = (e) => {
@@ -45,7 +46,7 @@ const AddOneDirection = ({recipe}) => {
             }
 
             await dispatch(createDirectionThunk(directions))
-            setStep_number(step_number + 1);
+            setStep_number('');
             setInstruction('');
             alert(`${step_number}. ${instruction} added to your recipe.`)
         }
@@ -69,19 +70,19 @@ const AddOneDirection = ({recipe}) => {
                     <h4 className='create-directions-instruct-text'>Click <strong>Next</strong> when you're ready to submit your recipe.</h4>
                 </div> */}
 
-                <div className="create-one-step-div-input-div">
-                    <label className="one-step-number">Step:
-                        <input value={step_number} type="integer" onChange={onStepChange} placeholder="Ex: 1" />
+                <div className="create-one-step-div">
+                    <label className="one-step-number">
+                        <input value={step_number} type="integer" onChange={onStepChange} placeholder="#" />
                     </label>
                 </div>
 
-                <div className="create-one-direction-input-div">
+                <div className="create-one-direction-div">
                     <label className="one-direction-label">
-                        <input value={instruction} type="text" onChange={onDirectionChange} placeholder="Ex: Mix together dry ingredients." />
+                        <input value={instruction} type="text" onChange={onDirectionChange} placeholder="Add step" />
                     </label>
                 </div>
 
-                <button className="one-direction-submit-button" type="submit">Add Direction</button>
+                <button className="one-direction-submit-button" type="submit"><img className="one-direction-submit-button-icon" src={MyImage} /></button>
 
             </form>
 

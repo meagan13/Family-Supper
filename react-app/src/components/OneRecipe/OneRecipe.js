@@ -28,6 +28,13 @@ function RecipeView({recipeInfo}) {
     const directionsArr = Object.values(directions);
     const memories = useSelector((state) => (state?.memories))
 
+    const sortedDirections = directionsArr.sort(function(a, b) {
+        return a.step_number - b.step_number;
+    });
+
+    console.log("directionsArr", directionsArr)
+    console.log("sorted array?", sortedDirections)
+
     let { recipeId } = useParams();
 
     const dispatch = useDispatch();
@@ -147,7 +154,7 @@ function RecipeView({recipeInfo}) {
                                     <AddOneDirection recipe={recipe} />
                                 </div>
 
-                                {directionsArr?.map((direction, i) => {
+                                {sortedDirections?.map((direction) => {
                                     return <div key={direction.id}>
                                         <EditDirectionsForm directionObj={ direction } />
                                         {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, direction?.id)}>Delete Step</button> */}
@@ -227,7 +234,7 @@ function RecipeView({recipeInfo}) {
 
                 <div className="directions-list-div">
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
-                    { directions && Object.values(directions).map(direction => (
+                    { directions && sortedDirections.map(direction => (
                         <div className="direction-div" id={direction.id}>
                             <Directions directionObj={direction} />
                         </div>
