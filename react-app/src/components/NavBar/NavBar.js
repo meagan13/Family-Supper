@@ -46,6 +46,12 @@ const NavBar = () => {
               </NavLink>
             </div>
 
+            <div className="category-link-div">
+              <NavLink to={'/categories'} exact={true} activeClassName='active' className='category-link navbar-text'>
+                Recipes by Category
+              </NavLink>
+            </div>
+
             <div className="share-recipe-link-div">
               <NavLink to={`/share-recipe`} exact={true} activeClassName='active' className='create-recipe-link navbar-text'>
                 Share a Recipe
@@ -86,6 +92,12 @@ const NavBar = () => {
             <div className="demo-button-div">
               {/* <button className="demo-button" onClick={demoUserLogin}>Demo</button> */}
               <NavLink to={'/'} className="demo-link" onClick={demoUserLogin}>Demo</NavLink>
+            </div>
+
+            <div className="category-link-div">
+              <NavLink to={'/categories'} exact={true} activeClassName='active' className='category-link navbar-text'>
+                Recipes by Category
+              </NavLink>
             </div>
 
           </div>
