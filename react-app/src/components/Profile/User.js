@@ -7,7 +7,7 @@ import './User.css'
 
 function User() {
   const dispatch = useDispatch();
-  const { userId }  = useParams();
+  const { userId } = useParams();
 
   // const recipes = useSelector(state => state?.recipes)
   const recipesArr = Object.values(useSelector(state => state?.recipes))

@@ -15,6 +15,7 @@ import User from './components/Profile/User';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
 import NotFoundPage from './components/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
+import Categories from './components/Categories/Categories';
 // import SearchPage from './components/SearchPage/SearchPage';
 import { authenticate } from './store/session';
 
@@ -69,6 +70,9 @@ function App() {
         </Route> */}
         <Route path='/recipes/:recipeId' exact={true}>
           <RecipeView/>
+        </Route>
+        <Route path='/categories' exact={true}>
+          <Categories />
         </Route>
         <Route path="*">
           <NotFoundPage />
