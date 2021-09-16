@@ -11,6 +11,8 @@ import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
 import Ingredients from '../AllIngredients/AllIngredients';
 // import AddIngredientForm from '../Ingredients/Ingredients';
+import AddOneIngredient from '../AddOneIngredient/AddOneIngredient';
+import AddOneDirection from '../AddOneDirection/AddOneDirection';
 import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import EditDirectionsForm from '../EditDirections/EditDirections';
 // import CreateDirections from '../CreateDirections/CreateDirections';
@@ -126,6 +128,10 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-ingredient-form-div">
+                                <div className="add-one-ingredient-form-div">
+                                    <AddOneIngredient recipe={recipe} />
+                                </div>
+
                                 {ingredientsArr?.map((ingredient, i) => {
                                     return <div key={ingredient.id}>
                                         {/* {ingredient?.ingredient_name}
@@ -137,6 +143,10 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-directions-form-div">
+                                <div>
+                                    <AddOneDirection recipe={recipe} />
+                                </div>
+
                                 {directionsArr?.map((direction, i) => {
                                     return <div key={direction.id}>
                                         <EditDirectionsForm directionObj={ direction } />
