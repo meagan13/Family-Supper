@@ -1,0 +1,36 @@
+.category-select-div {
+    display: flex;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(173, 96, 68);
+}
+
+.category-sort-content-div select {
+    background-color: rgb(58, 95, 125);
+    padding: 2% 35% 2% 2%;
+    border-radius: 3px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba(255, 228, 196, 0.733);
+    font-size: 20px;
+}
+
+.display-category-recipes-div {
+    display: flex;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(173, 96, 68);
+}
