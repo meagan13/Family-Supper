@@ -240,6 +240,7 @@
     max-height: 500px;
     overflow-y: scroll;
     border: 5px solid rgb(58, 95, 125);
+    /* border: 4px dotted black; */
 }
 
 .one-recipe-edit-directions-form-div {
@@ -247,7 +248,9 @@
     margin: 2%;
     max-height: 500px;
     overflow-y: scroll;
+    overflow-x: hidden;
     border: 5px solid rgb(58, 95, 125);
+    /* border: 4px dotted orange; */
 }
 
 .add-one-direction-div {
