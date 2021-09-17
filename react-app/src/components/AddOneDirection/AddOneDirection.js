@@ -73,7 +73,7 @@ const AddOneDirection = ({recipe}) => {
                     </label>
                 </div>
 
-                <div className="create-one-direction-div">
+                <div className="enter-create-one-direction-div">
                     <label className="one-direction-label">
                         <input value={instruction} type="text" onChange={onDirectionChange} placeholder="Direction" />
                     </label>

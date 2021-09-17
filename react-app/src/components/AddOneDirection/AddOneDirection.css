@@ -1,18 +1,23 @@
+.create-one-direction-div {
+    width: 90%;
+}
+
 .create-one-direction-form {
     display: flex;
     border-radius: 5px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     background-color: bisque;
-    margin-left: 2%;
+    margin-left: 1%;
     margin-top: 1%;
     width: 100%;
     padding: 2%;
+    /* border: 4px solid green; */
 }
 
 .add-one-direction-intro-div {
-    width: 120%;
+    width: 100%;
 }
 
 .add-one-direction-intro-div > p {
@@ -24,11 +29,13 @@
 .create-one-step-div {
     width: 10%;
     margin-right: 5%;
+    margin-left: 6%;
     /* border: 2px solid purple; */
 }
 
-.create-one-direction-div {
-    width: 80%;
+.enter-create-one-direction-div {
+    width: 70%;
+    /* border: 4px solid purple; */
 }
 
 .one-step-number > input::placeholder, .one-direction-label > input::placeholder {
@@ -40,6 +47,7 @@
 .create-one-direction-div > input {
     width: 100%;
 }
+
 .one-step-number > input {
     width: 80%;
     padding: 10%;
@@ -60,6 +68,7 @@
     background-color: bisque;
     padding: 0px;
     transition: .5 ease;
+    margin-left: 4%;
 }
 
 .one-direction-submit-button:hover {

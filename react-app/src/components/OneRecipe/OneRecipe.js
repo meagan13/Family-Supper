@@ -150,7 +150,7 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-directions-form-div">
-                                <div>
+                                <div className="add-one-direction-div">
                                     <AddOneDirection recipe={recipe} />
                                 </div>
 

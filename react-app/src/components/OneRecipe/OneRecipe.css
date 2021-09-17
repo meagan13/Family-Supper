@@ -250,6 +250,14 @@
     border: 5px solid rgb(58, 95, 125);
 }
 
+.add-one-direction-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 1%;
+    /* border: 4px solid purple; */
+}
+
 .session-memory-div {
     box-sizing: border-box;
     display: flex;
