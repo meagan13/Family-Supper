@@ -11,6 +11,8 @@ import EditMemoryForm from '../EditMemory/EditMemory';
 import EditRecipeForm from '../EditRecipe/EditRecipe';
 import Ingredients from '../AllIngredients/AllIngredients';
 // import AddIngredientForm from '../Ingredients/Ingredients';
+import AddOneIngredient from '../AddOneIngredient/AddOneIngredient';
+import AddOneDirection from '../AddOneDirection/AddOneDirection';
 import EditIngredientsForm from '../EditIngredients/EditIngredients';
 import EditDirectionsForm from '../EditDirections/EditDirections';
 // import CreateDirections from '../CreateDirections/CreateDirections';
@@ -25,6 +27,13 @@ function RecipeView({recipeInfo}) {
     const directions = useSelector((state) => (state?.directions))
     const directionsArr = Object.values(directions);
     const memories = useSelector((state) => (state?.memories))
+
+    const sortedDirections = directionsArr.sort(function(a, b) {
+        return a.step_number - b.step_number;
+    });
+
+    console.log("directionsArr", directionsArr)
+    console.log("sorted array?", sortedDirections)
 
     let { recipeId } = useParams();
 
@@ -112,7 +121,7 @@ function RecipeView({recipeInfo}) {
             return (
                 <div className="click-edit-div">
                     <div className="edit-recipe-button-div">
-                        <button className="edit-recipe-button" onClick={showEditClick}>Edit Recipe</button>
+                        <button className="edit-recipe-button" onClick={showEditClick}>Edit or Delete Recipe</button>
                     </div>
 
                     {showEdit ?
@@ -126,6 +135,10 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-ingredient-form-div">
+                                <div className="add-one-ingredient-form-div">
+                                    <AddOneIngredient recipe={recipe} />
+                                </div>
+
                                 {ingredientsArr?.map((ingredient, i) => {
                                     return <div key={ingredient.id}>
                                         {/* {ingredient?.ingredient_name}
@@ -137,7 +150,11 @@ function RecipeView({recipeInfo}) {
                             </div>
 
                             <div className="one-recipe-edit-directions-form-div">
-                                {directionsArr?.map((direction, i) => {
+                                <div className="add-one-direction-div">
+                                    <AddOneDirection recipe={recipe} />
+                                </div>
+
+                                {sortedDirections?.map((direction) => {
                                     return <div key={direction.id}>
                                         <EditDirectionsForm directionObj={ direction } />
                                         {/* <button className="delete-direction-button" type="submit" onClick={(e) => deleteDirection(e, direction?.id)}>Delete Step</button> */}
@@ -217,7 +234,7 @@ function RecipeView({recipeInfo}) {
 
                 <div className="directions-list-div">
                     <h3 className="one-recipe-directions-title-text">Directions:</h3>
-                    { directions && Object.values(directions).map(direction => (
+                    { directions && sortedDirections.map(direction => (
                         <div className="direction-div" id={direction.id}>
                             <Directions directionObj={direction} />
                         </div>
