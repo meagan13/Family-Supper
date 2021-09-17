@@ -17,6 +17,7 @@
     width: 30px;
     margin-left: 5px;
     font-family: 'Noto Sans JP', sans-serif;
+    font-style: italic;
     color: rgba(58, 95, 125);
     border-radius: 3px;
     border: none;
@@ -24,13 +25,17 @@
 
 .edit-ingredient-name > input {
     width: 90%;
-    margin-left: 5px;
+    margin: 5px;
+    font-size: 16px;
+    font-style: italic;
+    color:rgba(58, 95, 125, .9);
     border-radius: 3px;
     border: none;
+    padding: 2%;
 }
 
 .edit-ingredient-amt > input::placeholder, .edit-ingredient-name > input::placeholder {
-    color: rgba(58, 95, 125);
+    color: rgba(58, 95, 125, .9);
 }
 
 .edit-ingredient-button {
