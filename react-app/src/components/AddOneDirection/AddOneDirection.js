@@ -48,7 +48,7 @@ const AddOneDirection = ({recipe}) => {
             await dispatch(createDirectionThunk(directions))
             setStep_number('');
             setInstruction('');
-            alert(`${step_number}. ${instruction} added to your recipe.`)
+            // alert(`${step_number}. ${instruction} added to your recipe.`)
         }
     }
 
