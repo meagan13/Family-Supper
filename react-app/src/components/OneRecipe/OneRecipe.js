@@ -121,7 +121,7 @@ function RecipeView({recipeInfo}) {
             return (
                 <div className="click-edit-div">
                     <div className="edit-recipe-button-div">
-                        <button className="edit-recipe-button" onClick={showEditClick}>Edit Recipe</button>
+                        <button className="edit-recipe-button" onClick={showEditClick}>Edit or Delete Recipe</button>
                     </div>
 
                     {showEdit ?
