@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../store/session';
 import LogoutButton from '../auth/LogoutButton';
 import SearchPage from '../SearchPage/SearchPage';
+import UsersList from '../AllUsers/UsersList';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -46,6 +47,12 @@ const NavBar = () => {
               </NavLink>
             </div>
 
+            <div className="users-list-div">
+              <NavLink to={'/users'} exact={true} activeClassName='active' className='users-link navbar-text'>
+                Family Members
+              </NavLink>
+            </div>
+
             <div className="category-link-div">
               <NavLink to={'/categories'} exact={true} activeClassName='active' className='category-link navbar-text'>
                 Recipes by Category
@@ -76,7 +83,7 @@ const NavBar = () => {
                 Home
               </NavLink>
             </div>
-            
+
             <div className="category-link-div">
               <NavLink to={'/categories'} exact={true} activeClassName='active' className='category-link navbar-text'>
                 Recipes by Category

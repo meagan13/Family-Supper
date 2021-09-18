@@ -1,0 +1,9 @@
+ul.no-bullets > li {
+    list-style-type: none;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    border: 15px solid rgba(58, 95, 125);
+}

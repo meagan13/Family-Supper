@@ -9,7 +9,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+import UsersList from './components/AllUsers/UsersList';
 import User from './components/Profile/User';
 // import Modal from './components/Modal/Modal';
 // import EditRecipeForm from './components/EditRecipe/EditRecipe';
